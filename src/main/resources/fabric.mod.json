@@ -1,0 +1,32 @@
+{
+    "schemaVersion": 1,
+    "id": "mythicaltowers",
+    "version": "${version}",
+    "name": "MythicalTowers",
+    "description": "An adventure mod adding new dungeons with unique loot, items, blocks etc.",
+    "authors": [
+        "RedGrapefruit09"
+    ],
+    "contact": {
+        "repo": "https://github.com/RedGrapefruit09/MythicalTowers"
+    },
+    "license": "MIT",
+    "icon": "assets/mythicaltowers/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "client": [
+            "com.redgrapefruit.mythicaltowers.client.MythicalTowersClient"
+        ],
+        "main": [
+            "com.redgrapefruit.mythicaltowers.common.MythicalTowers"
+        ]
+    },
+    "mixins": [
+        "mythicaltowers.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.11.3",
+        "fabric": "*",
+        "minecraft": "1.16.5"
+    }
+}
