@@ -84,4 +84,71 @@ public class EffectConfig {
     public int getChance() {
         return chance;
     }
+
+    public static class Builder {
+        private StatusEffect statusEffect;
+        private Optional<IntRange> durationRange = Optional.empty();
+        private int duration;
+        private Optional<IntRange> amplifierRange = Optional.empty();
+        private int amplifier;
+        private boolean isAlwaysApplied;
+        private int chance;
+
+        public Builder statusEffect(StatusEffect statusEffect) {
+            this.statusEffect = statusEffect;
+            return this;
+        }
+
+        public Builder rangedDuration(int min, int max) {
+            this.durationRange = Optional.of(new IntRange(min, max));
+            return this;
+        }
+
+        public Builder setDuration(int duration) {
+            this.duration = duration;
+            return this;
+        }
+
+        public Builder permanentDuration() {
+            this.duration = 999999;
+            return this;
+        }
+
+        public Builder rangedAmplifier(int min, int max) {
+            this.amplifierRange = Optional.of(new IntRange(min, max));
+            return this;
+        }
+
+        public Builder setAmplifier(int amplifier) {
+            this.amplifier = amplifier;
+            return this;
+        }
+
+        public Builder zeroAmplifier() {
+            this.amplifier = 0;
+            return this;
+        }
+
+        public Builder isAlwaysApplied() {
+            this.isAlwaysApplied = true;
+            return this;
+        }
+
+        public Builder chance(int chance) {
+            this.chance = chance;
+            return this;
+        }
+
+        public EffectConfig build() {
+            return new EffectConfig(
+                    statusEffect,
+                    durationRange,
+                    duration,
+                    amplifierRange,
+                    amplifier,
+                    isAlwaysApplied,
+                    chance
+            );
+        }
+    }
 }
