@@ -15,6 +15,7 @@ public class ModItems {
 
     /**
      * Registers an item
+     *
      * @param name Item name
      * @param item Item instance
      */

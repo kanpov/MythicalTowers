@@ -17,6 +17,7 @@ public class ModItemGroups {
 
     /**
      * Registers and builds an {@link ItemGroup}
+     *
      * @param name {@link ItemGroup} name
      * @param icon {@link ItemGroup} icon item
      * @return Built {@link ItemGroup}

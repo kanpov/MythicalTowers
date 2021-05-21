@@ -18,7 +18,8 @@ public class ModBlocks {
 
     /**
      * Registers a block and a {@link BlockItem}
-     * @param name Block name
+     *
+     * @param name  Block name
      * @param block Block instance
      * @param group {@link ItemGroup} for the {@link BlockItem}
      */
