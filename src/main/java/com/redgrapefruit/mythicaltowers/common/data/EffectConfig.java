@@ -37,7 +37,7 @@ public class EffectConfig {
      */
     private final boolean isAlwaysApplied;
     /**
-     * The chance of this effect being applied
+     * The chance of this effect being applied from 0% to 100%
      */
     private final int chance;
 
