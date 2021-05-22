@@ -1,7 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.core;
 
 import com.redgrapefruit.mythicaltowers.common.util.IntRange;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 
 import java.util.Optional;
