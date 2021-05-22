@@ -10,6 +10,8 @@ import java.util.Optional;
  * More info on the wiki page 6
  */
 public class EffectConfig {
+    public static final int UNDEFINED_VALUE = Integer.MIN_VALUE;
+
     /**
      * The {@link StatusEffect} itself
      */
@@ -92,7 +94,7 @@ public class EffectConfig {
         private Optional<IntRange> amplifierRange = Optional.empty();
         private int amplifier;
         private boolean isAlwaysApplied;
-        private int chance;
+        private int chance = UNDEFINED_VALUE;
 
         public Builder statusEffect(StatusEffect statusEffect) {
             this.statusEffect = statusEffect;
