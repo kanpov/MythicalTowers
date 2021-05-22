@@ -1,6 +1,7 @@
 package com.redgrapefruit.mythicaltowers.common.core;
 
 import com.redgrapefruit.mythicaltowers.common.util.IntRange;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 
 import java.util.Optional;
@@ -40,6 +41,10 @@ public class EffectConfig {
      * The chance of this effect being applied from 0% to 100%
      */
     private final int chance;
+    /**
+     * The {@link WeaponEffectTarget} of this effect. Only used in weapons
+     */
+    private final WeaponEffectTarget weaponTarget;
 
     private EffectConfig(
             StatusEffect statusEffect,
@@ -48,7 +53,8 @@ public class EffectConfig {
             Optional<IntRange> amplifierRange,
             int amplifier,
             boolean isAlwaysApplied,
-            int chance
+            int chance,
+            WeaponEffectTarget weaponTarget
     ) {
         this.statusEffect = statusEffect;
         this.durationRange = durationRange;
@@ -57,6 +63,7 @@ public class EffectConfig {
         this.amplifier = amplifier;
         this.isAlwaysApplied = isAlwaysApplied;
         this.chance = chance;
+        this.weaponTarget = weaponTarget;
     }
 
     public StatusEffect getStatusEffect() {
@@ -87,6 +94,10 @@ public class EffectConfig {
         return chance;
     }
 
+    public WeaponEffectTarget getWeaponTarget() {
+        return weaponTarget;
+    }
+
     public static class Builder {
         private StatusEffect statusEffect;
         private Optional<IntRange> durationRange = Optional.empty();
@@ -95,6 +106,7 @@ public class EffectConfig {
         private int amplifier;
         private boolean isAlwaysApplied;
         private int chance = UNDEFINED_VALUE;
+        private WeaponEffectTarget weaponTarget;
 
         public Builder statusEffect(StatusEffect statusEffect) {
             this.statusEffect = statusEffect;
@@ -141,6 +153,11 @@ public class EffectConfig {
             return this;
         }
 
+        public Builder weaponTarget(WeaponEffectTarget target) {
+            this.weaponTarget = target;
+            return this;
+        }
+
         public EffectConfig build() {
             return new EffectConfig(
                     statusEffect,
@@ -149,7 +166,8 @@ public class EffectConfig {
                     amplifierRange,
                     amplifier,
                     isAlwaysApplied,
-                    chance
+                    chance,
+                    weaponTarget
             );
         }
     }
