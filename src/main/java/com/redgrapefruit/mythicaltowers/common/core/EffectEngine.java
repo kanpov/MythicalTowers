@@ -37,7 +37,7 @@ public class EffectEngine {
      */
     public static void onPostMine(List<EffectConfig> configs, LivingEntity miner) {
         for (EffectConfig config : configs) {
-            if (checkChance(config)) {
+            if (checkChance(config) && config.getWeaponTarget() == WeaponEffectTarget.ATTACKER) {
                 miner.applyStatusEffect(createStandardStatusEffectInstance(config));
             }
         }
