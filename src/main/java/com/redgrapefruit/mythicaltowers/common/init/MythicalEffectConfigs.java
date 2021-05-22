@@ -1,6 +1,7 @@
 package com.redgrapefruit.mythicaltowers.common.init;
 
 import com.redgrapefruit.mythicaltowers.common.core.EffectConfig;
+import com.redgrapefruit.mythicaltowers.common.core.WeaponEffectTarget;
 import net.minecraft.entity.effect.StatusEffects;
 
 import java.util.Arrays;
@@ -26,6 +27,21 @@ public class MythicalEffectConfigs {
                 .build()
     );
 
-    // Amulets
-
+    // Tools
+    public static final List<EffectConfig> GREEN_TOOLS = Arrays.asList(
+            new EffectConfig.Builder()
+                .statusEffect(StatusEffects.POISON)
+                .rangedDuration(200, 400)
+                .rangedAmplifier(0, 2)
+                .chance(80)
+                .weaponTarget(WeaponEffectTarget.TARGET)
+                .build(),
+            new EffectConfig.Builder()
+                .statusEffect(StatusEffects.HASTE)
+                .rangedDuration(100, 150)
+                .setAmplifier(1)
+                .isAlwaysApplied()
+                .weaponTarget(WeaponEffectTarget.ATTACKER)
+                .build()
+    );
 }

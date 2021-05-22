@@ -20,6 +20,7 @@ public class MythicalItemGroups {
     public static ItemGroup TOOLS;
     public static ItemGroup WEAPONS;
     public static ItemGroup ARMOR;
+    public static ItemGroup INGOTS;
 
     // Blocks
     public static ItemGroup BUILDING;
@@ -36,6 +37,7 @@ public class MythicalItemGroups {
         TOOLS = register("tools", Items.BLUE_BED);
         WEAPONS = register("weapons", Items.PURPLE_BED);
         ARMOR = register("armor", Items.CYAN_BED);
+        INGOTS = register("ingots", Items.LIGHT_BLUE_BED);
 
         BUILDING = register("building", Items.BROWN_BED);
         TRAPS = register("traps", Items.GRAY_BED);

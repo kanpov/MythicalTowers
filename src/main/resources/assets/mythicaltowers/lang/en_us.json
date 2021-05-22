@@ -1,6 +1,12 @@
 {
     "item.mythicaltowers.green_orb": "Green Orb",
     "item.mythicaltowers.green_amulet": "Green Amulet",
+    "item.mythicaltowers.green_ingot": "Green Ingot",
+    "item.mythicaltowers.green_sword": "Green Sword",
+    "item.mythicaltowers.green_pickaxe": "Green Pickaxe",
+    "item.mythicaltowers.green_axe": "Green Axe",
+    "item.mythicaltowers.green_shovel": "Green Shovel",
+    "item.mythicaltowers.green_hoe": "Green Hoe",
     "itemGroup.mythicaltowers.orbs": "Mythical Orbs",
     "itemGroup.mythicaltowers.amulets": "Mythical Amulets",
     "itemGroup.mythicaltowers.superfood": "Mythical Super Food",
@@ -8,6 +14,7 @@
     "itemGroup.mythicaltowers.tools": "Mythical Tools",
     "itemGroup.mythicaltowers.weapons": "Mythical Weapons",
     "itemGroup.mythicaltowers.armor": "Mythical Armor",
+    "itemGroup.mythicaltowers.ingots": "Mythical Ingots",
     "itemGroup.mythicaltowers.building": "Mythical Building",
     "itemGroup.mythicaltowers.traps": "Mythical Traps",
     "itemGroup.mythicaltowers.utility": "Mythical Utilities"
