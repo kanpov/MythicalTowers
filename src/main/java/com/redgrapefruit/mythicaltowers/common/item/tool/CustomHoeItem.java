@@ -24,7 +24,7 @@ public class CustomHoeItem extends HoeItem {
     private final List<EffectConfig> configs;
 
     public CustomHoeItem(List<EffectConfig> configs, ToolMaterial material, int attackDamage, float attackSpeed) {
-        super(material, attackDamage, attackSpeed, new Item.Settings().group(MythicalItemGroups.WEAPONS));
+        super(material, attackDamage, attackSpeed, new Item.Settings().group(MythicalItemGroups.TOOLS));
 
         this.configs = configs;
     }

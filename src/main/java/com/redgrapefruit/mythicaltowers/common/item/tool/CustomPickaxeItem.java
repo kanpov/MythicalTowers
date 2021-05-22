@@ -24,7 +24,7 @@ public class CustomPickaxeItem extends PickaxeItem {
     private final List<EffectConfig> configs;
 
     public CustomPickaxeItem(List<EffectConfig> configs, ToolMaterial material, int attackDamage, float attackSpeed) {
-        super(material, attackDamage, attackSpeed, new Item.Settings().group(MythicalItemGroups.WEAPONS));
+        super(material, attackDamage, attackSpeed, new Item.Settings().group(MythicalItemGroups.TOOLS));
 
         this.configs = configs;
     }
