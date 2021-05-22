@@ -11,7 +11,7 @@ import static com.redgrapefruit.mythicaltowers.common.MythicalTowers.idOf;
 /**
  * Stores and registers mod's blocks
  */
-public class ModBlocks {
+public class MythicalBlocks {
     public static void init() {
 
     }

@@ -8,7 +8,7 @@ import static com.redgrapefruit.mythicaltowers.common.MythicalTowers.idOf;
 /**
  * Stores and registers mod's items
  */
-public class ModItems {
+public class MythicalItems {
     public static void init() {
 
     }

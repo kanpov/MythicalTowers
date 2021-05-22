@@ -1,8 +1,8 @@
 package com.redgrapefruit.mythicaltowers.common;
 
-import com.redgrapefruit.mythicaltowers.common.init.ModBlocks;
-import com.redgrapefruit.mythicaltowers.common.init.ModItemGroups;
-import com.redgrapefruit.mythicaltowers.common.init.ModItems;
+import com.redgrapefruit.mythicaltowers.common.init.MythicalBlocks;
+import com.redgrapefruit.mythicaltowers.common.init.MythicalItemGroups;
+import com.redgrapefruit.mythicaltowers.common.init.MythicalItems;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 
@@ -25,8 +25,8 @@ public class MythicalTowers implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        ModItemGroups.init();
-        ModItems.init();
-        ModBlocks.init();
+        MythicalItemGroups.init();
+        MythicalItems.init();
+        MythicalBlocks.init();
     }
 }

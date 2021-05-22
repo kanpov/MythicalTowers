@@ -10,7 +10,7 @@ import static com.redgrapefruit.mythicaltowers.common.MythicalTowers.idOf;
 /**
  * Stores and registers mod's {@link ItemGroup}s
  */
-public class ModItemGroups {
+public class MythicalItemGroups {
     public static void init() {
 
     }
