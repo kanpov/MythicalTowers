@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.common.names;
+package com.redgrapefruit.mythicaltowers.common.init.names;
 
 /**
  * Names for the mod's item groups
