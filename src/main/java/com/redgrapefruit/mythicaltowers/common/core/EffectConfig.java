@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.common.data;
+package com.redgrapefruit.mythicaltowers.common.core;
 
 import com.redgrapefruit.mythicaltowers.common.util.IntRange;
 import net.minecraft.entity.effect.StatusEffect;

@@ -1,7 +1,7 @@
 package com.redgrapefruit.mythicaltowers.common.item;
 
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers;
-import com.redgrapefruit.mythicaltowers.common.data.EffectConfig;
+import com.redgrapefruit.mythicaltowers.common.core.EffectConfig;
 import com.redgrapefruit.mythicaltowers.common.init.MythicalItemGroups;
 import com.redgrapefruit.mythicaltowers.common.util.IntRange;
 import net.minecraft.entity.effect.StatusEffectInstance;

@@ -1,6 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.item;
 
-import com.redgrapefruit.mythicaltowers.common.data.EffectConfig;
+import com.redgrapefruit.mythicaltowers.common.core.EffectConfig;
 import com.redgrapefruit.mythicaltowers.common.init.MythicalItemGroups;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.StatusEffect;
@@ -27,7 +27,7 @@ public class AmuletItem extends Item {
     private final int amplifier;
 
     public AmuletItem(StatusEffect effect, int amplifier) {
-        super(new Item.Settings().group(MythicalItemGroups.AMULETS));
+        super(new Item.Settings().group(MythicalItemGroups.AMULETS).maxCount(1));
 
         this.effect = effect;
         this.amplifier = amplifier;

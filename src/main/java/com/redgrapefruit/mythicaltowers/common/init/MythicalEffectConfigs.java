@@ -1,6 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.init;
 
-import com.redgrapefruit.mythicaltowers.common.data.EffectConfig;
+import com.redgrapefruit.mythicaltowers.common.core.EffectConfig;
 import net.minecraft.entity.effect.StatusEffects;
 
 import java.util.Arrays;
