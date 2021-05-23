@@ -1,13 +1,13 @@
-package com.redgrapefruit.mythicaltowers.common.item.tool;
+package com.redgrapefruit.mythicaltowers.common.tool;
 
 import com.redgrapefruit.mythicaltowers.common.core.EffectConfig;
 import com.redgrapefruit.mythicaltowers.common.core.EffectEngine;
 import com.redgrapefruit.mythicaltowers.common.init.MythicalItemGroups;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -15,15 +15,15 @@ import net.minecraft.world.World;
 import java.util.List;
 
 /**
- * A custom hoe with effects post hit and post mine
+ * A custom pickaxe with effects post mine and post hit
  */
-public class CustomHoeItem extends HoeItem {
+public class CustomPickaxeItem extends PickaxeItem {
     /**
      * The {@link EffectConfig}s linked to this axe
      */
     private final List<EffectConfig> configs;
 
-    public CustomHoeItem(List<EffectConfig> configs, ToolMaterial material, int attackDamage, float attackSpeed) {
+    public CustomPickaxeItem(List<EffectConfig> configs, ToolMaterial material, int attackDamage, float attackSpeed) {
         super(material, attackDamage, attackSpeed, new Item.Settings().group(MythicalItemGroups.TOOLS));
 
         this.configs = configs;

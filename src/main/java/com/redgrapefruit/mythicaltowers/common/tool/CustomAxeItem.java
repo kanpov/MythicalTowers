@@ -1,13 +1,13 @@
-package com.redgrapefruit.mythicaltowers.common.item.tool;
+package com.redgrapefruit.mythicaltowers.common.tool;
 
 import com.redgrapefruit.mythicaltowers.common.core.EffectConfig;
 import com.redgrapefruit.mythicaltowers.common.core.EffectEngine;
 import com.redgrapefruit.mythicaltowers.common.init.MythicalItemGroups;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ShovelItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -15,16 +15,16 @@ import net.minecraft.world.World;
 import java.util.List;
 
 /**
- * A shovel with post mine and post hit effects
+ * A custom axe with effects post mine and post hit
  */
-public class CustomShovelItem extends ShovelItem {
+public class CustomAxeItem extends AxeItem {
     /**
      * The {@link EffectConfig}s linked to this axe
      */
     private final List<EffectConfig> configs;
 
-    public CustomShovelItem(List<EffectConfig> configs, ToolMaterial material, int attackDamage, float attackSpeed) {
-        super(material, attackDamage, attackSpeed, new Item.Settings().group(MythicalItemGroups.TOOLS));
+    public CustomAxeItem(List<EffectConfig> configs, ToolMaterial material, int attackDamage, float attackSpeed) {
+        super(material, attackDamage, attackSpeed, new Item.Settings().group(MythicalItemGroups.WEAPONS));
 
         this.configs = configs;
     }
