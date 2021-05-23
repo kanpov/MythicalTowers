@@ -36,20 +36,6 @@ public abstract class LivingEntityMixin {
     @Unique
     private ItemStack previousBootsStack;
 
-    /**
-     * Creates a {@link StatusEffectInstance} that disables the given effect by using duration=0
-     *
-     * @param effect The {@link StatusEffect} itself
-     * @return Generated {@link StatusEffectInstance}
-     */
-    private static StatusEffectInstance createDisablingStatusEffectInstance(StatusEffect effect) {
-        return new StatusEffectInstance(
-                effect,
-                0,
-                0
-        );
-    }
-
     @Shadow
     public abstract void applyStatusEffect(StatusEffectInstance effect);
 
@@ -216,6 +202,21 @@ public abstract class LivingEntityMixin {
                 effect,
                 999999,
                 amplifier
+        );
+    }
+
+
+    /**
+     * Creates a {@link StatusEffectInstance} that disables the given effect by using duration=0
+     *
+     * @param effect The {@link StatusEffect} itself
+     * @return Generated {@link StatusEffectInstance}
+     */
+    private static StatusEffectInstance createDisablingStatusEffectInstance(StatusEffect effect) {
+        return new StatusEffectInstance(
+                effect,
+                0,
+                0
         );
     }
 }
