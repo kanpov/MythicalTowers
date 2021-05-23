@@ -22,33 +22,33 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
     @Shadow
-    public abstract boolean addStatusEffect(StatusEffectInstance effect);
+    public abstract void applyStatusEffect(StatusEffectInstance effect);
 
     // method_30122 is called everytime an armor piece is put on/off
     @Inject(method = "method_30122", at = @At("TAIL"))
     private void method_30122(EquipmentSlot slot, ItemStack stack, CallbackInfo info) {
         Item item = stack.getItem();
 
-        // Check the EquipmentSlot and the item, then apply the effect
+        // Check the EquipmentSlot and the item, then apply the effect. Stacking of durations is allowed
 
         if (slot == EquipmentSlot.HEAD && item instanceof HelmetItem) {
             HelmetItem helmet = (HelmetItem) item;
-            addStatusEffect(createStatusEffectInstance(helmet.getEffect(), helmet.getAmplifier()));
+            applyStatusEffect(createStatusEffectInstance(helmet.getEffect(), helmet.getAmplifier()));
         }
 
         if (slot == EquipmentSlot.CHEST && item instanceof ChestplateItem) {
             ChestplateItem chestplate = (ChestplateItem) item;
-            addStatusEffect(createStatusEffectInstance(chestplate.getEffect(), chestplate.getAmplifier()));
+            applyStatusEffect(createStatusEffectInstance(chestplate.getEffect(), chestplate.getAmplifier()));
         }
 
         if (slot == EquipmentSlot.LEGS && item instanceof LeggingsItem) {
             LeggingsItem leggings = (LeggingsItem) item;
-            addStatusEffect(createStatusEffectInstance(leggings.getEffect(), leggings.getAmplifier()));
+            applyStatusEffect(createStatusEffectInstance(leggings.getEffect(), leggings.getAmplifier()));
         }
 
         if (slot == EquipmentSlot.FEET && item instanceof BootsItem) {
             BootsItem boots = (BootsItem) item;
-            addStatusEffect(createStatusEffectInstance(boots.getEffect(), boots.getAmplifier()));
+            applyStatusEffect(createStatusEffectInstance(boots.getEffect(), boots.getAmplifier()));
         }
     }
 
