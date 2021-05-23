@@ -23,4 +23,10 @@ public class ItemNames {
     public static final String GREEN_AXE = "green_axe";
     public static final String GREEN_DOUBLE_SWORD = "green_double_sword";
     public static final String GREEN_DOUBLE_AXE = "green_double_axe";
+
+    // Armor
+    public static final String GREEN_HELMET = "green_helmet";
+    public static final String GREEN_CHESTPLATE = "green_chestplate";
+    public static final String GREEN_LEGGINGS = "green_leggings";
+    public static final String GREEN_BOOTS = "green_boots";
 }
