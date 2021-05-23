@@ -1,6 +1,5 @@
 package com.redgrapefruit.mythicaltowers.mixin;
 
-import com.redgrapefruit.mythicaltowers.common.MythicalTowers;
 import com.redgrapefruit.mythicaltowers.common.armor.BootsItem;
 import com.redgrapefruit.mythicaltowers.common.armor.ChestplateItem;
 import com.redgrapefruit.mythicaltowers.common.armor.HelmetItem;
@@ -50,81 +49,112 @@ public abstract class LivingEntityMixin {
     private void method_30122(EquipmentSlot slot, ItemStack stack, CallbackInfo info) {
         Item item = stack.getItem();
 
-        // How this works:
+        // How handle_X_Armor methods work:
         // 1. Check equipment slot
         // 2. Get previous and current item in the slot
         // 3. If previous is air and new is mod's armor, apply the effect using createEnablingStatusEffectInstance
         // 4. If previous is mod's armor and new is air, disable the effect using createDisablingStatusEffectInstance
         // 5. Update the previous stack to current for the next operation
-        // And that for EACH of the 4 equipment slots
+        // And that for each of the 4 equipment slots
 
-        if (slot == EquipmentSlot.HEAD) {
-            Item previousHelmet = previousHelmetStack.getItem();
-            Item currentHelmet = stack.getItem();
+        switch (slot) {
+            case HEAD:
+                handleHeadArmor(stack);
+                break;
+            case CHEST:
+                handleChestArmor(stack);
+                break;
+            case LEGS:
+                handleLegArmor(stack);
+                break;
+            case FEET:
+                handleFeetArmor(stack);
+                break;
+        }
+    }
 
-            if (previousHelmet instanceof AirBlockItem && currentHelmet instanceof HelmetItem) {
-                HelmetItem cast = (HelmetItem) currentHelmet;
-                applyStatusEffect(createEnablingStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
-            }
+    /**
+     * Handles head armor slot
+     * @param stack New stack
+     */
+    private void handleHeadArmor(ItemStack stack) {
+        Item previousHelmet = previousHelmetStack.getItem();
+        Item currentHelmet = stack.getItem();
 
-            if (previousHelmet instanceof HelmetItem && currentHelmet instanceof AirBlockItem) {
-                HelmetItem cast = (HelmetItem) previousHelmet;
-                applyStatusEffect(createDisablingStatusEffectInstance(cast.getEffect()));
-            }
-
-            previousHelmetStack = new ItemStack(currentHelmet);
+        if (previousHelmet instanceof AirBlockItem && currentHelmet instanceof HelmetItem) {
+            HelmetItem cast = (HelmetItem) currentHelmet;
+            applyStatusEffect(createEnablingStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
         }
 
-        if (slot == EquipmentSlot.CHEST) {
-            Item previousChestplate = previousChestplateStack.getItem();
-            Item currentChestplate = stack.getItem();
-
-            if (previousChestplate instanceof AirBlockItem && currentChestplate instanceof ChestplateItem) {
-                ChestplateItem cast = (ChestplateItem) currentChestplate;
-                applyStatusEffect(createEnablingStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
-            }
-
-            if (previousChestplate instanceof ChestplateItem && currentChestplate instanceof AirBlockItem) {
-                ChestplateItem cast = (ChestplateItem) previousChestplate;
-                applyStatusEffect(createDisablingStatusEffectInstance(cast.getEffect()));
-            }
-
-            previousChestplateStack = new ItemStack(currentChestplate);
+        if (previousHelmet instanceof HelmetItem && currentHelmet instanceof AirBlockItem) {
+            HelmetItem cast = (HelmetItem) previousHelmet;
+            applyStatusEffect(createDisablingStatusEffectInstance(cast.getEffect()));
         }
 
-        if (slot == EquipmentSlot.LEGS) {
-            Item previousLeggings = previousLeggingsStack.getItem();
-            Item currentLeggings = stack.getItem();
+        previousHelmetStack = new ItemStack(currentHelmet);
+    }
 
-            if (previousLeggings instanceof AirBlockItem && currentLeggings instanceof LeggingsItem) {
-                LeggingsItem cast = (LeggingsItem) currentLeggings;
-                applyStatusEffect(createEnablingStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
-            }
+    /**
+     * Handles chest armor
+     * @param stack New stack
+     */
+    private void handleChestArmor(ItemStack stack) {
+        Item previousChestplate = previousChestplateStack.getItem();
+        Item currentChestplate = stack.getItem();
 
-            if (previousLeggings instanceof LeggingsItem && currentLeggings instanceof AirBlockItem) {
-                LeggingsItem cast = (LeggingsItem) previousLeggings;
-                applyStatusEffect(createDisablingStatusEffectInstance(cast.getEffect()));
-            }
-
-            previousLeggingsStack = new ItemStack(currentLeggings);
+        if (previousChestplate instanceof AirBlockItem && currentChestplate instanceof ChestplateItem) {
+            ChestplateItem cast = (ChestplateItem) currentChestplate;
+            applyStatusEffect(createEnablingStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
         }
 
-        if (slot == EquipmentSlot.FEET) {
-            Item previousBoots = previousBootsStack.getItem();
-            Item currentBoots = stack.getItem();
-
-            if (previousBoots instanceof AirBlockItem && currentBoots instanceof BootsItem) {
-                BootsItem cast = (BootsItem) currentBoots;
-                applyStatusEffect(createEnablingStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
-            }
-
-            if (previousBoots instanceof BootsItem && currentBoots instanceof AirBlockItem) {
-                BootsItem cast = (BootsItem) previousBoots;
-                applyStatusEffect(createDisablingStatusEffectInstance(cast.getEffect()));
-            }
-
-            previousBootsStack = new ItemStack(currentBoots);
+        if (previousChestplate instanceof ChestplateItem && currentChestplate instanceof AirBlockItem) {
+            ChestplateItem cast = (ChestplateItem) previousChestplate;
+            applyStatusEffect(createDisablingStatusEffectInstance(cast.getEffect()));
         }
+
+        previousChestplateStack = new ItemStack(currentChestplate);
+    }
+
+    /**
+     * Handles leg armor
+     * @param stack New stack
+     */
+    private void handleLegArmor(ItemStack stack) {
+        Item previousLeggings = previousLeggingsStack.getItem();
+        Item currentLeggings = stack.getItem();
+
+        if (previousLeggings instanceof AirBlockItem && currentLeggings instanceof LeggingsItem) {
+            LeggingsItem cast = (LeggingsItem) currentLeggings;
+            applyStatusEffect(createEnablingStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
+        }
+
+        if (previousLeggings instanceof LeggingsItem && currentLeggings instanceof AirBlockItem) {
+            LeggingsItem cast = (LeggingsItem) previousLeggings;
+            applyStatusEffect(createDisablingStatusEffectInstance(cast.getEffect()));
+        }
+
+        previousLeggingsStack = new ItemStack(currentLeggings);
+    }
+
+    /**
+     * Handles feet armor
+     * @param stack New stack
+     */
+    private void handleFeetArmor(ItemStack stack) {
+        Item previousBoots = previousBootsStack.getItem();
+        Item currentBoots = stack.getItem();
+
+        if (previousBoots instanceof AirBlockItem && currentBoots instanceof BootsItem) {
+            BootsItem cast = (BootsItem) currentBoots;
+            applyStatusEffect(createEnablingStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
+        }
+
+        if (previousBoots instanceof BootsItem && currentBoots instanceof AirBlockItem) {
+            BootsItem cast = (BootsItem) previousBoots;
+            applyStatusEffect(createDisablingStatusEffectInstance(cast.getEffect()));
+        }
+
+        previousBootsStack = new ItemStack(currentBoots);
     }
 
     /**
