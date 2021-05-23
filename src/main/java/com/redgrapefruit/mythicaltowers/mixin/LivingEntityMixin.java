@@ -5,6 +5,7 @@ import com.redgrapefruit.mythicaltowers.common.armor.BootsItem;
 import com.redgrapefruit.mythicaltowers.common.armor.ChestplateItem;
 import com.redgrapefruit.mythicaltowers.common.armor.HelmetItem;
 import com.redgrapefruit.mythicaltowers.common.armor.LeggingsItem;
+import com.redgrapefruit.mythicaltowers.common.util.ItemStackUtility;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
@@ -12,6 +13,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.AirBlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundTag;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -20,7 +22,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
- * This mixin applies custom effects to the entity once the custom armor from the mod is put on
+ * This mixin applies custom effects to the entity once the custom armor from the mod is put on.<br>
+ * Also serializes and deserializes some internal data
  */
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
@@ -43,10 +46,10 @@ public abstract class LivingEntityMixin {
         Item item = stack.getItem();
 
         // Assign previous stacks if they're null
-        if (previousHelmetStack == null) previousHelmetStack = MythicalTowers.AIR_STACK;
-        if (previousChestplateStack == null) previousChestplateStack = MythicalTowers.AIR_STACK;
-        if (previousLeggingsStack == null) previousLeggingsStack = MythicalTowers.AIR_STACK;
-        if (previousBootsStack == null) previousBootsStack = MythicalTowers.AIR_STACK;
+        if (previousHelmetStack == ItemStack.EMPTY) previousHelmetStack = MythicalTowers.AIR_STACK;
+        if (previousChestplateStack == ItemStack.EMPTY) previousChestplateStack = MythicalTowers.AIR_STACK;
+        if (previousLeggingsStack == ItemStack.EMPTY) previousLeggingsStack = MythicalTowers.AIR_STACK;
+        if (previousBootsStack == ItemStack.EMPTY) previousBootsStack = MythicalTowers.AIR_STACK;
 
         // How this works:
         // 1. Check equipment slot
@@ -123,6 +126,23 @@ public abstract class LivingEntityMixin {
 
             previousBootsStack = new ItemStack(currentBoots);
         }
+    }
+
+    // Deserializes tracked data
+    @Inject(method = "readCustomDataFromTag", at = @At("TAIL"))
+    private void readCustomDataFromTag(CompoundTag tag, CallbackInfo info) {
+        previousHelmetStack = ItemStackUtility.readItemStack(tag, "Previous Helmet Stack");
+        previousChestplateStack = ItemStackUtility.readItemStack(tag, "Previous Chestplate Stack");
+        previousLeggingsStack = ItemStackUtility.readItemStack(tag, "Previous Leggings Stack");
+        previousBootsStack = ItemStackUtility.readItemStack(tag, "Previous Boots Stack");
+    }
+
+    @Inject(method = "writeCustomDataToTag", at = @At("TAIL"))
+    private void writeCustomDataToTag(CompoundTag tag, CallbackInfo info) {
+        ItemStackUtility.writeItemStack(tag, "Previous Helmet Stack", previousHelmetStack);
+        ItemStackUtility.writeItemStack(tag, "Previous Chestplate Stack", previousChestplateStack);
+        ItemStackUtility.writeItemStack(tag, "Previous Leggings Stack", previousLeggingsStack);
+        ItemStackUtility.writeItemStack(tag, "Previous Boots Stack", previousBootsStack);
     }
 
     /**
