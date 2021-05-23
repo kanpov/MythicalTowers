@@ -1,6 +1,5 @@
 package com.redgrapefruit.mythicaltowers.common.util;
 
-import com.redgrapefruit.mythicaltowers.common.MythicalTowers;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;

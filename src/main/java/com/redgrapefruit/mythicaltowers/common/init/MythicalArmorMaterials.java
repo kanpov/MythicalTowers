@@ -14,9 +14,9 @@ import net.minecraft.sound.SoundEvents;
  */
 public enum MythicalArmorMaterials implements ArmorMaterial {
     GREEN(
-            new int[] {300, 350, 400, 350},
-            new int[] {4, 5, 6, 5},
-           17,
+            new int[]{300, 350, 400, 350},
+            new int[]{4, 5, 6, 5},
+            17,
             SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
             MythicalItems.GREEN_INGOT,
             ArmorNames.GREEN_ARMOR,

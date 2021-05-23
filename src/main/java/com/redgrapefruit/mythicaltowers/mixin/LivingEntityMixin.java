@@ -26,9 +26,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  */
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
-    @Shadow
-    public abstract void applyStatusEffect(StatusEffectInstance effect);
-
     // Tracked data about previous armor stacks
     @Unique
     private ItemStack previousHelmetStack;
@@ -40,10 +37,28 @@ public abstract class LivingEntityMixin {
     private ItemStack previousBootsStack;
 
     /**
+     * Creates a {@link StatusEffectInstance} that disables the given effect by using duration=0
+     *
+     * @param effect The {@link StatusEffect} itself
+     * @return Generated {@link StatusEffectInstance}
+     */
+    private static StatusEffectInstance createDisablingStatusEffectInstance(StatusEffect effect) {
+        return new StatusEffectInstance(
+                effect,
+                0,
+                0
+        );
+    }
+
+    @Shadow
+    public abstract void applyStatusEffect(StatusEffectInstance effect);
+
+    /**
      * The unmapped method_30122 is called everytime an armor piece is put on/off. Main logic block
-     * @param slot The {@link EquipmentSlot} of the armor
+     *
+     * @param slot  The {@link EquipmentSlot} of the armor
      * @param stack The {@link ItemStack} of the armor
-     * @param info Mixin {@link CallbackInfo}
+     * @param info  Mixin {@link CallbackInfo}
      */
     @Inject(method = "method_30122", at = @At("TAIL"))
     private void method_30122(EquipmentSlot slot, ItemStack stack, CallbackInfo info) {
@@ -75,6 +90,7 @@ public abstract class LivingEntityMixin {
 
     /**
      * Handles head armor slot
+     *
      * @param stack New stack
      */
     private void handleHeadArmor(ItemStack stack) {
@@ -96,6 +112,7 @@ public abstract class LivingEntityMixin {
 
     /**
      * Handles chest armor
+     *
      * @param stack New stack
      */
     private void handleChestArmor(ItemStack stack) {
@@ -117,6 +134,7 @@ public abstract class LivingEntityMixin {
 
     /**
      * Handles leg armor
+     *
      * @param stack New stack
      */
     private void handleLegArmor(ItemStack stack) {
@@ -138,6 +156,7 @@ public abstract class LivingEntityMixin {
 
     /**
      * Handles feet armor
+     *
      * @param stack New stack
      */
     private void handleFeetArmor(ItemStack stack) {
@@ -159,7 +178,8 @@ public abstract class LivingEntityMixin {
 
     /**
      * Reads tracked data from a {@link CompoundTag}
-     * @param tag The source {@link CompoundTag}
+     *
+     * @param tag  The source {@link CompoundTag}
      * @param info Mixin {@link CallbackInfo}
      */
     @Inject(method = "readCustomDataFromTag", at = @At("TAIL"))
@@ -172,7 +192,8 @@ public abstract class LivingEntityMixin {
 
     /**
      * Writes tracked data to a {@link CompoundTag}
-     * @param tag The output {@link CompoundTag}
+     *
+     * @param tag  The output {@link CompoundTag}
      * @param info Mixin {@link CallbackInfo}
      */
     @Inject(method = "writeCustomDataToTag", at = @At("TAIL"))
@@ -185,7 +206,8 @@ public abstract class LivingEntityMixin {
 
     /**
      * Creates an armor {@link StatusEffectInstance}
-     * @param effect The {@link StatusEffect} itself
+     *
+     * @param effect    The {@link StatusEffect} itself
      * @param amplifier The amplifier of the effect
      * @return Generated {@link StatusEffectInstance}
      */
@@ -194,19 +216,6 @@ public abstract class LivingEntityMixin {
                 effect,
                 999999,
                 amplifier
-        );
-    }
-
-    /**
-     * Creates a {@link StatusEffectInstance} that disables the given effect by using duration=0
-     * @param effect The {@link StatusEffect} itself
-     * @return Generated {@link StatusEffectInstance}
-     */
-    private static StatusEffectInstance createDisablingStatusEffectInstance(StatusEffect effect) {
-        return new StatusEffectInstance(
-                effect,
-                0,
-                0
         );
     }
 }
