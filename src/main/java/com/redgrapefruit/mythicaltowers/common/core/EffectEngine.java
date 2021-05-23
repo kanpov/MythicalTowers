@@ -64,11 +64,7 @@ public class EffectEngine {
 
         // Apply the effect for 60 ticks (3 seconds) to ensure that the effect gets off the player once the amulet leaves the inventory
         // We also use addStatusEffect, not applyStatusEffect to ensure that the effect duration doesn't stack up over time
-        ((PlayerEntity) entity).addStatusEffect(new StatusEffectInstance(
-                effect,
-                60,
-                amplifier
-        ));
+        ((PlayerEntity) entity).addStatusEffect(createPassiveStatusEffectInstance(effect, amplifier));
     }
 
     /**
