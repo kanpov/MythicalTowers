@@ -7,6 +7,8 @@ import com.redgrapefruit.mythicaltowers.common.item.OrbItem;
 import com.redgrapefruit.mythicaltowers.common.tool.*;
 import com.redgrapefruit.mythicaltowers.common.tool.weapon.CustomAxeItem;
 import com.redgrapefruit.mythicaltowers.common.tool.weapon.CustomSwordItem;
+import com.redgrapefruit.mythicaltowers.common.tool.weapon.DoubleAxeItem;
+import com.redgrapefruit.mythicaltowers.common.tool.weapon.DoubleSwordItem;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
 import net.minecraft.util.registry.Registry;
@@ -27,21 +29,27 @@ public class MythicalItems {
     public static final IngotItem GREEN_INGOT = new IngotItem();
 
     // Tools
-    public static final CustomSwordItem GREEN_SWORD = new CustomSwordItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 3, -1.8f);
     public static final CustomPickaxeItem GREEN_PICKAXE = new CustomPickaxeItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 2, -2.3f);
-    public static final CustomAxeItem GREEN_AXE = new CustomAxeItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 5, -3.1f);
     public static final CustomShovelItem GREEN_SHOVEL = new CustomShovelItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 1, -1.5f);
     public static final CustomHoeItem GREEN_HOE = new CustomHoeItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 1, -1.25f);
+
+    // Weapons
+    public static final CustomSwordItem GREEN_SWORD = new CustomSwordItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 3, -1.8f);
+    public static final CustomAxeItem GREEN_AXE = new CustomAxeItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 5, -3.1f);
+    public static final DoubleSwordItem GREEN_DOUBLE_SWORD = new DoubleSwordItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 5, -1.4f);
+    public static final DoubleAxeItem GREEN_DOUBLE_AXE = new DoubleAxeItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 8, -3.7f);
 
     public static void init() {
         register(ItemNames.GREEN_ORB, GREEN_ORB);
         register(ItemNames.GREEN_AMULET, GREEN_AMULET);
         register(ItemNames.GREEN_INGOT, GREEN_INGOT);
-        register(ItemNames.GREEN_SWORD, GREEN_SWORD);
         register(ItemNames.GREEN_PICKAXE, GREEN_PICKAXE);
-        register(ItemNames.GREEN_AXE, GREEN_AXE);
         register(ItemNames.GREEN_SHOVEL, GREEN_SHOVEL);
         register(ItemNames.GREEN_HOE, GREEN_HOE);
+        register(ItemNames.GREEN_SWORD, GREEN_SWORD);
+        register(ItemNames.GREEN_AXE, GREEN_AXE);
+        register(ItemNames.GREEN_DOUBLE_SWORD, GREEN_DOUBLE_SWORD);
+        register(ItemNames.GREEN_DOUBLE_AXE, GREEN_DOUBLE_AXE);
     }
 
     /**

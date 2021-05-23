@@ -14,9 +14,13 @@ public class ItemNames {
     public static final String GREEN_INGOT = "green_ingot";
 
     // Tools
-    public static final String GREEN_SWORD = "green_sword";
     public static final String GREEN_PICKAXE = "green_pickaxe";
-    public static final String GREEN_AXE = "green_axe";
     public static final String GREEN_SHOVEL = "green_shovel";
     public static final String GREEN_HOE = "green_hoe";
+
+    // Weapons
+    public static final String GREEN_SWORD = "green_sword";
+    public static final String GREEN_AXE = "green_axe";
+    public static final String GREEN_DOUBLE_SWORD = "green_double_sword";
+    public static final String GREEN_DOUBLE_AXE = "green_double_axe";
 }
