@@ -45,12 +45,6 @@ public abstract class LivingEntityMixin {
     private void method_30122(EquipmentSlot slot, ItemStack stack, CallbackInfo info) {
         Item item = stack.getItem();
 
-        // Assign previous stacks if they're null
-        if (previousHelmetStack == ItemStack.EMPTY) previousHelmetStack = MythicalTowers.AIR_STACK;
-        if (previousChestplateStack == ItemStack.EMPTY) previousChestplateStack = MythicalTowers.AIR_STACK;
-        if (previousLeggingsStack == ItemStack.EMPTY) previousLeggingsStack = MythicalTowers.AIR_STACK;
-        if (previousBootsStack == ItemStack.EMPTY) previousBootsStack = MythicalTowers.AIR_STACK;
-
         // How this works:
         // 1. Check equipment slot
         // 2. Get previous and current item in the slot
