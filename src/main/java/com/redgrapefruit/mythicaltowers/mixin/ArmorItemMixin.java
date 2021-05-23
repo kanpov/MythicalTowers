@@ -33,6 +33,13 @@ public class ArmorItemMixin {
     @Shadow @Final
     protected float knockbackResistance;
 
+    /**
+     * During constructor apply the knockback resistance {@link EntityAttributeModifier} if the {@link ArmorMaterial} is from the mod
+     * @param material The {@link ArmorMaterial}
+     * @param slot The {@link EquipmentSlot} with this armor piece
+     * @param settings General {@link Item.Settings}
+     * @param info Mixin {@link CallbackInfo}
+     */
     @Inject(method = "<init>", at = @At("RETURN"))
     private void constructor(ArmorMaterial material, EquipmentSlot slot, Item.Settings settings, CallbackInfo info) {
         // Get the UUID

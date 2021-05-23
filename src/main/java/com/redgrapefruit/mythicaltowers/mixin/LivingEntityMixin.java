@@ -40,7 +40,12 @@ public abstract class LivingEntityMixin {
     @Unique
     private ItemStack previousBootsStack;
 
-    // method_30122 is called everytime an armor piece is put on/off
+    /**
+     * The unmapped method_30122 is called everytime an armor piece is put on/off. Main logic block
+     * @param slot The {@link EquipmentSlot} of the armor
+     * @param stack The {@link ItemStack} of the armor
+     * @param info Mixin {@link CallbackInfo}
+     */
     @Inject(method = "method_30122", at = @At("TAIL"))
     private void method_30122(EquipmentSlot slot, ItemStack stack, CallbackInfo info) {
         Item item = stack.getItem();
@@ -122,7 +127,11 @@ public abstract class LivingEntityMixin {
         }
     }
 
-    // Deserializes tracked data
+    /**
+     * Reads tracked data from a {@link CompoundTag}
+     * @param tag The source {@link CompoundTag}
+     * @param info Mixin {@link CallbackInfo}
+     */
     @Inject(method = "readCustomDataFromTag", at = @At("TAIL"))
     private void readCustomDataFromTag(CompoundTag tag, CallbackInfo info) {
         previousHelmetStack = ItemStackUtility.readItemStack(tag, "Previous Helmet Stack");
@@ -131,6 +140,11 @@ public abstract class LivingEntityMixin {
         previousBootsStack = ItemStackUtility.readItemStack(tag, "Previous Boots Stack");
     }
 
+    /**
+     * Writes tracked data to a {@link CompoundTag}
+     * @param tag The output {@link CompoundTag}
+     * @param info Mixin {@link CallbackInfo}
+     */
     @Inject(method = "writeCustomDataToTag", at = @At("TAIL"))
     private void writeCustomDataToTag(CompoundTag tag, CallbackInfo info) {
         ItemStackUtility.writeItemStack(tag, "Previous Helmet Stack", previousHelmetStack);
