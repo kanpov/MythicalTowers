@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.common.tool;
+package com.redgrapefruit.mythicaltowers.common.tool.weapon;
 
 import com.redgrapefruit.mythicaltowers.common.core.EffectConfig;
 import com.redgrapefruit.mythicaltowers.common.core.EffectEngine;

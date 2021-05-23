@@ -5,6 +5,8 @@ import com.redgrapefruit.mythicaltowers.common.item.AmuletItem;
 import com.redgrapefruit.mythicaltowers.common.item.IngotItem;
 import com.redgrapefruit.mythicaltowers.common.item.OrbItem;
 import com.redgrapefruit.mythicaltowers.common.tool.*;
+import com.redgrapefruit.mythicaltowers.common.tool.weapon.CustomAxeItem;
+import com.redgrapefruit.mythicaltowers.common.tool.weapon.CustomSwordItem;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
 import net.minecraft.util.registry.Registry;
