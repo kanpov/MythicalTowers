@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.api;
+package com.redgrapefruit.mythicaltowers.api.container;
 
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;

@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.api;
+package com.redgrapefruit.mythicaltowers.api.container;
 
 import com.redgrapefruit.mythicaltowers.common.util.ImplementedInventory;
 import net.minecraft.block.BlockState;

@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.api;
+package com.redgrapefruit.mythicaltowers.api.container;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;

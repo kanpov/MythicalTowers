@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.api;
+package com.redgrapefruit.mythicaltowers.api.container;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.screen.Screen;
