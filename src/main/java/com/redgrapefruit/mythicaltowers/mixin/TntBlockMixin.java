@@ -1,5 +1,6 @@
 package com.redgrapefruit.mythicaltowers.mixin;
 
+import com.mojang.datafixers.util.Function5;
 import com.redgrapefruit.mythicaltowers.common.entity.AbstractCustomTntEntity;
 import com.redgrapefruit.mythicaltowers.common.util.TntBlockMixinAccess;
 import net.minecraft.block.TntBlock;
@@ -8,14 +9,13 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.function.Function;
 
 /**
  * This mixin modifies the private primeTnt method as it isn't overridable
@@ -25,7 +25,7 @@ public class TntBlockMixin implements TntBlockMixinAccess {
     @Unique
     private static boolean isCustom = false;
     @Unique
-    private static Function<?, ? extends AbstractCustomTntEntity> instantiator;
+    private static Function5<World, Double, Double, Double, @Nullable LivingEntity, ? extends AbstractCustomTntEntity> instantiator;
     @Unique
     private static boolean isWorldClient = false;
 
@@ -50,12 +50,12 @@ public class TntBlockMixin implements TntBlockMixinAccess {
      * @param info Mixin {@link CallbackInfo}
      */
     @Inject(method = "primeTnt(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/LivingEntity;)V", at = @At("TAIL"))
-    private static void primeTnt(World world, BlockPos pos, LivingEntity igniter, CallbackInfo info) {
+    private static void primeTnt(World world, BlockPos pos, @Nullable LivingEntity igniter, CallbackInfo info) {
         // Do not do anything if the TNT isn't from the mod and if the world is client-side
         if (!isCustom || isWorldClient) return;
 
         // Create the entity using the instantiator and spawn it in the world
-        AbstractCustomTntEntity entity = instantiator.apply(null);
+        AbstractCustomTntEntity entity = instantiator.apply(world, (double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ(), igniter);
         world.spawnEntity(entity);
         // Play the vanilla explosion sound
         world.playSound(null, entity.getX(), entity.getY(), entity.getZ(), SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
@@ -67,7 +67,7 @@ public class TntBlockMixin implements TntBlockMixinAccess {
     }
 
     @Override
-    public void setInstantiator(Function<Void, ? extends AbstractCustomTntEntity> instantiatorValue) {
+    public void setInstantiator(Function5<World, Double, Double, Double, @Nullable LivingEntity, ? extends AbstractCustomTntEntity> instantiatorValue) {
         instantiator = instantiatorValue;
     }
 }
