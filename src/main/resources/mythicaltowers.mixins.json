@@ -6,8 +6,10 @@
     "mixins": [
         "ArmorItemMixin",
         "LivingEntityMixin",
+        "TntBlockMixin",
         "TntEntityAccessor",
-        "TntEntityMixin"
+        "TntEntityMixin",
+        "WorldAccessor"
     ],
     "client": [
     ],
