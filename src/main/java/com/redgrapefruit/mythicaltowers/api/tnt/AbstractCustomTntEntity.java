@@ -23,7 +23,7 @@ public abstract class AbstractCustomTntEntity extends TntEntity {
         setFuse(fuse);
     }
 
-    protected void setExplosionPower(int explosionPower) {
+    protected void setExplosionPower(float explosionPower) {
         ((TntEntityMixinAccess) this).setExplosionPower(explosionPower);
     }
 }
