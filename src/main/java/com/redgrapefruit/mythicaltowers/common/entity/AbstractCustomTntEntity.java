@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.api.tnt;
+package com.redgrapefruit.mythicaltowers.common.entity;
 
 import com.redgrapefruit.mythicaltowers.common.util.TntEntityMixinAccess;
 import net.minecraft.entity.EntityType;
