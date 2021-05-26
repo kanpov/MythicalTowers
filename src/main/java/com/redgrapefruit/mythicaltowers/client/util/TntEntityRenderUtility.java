@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.client.render;
+package com.redgrapefruit.mythicaltowers.client.util;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.render.VertexConsumerProvider;
