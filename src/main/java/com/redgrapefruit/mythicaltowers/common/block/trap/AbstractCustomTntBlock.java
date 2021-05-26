@@ -7,8 +7,8 @@ import net.minecraft.block.TntBlock;
 /**
  * Custom TNT trap
  */
-public class CustomTntBlock extends TntBlock {
-    public CustomTntBlock() {
+public abstract class AbstractCustomTntBlock extends TntBlock {
+    public AbstractCustomTntBlock() {
         super(FabricBlockSettings.copyOf(Blocks.TNT));
     }
 }

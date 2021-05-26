@@ -1,6 +1,7 @@
 package com.redgrapefruit.mythicaltowers.common.entity;
 
 import com.redgrapefruit.mythicaltowers.common.util.TntEntityMixinAccess;
+import com.redgrapefruit.mythicaltowers.mixin.TntEntityAccessor;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.TntEntity;
@@ -19,8 +20,8 @@ public abstract class AbstractCustomTntEntity extends TntEntity {
         super(world, x, y, z, igniter);
     }
 
-    protected void setFuseTimer(int fuse) {
-        setFuse(fuse);
+    protected void setFuseTimer(int fuseTimer) {
+        ((TntEntityAccessor) this).setFuseTimer(fuseTimer);
     }
 
     protected void setExplosionPower(float explosionPower) {
