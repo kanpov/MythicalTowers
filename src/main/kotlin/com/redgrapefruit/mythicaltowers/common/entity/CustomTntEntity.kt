@@ -19,7 +19,6 @@ import kotlin.math.sin
  *
  * The entity is spawned in the world once the TNT is primed and once the fuse timer goes out, the TNT explodes
  *
- * Primary constructor:
  * @param type The registered [EntityType]
  * @param world Nullable [World] instance
  */
@@ -27,22 +26,22 @@ abstract class CustomTntEntity(type: EntityType<*>?, world: World?) : Entity(typ
     /**
      * Fuse state [TrackedData]
      */
-    private val fuseTracker : TrackedData<Int> = DataTracker.registerData(javaClass, TrackedDataHandlerRegistry.INTEGER)
+    private val fuseTracker: TrackedData<Int> = DataTracker.registerData(javaClass, TrackedDataHandlerRegistry.INTEGER)
 
     /**
      * The causer of the explosion
      */
-    private var causingEntity : LivingEntity? = null
+    private var causingEntity: LivingEntity? = null
 
     /**
      * The value of [fuseTracker]'s value
      */
-    private var fuseValue : Int = 0
+    var fuseValue: Int = 0
 
     /**
      * The power of the caused explosion
      */
-    private var explosionPower : Float = 0.0f
+    private var explosionPower: Float = 0.0f
 
     /**
      * Secondary constructor from calls withing the block
@@ -139,7 +138,7 @@ abstract class CustomTntEntity(type: EntityType<*>?, world: World?) : Entity(typ
      * Initializes the fuse value
      * @param fuse Fuse
      */
-    protected fun initFuse(fuse: Int) {
+    fun initFuse(fuse: Int) {
         dataTracker.set(fuseTracker, fuse)
         fuseValue = fuse
     }
