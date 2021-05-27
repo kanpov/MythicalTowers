@@ -35,7 +35,7 @@ object EffectEngine {
                 .orElseGet { config.amplifier }
 
             // Get chance, else use 100 (always applied)
-            val chance = if (config.chance == EffectConfig.Companion.UNDEFINED_VALUE) 100 else config.chance
+            val chance = if (config.chance == EffectConfig.UNDEFINED_VALUE) 100 else config.chance
             // Pick a number and see if it fits in the chance, then apply the effect
             if (MythicalTowers.RANDOM.nextInt(100) <= chance) {
                 user.applyStatusEffect(
@@ -111,7 +111,7 @@ object EffectEngine {
      * @return True if you're lucky
      */
     private fun checkChance(config: EffectConfig): Boolean {
-        val chance = if (config.chance == EffectConfig.Companion.UNDEFINED_VALUE) 100 else config.chance
+        val chance = if (config.chance == EffectConfig.UNDEFINED_VALUE) 100 else config.chance
         return MythicalTowers.RANDOM.nextInt(100) <= chance
     }
 
