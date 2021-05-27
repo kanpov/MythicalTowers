@@ -5,11 +5,7 @@
     "compatibilityLevel": "JAVA_8",
     "mixins": [
         "ArmorItemMixin",
-        "LivingEntityMixin",
-        "TntBlockMixin",
-        "TntEntityAccessor",
-        "TntEntityMixin",
-        "WorldAccessor"
+        "LivingEntityMixin"
     ],
     "client": [
     ],
