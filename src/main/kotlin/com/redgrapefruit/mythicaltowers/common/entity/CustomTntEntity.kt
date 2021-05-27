@@ -22,7 +22,7 @@ import kotlin.math.sin
  * @param type The registered [EntityType]
  * @param world Nullable [World] instance
  */
-abstract class CustomTntEntity(type: EntityType<*>?, world: World?) : Entity(type, world) {
+abstract class CustomTntEntity(type: EntityType<*>, world: World) : Entity(type, world) {
     /**
      * Fuse state [TrackedData]
      */
@@ -53,7 +53,7 @@ abstract class CustomTntEntity(type: EntityType<*>?, world: World?) : Entity(typ
      * @param igniter The causer of this explosion
      */
     constructor(
-        type: EntityType<*>?,
+        type: EntityType<*>,
         world: World,
         x: Double,
         y: Double,
@@ -107,12 +107,12 @@ abstract class CustomTntEntity(type: EntityType<*>?, world: World?) : Entity(typ
 
     // (De)Serialization
 
-    override fun writeCustomDataToTag(tag: CompoundTag?) {
-        tag?.putInt("Fuse", fuseValue)
+    override fun writeCustomDataToTag(tag: CompoundTag) {
+        tag.putInt("Fuse", fuseValue)
     }
 
-    override fun readCustomDataFromTag(tag: CompoundTag?) {
-        tag?.getInt("Fuse")?.let { initFuse(it) }
+    override fun readCustomDataFromTag(tag: CompoundTag) {
+        initFuse(tag.getInt("Fuse"))
     }
 
     override fun createSpawnPacket(): Packet<*> = EntitySpawnS2CPacket(this)
@@ -123,7 +123,7 @@ abstract class CustomTntEntity(type: EntityType<*>?, world: World?) : Entity(typ
         dataTracker.startTracking(fuseTracker, fuseValue)
     }
 
-    override fun onTrackedDataSet(data: TrackedData<*>?) {
+    override fun onTrackedDataSet(data: TrackedData<*>) {
         if (fuseTracker == data) {
             fuseValue = dataTracker.get(fuseTracker)
         }
@@ -135,7 +135,7 @@ abstract class CustomTntEntity(type: EntityType<*>?, world: World?) : Entity(typ
 
     override fun collides(): Boolean = !removed
 
-    override fun getEyeHeight(pose: EntityPose?, dimensions: EntityDimensions?): Float = 0.15F
+    override fun getEyeHeight(pose: EntityPose, dimensions: EntityDimensions): Float = 0.15F
 
     // Tools
 
