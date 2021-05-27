@@ -20,5 +20,7 @@ class GreenTntEntityRenderer(dispatcher: EntityRenderDispatcher) : CustomTntEnti
         light: Int
     ) {
         draw(MythicalBlocks.GREEN_TNT, entity, tickDelta, matrices, vertexConsumers, light)
+
+        super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light)
     }
 }

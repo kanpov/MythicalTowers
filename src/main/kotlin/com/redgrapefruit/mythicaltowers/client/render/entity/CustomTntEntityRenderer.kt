@@ -2,6 +2,7 @@ package com.redgrapefruit.mythicaltowers.client.render.entity
 
 import com.redgrapefruit.mythicaltowers.common.block.trap.CustomTntBlock
 import com.redgrapefruit.mythicaltowers.common.entity.CustomTntEntity
+import net.minecraft.block.Blocks
 import net.minecraft.client.render.VertexConsumerProvider
 import net.minecraft.client.render.entity.EntityRenderDispatcher
 import net.minecraft.client.render.entity.EntityRenderer
@@ -37,7 +38,6 @@ abstract class CustomTntEntityRenderer<TEntity, TBlock>(dispatcher: EntityRender
     ) {
         matrixStack.push()
         matrixStack.translate(0.0, 0.5, 0.0)
-
         if (entity.fuseValue.toFloat() - tickDelta + 1.0f < 10.0f) {
             var h: Float = 1.0f - (entity.fuseValue.toFloat() - tickDelta + 1.0f) / 10.0f
             h = MathHelper.clamp(h, 0.0f, 1.0f)
@@ -50,7 +50,6 @@ abstract class CustomTntEntityRenderer<TEntity, TBlock>(dispatcher: EntityRender
         matrixStack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(-90.0f))
         matrixStack.translate(-0.5, -0.5, 0.5)
         matrixStack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(90.0f))
-
         TntMinecartEntityRenderer.renderFlashingBlock(
             block.defaultState,
             matrixStack,
@@ -58,7 +57,6 @@ abstract class CustomTntEntityRenderer<TEntity, TBlock>(dispatcher: EntityRender
             light,
             entity.fuseValue / 5 % 2 == 0
         )
-
         matrixStack.pop()
     }
 
