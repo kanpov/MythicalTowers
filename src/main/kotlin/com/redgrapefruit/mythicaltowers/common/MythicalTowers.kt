@@ -5,7 +5,7 @@ import com.redgrapefruit.mythicaltowers.common.init.MythicalItemGroups
 import com.redgrapefruit.mythicaltowers.common.init.MythicalItems
 import net.fabricmc.api.ModInitializer
 import net.minecraft.util.Identifier
-import java.util.Random
+import java.util.*
 
 class MythicalTowers : ModInitializer {
     override fun onInitialize() {

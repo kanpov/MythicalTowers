@@ -2,8 +2,8 @@ package com.redgrapefruit.mythicaltowers.client.util
 
 import net.minecraft.block.Block
 import net.minecraft.client.render.VertexConsumerProvider
-import net.minecraft.client.render.entity.TntMinecartEntityRenderer
 import net.minecraft.client.render.entity.TntEntityRenderer
+import net.minecraft.client.render.entity.TntMinecartEntityRenderer
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.client.util.math.Vector3f
 import net.minecraft.entity.TntEntity
