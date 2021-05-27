@@ -1,6 +1,7 @@
 package com.redgrapefruit.mythicaltowers.common
 
 import com.redgrapefruit.mythicaltowers.common.init.MythicalBlocks
+import com.redgrapefruit.mythicaltowers.common.init.MythicalEntities
 import com.redgrapefruit.mythicaltowers.common.init.MythicalItemGroups
 import com.redgrapefruit.mythicaltowers.common.init.MythicalItems
 import net.fabricmc.api.ModInitializer
@@ -12,6 +13,7 @@ class MythicalTowers : ModInitializer {
         MythicalItemGroups.init()
         MythicalItems.init()
         MythicalBlocks.init()
+        MythicalEntities.init()
     }
 
     companion object {

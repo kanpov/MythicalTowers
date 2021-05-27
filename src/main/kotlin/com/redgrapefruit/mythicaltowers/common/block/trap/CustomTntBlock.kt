@@ -17,7 +17,6 @@ import net.minecraft.sound.SoundCategory
 import net.minecraft.sound.SoundEvents
 import net.minecraft.state.StateManager
 import net.minecraft.state.property.BooleanProperty
-import net.minecraft.state.property.Properties
 import net.minecraft.util.ActionResult
 import net.minecraft.util.Hand
 import net.minecraft.util.hit.BlockHitResult
@@ -36,7 +35,7 @@ abstract class CustomTntBlock<TEntity> :
     /**
      * The blockstate unstable property. If true, the TNT can be lit up
      */
-    private val unstableProperty: BooleanProperty = Properties.UNSTABLE
+    private var unstableProperty: BooleanProperty? = null
 
     init {
         // Setup properties
@@ -146,6 +145,9 @@ abstract class CustomTntBlock<TEntity> :
     override fun shouldDropItemsOnExplosion(explosion: Explosion): Boolean = false
 
     override fun appendProperties(builder: StateManager.Builder<Block, BlockState>) {
+        // For some reason unstableProperty is null when this method is called. Anti-crash
+        unstableProperty = BooleanProperty.of("unstable")
+
         builder.add(unstableProperty)
     }
 

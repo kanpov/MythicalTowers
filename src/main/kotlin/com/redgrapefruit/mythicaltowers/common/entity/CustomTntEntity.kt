@@ -26,7 +26,7 @@ abstract class CustomTntEntity(type: EntityType<*>, world: World) : Entity(type,
     /**
      * Fuse state [TrackedData]
      */
-    private val fuseTracker: TrackedData<Int> = DataTracker.registerData(javaClass, TrackedDataHandlerRegistry.INTEGER)
+    private var fuseTracker: TrackedData<Int>? = null
 
     /**
      * The causer of the explosion
@@ -41,7 +41,7 @@ abstract class CustomTntEntity(type: EntityType<*>, world: World) : Entity(type,
     /**
      * The power of the caused explosion
      */
-    private var explosionPower: Float = 0.0f
+    protected var explosionPower: Float = 0.0f
 
     /**
      * Secondary constructor from calls withing the block
@@ -120,6 +120,8 @@ abstract class CustomTntEntity(type: EntityType<*>, world: World) : Entity(type,
     // Tracking
 
     override fun initDataTracker() {
+        fuseTracker = DataTracker.registerData(javaClass, TrackedDataHandlerRegistry.INTEGER)
+
         dataTracker.startTracking(fuseTracker, fuseValue)
     }
 

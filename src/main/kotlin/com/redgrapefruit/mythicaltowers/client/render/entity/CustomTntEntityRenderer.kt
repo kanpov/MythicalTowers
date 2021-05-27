@@ -27,10 +27,9 @@ abstract class CustomTntEntityRenderer<TEntity, TBlock>(dispatcher: EntityRender
         shadowRadius = 0.5F
     }
 
-    fun render(
+    protected fun draw(
         block: TBlock,
         entity: TEntity,
-        yaw: Float,
         tickDelta: Float,
         matrixStack: MatrixStack,
         vertexConsumers: VertexConsumerProvider,
