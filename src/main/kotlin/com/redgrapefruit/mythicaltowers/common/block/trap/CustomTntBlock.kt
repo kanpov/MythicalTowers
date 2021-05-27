@@ -31,11 +31,12 @@ import net.minecraft.world.explosion.Explosion
  *
  * The block is placed by the player/entity and turns into an entity once primed
  */
-abstract class CustomTntBlock<TEntity>() : Block(FabricBlockSettings.copyOf(Blocks.TNT)) where TEntity : CustomTntEntity {
+abstract class CustomTntBlock<TEntity> :
+    Block(FabricBlockSettings.copyOf(Blocks.TNT)) where TEntity : CustomTntEntity {
     /**
      * The blockstate unstable property. If true, the TNT can be lit up
      */
-    private val unstableProperty : BooleanProperty = Properties.UNSTABLE
+    private val unstableProperty: BooleanProperty = Properties.UNSTABLE
 
     init {
         // Setup properties
@@ -44,7 +45,7 @@ abstract class CustomTntBlock<TEntity>() : Block(FabricBlockSettings.copyOf(Bloc
 
     // Child functionality
 
-    abstract fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?) : TEntity
+    abstract fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): TEntity
 
     // Events
 
@@ -86,7 +87,7 @@ abstract class CustomTntBlock<TEntity>() : Block(FabricBlockSettings.copyOf(Bloc
     }
 
     override fun onDestroyedByExplosion(world: World, pos: BlockPos, explosion: Explosion) {
-        if (world.isClient) return;
+        if (world.isClient) return
 
         // Create the entity and set its fuse
         val entity: TEntity = createEntity(world, pos.x + 0.5, pos.y.toDouble(), pos.z + 0.5, explosion.causingEntity)
@@ -103,9 +104,9 @@ abstract class CustomTntBlock<TEntity>() : Block(FabricBlockSettings.copyOf(Bloc
         hand: Hand,
         hit: BlockHitResult
     ): ActionResult {
-        if (world.isClient) return ActionResult.SUCCESS;
+        if (world.isClient) return ActionResult.SUCCESS
 
-        val stack : ItemStack = player.getStackInHand(hand)
+        val stack: ItemStack = player.getStackInHand(hand)
         val item = stack.item
         return if (item !== Items.FLINT_AND_STEEL && item !== Items.FIRE_CHARGE) {
             super.onUse(state, world, pos, player, hand, hit)
@@ -129,7 +130,7 @@ abstract class CustomTntBlock<TEntity>() : Block(FabricBlockSettings.copyOf(Bloc
         hit: BlockHitResult,
         projectile: ProjectileEntity
     ) {
-        if (world.isClient) return;
+        if (world.isClient) return
 
         val entity: Entity? = projectile.owner
 
@@ -152,12 +153,21 @@ abstract class CustomTntBlock<TEntity>() : Block(FabricBlockSettings.copyOf(Bloc
     private fun primeTnt(world: World, pos: BlockPos) = primeTnt(world, pos, null)
 
     private fun primeTnt(world: World, pos: BlockPos, igniter: LivingEntity?) {
-        if (world.isClient) return;
+        if (world.isClient) return
 
         // Create the entity and spawn it
         val entity: TEntity = createEntity(world, pos.x + 0.5, pos.y.toDouble(), pos.z + 0.5, igniter)
         world.spawnEntity(entity)
         // Play the vanilla prime sound
-        world.playSound(null, entity.x, entity.y, entity.z, SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F)
+        world.playSound(
+            null,
+            entity.x,
+            entity.y,
+            entity.z,
+            SoundEvents.ENTITY_TNT_PRIMED,
+            SoundCategory.BLOCKS,
+            1.0F,
+            1.0F
+        )
     }
 }

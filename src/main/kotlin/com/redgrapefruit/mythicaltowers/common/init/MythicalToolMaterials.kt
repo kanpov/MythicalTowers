@@ -27,28 +27,15 @@ enum class MythicalToolMaterials(
 
     private val repairIngredient: Ingredient = Ingredient.ofItems(repairIngredient)
 
-    override fun getDurability(): Int {
-        return durability
-    }
+    override fun getDurability(): Int = durability
 
-    override fun getMiningSpeedMultiplier(): Float {
-        return miningSpeedMultiplier
-    }
+    override fun getMiningSpeedMultiplier(): Float = miningSpeedMultiplier
 
-    override fun getAttackDamage(): Float {
-        return attackDamage
-    }
+    override fun getAttackDamage(): Float = attackDamage
 
-    override fun getMiningLevel(): Int {
-        return miningLevel
-    }
+    override fun getMiningLevel(): Int = miningLevel
 
-    override fun getEnchantability(): Int {
-        return enchantability
-    }
+    override fun getEnchantability(): Int = enchantability
 
-    override fun getRepairIngredient(): Ingredient {
-        return repairIngredient
-    }
-
+    override fun getRepairIngredient(): Ingredient = repairIngredient
 }

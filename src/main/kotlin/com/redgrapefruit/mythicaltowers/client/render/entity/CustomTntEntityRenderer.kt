@@ -19,7 +19,8 @@ import net.minecraft.util.math.MathHelper
  * The renderer draws the TNT block with a slight overlay
  */
 @Suppress("DEPRECATION")
-abstract class CustomTntEntityRenderer<TEntity, TBlock>(dispatcher: EntityRenderDispatcher) : EntityRenderer<TEntity>(dispatcher)
+abstract class CustomTntEntityRenderer<TEntity, TBlock>(dispatcher: EntityRenderDispatcher) :
+    EntityRenderer<TEntity>(dispatcher)
         where TEntity : CustomTntEntity, TBlock : CustomTntBlock<TEntity> {
 
     init {
@@ -56,7 +57,8 @@ abstract class CustomTntEntityRenderer<TEntity, TBlock>(dispatcher: EntityRender
             matrixStack,
             vertexConsumers,
             light,
-            entity.fuseValue / 5 % 2 == 0)
+            entity.fuseValue / 5 % 2 == 0
+        )
 
         matrixStack.pop()
     }

@@ -3,7 +3,6 @@ package com.redgrapefruit.mythicaltowers.common.init
 import com.redgrapefruit.mythicaltowers.common.core.EffectConfig
 import com.redgrapefruit.mythicaltowers.common.core.WeaponEffectTarget
 import net.minecraft.entity.effect.StatusEffects
-import java.util.*
 
 /**
  * Stores the mod's lists of [EffectConfig]s

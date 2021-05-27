@@ -52,7 +52,14 @@ abstract class CustomTntEntity(type: EntityType<*>?, world: World?) : Entity(typ
      * @param z Z coordinate
      * @param igniter The causer of this explosion
      */
-    constructor(type: EntityType<*>?, world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?) : this(type, world) {
+    constructor(
+        type: EntityType<*>?,
+        world: World,
+        x: Double,
+        y: Double,
+        z: Double,
+        igniter: LivingEntity?
+    ) : this(type, world) {
         updatePosition(x, y, z)
         // Calculate velocity
         val d: Double = world.random.nextDouble() * 6.2831854820251465
@@ -132,7 +139,7 @@ abstract class CustomTntEntity(type: EntityType<*>?, world: World?) : Entity(typ
 
     // Tools
 
-    fun getCausingEntity() : LivingEntity? = causingEntity
+    fun getCausingEntity(): LivingEntity? = causingEntity
 
     /**
      * Initializes the fuse value

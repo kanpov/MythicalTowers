@@ -1,13 +1,13 @@
 package com.redgrapefruit.mythicaltowers.api
 
 import com.mojang.blaze3d.systems.RenderSystem
-import net.minecraft.client.gui.screen.ingame.HandledScreen
 import net.minecraft.client.gui.screen.Screen
+import net.minecraft.client.gui.screen.ingame.HandledScreen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.screen.ScreenHandler
 import net.minecraft.text.Text
-import net.minecraft.util.*
+import net.minecraft.util.Identifier
 
 /**
  * A container [Screen] displaying the GUI.<br></br>
