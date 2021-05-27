@@ -25,7 +25,8 @@ enum class MythicalToolMaterials(
         MythicalItems.GREEN_INGOT
     );
 
-    private val repairIngredient: Ingredient
+    private val repairIngredient: Ingredient = Ingredient.ofItems(repairIngredient)
+
     override fun getDurability(): Int {
         return durability
     }
@@ -50,7 +51,4 @@ enum class MythicalToolMaterials(
         return repairIngredient
     }
 
-    init {
-        this.repairIngredient = Ingredient.ofItems(repairIngredient)
-    }
 }

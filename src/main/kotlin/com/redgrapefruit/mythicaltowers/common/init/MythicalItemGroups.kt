@@ -10,30 +10,23 @@ import net.minecraft.item.Items
 /**
  * Stores and registers mod's [ItemGroup]s
  */
+@Suppress("MemberVisibilityCanBePrivate")
 object MythicalItemGroups {
     // Items
-    @JvmField
     var ORBS: ItemGroup? = null
-
-    @JvmField
     var AMULETS: ItemGroup? = null
     var SUPERFOOD: ItemGroup? = null
     var SHIELDS: ItemGroup? = null
-
-    @JvmField
     var TOOLS: ItemGroup? = null
-
-    @JvmField
     var WEAPONS: ItemGroup? = null
     var ARMOR: ItemGroup? = null
-
-    @JvmField
     var INGOTS: ItemGroup? = null
 
     // Blocks
     var BUILDING: ItemGroup? = null
     var TRAPS: ItemGroup? = null
     var UTILITY: ItemGroup? = null
+
     fun init() {
         // TODO: Replace placeholder icons (beds) with actual mod items once these items are in place
         ORBS = register("orbs", Items.GREEN_BED)

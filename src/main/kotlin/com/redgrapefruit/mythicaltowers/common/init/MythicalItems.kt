@@ -23,6 +23,7 @@ import net.minecraft.util.registry.Registry
 /**
  * Stores and registers mod's items
  */
+@Suppress("MemberVisibilityCanBePrivate")
 object MythicalItems {
     // Orbs
     val GREEN_ORB = OrbItem(MythicalEffectConfigs.GREEN_ORB)
@@ -49,6 +50,7 @@ object MythicalItems {
     val GREEN_CHESTPLATE = ChestplateItem(MythicalArmorMaterials.GREEN, StatusEffects.ABSORPTION, 1)
     val GREEN_LEGGINGS = LeggingsItem(MythicalArmorMaterials.GREEN, StatusEffects.REGENERATION, 0)
     val GREEN_BOOTS = BootsItem(MythicalArmorMaterials.GREEN, StatusEffects.ABSORPTION, 0)
+
     fun init() {
         register(ItemNames.GREEN_ORB, GREEN_ORB)
         register(ItemNames.GREEN_AMULET, GREEN_AMULET)

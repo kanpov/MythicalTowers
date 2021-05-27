@@ -10,7 +10,7 @@ import java.util.*
  */
 object MythicalEffectConfigs {
     // Orbs
-    val GREEN_ORB = Arrays.asList(
+    val GREEN_ORB: List<EffectConfig> = listOf(
         EffectConfig.Builder()
             .statusEffect(StatusEffects.REGENERATION)
             .rangedDuration(300, 600)
@@ -26,7 +26,7 @@ object MythicalEffectConfigs {
     )
 
     // Tools
-    val GREEN_TOOLS = Arrays.asList(
+    val GREEN_TOOLS: List<EffectConfig> = listOf(
         EffectConfig.Builder()
             .statusEffect(StatusEffects.POISON)
             .rangedDuration(200, 400)

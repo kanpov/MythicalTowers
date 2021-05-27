@@ -36,11 +36,11 @@ object ItemStackUtility {
      *
      * @param tag      The output [CompoundTag]
      * @param baseName The base name of the stack to differentiate since this isn't a packet, but a tag
-     * @param stack    Written [ItemStack]
+     * @param input    Written [ItemStack]
      */
     @JvmStatic
-    fun writeItemStack(tag: CompoundTag, baseName: String, stack: ItemStack?) {
-        var stack = stack
+    fun writeItemStack(tag: CompoundTag, baseName: String, input: ItemStack?) {
+        var stack = input
         if (stack == null) stack = ItemStack.EMPTY
 
         // Check if the stack is empty and write it

@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.util.collection.DefaultedList
 
 /**
- * A simple `Inventory` implementation with only default methods + an item list getter.<br></br>
+ * A simple [Inventory] implementation with only default methods + an item list getter.<br></br>
  * Originally by Juuz.<br></br><br></br>
  * Used by RedCore.Util library bundled with this mod.
  */
@@ -74,8 +74,8 @@ interface ImplementedInventory : Inventory {
     /**
      * Replaces the current stack in an inventory slot with the provided stack.
      *
-     * @param slot  The inventory slot of which to replace the itemstack.
-     * @param stack The replacing itemstack. If the stack is too big for
+     * @param slot  The inventory slot of which to replace the [ItemStack].
+     * @param stack The replacing [ItemStack]. If the stack is too big for
      * this inventory ([Inventory.getMaxCountPerStack]),
      * it gets resized to this inventory's maximum amount.
      */
