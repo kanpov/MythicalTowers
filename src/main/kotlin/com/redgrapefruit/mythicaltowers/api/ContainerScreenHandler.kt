@@ -5,6 +5,7 @@ import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.inventory.Inventory
 import net.minecraft.item.ItemStack
 import net.minecraft.screen.ScreenHandler
+import net.minecraft.screen.ScreenHandlerListener
 import net.minecraft.screen.ScreenHandlerType
 import net.minecraft.screen.slot.Slot
 
@@ -21,7 +22,7 @@ abstract class ContainerScreenHandler protected constructor(
     type: ScreenHandlerType<*>?
 ) : ScreenHandler(type, syncId) {
     // Embedded inventory
-    protected val inventory: Inventory
+    private val inventory: Inventory
 
     /**
      * An event reserved for putting slots on the screen handler

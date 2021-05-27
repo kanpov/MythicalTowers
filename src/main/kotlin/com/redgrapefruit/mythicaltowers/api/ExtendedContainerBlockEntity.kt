@@ -12,7 +12,7 @@ import net.minecraft.util.Tickable
  */
 abstract class ExtendedContainerBlockEntity protected constructor(type: BlockEntityType<*>?) :
     ContainerBlockEntity(type), Tickable {
-    protected var propertyDelegate: PropertyDelegate
+    private var propertyDelegate: PropertyDelegate
 
     /**
      * Constructs the [PropertyDelegate]

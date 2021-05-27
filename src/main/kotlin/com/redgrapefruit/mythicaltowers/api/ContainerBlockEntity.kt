@@ -21,7 +21,7 @@ import net.minecraft.util.collection.DefaultedList
 abstract class ContainerBlockEntity protected constructor(type: BlockEntityType<*>?) : BlockEntity(type),
     ImplementedInventory, NamedScreenHandlerFactory {
     // Embedded inventory represented through a DefaultedList
-    protected val inventory = DefaultedList.ofSize(containerSize, ItemStack.EMPTY)
+    private val inventory = DefaultedList.ofSize(containerSize, ItemStack.EMPTY)
 
     protected abstract val containerSize: Int
 

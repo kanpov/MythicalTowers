@@ -9,6 +9,7 @@ import net.minecraft.screen.ScreenHandler
 import net.minecraft.state.StateManager
 import net.minecraft.state.property.DirectionProperty
 import net.minecraft.state.property.Properties
+import net.minecraft.client.gui.screen.Screen
 import net.minecraft.util.*
 import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.math.BlockPos
@@ -21,8 +22,9 @@ import net.minecraft.world.World
  * Also acts as a directional block.<br></br><br></br>
  * A part of RedCore.Container library bundled with this mod.
  */
+@Suppress("DEPRECATION")
 abstract class ContainerBlock protected constructor(settings: Settings?) : BlockWithEntity(settings) {
-    protected var FACING // Facing property
+    private var facing // Facing property
             : DirectionProperty? = null
 
     /**
@@ -41,20 +43,20 @@ abstract class ContainerBlock protected constructor(settings: Settings?) : Block
      */
     protected abstract fun castToInventory(blockEntity: BlockEntity?): Inventory?
     override fun appendProperties(builder: StateManager.Builder<Block, BlockState>) {
-        FACING = Properties.HORIZONTAL_FACING
-        builder.add(FACING)
+        facing = Properties.HORIZONTAL_FACING
+        builder.add(facing)
     }
 
     override fun rotate(state: BlockState, rotation: BlockRotation): BlockState {
-        return state.with(FACING, rotation.rotate(state.get(FACING)))
+        return state.with(facing, rotation.rotate(state.get(facing)))
     }
 
     override fun mirror(state: BlockState, mirror: BlockMirror): BlockState {
-        return state.rotate(mirror.getRotation(state.get(FACING)))
+        return state.rotate(mirror.getRotation(state.get(facing)))
     }
 
     override fun getPlacementState(context: ItemPlacementContext): BlockState? {
-        return defaultState.with(FACING, context.playerFacing.opposite)
+        return defaultState.with(facing, context.playerFacing.opposite)
     }
 
     override fun getRenderType(state: BlockState): BlockRenderType {
@@ -107,7 +109,7 @@ abstract class ContainerBlock protected constructor(settings: Settings?) : Block
         // Defaults facing property
         defaultState =
             getStateManager().defaultState.with(
-                FACING,
+                facing,
                 Direction.NORTH
             )
     }

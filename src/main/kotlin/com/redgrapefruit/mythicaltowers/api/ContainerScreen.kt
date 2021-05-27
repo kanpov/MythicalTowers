@@ -2,6 +2,7 @@ package com.redgrapefruit.mythicaltowers.api
 
 import com.mojang.blaze3d.systems.RenderSystem
 import net.minecraft.client.gui.screen.ingame.HandledScreen
+import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.screen.ScreenHandler
@@ -13,6 +14,7 @@ import net.minecraft.util.*
  * Can be overridden using built-in events to add custom GUI elements using vanilla [Screen] and [HandledScreen] features.<br></br><br></br>
  * A part of RedCore.Container library bundled with this mod.
  */
+@Suppress("DEPRECATION")
 abstract class ContainerScreen protected constructor(
     handler: ScreenHandler?,
     inventory: PlayerInventory?,

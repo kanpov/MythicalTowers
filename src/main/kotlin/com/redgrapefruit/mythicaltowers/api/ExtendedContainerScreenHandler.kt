@@ -13,7 +13,7 @@ abstract class ExtendedContainerScreenHandler protected constructor(
     syncId: Int,
     playerInventory: PlayerInventory,
     inventory: Inventory,
-    var propertyDelegate: PropertyDelegate,
+    propertyDelegate: PropertyDelegate,
     size: Int,
     type: ScreenHandlerType<*>?
 ) : ContainerScreenHandler(syncId, playerInventory, inventory, size, type) {
