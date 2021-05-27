@@ -49,4 +49,6 @@ abstract class ContainerBlockEntity protected constructor(type: BlockEntityType<
         Inventories.toTag(tag, inventory)
         return tag
     }
+
+    override fun markDirty() {}
 }
