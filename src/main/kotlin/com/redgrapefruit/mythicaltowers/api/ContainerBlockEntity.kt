@@ -23,13 +23,15 @@ abstract class ContainerBlockEntity protected constructor(type: BlockEntityType<
     // Embedded inventory represented through a DefaultedList
     protected val inventory = DefaultedList.ofSize(containerSize, ItemStack.EMPTY)
 
+    protected abstract val containerSize: Int
+
     /**
      * Returns the size of the container
      *
      * @return Container size
      */
-    protected abstract val containerSize: Int
-    override fun getItems(): DefaultedList<ItemStack> {
+    // TODO: Conversion failed. Will solve later
+    internal fun getItems(): DefaultedList<ItemStack> {
         return inventory
     }
 
