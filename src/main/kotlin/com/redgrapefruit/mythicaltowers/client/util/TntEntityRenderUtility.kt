@@ -16,7 +16,6 @@ object TntEntityRenderUtility {
     fun render(
         tntBlock: Block,
         tntEntity: TntEntity,
-        f: Float,
         g: Float,
         matrixStack: MatrixStack,
         vertexConsumerProvider: VertexConsumerProvider?,
@@ -25,6 +24,7 @@ object TntEntityRenderUtility {
         // I have no idea what's happening here tbh.
         matrixStack.push()
         matrixStack.translate(0.0, 0.5, 0.0)
+
         if (tntEntity.fuseTimer.toFloat() - g + 1.0f < 10.0f) {
             var h = 1.0f - (tntEntity.fuseTimer.toFloat() - g + 1.0f) / 10.0f
             h = MathHelper.clamp(h, 0.0f, 1.0f)
@@ -33,9 +33,11 @@ object TntEntityRenderUtility {
             val j = 1.0f + h * 0.3f
             matrixStack.scale(j, j, j)
         }
+
         matrixStack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(-90.0f))
         matrixStack.translate(-0.5, -0.5, 0.5)
         matrixStack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(90.0f))
+
         TntMinecartEntityRenderer.renderFlashingBlock(
             tntBlock.defaultState,
             matrixStack,
@@ -43,6 +45,7 @@ object TntEntityRenderUtility {
             i,
             tntEntity.fuseTimer / 5 % 2 == 0
         )
+
         matrixStack.pop()
     }
 }
