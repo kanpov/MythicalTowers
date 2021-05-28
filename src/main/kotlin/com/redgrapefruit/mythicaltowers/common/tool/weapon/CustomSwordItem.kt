@@ -21,6 +21,7 @@ open class CustomSwordItem(
      */
     private val configs: List<EffectConfig>, material: ToolMaterial?, attackDamage: Int, attackSpeed: Float
 ) : SwordItem(material, attackDamage, attackSpeed, Settings().group(MythicalItemGroups.WEAPONS)) {
+
     override fun postHit(stack: ItemStack, target: LivingEntity, attacker: LivingEntity): Boolean {
         super.postHit(stack, target, attacker)
         onPostHit(configs, target, attacker)

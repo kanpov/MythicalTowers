@@ -21,6 +21,7 @@ class CustomShovelItem(
      */
     private val configs: List<EffectConfig>, material: ToolMaterial?, attackDamage: Int, attackSpeed: Float
 ) : ShovelItem(material, attackDamage.toFloat(), attackSpeed, Settings().group(MythicalItemGroups.TOOLS)) {
+
     override fun postHit(stack: ItemStack, target: LivingEntity, attacker: LivingEntity): Boolean {
         super.postHit(stack, target, attacker)
         onPostHit(configs, target, attacker)

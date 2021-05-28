@@ -21,6 +21,7 @@ class CustomPickaxeItem(
      */
     private val configs: List<EffectConfig>, material: ToolMaterial?, attackDamage: Int, attackSpeed: Float
 ) : PickaxeItem(material, attackDamage, attackSpeed, Settings().group(MythicalItemGroups.TOOLS)) {
+
     override fun postHit(stack: ItemStack, target: LivingEntity, attacker: LivingEntity): Boolean {
         super.postHit(stack, target, attacker)
         onPostHit(configs, target, attacker)

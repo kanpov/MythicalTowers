@@ -16,7 +16,7 @@ interface ImplementedInventory : Inventory {
      * Retrieves the item list of this inventory.<br></br>
      * Must return the same instance every time it's called.
      */
-    val items: DefaultedList<ItemStack?>
+    val items: DefaultedList<ItemStack>
 
     /**
      * Returns the inventory size.

@@ -17,8 +17,6 @@ class MythicalTowers : ModInitializer {
     }
 
     companion object {
-        private const val MOD_ID = "mythicaltowers"
-
         val RANDOM = Random()
 
         /**
@@ -28,7 +26,7 @@ class MythicalTowers : ModInitializer {
          * @return Generated [Identifier]
          */
         fun idOf(name: String): Identifier {
-            return Identifier(MOD_ID, name)
+            return Identifier("mythicaltowers", name)
         }
     }
 }

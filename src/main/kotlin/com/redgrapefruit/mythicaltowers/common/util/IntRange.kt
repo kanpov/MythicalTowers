@@ -5,7 +5,15 @@ import com.redgrapefruit.mythicaltowers.common.MythicalTowers
 /**
  * A range of integers to randomly pick from
  */
-class IntRange(private val min: Int, private val max: Int) {
+class IntRange(
+    /**
+     * Minimum value of the resulting int
+     */
+    private val min: Int,
+    /**
+     * Maximum value of the resulting int
+     */
+    private val max: Int) {
     /**
      * Picks a random number from this range
      *
