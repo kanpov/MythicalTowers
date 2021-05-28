@@ -10,13 +10,7 @@ import net.minecraft.item.ArmorMaterial
  * Custom boots with special effects when put on
  */
 class BootsItem(
-    material: ArmorMaterial?,
-    /**
-     * The [StatusEffect] applied when put on
-     */
+    material: ArmorMaterial,
     val effect: StatusEffect,
-    /**
-     * The amplifier of the effect
-     */
     val amplifier: Int
 ) : ArmorItem(material, EquipmentSlot.FEET, Settings().group(MythicalItemGroups.ARMOR))

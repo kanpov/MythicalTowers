@@ -10,13 +10,7 @@ import net.minecraft.item.ArmorMaterial
  * Custom leggings with special effects when put on
  */
 class LeggingsItem(
-    material: ArmorMaterial?,
-    /**
-     * The [StatusEffect] applied when put on
-     */
+    material: ArmorMaterial,
     val effect: StatusEffect,
-    /**
-     * The amplifier of the effect
-     */
     val amplifier: Int
 ) : ArmorItem(material, EquipmentSlot.LEGS, Settings().group(MythicalItemGroups.ARMOR))

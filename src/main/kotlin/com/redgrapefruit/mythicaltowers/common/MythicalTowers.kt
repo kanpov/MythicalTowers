@@ -19,7 +19,6 @@ class MythicalTowers : ModInitializer {
     companion object {
         private const val MOD_ID = "mythicaltowers"
 
-        @JvmField
         val RANDOM = Random()
 
         /**
@@ -28,7 +27,6 @@ class MythicalTowers : ModInitializer {
          * @param name Name
          * @return Generated [Identifier]
          */
-        @JvmStatic
         fun idOf(name: String): Identifier {
             return Identifier(MOD_ID, name)
         }
