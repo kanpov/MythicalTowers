@@ -1,5 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.init
 
+import com.redgrapefruit.mythicaltowers.common.init.names.ArmorNames
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.item.ArmorMaterial
 import net.minecraft.item.Item
@@ -16,7 +17,8 @@ enum class MythicalArmorMaterials(
     private val protectionValues: IntArray,
     private val enchantability: Int,
     private val equipSound: SoundEvent,
-    repairIngredient: Item?,
+    repairIngredient: Item,
+    private val armorName: String,
     private val toughness: Float,
     private val knockbackResistance: Float
 ) : ArmorMaterial {
@@ -26,6 +28,7 @@ enum class MythicalArmorMaterials(
         17,
         SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
         MythicalItems.GREEN_INGOT,
+        ArmorNames.GREEN_ARMOR,
         4.0f,
         0.2f
     );
@@ -53,7 +56,7 @@ enum class MythicalArmorMaterials(
     }
 
     override fun getName(): String {
-        return name
+        return armorName
     }
 
     override fun getToughness(): Float {
