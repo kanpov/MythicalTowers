@@ -11,14 +11,10 @@ import net.minecraft.world.BlockView
 import net.minecraft.world.World
 import kotlin.math.abs
 
-class JumpPadBlock(lbm: Double, sbm: Double) : Block(FabricBlockSettings.copyOf(Blocks.SLIME_BLOCK)) {
-    private var livingBoostMultiplier: Double = 1.0
-    private var standardBoostMultiplier: Double = 0.8
-    
-    init {
-        this.livingBoostMultiplier = sbm
-        this.standardBoostMultiplier = lbm
-    }
+class JumpPadBlock(
+    private val livingBoostMultiplier: Double,
+    private val standardBoostMultiplier: Double
+) : Block(FabricBlockSettings.copyOf(Blocks.SLIME_BLOCK)) {
 
     override fun onLandedUpon(world: World, pos: BlockPos, entity: Entity, distance: Float) {
         // Do standard damage if the entity bypasses landing effects, else suppress the damage

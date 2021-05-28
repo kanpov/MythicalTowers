@@ -32,21 +32,24 @@ import net.minecraft.world.explosion.Explosion
  */
 abstract class DisappearingTntBlock<TEntity> :
     Block(FabricBlockSettings.copyOf(Blocks.TNT)) where TEntity : DisappearingTntEntity {
+
+    // region Properties, constructor and abstract
+
     /**
      * The blockstate unstable property. If true, the TNT can be lit up
      */
-    private var unstableProperty: BooleanProperty? = null
+    private lateinit var unstableProperty: BooleanProperty
 
     init {
         // Setup properties
         defaultState = defaultState.with(unstableProperty, false)
     }
 
-    // Child functionality
-
     abstract fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): TEntity
 
-    // Events
+    // endregion
+
+    // region Implementation
 
     override fun onBlockAdded(
         state: BlockState,
@@ -105,7 +108,7 @@ abstract class DisappearingTntBlock<TEntity> :
     ): ActionResult {
         if (world.isClient) return ActionResult.SUCCESS
 
-        val stack: ItemStack = player.getStackInHand(hand)
+        val stack = player.getStackInHand(hand)
         val item = stack.item
         return if (item !== Items.FLINT_AND_STEEL && item !== Items.FIRE_CHARGE) {
             super.onUse(state, world, pos, player, hand, hit)
@@ -145,20 +148,22 @@ abstract class DisappearingTntBlock<TEntity> :
     override fun shouldDropItemsOnExplosion(explosion: Explosion): Boolean = false
 
     override fun appendProperties(builder: StateManager.Builder<Block, BlockState>) {
-        // For some reason unstableProperty is null when this method is called. Anti-crash
         unstableProperty = BooleanProperty.of("unstable")
 
         builder.add(unstableProperty)
     }
 
-    // Prime methods
+    // endregion
+
+    // region Priming TNT
+
     private fun primeTnt(world: World, pos: BlockPos) = primeTnt(world, pos, null)
 
     private fun primeTnt(world: World, pos: BlockPos, igniter: LivingEntity?) {
         if (world.isClient) return
 
         // Create the entity and spawn it
-        val entity: TEntity = createEntity(world, pos.x + 0.5, pos.y.toDouble(), pos.z + 0.5, igniter)
+        val entity = createEntity(world, pos.x + 0.5, pos.y.toDouble(), pos.z + 0.5, igniter)
         world.spawnEntity(entity)
         // Play the vanilla prime sound
         world.playSound(
@@ -172,4 +177,6 @@ abstract class DisappearingTntBlock<TEntity> :
             1.0F
         )
     }
+
+    // endregion
 }
