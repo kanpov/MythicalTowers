@@ -29,8 +29,10 @@ object EffectEngine {
             // Get ranged amplifier, else use set amplifier
             val amplifier = if (config.amplifierRange != null) config.amplifierRange.pick() else config.amplifier
 
+            val chance = if (config.isAlwaysApplied) 100 else config.chance
+
             // Pick a number and see if it fits in the chance, then apply the effect
-            if (MythicalTowers.RANDOM.nextInt(100) <= config.chance) {
+            if (MythicalTowers.RANDOM.nextInt(100) <= chance) {
                 user.applyStatusEffect(
                     StatusEffectInstance(
                         config.statusEffect,
@@ -101,7 +103,8 @@ object EffectEngine {
      * @return True if you're lucky
      */
     private fun checkChance(config: EffectConfig): Boolean {
-        return MythicalTowers.RANDOM.nextInt(100) <= config.chance
+        val chance = if (config.isAlwaysApplied) 100 else config.chance
+        return MythicalTowers.RANDOM.nextInt(100) <= chance
     }
 
     /**
