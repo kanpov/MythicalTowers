@@ -14,30 +14,27 @@ import net.minecraft.text.TranslatableText
 import net.minecraft.util.collection.DefaultedList
 
 /**
- * A container [BlockEntity] storing, serializing & deserializing an embedded inventory.<br></br>
- * Also manages the creation of connected [ScreenHandler].<br></br><br></br>
- * A part of RedCore.Container library bundled with this mod.
+ * A container [BlockEntity] storing, serializing & deserializing an embedded inventory.
+ *
+ * Also manages the creation the of connected [ScreenHandler].
  */
 abstract class ContainerBlockEntity protected constructor(type: BlockEntityType<*>?) : BlockEntity(type),
     ImplementedInventory, NamedScreenHandlerFactory {
+
+    // region Properties & Overrides
+
     // Embedded inventory represented through a DefaultedList
     private val inventory = DefaultedList.ofSize(containerSize, ItemStack.EMPTY)
 
     protected abstract val containerSize: Int
 
-    /**
-     * Returns the size of the container
-     *
-     * @return Container size
-     */
-    // TODO: Conversion failed. Will solve later
-    internal fun getItems(): DefaultedList<ItemStack> {
-        return inventory
-    }
+    override fun getDisplayName(): Text = TranslatableText(cachedState.block.translationKey)
 
-    override fun getDisplayName(): Text {
-        return TranslatableText(cachedState.block.translationKey)
-    }
+    override fun markDirty() {}
+
+    // endregion
+
+    // region Serialization
 
     override fun fromTag(state: BlockState, tag: CompoundTag) {
         // Deserialization method
@@ -52,5 +49,5 @@ abstract class ContainerBlockEntity protected constructor(type: BlockEntityType<
         return tag
     }
 
-    override fun markDirty() {}
+    // endregion
 }
