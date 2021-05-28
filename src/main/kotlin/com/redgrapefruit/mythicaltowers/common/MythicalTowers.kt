@@ -29,7 +29,7 @@ class MythicalTowers : ModInitializer {
          * @return Generated [Identifier]
          */
         @JvmStatic
-        fun idOf(name: String?): Identifier {
+        fun idOf(name: String): Identifier {
             return Identifier(MOD_ID, name)
         }
     }

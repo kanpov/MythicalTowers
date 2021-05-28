@@ -74,7 +74,7 @@ object MythicalItems {
      * @param name Item name
      * @param item Item instance
      */
-    private fun register(name: String?, item: Item) {
+    private fun register(name: String, item: Item) {
         Registry.register(Registry.ITEM, idOf(name), item)
     }
 }

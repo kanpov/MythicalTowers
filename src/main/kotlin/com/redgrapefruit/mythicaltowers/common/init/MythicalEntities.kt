@@ -16,7 +16,7 @@ import net.minecraft.world.World
  */
 object MythicalEntities {
     val GREEN_TNT: EntityType<GreenTntEntity> = FabricEntityTypeBuilder
-        .create(SpawnGroup.MISC) { type: EntityType<GreenTntEntity>, world: World -> GreenTntEntity(type, world)}
+        .create(SpawnGroup.MISC) { type: EntityType<GreenTntEntity>, world: World -> GreenTntEntity(type, world) }
         .fireImmune()
         .dimensions(EntityDimensions.fixed(0.98F, 0.98F))
         .trackRangeBlocks(10)
