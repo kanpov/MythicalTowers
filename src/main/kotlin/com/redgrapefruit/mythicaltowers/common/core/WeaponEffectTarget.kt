@@ -14,5 +14,10 @@ enum class WeaponEffectTarget {
     /**
      * The attacker of the attack OR the miner
      */
-    ATTACKER
+    ATTACKER,
+
+    /**
+     * Placeholder value
+     */
+    NONE
 }

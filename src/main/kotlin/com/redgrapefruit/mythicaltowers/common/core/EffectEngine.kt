@@ -24,19 +24,13 @@ object EffectEngine {
         // Iterate through each config
         for (config in configs) {
             // Get ranged duration, else use set/permanent duration
-            val duration = config.durationRange
-                .map { obj: IntRange? -> obj!!.pick() }
-                .orElseGet { config.duration }
+            val duration = if (config.durationRange != null) config.durationRange.pick() else config.duration
 
             // Get ranged amplifier, else use set amplifier
-            val amplifier = config.amplifierRange
-                .map { obj: IntRange? -> obj!!.pick() }
-                .orElseGet { config.amplifier }
+            val amplifier = if (config.amplifierRange != null) config.amplifierRange.pick() else config.amplifier
 
-            // Get chance, else use 100 (always applied)
-            val chance = config.chance ?: 100
             // Pick a number and see if it fits in the chance, then apply the effect
-            if (MythicalTowers.RANDOM.nextInt(100) <= chance) {
+            if (MythicalTowers.RANDOM.nextInt(100) <= config.chance) {
                 user.applyStatusEffect(
                     StatusEffectInstance(
                         config.statusEffect,
@@ -107,8 +101,7 @@ object EffectEngine {
      * @return True if you're lucky
      */
     private fun checkChance(config: EffectConfig): Boolean {
-        val chance = config.chance ?: 100
-        return MythicalTowers.RANDOM.nextInt(100) <= chance
+        return MythicalTowers.RANDOM.nextInt(100) <= config.chance
     }
 
     /**
@@ -120,12 +113,8 @@ object EffectEngine {
     private fun createStandardStatusEffectInstance(config: EffectConfig): StatusEffectInstance {
         return StatusEffectInstance(
             config.statusEffect,
-            config.durationRange
-                .map { obj: IntRange? -> obj!!.pick() }
-                .orElseGet { config.duration },
-            config.amplifierRange
-                .map { obj: IntRange? -> obj!!.pick() }
-                .orElseGet { config.amplifier }
+            if (config.durationRange != null) config.durationRange.pick() else config.duration,
+            if (config.amplifierRange != null) config.amplifierRange.pick() else config.amplifier
         )
     }
 
