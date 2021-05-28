@@ -22,7 +22,7 @@ import kotlin.math.sin
  * @param type The registered [EntityType]
  * @param world Nullable [World] instance
  */
-abstract class CustomTntEntity(type: EntityType<*>, world: World) : Entity(type, world) {
+abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity(type, world) {
     /**
      * Fuse state [TrackedData]
      */

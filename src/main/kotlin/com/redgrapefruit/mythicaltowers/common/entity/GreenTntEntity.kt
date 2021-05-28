@@ -8,7 +8,7 @@ import net.minecraft.world.World
 /**
  * The green TNT. Slightly more dangerous than usual, but the fuse timer is longer
  */
-class GreenTntEntity : CustomTntEntity {
+class GreenTntEntity : DisappearingTntEntity {
     constructor(type: EntityType<GreenTntEntity>, world: World) : super(type, world) {
         initFuse(90)
         explosionPower = 5.0f

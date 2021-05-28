@@ -1,7 +1,7 @@
 package com.redgrapefruit.mythicaltowers.common.block.trap
 
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers
-import com.redgrapefruit.mythicaltowers.common.entity.CustomTntEntity
+import com.redgrapefruit.mythicaltowers.common.entity.DisappearingTntEntity
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
@@ -30,8 +30,8 @@ import net.minecraft.world.explosion.Explosion
  *
  * The block is placed by the player/entity and turns into an entity once primed
  */
-abstract class CustomTntBlock<TEntity> :
-    Block(FabricBlockSettings.copyOf(Blocks.TNT)) where TEntity : CustomTntEntity {
+abstract class DisappearingTntBlock<TEntity> :
+    Block(FabricBlockSettings.copyOf(Blocks.TNT)) where TEntity : DisappearingTntEntity {
     /**
      * The blockstate unstable property. If true, the TNT can be lit up
      */
