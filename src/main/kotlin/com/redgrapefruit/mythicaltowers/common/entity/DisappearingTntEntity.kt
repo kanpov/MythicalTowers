@@ -23,6 +23,8 @@ import kotlin.math.sin
  * @param world Nullable [World] instance
  */
 abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity(type, world) {
+    // region Properties & constructor
+
     /**
      * Fuse state [TrackedData]
      */
@@ -71,7 +73,9 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
         causingEntity = igniter
     }
 
-    // Ticking
+    // endregion
+
+    // region Ticking
 
     override fun tick() {
         // Velocity management
@@ -105,7 +109,9 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
         }
     }
 
-    // (De)Serialization
+    // endregion
+
+    // region (De)Serialization
 
     override fun writeCustomDataToTag(tag: CompoundTag) {
         tag.putInt("Fuse", fuseValue)
@@ -117,7 +123,9 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
 
     override fun createSpawnPacket(): Packet<*> = EntitySpawnS2CPacket(this)
 
-    // Tracking
+    // endregion
+
+    // region Tracking
 
     override fun initDataTracker() {
         fuseTracker = DataTracker.registerData(javaClass, TrackedDataHandlerRegistry.INTEGER)
@@ -131,7 +139,9 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
         }
     }
 
-    // Misc
+    // endregion
+
+    // region Misc
 
     override fun canClimb(): Boolean = false
 
@@ -139,7 +149,9 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
 
     override fun getEyeHeight(pose: EntityPose, dimensions: EntityDimensions): Float = 0.15F
 
-    // Tools
+    // endregion
+
+    // region API
 
     fun getCausingEntity(): LivingEntity? = causingEntity
 
@@ -151,4 +163,6 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
         dataTracker.set(fuseTracker, fuse)
         fuseValue = fuse
     }
+
+    // endregion
 }
