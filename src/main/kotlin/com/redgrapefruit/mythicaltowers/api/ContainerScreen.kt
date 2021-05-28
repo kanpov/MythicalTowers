@@ -10,16 +10,18 @@ import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 
 /**
- * A container [Screen] displaying the GUI.<br></br>
- * Can be overridden using built-in events to add custom GUI elements using vanilla [Screen] and [HandledScreen] features.<br></br><br></br>
- * A part of RedCore.Container library bundled with this mod.
+ * A container [Screen] displaying the GUI.
+ *
+ * Can be overridden using built-in events to add custom GUI elements using vanilla [Screen] and [HandledScreen] features
  */
-@Suppress("DEPRECATION")
 abstract class ContainerScreen protected constructor(
-    handler: ScreenHandler?,
-    inventory: PlayerInventory?,
-    title: Text?
-) : HandledScreen<ScreenHandler?>(handler, inventory, title) {
+    handler: ScreenHandler,
+    inventory: PlayerInventory,
+    title: Text
+) : HandledScreen<ScreenHandler>(handler, inventory, title) {
+
+    // region Abstract properties & events
+
     private val texture = getTexture()
 
     /**
@@ -33,6 +35,11 @@ abstract class ContainerScreen protected constructor(
      * An event reserved for custom rendering and custom GUI elements
      */
     protected abstract fun onRender(matrices: MatrixStack?)
+
+    // endregion
+
+    // region Implementation
+
     override fun drawBackground(matrices: MatrixStack, delta: Float, mouseX: Int, mouseY: Int) {
         // Reset color
         RenderSystem.color4f(1.0f, 1.0f, 1.0f, 1.0f)
@@ -64,4 +71,6 @@ abstract class ContainerScreen protected constructor(
         // Center title
         titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2
     }
+
+    // endregion
 }

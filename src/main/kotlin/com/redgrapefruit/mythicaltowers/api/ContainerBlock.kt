@@ -25,7 +25,6 @@ import net.minecraft.world.World
  *
  * Also acts as a directional block.
  */
-@Suppress("DEPRECATION")
 abstract class ContainerBlock protected constructor(settings: Settings?) : BlockWithEntity(settings) {
     // region Properties & Constructor
 
