@@ -20,8 +20,7 @@ object EffectEngine {
      * @param user    The user [PlayerEntity]
      * @param hand    The [Hand] with the orb
      */
-    @JvmStatic
-    fun onOrbUsed(configs: List<EffectConfig>, user: PlayerEntity, hand: Hand?) {
+    fun onOrbUsed(configs: List<EffectConfig>, user: PlayerEntity, hand: Hand) {
         // Iterate through each config
         for (config in configs) {
             // Get ranged duration, else use set/permanent duration
@@ -35,7 +34,7 @@ object EffectEngine {
                 .orElseGet { config.amplifier }
 
             // Get chance, else use 100 (always applied)
-            val chance = if (config.chance == EffectConfig.UNDEFINED_VALUE) 100 else config.chance
+            val chance = config.chance ?: 100
             // Pick a number and see if it fits in the chance, then apply the effect
             if (MythicalTowers.RANDOM.nextInt(100) <= chance) {
                 user.applyStatusEffect(
@@ -59,7 +58,6 @@ object EffectEngine {
      * @param amplifier The effect's amplifier
      * @param entity    Holder [Entity]
      */
-    @JvmStatic
     fun onAmuletTicked(effect: StatusEffect, amplifier: Int, entity: Entity?) {
         // Amulet effects only apply to players
         if (entity !is PlayerEntity) return
@@ -76,11 +74,10 @@ object EffectEngine {
      * @param target   The target [LivingEntity]
      * @param attacker The attacker [LivingEntity]
      */
-    @JvmStatic
     fun onPostHit(configs: List<EffectConfig>, target: LivingEntity, attacker: LivingEntity) {
         for (config in configs) {
             if (checkChance(config)) {
-                if (config.weaponTarget == WeaponEffectTarget.TARGET) {
+                if (config.weaponEffectTarget == WeaponEffectTarget.TARGET) {
                     target.applyStatusEffect(createStandardStatusEffectInstance(config))
                 } else {
                     attacker.applyStatusEffect(createStandardStatusEffectInstance(config))
@@ -95,10 +92,9 @@ object EffectEngine {
      * @param configs The [EffectConfig]s linked to the tool or weapon
      * @param miner   The miner [LivingEntity]
      */
-    @JvmStatic
     fun onPostMine(configs: List<EffectConfig>, miner: LivingEntity) {
         for (config in configs) {
-            if (checkChance(config) && config.weaponTarget == WeaponEffectTarget.ATTACKER) {
+            if (checkChance(config) && config.weaponEffectTarget == WeaponEffectTarget.ATTACKER) {
                 miner.applyStatusEffect(createStandardStatusEffectInstance(config))
             }
         }
@@ -111,7 +107,7 @@ object EffectEngine {
      * @return True if you're lucky
      */
     private fun checkChance(config: EffectConfig): Boolean {
-        val chance = if (config.chance == EffectConfig.UNDEFINED_VALUE) 100 else config.chance
+        val chance = config.chance ?: 100
         return MythicalTowers.RANDOM.nextInt(100) <= chance
     }
 
