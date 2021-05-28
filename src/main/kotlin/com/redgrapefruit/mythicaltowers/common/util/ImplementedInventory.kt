@@ -21,9 +21,7 @@ interface ImplementedInventory : Inventory {
     /**
      * Returns the inventory size.
      */
-    override fun size(): Int {
-        return items.size
-    }
+    override fun size(): Int = items.size
 
     /**
      * Checks if the inventory is empty.<br></br>
@@ -43,9 +41,7 @@ interface ImplementedInventory : Inventory {
     /**
      * Retrieves the item in the slot.
      */
-    override fun getStack(slot: Int): ItemStack {
-        return items[slot]
-    }
+    override fun getStack(slot: Int): ItemStack = items[slot]
 
     /**
      * Removes items from an inventory slot.
@@ -67,9 +63,7 @@ interface ImplementedInventory : Inventory {
      *
      * @param slot The slot to remove from.
      */
-    override fun removeStack(slot: Int): ItemStack {
-        return Inventories.removeStack(items, slot)
-    }
+    override fun removeStack(slot: Int): ItemStack = Inventories.removeStack(items, slot)
 
     /**
      * Replaces the current stack in an inventory slot with the provided stack.
@@ -89,9 +83,7 @@ interface ImplementedInventory : Inventory {
     /**
      * Clears the inventory.
      */
-    override fun clear() {
-        items.clear()
-    }
+    override fun clear() = items.clear()
 
     /**
      * Marks the state as dirty.<br></br>
@@ -107,24 +99,5 @@ interface ImplementedInventory : Inventory {
      *
      * @return True/false
      */
-    override fun canPlayerUse(player: PlayerEntity): Boolean {
-        return true
-    }
-
-    companion object {
-        /**
-         * Creates an inventory from the item list.
-         */
-        fun of(items: DefaultedList<ItemStack?>?): ImplementedInventory? {
-            // TODO: conversion here failed. Will solve later
-            return null
-        }
-
-        /**
-         * Creates a new inventory with the specified size.
-         */
-        fun ofSize(size: Int): ImplementedInventory? {
-            return of(DefaultedList.ofSize(size, ItemStack.EMPTY))
-        }
-    }
+    override fun canPlayerUse(player: PlayerEntity): Boolean = true
 }
