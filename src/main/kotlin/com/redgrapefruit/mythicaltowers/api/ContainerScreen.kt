@@ -34,7 +34,7 @@ abstract class ContainerScreen protected constructor(
     /**
      * An event reserved for custom rendering and custom GUI elements
      */
-    protected abstract fun onRender(matrices: MatrixStack?)
+    protected abstract fun onRender(matrices: MatrixStack)
 
     // endregion
 
@@ -44,12 +44,7 @@ abstract class ContainerScreen protected constructor(
         // Reset color
         RenderSystem.color4f(1.0f, 1.0f, 1.0f, 1.0f)
         // Bind texture
-        if (client != null) {
-            client!!.textureManager.bindTexture(texture)
-        } else {
-            // Removed temporarily until logging is implemented
-            //Logging.error("Couldn't bind texture; MinecraftClient instance is null");
-        }
+        client!!.textureManager.bindTexture(texture)
         // Calculate center position
         val x = (width - backgroundWidth) / 2
         val y = (height - backgroundHeight) / 2

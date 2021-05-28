@@ -10,19 +10,41 @@ import net.minecraft.screen.ScreenHandlerType
 import net.minecraft.screen.slot.Slot
 
 /**
- * A container [ScreenHandler] managing slots and [ScreenHandlerListener]s.<br></br>
- * Also provides a few useful API methods for creating slots.<br></br><br></br>
- * A part of RedCore.Container library bundled with this mod.
+ * A container [ScreenHandler] managing slots and [ScreenHandlerListener]s.
+ *
+ * Also provides a few useful API methods for creating slots
  */
 abstract class ContainerScreenHandler protected constructor(
     syncId: Int,
     playerInventory: PlayerInventory,
     inventory: Inventory,
     size: Int,
-    type: ScreenHandlerType<*>?
+    type: ScreenHandlerType<*>
 ) : ScreenHandler(type, syncId) {
+
+    // region Properties & constructor
+
     // Embedded inventory
-    private val inventory: Inventory
+    private var inventory: Inventory
+
+    /**
+     * Server-side screen handler constructor
+     */
+    init {
+
+        // Setup inventory
+        checkSize(inventory, size)
+        this.inventory = inventory
+        this.inventory.onOpen(playerInventory.player)
+
+        // Fire events
+        onSlotInit(inventory, playerInventory)
+        onListenerInit()
+    }
+
+    // endregion
+
+    // region Events
 
     /**
      * An event reserved for putting slots on the screen handler
@@ -36,6 +58,11 @@ abstract class ContainerScreenHandler protected constructor(
      * An event reserved for adding screen handler listeners onto the screen handler
      */
     protected abstract fun onListenerInit()
+
+    // endregion
+
+    // region Implementation
+
     override fun canUse(player: PlayerEntity): Boolean {
         return inventory.canPlayerUse(player)
     }
@@ -62,7 +89,11 @@ abstract class ContainerScreenHandler protected constructor(
         }
         return newStack
     }
-    // Useful API methods for creating slots because calculating pixels is very painful
+
+    // endregion
+
+    // region API
+
     /**
      * Places a slot according to the **exact** grid (see `textures/gui/container/dispenser`)
      *
@@ -99,24 +130,5 @@ abstract class ContainerScreenHandler protected constructor(
         }
     }
 
-    /**
-     * Server-side screen handler constructor
-     *
-     * @param syncId          Synchronization ID
-     * @param playerInventory Player's inventory
-     * @param inventory       Embedded inventory
-     * @param size            Container size
-     * @param type            Registered screen handler type. Unique for each instance
-     */
-    init {
-
-        // Setup inventory
-        checkSize(inventory, size)
-        this.inventory = inventory
-        this.inventory.onOpen(playerInventory.player)
-
-        // Fire events
-        onSlotInit(inventory, playerInventory)
-        onListenerInit()
-    }
+    // endregion
 }
