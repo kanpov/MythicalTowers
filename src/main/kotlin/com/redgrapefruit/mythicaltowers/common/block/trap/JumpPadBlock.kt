@@ -11,6 +11,9 @@ import net.minecraft.world.BlockView
 import net.minecraft.world.World
 import kotlin.math.abs
 
+/**
+ * A jump pad acts as a slime block
+ */
 class JumpPadBlock(
     private val livingBoostMultiplier: Double,
     private val standardBoostMultiplier: Double
