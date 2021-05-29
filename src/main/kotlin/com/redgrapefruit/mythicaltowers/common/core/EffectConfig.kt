@@ -1,7 +1,7 @@
 package com.redgrapefruit.mythicaltowers.common.core
 
-import net.minecraft.entity.effect.StatusEffect
 import com.redgrapefruit.mythicaltowers.common.util.IntRange
+import net.minecraft.entity.effect.StatusEffect
 
 /**
  * An effect config stores data about custom effects

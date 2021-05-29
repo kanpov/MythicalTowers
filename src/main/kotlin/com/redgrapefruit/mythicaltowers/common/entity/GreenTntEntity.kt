@@ -14,7 +14,13 @@ class GreenTntEntity : DisappearingTntEntity {
         explosionPower = 5.0f
     }
 
-    constructor(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?) : super(MythicalEntities.GREEN_TNT, world, x, y, z, igniter) {
+    constructor(
+        world: World,
+        x: Double,
+        y: Double,
+        z: Double,
+        igniter: LivingEntity?
+    ) : super(MythicalEntities.GREEN_TNT, world, x, y, z, igniter) {
         initFuse(90)
         explosionPower = 5.0f
     }

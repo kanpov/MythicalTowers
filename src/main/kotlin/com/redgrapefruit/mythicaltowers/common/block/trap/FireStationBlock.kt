@@ -12,7 +12,8 @@ import net.minecraft.world.World
 /**
  * Every time you step on a fire station, you'll be on fire
  */
-class FireStationBlock(private val type: BlockEntityType<*>) : Block(FabricBlockSettings.of(Material.STONE).hardness(2.0f)) {
+class FireStationBlock(private val type: BlockEntityType<*>) :
+    Block(FabricBlockSettings.of(Material.STONE).hardness(2.0f)) {
     override fun onSteppedOn(world: World, pos: BlockPos, entity: Entity) {
         super.onSteppedOn(world, pos, entity)
         // Replace the top block with fire

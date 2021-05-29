@@ -9,6 +9,7 @@ import net.minecraft.util.Identifier
 /**
  * An [EntityRenderer] which does absolutely nothing. Don't ask questions
  */
-class DummyEntityRenderer<TEntity>(dispatcher: EntityRenderDispatcher) : EntityRenderer<TEntity>(dispatcher) where TEntity : Entity  {
+class DummyEntityRenderer<TEntity>(dispatcher: EntityRenderDispatcher) :
+    EntityRenderer<TEntity>(dispatcher) where TEntity : Entity {
     override fun getTexture(entity: TEntity): Identifier = SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE
 }

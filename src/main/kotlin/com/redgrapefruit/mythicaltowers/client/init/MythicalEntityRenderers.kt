@@ -15,7 +15,11 @@ import net.minecraft.entity.EntityType
 object MythicalEntityRenderers {
     fun init() {
         register(MythicalEntities.GREEN_TNT)
-        { dispatcher: EntityRenderDispatcher, _: EntityRendererRegistry.Context -> DummyEntityRenderer<GreenTntEntity>(dispatcher) }
+        { dispatcher: EntityRenderDispatcher, _: EntityRendererRegistry.Context ->
+            DummyEntityRenderer<GreenTntEntity>(
+                dispatcher
+            )
+        }
     }
 
     /**
@@ -23,7 +27,10 @@ object MythicalEntityRenderers {
      * @param type The [EntityType] of the entity that the [EntityRenderer] belongs to
      * @param factory Lambda factory that instantiates the [EntityRenderer]
      */
-    private fun <TEntity> register(type: EntityType<TEntity>, factory: EntityRendererRegistry.Factory) where TEntity : Entity {
+    private fun <TEntity> register(
+        type: EntityType<TEntity>,
+        factory: EntityRendererRegistry.Factory
+    ) where TEntity : Entity {
         EntityRendererRegistry.INSTANCE.register(type, factory)
     }
 }

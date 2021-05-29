@@ -4,7 +4,6 @@ import com.redgrapefruit.mythicaltowers.common.core.EffectConfig
 import com.redgrapefruit.mythicaltowers.common.core.WeaponEffectTarget
 import com.redgrapefruit.mythicaltowers.common.util.IntRange
 import net.minecraft.entity.effect.StatusEffects
-import java.util.*
 
 /**
  * Stores the mod's lists of [EffectConfig]s

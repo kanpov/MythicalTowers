@@ -69,11 +69,14 @@ abstract class ContainerBlock protected constructor(settings: Settings?) : Block
         builder.add(facing)
     }
 
-    override fun rotate(state: BlockState, rotation: BlockRotation): BlockState = state.with(facing, rotation.rotate(state.get(facing)))
+    override fun rotate(state: BlockState, rotation: BlockRotation): BlockState =
+        state.with(facing, rotation.rotate(state.get(facing)))
 
-    override fun mirror(state: BlockState, mirror: BlockMirror): BlockState = state.rotate(mirror.getRotation(state.get(facing)))
+    override fun mirror(state: BlockState, mirror: BlockMirror): BlockState =
+        state.rotate(mirror.getRotation(state.get(facing)))
 
-    override fun getPlacementState(context: ItemPlacementContext): BlockState = defaultState.with(facing, context.playerFacing.opposite)
+    override fun getPlacementState(context: ItemPlacementContext): BlockState =
+        defaultState.with(facing, context.playerFacing.opposite)
 
     // endregion
 
@@ -118,7 +121,8 @@ abstract class ContainerBlock protected constructor(settings: Settings?) : Block
 
     override fun hasComparatorOutput(state: BlockState): Boolean = true
 
-    override fun getComparatorOutput(state: BlockState, world: World, pos: BlockPos): Int = ScreenHandler.calculateComparatorOutput(world.getBlockEntity(pos))
+    override fun getComparatorOutput(state: BlockState, world: World, pos: BlockPos): Int =
+        ScreenHandler.calculateComparatorOutput(world.getBlockEntity(pos))
 
     // BlockWithEntity resets BlockRenderType to INVISIBLE, so we set it back to MODEL
     override fun getRenderType(state: BlockState): BlockRenderType = BlockRenderType.MODEL

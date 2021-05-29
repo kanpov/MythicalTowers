@@ -7,7 +7,7 @@ import net.minecraft.world.World
 /**
  * Green TNT. Slightly more dangerous than usual, but the fuse time is longer
  */
-class GreenTntBlock() : DisappearingTntBlock<GreenTntEntity>() {
+class GreenTntBlock : DisappearingTntBlock<GreenTntEntity>() {
     override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): GreenTntEntity {
         return GreenTntEntity(world, x, y, z, igniter)
     }
