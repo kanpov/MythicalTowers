@@ -5,4 +5,6 @@ package com.redgrapefruit.mythicaltowers.common.init.names
  */
 object BlockNames {
     const val GREEN_TNT = "green_tnt"
+
+    const val GREEN_JUMP_PAD = "green_jump_pad"
 }
