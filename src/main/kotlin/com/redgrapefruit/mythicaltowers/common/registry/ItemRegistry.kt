@@ -26,6 +26,13 @@ import net.minecraft.util.registry.Registry
 object ItemRegistry {
     // Orbs
     val GREEN_ORB = OrbItem(EffectConfigRegistry.GREEN_ORB)
+    val YELLOW_ORB = OrbItem(EffectConfigRegistry.YELLOW_ORB)
+    val ORANGE_ORB = OrbItem(EffectConfigRegistry.ORANGE_ORB)
+    val RED_ORB = OrbItem(EffectConfigRegistry.RED_ORB)
+    val BLUE_ORB = OrbItem(EffectConfigRegistry.BLUE_ORB)
+    val PURPLE_ORB = OrbItem(EffectConfigRegistry.PURPLE_ORB)
+    val GRAY_ORB = OrbItem(EffectConfigRegistry.GRAY_ORB)
+    val BLACK_ORB = OrbItem(EffectConfigRegistry.BLACK_ORB)
 
     // Amulets
     val GREEN_AMULET = AmuletItem(StatusEffects.JUMP_BOOST, 1)
@@ -52,15 +59,27 @@ object ItemRegistry {
 
     fun init() {
         register("green_orb", GREEN_ORB)
+        register("yellow_orb", YELLOW_ORB)
+        register("orange_orb", ORANGE_ORB)
+        register("red_orb", RED_ORB)
+        register("blue_orb", BLUE_ORB)
+        register("purple_orb", PURPLE_ORB)
+        register("gray_orb", GRAY_ORB)
+        register("black_orb", BLACK_ORB)
+
         register("green_amulet", GREEN_AMULET)
+
         register("green_ingot", GREEN_INGOT)
+
         register("green_pickaxe", GREEN_PICKAXE)
         register("green_shovel", GREEN_SHOVEL)
         register("green_hoe", GREEN_HOE)
+
         register("green_sword", GREEN_SWORD)
         register("green_axe", GREEN_AXE)
         register("green_double_sword", GREEN_DOUBLE_SWORD)
         register("green_double_axe", GREEN_DOUBLE_AXE)
+
         register("green_helmet", GREEN_HELMET)
         register("green_chestplate", GREEN_CHESTPLATE)
         register("green_leggings", GREEN_LEGGINGS)

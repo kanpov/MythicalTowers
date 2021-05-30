@@ -28,7 +28,7 @@ data class EffectConfig(
      */
     val amplifier: Int = 0,
     /**
-     * Is the effect always applied
+     * Is the effect always applied. Transforms [chance] into 100
      */
     val isAlwaysApplied: Boolean = false,
     /**
