@@ -13,19 +13,19 @@ import net.minecraft.item.Items
 @Suppress("MemberVisibilityCanBePrivate")
 object ItemGroupRegistry {
     // Items
-    var ORBS: ItemGroup? = null
-    var AMULETS: ItemGroup? = null
-    var SUPERFOOD: ItemGroup? = null
-    var SHIELDS: ItemGroup? = null
-    var TOOLS: ItemGroup? = null
-    var WEAPONS: ItemGroup? = null
-    var ARMOR: ItemGroup? = null
-    var INGOTS: ItemGroup? = null
+    lateinit var ORBS: ItemGroup
+    lateinit var AMULETS: ItemGroup
+    lateinit var SUPERFOOD: ItemGroup
+    lateinit var SHIELDS: ItemGroup
+    lateinit var TOOLS: ItemGroup
+    lateinit var WEAPONS: ItemGroup
+    lateinit var ARMOR: ItemGroup
+    lateinit var INGOTS: ItemGroup
 
     // Blocks
-    var BUILDING: ItemGroup? = null
-    var TRAPS: ItemGroup? = null
-    var UTILITY: ItemGroup? = null
+    lateinit var BUILDING: ItemGroup
+    lateinit var TRAPS: ItemGroup
+    lateinit var UTILITY: ItemGroup
 
     fun init() {
         // TODO: Replace placeholder icons (beds) with actual mod items once these items are in place
