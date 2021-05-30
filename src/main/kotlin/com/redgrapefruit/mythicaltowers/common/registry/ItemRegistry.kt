@@ -46,6 +46,13 @@ object ItemRegistry {
 
     // Ingots
     val GREEN_INGOT = IngotItem()
+    val YELLOW_INGOT = IngotItem()
+    val ORANGE_INGOT = IngotItem()
+    val RED_INGOT = IngotItem()
+    val BLUE_INGOT = IngotItem()
+    val PURPLE_INGOT = IngotItem()
+    val GRAY_INGOT = IngotItem()
+    val BLACK_INGOT = IngotItem()
 
     // Tools
     val GREEN_PICKAXE = CustomPickaxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 2, -2.3f)
@@ -84,6 +91,13 @@ object ItemRegistry {
         register("black_amulet", BLACK_AMULET)
 
         register("green_ingot", GREEN_INGOT)
+        register("yellow_ingot", YELLOW_INGOT)
+        register("orange_ingot", ORANGE_INGOT)
+        register("red_ingot", RED_INGOT)
+        register("blue_ingot", BLUE_INGOT)
+        register("purple_ingot", PURPLE_INGOT)
+        register("gray_ingot", GRAY_INGOT)
+        register("black_ingot", BLACK_INGOT)
 
         register("green_pickaxe", GREEN_PICKAXE)
         register("green_shovel", GREEN_SHOVEL)
