@@ -1,6 +1,5 @@
 package com.redgrapefruit.mythicaltowers.common.registry
 
-import com.redgrapefruit.mythicaltowers.common.registry.names.ArmorNames
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.item.ArmorMaterial
 import net.minecraft.item.Item
@@ -28,7 +27,7 @@ enum class ArmorMaterialRegistry(
         17,
         SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
         ItemRegistry.GREEN_INGOT,
-        ArmorNames.GREEN_ARMOR,
+        "green",
         4.0f,
         0.2f
     );

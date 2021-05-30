@@ -2,7 +2,6 @@ package com.redgrapefruit.mythicaltowers.common.registry
 
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.common.entity.GreenTntEntity
-import com.redgrapefruit.mythicaltowers.common.registry.names.EntityNames
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityDimensions
@@ -24,7 +23,7 @@ object EntityRegistry {
         .build()
 
     fun init() {
-        register(EntityNames.GREEN_TNT, GREEN_TNT)
+        register("green_tnt", GREEN_TNT)
     }
 
     /**

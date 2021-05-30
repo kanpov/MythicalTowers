@@ -5,7 +5,6 @@ import com.redgrapefruit.mythicaltowers.common.armor.BootsItem
 import com.redgrapefruit.mythicaltowers.common.armor.ChestplateItem
 import com.redgrapefruit.mythicaltowers.common.armor.HelmetItem
 import com.redgrapefruit.mythicaltowers.common.armor.LeggingsItem
-import com.redgrapefruit.mythicaltowers.common.registry.names.ItemNames
 import com.redgrapefruit.mythicaltowers.common.item.AmuletItem
 import com.redgrapefruit.mythicaltowers.common.item.IngotItem
 import com.redgrapefruit.mythicaltowers.common.item.OrbItem
@@ -52,20 +51,20 @@ object ItemRegistry {
     val GREEN_BOOTS = BootsItem(ArmorMaterialRegistry.GREEN, StatusEffects.ABSORPTION, 0)
 
     fun init() {
-        register(ItemNames.GREEN_ORB, GREEN_ORB)
-        register(ItemNames.GREEN_AMULET, GREEN_AMULET)
-        register(ItemNames.GREEN_INGOT, GREEN_INGOT)
-        register(ItemNames.GREEN_PICKAXE, GREEN_PICKAXE)
-        register(ItemNames.GREEN_SHOVEL, GREEN_SHOVEL)
-        register(ItemNames.GREEN_HOE, GREEN_HOE)
-        register(ItemNames.GREEN_SWORD, GREEN_SWORD)
-        register(ItemNames.GREEN_AXE, GREEN_AXE)
-        register(ItemNames.GREEN_DOUBLE_SWORD, GREEN_DOUBLE_SWORD)
-        register(ItemNames.GREEN_DOUBLE_AXE, GREEN_DOUBLE_AXE)
-        register(ItemNames.GREEN_HELMET, GREEN_HELMET)
-        register(ItemNames.GREEN_CHESTPLATE, GREEN_CHESTPLATE)
-        register(ItemNames.GREEN_LEGGINGS, GREEN_LEGGINGS)
-        register(ItemNames.GREEN_BOOTS, GREEN_BOOTS)
+        register("green_orb", GREEN_ORB)
+        register("green_amulet", GREEN_AMULET)
+        register("green_ingot", GREEN_INGOT)
+        register("green_pickaxe", GREEN_PICKAXE)
+        register("green_shovel", GREEN_SHOVEL)
+        register("green_hoe", GREEN_HOE)
+        register("green_sword", GREEN_SWORD)
+        register("green_axe", GREEN_AXE)
+        register("green_double_sword", GREEN_DOUBLE_SWORD)
+        register("green_double_axe", GREEN_DOUBLE_AXE)
+        register("green_helmet", GREEN_HELMET)
+        register("green_chestplate", GREEN_CHESTPLATE)
+        register("green_leggings", GREEN_LEGGINGS)
+        register("green_boots", GREEN_BOOTS)
     }
 
     /**

@@ -3,7 +3,6 @@ package com.redgrapefruit.mythicaltowers.common.registry
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.common.block.trap.GreenTntBlock
 import com.redgrapefruit.mythicaltowers.common.block.trap.JumpPadBlock
-import com.redgrapefruit.mythicaltowers.common.registry.names.BlockNames
 import net.minecraft.block.Block
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
@@ -20,8 +19,8 @@ object BlockRegistry {
     val GREEN_JUMP_PAD = JumpPadBlock(1.5, 1.1)
 
     fun init() {
-        register(BlockNames.GREEN_TNT, GREEN_TNT, ItemGroupRegistry.TRAPS)
-        register(BlockNames.GREEN_JUMP_PAD, GREEN_JUMP_PAD, ItemGroupRegistry.TRAPS)
+        register("green_tnt", GREEN_TNT, ItemGroupRegistry.TRAPS)
+        register("green_jump_pad", GREEN_JUMP_PAD, ItemGroupRegistry.TRAPS)
     }
 
     /**
