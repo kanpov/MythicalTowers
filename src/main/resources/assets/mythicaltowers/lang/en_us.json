@@ -24,5 +24,6 @@
     "itemGroup.mythicaltowers.building": "Mythical Building",
     "itemGroup.mythicaltowers.traps": "Mythical Traps",
     "itemGroup.mythicaltowers.utility": "Mythical Utilities",
-    "block.mythicaltowers.green_jump_pad": "Green Jump Pad"
+    "block.mythicaltowers.green_jump_pad": "Green Jump Pad",
+    "block.mythicaltowers.green_fire_station": "Green Fire Station"
 }
