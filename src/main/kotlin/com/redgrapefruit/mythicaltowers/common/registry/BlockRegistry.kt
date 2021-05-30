@@ -13,15 +13,15 @@ import net.minecraft.util.registry.Registry
 /**
  * Stores and registers mod's blocks
  */
-object MythicalBlocks {
+object BlockRegistry {
     // Traps
     val GREEN_TNT = GreenTntBlock()
 
     val GREEN_JUMP_PAD = JumpPadBlock(1.5, 1.1)
 
     fun init() {
-        register(BlockNames.GREEN_TNT, GREEN_TNT, MythicalItemGroups.TRAPS)
-        register(BlockNames.GREEN_JUMP_PAD, GREEN_JUMP_PAD, MythicalItemGroups.TRAPS)
+        register(BlockNames.GREEN_TNT, GREEN_TNT, ItemGroupRegistry.TRAPS)
+        register(BlockNames.GREEN_JUMP_PAD, GREEN_JUMP_PAD, ItemGroupRegistry.TRAPS)
     }
 
     /**

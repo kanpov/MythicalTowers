@@ -8,7 +8,7 @@ import net.minecraft.entity.effect.StatusEffects
 /**
  * Stores the mod's lists of [EffectConfig]s
  */
-object MythicalEffectConfigs {
+object EffectConfigRegistry {
     // Orbs
     val GREEN_ORB: List<EffectConfig> = listOf(
         EffectConfig(

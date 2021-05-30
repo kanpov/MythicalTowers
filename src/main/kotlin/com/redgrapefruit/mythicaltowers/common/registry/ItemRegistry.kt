@@ -24,9 +24,9 @@ import net.minecraft.util.registry.Registry
  * Stores and registers mod's items
  */
 @Suppress("MemberVisibilityCanBePrivate")
-object MythicalItems {
+object ItemRegistry {
     // Orbs
-    val GREEN_ORB = OrbItem(MythicalEffectConfigs.GREEN_ORB)
+    val GREEN_ORB = OrbItem(EffectConfigRegistry.GREEN_ORB)
 
     // Amulets
     val GREEN_AMULET = AmuletItem(StatusEffects.JUMP_BOOST, 1)
@@ -35,21 +35,21 @@ object MythicalItems {
     val GREEN_INGOT = IngotItem()
 
     // Tools
-    val GREEN_PICKAXE = CustomPickaxeItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 2, -2.3f)
-    val GREEN_SHOVEL = CustomShovelItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 1, -1.5f)
-    val GREEN_HOE = CustomHoeItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 1, -1.25f)
+    val GREEN_PICKAXE = CustomPickaxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 2, -2.3f)
+    val GREEN_SHOVEL = CustomShovelItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 1, -1.5f)
+    val GREEN_HOE = CustomHoeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 1, -1.25f)
 
     // Weapons
-    val GREEN_SWORD = CustomSwordItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 3, -1.8f)
-    val GREEN_AXE = CustomAxeItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 5, -3.1f)
-    val GREEN_DOUBLE_SWORD = DoubleSwordItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 5, -1.4f)
-    val GREEN_DOUBLE_AXE = DoubleAxeItem(MythicalEffectConfigs.GREEN_TOOLS, MythicalToolMaterials.GREEN, 8, -3.7f)
+    val GREEN_SWORD = CustomSwordItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 3, -1.8f)
+    val GREEN_AXE = CustomAxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 5, -3.1f)
+    val GREEN_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 5, -1.4f)
+    val GREEN_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 8, -3.7f)
 
     // Armor
-    val GREEN_HELMET = HelmetItem(MythicalArmorMaterials.GREEN, StatusEffects.REGENERATION, 1)
-    val GREEN_CHESTPLATE = ChestplateItem(MythicalArmorMaterials.GREEN, StatusEffects.ABSORPTION, 1)
-    val GREEN_LEGGINGS = LeggingsItem(MythicalArmorMaterials.GREEN, StatusEffects.REGENERATION, 0)
-    val GREEN_BOOTS = BootsItem(MythicalArmorMaterials.GREEN, StatusEffects.ABSORPTION, 0)
+    val GREEN_HELMET = HelmetItem(ArmorMaterialRegistry.GREEN, StatusEffects.REGENERATION, 1)
+    val GREEN_CHESTPLATE = ChestplateItem(ArmorMaterialRegistry.GREEN, StatusEffects.ABSORPTION, 1)
+    val GREEN_LEGGINGS = LeggingsItem(ArmorMaterialRegistry.GREEN, StatusEffects.REGENERATION, 0)
+    val GREEN_BOOTS = BootsItem(ArmorMaterialRegistry.GREEN, StatusEffects.ABSORPTION, 0)
 
     fun init() {
         register(ItemNames.GREEN_ORB, GREEN_ORB)

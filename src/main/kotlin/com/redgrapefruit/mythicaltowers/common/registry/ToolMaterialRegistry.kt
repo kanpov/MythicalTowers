@@ -8,7 +8,7 @@ import net.minecraft.recipe.Ingredient
  * Stores all the mod's [ToolMaterial]s in a single place.<br></br>
  * Is an implementation of a [ToolMaterial] on its own
  */
-enum class MythicalToolMaterials(
+enum class ToolMaterialRegistry(
     private val durability: Int,
     private val miningSpeedMultiplier: Float,
     private val attackDamage: Float,
@@ -22,7 +22,7 @@ enum class MythicalToolMaterials(
         6.0f,
         4,
         17,
-        MythicalItems.GREEN_INGOT
+        ItemRegistry.GREEN_INGOT
     );
 
     private val repairIngredient: Ingredient = Ingredient.ofItems(repairIngredient)

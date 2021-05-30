@@ -1,19 +1,19 @@
 package com.redgrapefruit.mythicaltowers.common
 
-import com.redgrapefruit.mythicaltowers.common.registry.MythicalBlocks
-import com.redgrapefruit.mythicaltowers.common.registry.MythicalEntities
-import com.redgrapefruit.mythicaltowers.common.registry.MythicalItemGroups
-import com.redgrapefruit.mythicaltowers.common.registry.MythicalItems
+import com.redgrapefruit.mythicaltowers.common.registry.BlockRegistry
+import com.redgrapefruit.mythicaltowers.common.registry.EntityRegistry
+import com.redgrapefruit.mythicaltowers.common.registry.ItemGroupRegistry
+import com.redgrapefruit.mythicaltowers.common.registry.ItemRegistry
 import net.fabricmc.api.ModInitializer
 import net.minecraft.util.Identifier
 import java.util.*
 
 class MythicalTowers : ModInitializer {
     override fun onInitialize() {
-        MythicalItemGroups.init()
-        MythicalItems.init()
-        MythicalBlocks.init()
-        MythicalEntities.init()
+        ItemGroupRegistry.init()
+        ItemRegistry.init()
+        BlockRegistry.init()
+        EntityRegistry.init()
     }
 
     companion object {

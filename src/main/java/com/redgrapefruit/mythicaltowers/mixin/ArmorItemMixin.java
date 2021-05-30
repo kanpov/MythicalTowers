@@ -2,7 +2,7 @@ package com.redgrapefruit.mythicaltowers.mixin;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.redgrapefruit.mythicaltowers.common.registry.MythicalArmorMaterials;
+import com.redgrapefruit.mythicaltowers.common.registry.ArmorMaterialRegistry;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -51,7 +51,7 @@ public class ArmorItemMixin {
         UUID uuid = MODIFIERS[slot.getEntitySlotId()];
 
         // Check if the ArmorMaterial is from the mod
-        if (material instanceof MythicalArmorMaterials) {
+        if (material instanceof ArmorMaterialRegistry) {
             // Make a builder
             ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
             // Add all attribute modifiers to the builder

@@ -12,7 +12,7 @@ import net.minecraft.sound.SoundEvents
  * Stores all the mod's [ArmorMaterial]s in a single place.<br></br>
  * Is an implementation of an [ArmorMaterial] on its own
  */
-enum class MythicalArmorMaterials(
+enum class ArmorMaterialRegistry(
     private val durabilityValues: IntArray,
     private val protectionValues: IntArray,
     private val enchantability: Int,
@@ -27,7 +27,7 @@ enum class MythicalArmorMaterials(
         intArrayOf(300, 350, 400, 350), intArrayOf(4, 5, 6, 5),
         17,
         SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
-        MythicalItems.GREEN_INGOT,
+        ItemRegistry.GREEN_INGOT,
         ArmorNames.GREEN_ARMOR,
         4.0f,
         0.2f

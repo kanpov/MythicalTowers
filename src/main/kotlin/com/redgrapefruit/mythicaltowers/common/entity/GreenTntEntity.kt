@@ -1,6 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.entity
 
-import com.redgrapefruit.mythicaltowers.common.registry.MythicalEntities
+import com.redgrapefruit.mythicaltowers.common.registry.EntityRegistry
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
 import net.minecraft.world.World
@@ -20,7 +20,7 @@ class GreenTntEntity : DisappearingTntEntity {
         y: Double,
         z: Double,
         igniter: LivingEntity?
-    ) : super(MythicalEntities.GREEN_TNT, world, x, y, z, igniter) {
+    ) : super(EntityRegistry.GREEN_TNT, world, x, y, z, igniter) {
         initFuse(90)
         explosionPower = 5.0f
     }

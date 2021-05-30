@@ -2,7 +2,7 @@ package com.redgrapefruit.mythicaltowers.common.item
 
 import com.redgrapefruit.mythicaltowers.common.core.EffectConfig
 import com.redgrapefruit.mythicaltowers.common.core.EffectEngine.onAmuletTicked
-import com.redgrapefruit.mythicaltowers.common.registry.MythicalItemGroups
+import com.redgrapefruit.mythicaltowers.common.registry.ItemGroupRegistry
 import net.minecraft.entity.Entity
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.item.Item
@@ -24,7 +24,7 @@ class AmuletItem(
      * The amplifier of this effect
      */
     private val amplifier: Int
-) : Item(Settings().group(MythicalItemGroups.AMULETS).maxCount(1)) {
+) : Item(Settings().group(ItemGroupRegistry.AMULETS).maxCount(1)) {
     override fun inventoryTick(stack: ItemStack, world: World, entity: Entity, slot: Int, selected: Boolean) {
         super.inventoryTick(stack, world, entity, slot, selected)
         onAmuletTicked(effect, amplifier, entity)

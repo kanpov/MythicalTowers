@@ -14,7 +14,7 @@ import net.minecraft.world.World
 /**
  * Stores and registers the mod's [EntityType]s
  */
-object MythicalEntities {
+object EntityRegistry {
     val GREEN_TNT: EntityType<GreenTntEntity> = FabricEntityTypeBuilder
         .create(SpawnGroup.MISC) { type: EntityType<GreenTntEntity>, world: World -> GreenTntEntity(type, world) }
         .fireImmune()

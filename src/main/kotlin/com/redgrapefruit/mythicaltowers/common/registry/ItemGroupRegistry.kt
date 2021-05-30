@@ -11,7 +11,7 @@ import net.minecraft.item.Items
  * Stores and registers mod's [ItemGroup]s
  */
 @Suppress("MemberVisibilityCanBePrivate")
-object MythicalItemGroups {
+object ItemGroupRegistry {
     // Items
     var ORBS: ItemGroup? = null
     var AMULETS: ItemGroup? = null

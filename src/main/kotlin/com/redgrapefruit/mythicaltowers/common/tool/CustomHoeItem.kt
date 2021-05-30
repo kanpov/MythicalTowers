@@ -3,7 +3,7 @@ package com.redgrapefruit.mythicaltowers.common.tool
 import com.redgrapefruit.mythicaltowers.common.core.EffectConfig
 import com.redgrapefruit.mythicaltowers.common.core.EffectEngine.onPostHit
 import com.redgrapefruit.mythicaltowers.common.core.EffectEngine.onPostMine
-import com.redgrapefruit.mythicaltowers.common.registry.MythicalItemGroups
+import com.redgrapefruit.mythicaltowers.common.registry.ItemGroupRegistry
 import net.minecraft.block.BlockState
 import net.minecraft.entity.LivingEntity
 import net.minecraft.item.HoeItem
@@ -20,7 +20,7 @@ class CustomHoeItem(
      * The [EffectConfig]s linked to this axe
      */
     private val configs: List<EffectConfig>, material: ToolMaterial?, attackDamage: Int, attackSpeed: Float
-) : HoeItem(material, attackDamage, attackSpeed, Settings().group(MythicalItemGroups.TOOLS)) {
+) : HoeItem(material, attackDamage, attackSpeed, Settings().group(ItemGroupRegistry.TOOLS)) {
 
     override fun postHit(stack: ItemStack, target: LivingEntity, attacker: LivingEntity): Boolean {
         super.postHit(stack, target, attacker)
