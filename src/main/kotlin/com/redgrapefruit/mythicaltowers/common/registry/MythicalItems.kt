@@ -1,11 +1,11 @@
-package com.redgrapefruit.mythicaltowers.common.init
+package com.redgrapefruit.mythicaltowers.common.registry
 
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.common.armor.BootsItem
 import com.redgrapefruit.mythicaltowers.common.armor.ChestplateItem
 import com.redgrapefruit.mythicaltowers.common.armor.HelmetItem
 import com.redgrapefruit.mythicaltowers.common.armor.LeggingsItem
-import com.redgrapefruit.mythicaltowers.common.init.names.ItemNames
+import com.redgrapefruit.mythicaltowers.common.registry.names.ItemNames
 import com.redgrapefruit.mythicaltowers.common.item.AmuletItem
 import com.redgrapefruit.mythicaltowers.common.item.IngotItem
 import com.redgrapefruit.mythicaltowers.common.item.OrbItem

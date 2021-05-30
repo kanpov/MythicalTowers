@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.common.init
+package com.redgrapefruit.mythicaltowers.common.registry
 
 import com.redgrapefruit.mythicaltowers.common.core.EffectConfig
 import com.redgrapefruit.mythicaltowers.common.core.WeaponEffectTarget

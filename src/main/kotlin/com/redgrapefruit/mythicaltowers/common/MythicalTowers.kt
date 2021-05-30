@@ -1,9 +1,9 @@
 package com.redgrapefruit.mythicaltowers.common
 
-import com.redgrapefruit.mythicaltowers.common.init.MythicalBlocks
-import com.redgrapefruit.mythicaltowers.common.init.MythicalEntities
-import com.redgrapefruit.mythicaltowers.common.init.MythicalItemGroups
-import com.redgrapefruit.mythicaltowers.common.init.MythicalItems
+import com.redgrapefruit.mythicaltowers.common.registry.MythicalBlocks
+import com.redgrapefruit.mythicaltowers.common.registry.MythicalEntities
+import com.redgrapefruit.mythicaltowers.common.registry.MythicalItemGroups
+import com.redgrapefruit.mythicaltowers.common.registry.MythicalItems
 import net.fabricmc.api.ModInitializer
 import net.minecraft.util.Identifier
 import java.util.*

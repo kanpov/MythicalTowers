@@ -1,8 +1,8 @@
-package com.redgrapefruit.mythicaltowers.client.init
+package com.redgrapefruit.mythicaltowers.client.registry
 
 import com.redgrapefruit.mythicaltowers.client.render.entity.DummyEntityRenderer
 import com.redgrapefruit.mythicaltowers.common.entity.GreenTntEntity
-import com.redgrapefruit.mythicaltowers.common.init.MythicalEntities
+import com.redgrapefruit.mythicaltowers.common.registry.MythicalEntities
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry
 import net.minecraft.client.render.entity.EntityRenderDispatcher
 import net.minecraft.client.render.entity.EntityRenderer

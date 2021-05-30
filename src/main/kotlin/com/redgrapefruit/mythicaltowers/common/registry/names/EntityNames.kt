@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.common.init.names
+package com.redgrapefruit.mythicaltowers.common.registry.names
 
 import net.minecraft.entity.Entity
 

@@ -1,6 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.armor
 
-import com.redgrapefruit.mythicaltowers.common.init.MythicalItemGroups
+import com.redgrapefruit.mythicaltowers.common.registry.MythicalItemGroups
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.item.ArmorItem

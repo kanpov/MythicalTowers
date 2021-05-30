@@ -1,6 +1,6 @@
-package com.redgrapefruit.mythicaltowers.common.init
+package com.redgrapefruit.mythicaltowers.common.registry
 
-import com.redgrapefruit.mythicaltowers.common.init.names.ArmorNames
+import com.redgrapefruit.mythicaltowers.common.registry.names.ArmorNames
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.item.ArmorMaterial
 import net.minecraft.item.Item

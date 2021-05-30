@@ -1,6 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.item
 
-import com.redgrapefruit.mythicaltowers.common.init.MythicalItemGroups
+import com.redgrapefruit.mythicaltowers.common.registry.MythicalItemGroups
 import net.minecraft.item.Item
 
 /**

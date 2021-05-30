@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.common.init
+package com.redgrapefruit.mythicaltowers.common.registry
 
 import net.minecraft.item.Item
 import net.minecraft.item.ToolMaterial

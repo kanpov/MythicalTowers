@@ -1,8 +1,8 @@
-package com.redgrapefruit.mythicaltowers.common.init
+package com.redgrapefruit.mythicaltowers.common.registry
 
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.common.entity.GreenTntEntity
-import com.redgrapefruit.mythicaltowers.common.init.names.EntityNames
+import com.redgrapefruit.mythicaltowers.common.registry.names.EntityNames
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityDimensions

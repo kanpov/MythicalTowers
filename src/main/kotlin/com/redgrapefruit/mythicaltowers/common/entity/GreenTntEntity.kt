@@ -1,6 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.entity
 
-import com.redgrapefruit.mythicaltowers.common.init.MythicalEntities
+import com.redgrapefruit.mythicaltowers.common.registry.MythicalEntities
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
 import net.minecraft.world.World

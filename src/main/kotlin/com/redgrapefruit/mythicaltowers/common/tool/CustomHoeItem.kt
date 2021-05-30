@@ -3,7 +3,7 @@ package com.redgrapefruit.mythicaltowers.common.tool
 import com.redgrapefruit.mythicaltowers.common.core.EffectConfig
 import com.redgrapefruit.mythicaltowers.common.core.EffectEngine.onPostHit
 import com.redgrapefruit.mythicaltowers.common.core.EffectEngine.onPostMine
-import com.redgrapefruit.mythicaltowers.common.init.MythicalItemGroups
+import com.redgrapefruit.mythicaltowers.common.registry.MythicalItemGroups
 import net.minecraft.block.BlockState
 import net.minecraft.entity.LivingEntity
 import net.minecraft.item.HoeItem
