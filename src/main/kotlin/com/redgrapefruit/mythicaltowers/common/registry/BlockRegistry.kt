@@ -4,7 +4,10 @@ import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.common.block.trap.FireStationBlock
 import com.redgrapefruit.mythicaltowers.common.block.trap.GreenTntBlock
 import com.redgrapefruit.mythicaltowers.common.block.trap.JumpPadBlock
+import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags
 import net.minecraft.block.Block
+import net.minecraft.block.Material
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroup
@@ -19,7 +22,7 @@ object BlockRegistry {
 
     val GREEN_JUMP_PAD = JumpPadBlock(1.5, 1.1)
 
-    val GREEN_FIRE_STATION = FireStationBlock()
+    val GREEN_FIRE_STATION = FireStationBlock(FabricBlockSettings.of(Material.METAL).hardness(2.0f))
 
     fun init() {
         register("green_tnt", GREEN_TNT, ItemGroupRegistry.TRAPS)
