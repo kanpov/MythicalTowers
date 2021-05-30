@@ -36,6 +36,13 @@ object ItemRegistry {
 
     // Amulets
     val GREEN_AMULET = AmuletItem(StatusEffects.JUMP_BOOST, 1)
+    val YELLOW_AMULET = AmuletItem(StatusEffects.REGENERATION, 0)
+    val ORANGE_AMULET = AmuletItem(StatusEffects.SPEED, 2)
+    val RED_AMULET = AmuletItem(StatusEffects.FIRE_RESISTANCE, 0)
+    val BLUE_AMULET = AmuletItem(StatusEffects.SLOW_FALLING, 3)
+    val PURPLE_AMULET = AmuletItem(StatusEffects.SATURATION, 5)
+    val GRAY_AMULET = AmuletItem(StatusEffects.HERO_OF_THE_VILLAGE, 0)
+    val BLACK_AMULET = AmuletItem(StatusEffects.STRENGTH, 7)
 
     // Ingots
     val GREEN_INGOT = IngotItem()
@@ -68,6 +75,13 @@ object ItemRegistry {
         register("black_orb", BLACK_ORB)
 
         register("green_amulet", GREEN_AMULET)
+        register("yellow_amulet", YELLOW_AMULET)
+        register("orange_amulet", ORANGE_AMULET)
+        register("red_amulet", RED_AMULET)
+        register("blue_amulet", BLUE_AMULET)
+        register("purple_amulet", PURPLE_AMULET)
+        register("gray_amulet", GRAY_AMULET)
+        register("black_amulet", BLACK_AMULET)
 
         register("green_ingot", GREEN_INGOT)
 

@@ -74,7 +74,7 @@ object EffectConfigRegistry {
         EffectConfig(
             statusEffect = StatusEffects.SLOW_FALLING,
             durationRange = IntRange(400, 500),
-            amplifier = 0,
+            amplifierRange = IntRange(4, 6),
             isAlwaysApplied = true
         ),
         EffectConfig(
