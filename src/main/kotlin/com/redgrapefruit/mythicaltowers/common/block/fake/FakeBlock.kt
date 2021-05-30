@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.common.block.trap
+package com.redgrapefruit.mythicaltowers.common.block.fake
 
 import net.minecraft.block.Block
 import net.minecraft.entity.Entity
