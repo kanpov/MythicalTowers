@@ -64,6 +64,13 @@ object ItemRegistry {
     val GRAY_PICKAXE = CustomPickaxeItem(EffectConfigRegistry.GRAY_TOOLS, ToolMaterialRegistry.GRAY, 14, -1.7f)
     val BLACK_PICKAXE = CustomPickaxeItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 16, -1.5f)
     val GREEN_SHOVEL = CustomShovelItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 1, -1.5f)
+    val YELLOW_SHOVEL = CustomShovelItem(EffectConfigRegistry.YELLOW_TOOLS, ToolMaterialRegistry.GREEN, 2, -1.45f)
+    val ORANGE_SHOVEL = CustomShovelItem(EffectConfigRegistry.ORANGE_TOOLS, ToolMaterialRegistry.ORANGE, 3, -1.4f)
+    val RED_SHOVEL = CustomShovelItem(EffectConfigRegistry.RED_TOOLS, ToolMaterialRegistry.RED, 4, -1.35f)
+    val BLUE_SHOVEL = CustomShovelItem(EffectConfigRegistry.BLUE_TOOLS, ToolMaterialRegistry.BLUE, 5, -1.3f)
+    val PURPLE_SHOVEL = CustomShovelItem(EffectConfigRegistry.PURPLE_TOOLS, ToolMaterialRegistry.PURPLE, 6, -1.25f)
+    val GRAY_SHOVEL = CustomShovelItem(EffectConfigRegistry.GRAY_TOOLS, ToolMaterialRegistry.GRAY, 7, -1.2f)
+    val BLACK_SHOVEL = CustomShovelItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 8, -1.15f)
     val GREEN_HOE = CustomHoeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 1, -1.25f)
 
     // Weapons
@@ -115,6 +122,13 @@ object ItemRegistry {
         register("gray_pickaxe", GRAY_PICKAXE)
         register("black_pickaxe", BLACK_PICKAXE)
         register("green_shovel", GREEN_SHOVEL)
+        register("yellow_shovel", YELLOW_SHOVEL)
+        register("orange_shovel", ORANGE_SHOVEL)
+        register("red_shovel", RED_SHOVEL)
+        register("blue_shovel", BLUE_SHOVEL)
+        register("purple_shovel", PURPLE_SHOVEL)
+        register("gray_shovel", GRAY_SHOVEL)
+        register("black_shovel", BLACK_SHOVEL)
         register("green_hoe", GREEN_HOE)
 
         register("green_sword", GREEN_SWORD)
