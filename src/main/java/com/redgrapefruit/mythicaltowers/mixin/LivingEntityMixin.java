@@ -36,22 +36,10 @@ public abstract class LivingEntityMixin {
     @Unique
     private ItemStack previousBootsStack;
 
-    /**
-     * Creates a {@link StatusEffectInstance} that disables the given effect by using duration=0
-     *
-     * @param effect The {@link StatusEffect} itself
-     * @return Generated {@link StatusEffectInstance}
-     */
-    private static StatusEffectInstance createDisablingStatusEffectInstance(StatusEffect effect) {
-        return new StatusEffectInstance(
-                effect,
-                0,
-                0
-        );
-    }
-
     @Shadow
     public abstract void applyStatusEffect(StatusEffectInstance effect);
+
+    @Shadow public abstract boolean removeStatusEffect(StatusEffect type);
 
     /**
      * The unmapped method_30122 is called everytime an armor piece is put on/off. Main logic block
@@ -99,12 +87,12 @@ public abstract class LivingEntityMixin {
 
         if (previousHelmet instanceof AirBlockItem && currentHelmet instanceof HelmetItem) {
             HelmetItem cast = (HelmetItem) currentHelmet;
-            applyStatusEffect(createEnablingStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
+            applyStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
         }
 
         if (previousHelmet instanceof HelmetItem && currentHelmet instanceof AirBlockItem) {
             HelmetItem cast = (HelmetItem) previousHelmet;
-            applyStatusEffect(createDisablingStatusEffectInstance(cast.getEffect()));
+            removeStatusEffect(cast.getEffect());
         }
 
         previousHelmetStack = new ItemStack(currentHelmet);
@@ -121,12 +109,12 @@ public abstract class LivingEntityMixin {
 
         if (previousChestplate instanceof AirBlockItem && currentChestplate instanceof ChestplateItem) {
             ChestplateItem cast = (ChestplateItem) currentChestplate;
-            applyStatusEffect(createEnablingStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
+            applyStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
         }
 
         if (previousChestplate instanceof ChestplateItem && currentChestplate instanceof AirBlockItem) {
             ChestplateItem cast = (ChestplateItem) previousChestplate;
-            applyStatusEffect(createDisablingStatusEffectInstance(cast.getEffect()));
+            removeStatusEffect(cast.getEffect());
         }
 
         previousChestplateStack = new ItemStack(currentChestplate);
@@ -143,12 +131,12 @@ public abstract class LivingEntityMixin {
 
         if (previousLeggings instanceof AirBlockItem && currentLeggings instanceof LeggingsItem) {
             LeggingsItem cast = (LeggingsItem) currentLeggings;
-            applyStatusEffect(createEnablingStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
+            applyStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
         }
 
         if (previousLeggings instanceof LeggingsItem && currentLeggings instanceof AirBlockItem) {
             LeggingsItem cast = (LeggingsItem) previousLeggings;
-            applyStatusEffect(createDisablingStatusEffectInstance(cast.getEffect()));
+            removeStatusEffect(cast.getEffect());
         }
 
         previousLeggingsStack = new ItemStack(currentLeggings);
@@ -165,12 +153,12 @@ public abstract class LivingEntityMixin {
 
         if (previousBoots instanceof AirBlockItem && currentBoots instanceof BootsItem) {
             BootsItem cast = (BootsItem) currentBoots;
-            applyStatusEffect(createEnablingStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
+            applyStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
         }
 
         if (previousBoots instanceof BootsItem && currentBoots instanceof AirBlockItem) {
             BootsItem cast = (BootsItem) previousBoots;
-            applyStatusEffect(createDisablingStatusEffectInstance(cast.getEffect()));
+            removeStatusEffect(cast.getEffect());
         }
 
         previousBootsStack = new ItemStack(currentBoots);
@@ -211,7 +199,7 @@ public abstract class LivingEntityMixin {
      * @param amplifier The amplifier of the effect
      * @return Generated {@link StatusEffectInstance}
      */
-    private StatusEffectInstance createEnablingStatusEffectInstance(StatusEffect effect, int amplifier) {
+    private StatusEffectInstance createStatusEffectInstance(StatusEffect effect, int amplifier) {
         return new StatusEffectInstance(
                 effect,
                 999999,
