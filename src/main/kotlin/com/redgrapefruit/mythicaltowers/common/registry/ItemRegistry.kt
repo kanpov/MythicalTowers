@@ -24,7 +24,7 @@ import net.minecraft.util.registry.Registry
  */
 @Suppress("MemberVisibilityCanBePrivate")
 object ItemRegistry {
-    // Orbs
+    // region Orbs
     val GREEN_ORB = OrbItem(EffectConfigRegistry.GREEN_ORB)
     val YELLOW_ORB = OrbItem(EffectConfigRegistry.YELLOW_ORB)
     val ORANGE_ORB = OrbItem(EffectConfigRegistry.ORANGE_ORB)
@@ -33,8 +33,9 @@ object ItemRegistry {
     val PURPLE_ORB = OrbItem(EffectConfigRegistry.PURPLE_ORB)
     val GRAY_ORB = OrbItem(EffectConfigRegistry.GRAY_ORB)
     val BLACK_ORB = OrbItem(EffectConfigRegistry.BLACK_ORB)
+    // endregion
 
-    // Amulets
+    // region Amulets
     val GREEN_AMULET = AmuletItem(StatusEffects.JUMP_BOOST, 1)
     val YELLOW_AMULET = AmuletItem(StatusEffects.REGENERATION, 0)
     val ORANGE_AMULET = AmuletItem(StatusEffects.SPEED, 2)
@@ -43,8 +44,9 @@ object ItemRegistry {
     val PURPLE_AMULET = AmuletItem(StatusEffects.SATURATION, 5)
     val GRAY_AMULET = AmuletItem(StatusEffects.HERO_OF_THE_VILLAGE, 0)
     val BLACK_AMULET = AmuletItem(StatusEffects.STRENGTH, 7)
+    // endregion
 
-    // Ingots
+    // region Ingots
     val GREEN_INGOT = IngotItem()
     val YELLOW_INGOT = IngotItem()
     val ORANGE_INGOT = IngotItem()
@@ -53,8 +55,9 @@ object ItemRegistry {
     val PURPLE_INGOT = IngotItem()
     val GRAY_INGOT = IngotItem()
     val BLACK_INGOT = IngotItem()
+    // endregion
 
-    // Tools
+    // region Tools
     val GREEN_PICKAXE = CustomPickaxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 2, -2.3f)
     val YELLOW_PICKAXE = CustomPickaxeItem(EffectConfigRegistry.YELLOW_TOOLS, ToolMaterialRegistry.YELLOW, 4, -2.2f)
     val ORANGE_PICKAXE = CustomPickaxeItem(EffectConfigRegistry.ORANGE_TOOLS, ToolMaterialRegistry.ORANGE, 6, -2.1f)
@@ -79,8 +82,9 @@ object ItemRegistry {
     val PURPLE_HOE = CustomHoeItem(EffectConfigRegistry.PURPLE_TOOLS, ToolMaterialRegistry.PURPLE, 6, -1.2f)
     val GRAY_HOE = CustomHoeItem(EffectConfigRegistry.GRAY_TOOLS, ToolMaterialRegistry.GRAY, 7, -1.25f)
     val BLACK_HOE = CustomHoeItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 8, -1.1f)
+    // endregion
 
-    // Weapons
+    // region Weapons
     val GREEN_SWORD = CustomSwordItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 3, -1.8f)
     val YELLOW_SWORD = CustomSwordItem(EffectConfigRegistry.YELLOW_TOOLS, ToolMaterialRegistry.YELLOW, 8, -1.75f)
     val ORANGE_SWORD = CustomSwordItem(EffectConfigRegistry.ORANGE_TOOLS, ToolMaterialRegistry.ORANGE, 13, -1.7f)
@@ -99,13 +103,16 @@ object ItemRegistry {
     val BLACK_AXE = CustomAxeItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 56, -2.75f)
     val GREEN_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 5, -1.4f)
     val GREEN_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 8, -3.7f)
+    // endregion
 
-    // Armor
+    // region Armor
     val GREEN_HELMET = HelmetItem(ArmorMaterialRegistry.GREEN, StatusEffects.REGENERATION, 1)
     val GREEN_CHESTPLATE = ChestplateItem(ArmorMaterialRegistry.GREEN, StatusEffects.ABSORPTION, 1)
     val GREEN_LEGGINGS = LeggingsItem(ArmorMaterialRegistry.GREEN, StatusEffects.REGENERATION, 0)
     val GREEN_BOOTS = BootsItem(ArmorMaterialRegistry.GREEN, StatusEffects.ABSORPTION, 0)
+    // endregion
 
+    // region Registration
     fun init() {
         register("green_orb", GREEN_ORB)
         register("yellow_orb", YELLOW_ORB)
@@ -193,4 +200,5 @@ object ItemRegistry {
     private fun register(name: String, item: Item) {
         Registry.register(Registry.ITEM, idOf(name), item)
     }
+    // endregion
 }
