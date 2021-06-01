@@ -9,7 +9,7 @@ import net.minecraft.entity.effect.StatusEffects
  * Stores the mod's lists of [EffectConfig]s
  */
 object EffectConfigRegistry {
-    // Orbs
+    // region Orbs
     val GREEN_ORB: List<EffectConfig> = listOf(
         EffectConfig(
             statusEffect = StatusEffects.CONDUIT_POWER,
@@ -129,8 +129,9 @@ object EffectConfigRegistry {
             chance = 90
         )
     )
+    // endregion
 
-    // Tools
+    // region Tools
     val GREEN_TOOLS: List<EffectConfig> = listOf(
         EffectConfig(
             statusEffect = StatusEffects.POISON,
@@ -266,4 +267,5 @@ object EffectConfigRegistry {
             weaponEffectTarget = WeaponEffectTarget.ATTACKER
         )
     )
+    // endregion
 }
