@@ -16,6 +16,7 @@ import net.minecraft.util.registry.Registry
 /**
  * Stores and registers mod's blocks
  */
+@Suppress("MemberVisibilityCanBePrivate")
 object BlockRegistry {
     // Traps
     val GREEN_TNT = GreenTntBlock()

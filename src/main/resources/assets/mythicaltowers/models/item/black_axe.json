@@ -1,0 +1,6 @@
+{
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "mythicaltowers:item/black_axe"
+    }
+}
