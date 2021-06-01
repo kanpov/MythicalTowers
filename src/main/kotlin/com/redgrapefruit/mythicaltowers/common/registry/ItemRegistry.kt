@@ -82,6 +82,13 @@ object ItemRegistry {
 
     // Weapons
     val GREEN_SWORD = CustomSwordItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 3, -1.8f)
+    val YELLOW_SWORD = CustomSwordItem(EffectConfigRegistry.YELLOW_TOOLS, ToolMaterialRegistry.YELLOW, 8, -1.75f)
+    val ORANGE_SWORD = CustomSwordItem(EffectConfigRegistry.ORANGE_TOOLS, ToolMaterialRegistry.ORANGE, 13, -1.7f)
+    val RED_SWORD = CustomSwordItem(EffectConfigRegistry.RED_TOOLS, ToolMaterialRegistry.RED, 18, -1.65f)
+    val BLUE_SWORD = CustomSwordItem(EffectConfigRegistry.BLUE_TOOLS, ToolMaterialRegistry.BLUE, 23, -1.6f)
+    val PURPLE_SWORD = CustomSwordItem(EffectConfigRegistry.PURPLE_TOOLS, ToolMaterialRegistry.PURPLE, 28, -1.65f)
+    val GRAY_SWORD = CustomSwordItem(EffectConfigRegistry.GRAY_TOOLS, ToolMaterialRegistry.GRAY, 33, -1.7f)
+    val BLACK_SWORD = CustomSwordItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 38, -1.75f)
     val GREEN_AXE = CustomAxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 5, -3.1f)
     val GREEN_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 5, -1.4f)
     val GREEN_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 8, -3.7f)
@@ -146,6 +153,13 @@ object ItemRegistry {
         register("black_hoe", BLACK_HOE)
 
         register("green_sword", GREEN_SWORD)
+        register("yellow_sword", YELLOW_SWORD)
+        register("orange_sword", ORANGE_SWORD)
+        register("red_sword", RED_SWORD)
+        register("blue_sword", BLUE_SWORD)
+        register("purple_sword", PURPLE_SWORD)
+        register("gray_sword", GRAY_SWORD)
+        register("black_sword", BLACK_SWORD)
         register("green_axe", GREEN_AXE)
         register("green_double_sword", GREEN_DOUBLE_SWORD)
         register("green_double_axe", GREEN_DOUBLE_AXE)
