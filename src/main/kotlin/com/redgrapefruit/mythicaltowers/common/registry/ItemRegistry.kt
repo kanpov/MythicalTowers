@@ -101,8 +101,15 @@ object ItemRegistry {
     val PURPLE_AXE = CustomAxeItem(EffectConfigRegistry.PURPLE_TOOLS, ToolMaterialRegistry.PURPLE, 40, -2.85f)
     val GRAY_AXE = CustomAxeItem(EffectConfigRegistry.GRAY_TOOLS, ToolMaterialRegistry.GRAY, 48, -2.8f)
     val BLACK_AXE = CustomAxeItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 56, -2.75f)
-    val GREEN_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 5, -1.4f)
-    val GREEN_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 8, -3.7f)
+    val GREEN_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 6, -2.5f)
+    val YELLOW_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.YELLOW_TOOLS, ToolMaterialRegistry.YELLOW, 16, -2.45f)
+    val ORANGE_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.ORANGE_TOOLS, ToolMaterialRegistry.ORANGE, 26, -2.4f)
+    val RED_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.RED_TOOLS, ToolMaterialRegistry.RED, 36, -2.35f)
+    val BLUE_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.BLUE_TOOLS, ToolMaterialRegistry.BLUE, 46, -2.3f)
+    val PURPLE_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.PURPLE_TOOLS, ToolMaterialRegistry.PURPLE, 56, -2.25f)
+    val GRAY_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.GRAY_TOOLS, ToolMaterialRegistry.GRAY, 66, -2.2f)
+    val BLACK_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 76, -2.15f)
+    val GREEN_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 10, -4.3f)
     // endregion
 
     // region Armor
@@ -183,6 +190,13 @@ object ItemRegistry {
         register("gray_axe", GRAY_AXE)
         register("black_axe", BLACK_AXE)
         register("green_double_sword", GREEN_DOUBLE_SWORD)
+        register("yellow_double_sword", YELLOW_DOUBLE_SWORD)
+        register("orange_double_sword", ORANGE_DOUBLE_SWORD)
+        register("red_double_sword", RED_DOUBLE_SWORD)
+        register("blue_double_sword", BLUE_DOUBLE_SWORD)
+        register("purple_double_sword", PURPLE_DOUBLE_SWORD)
+        register("gray_double_sword", GRAY_DOUBLE_SWORD)
+        register("black_double_sword", BLACK_DOUBLE_SWORD)
         register("green_double_axe", GREEN_DOUBLE_AXE)
 
         register("green_helmet", GREEN_HELMET)
