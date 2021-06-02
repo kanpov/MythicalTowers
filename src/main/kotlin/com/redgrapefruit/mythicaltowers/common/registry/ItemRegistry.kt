@@ -110,6 +110,13 @@ object ItemRegistry {
     val GRAY_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.GRAY_TOOLS, ToolMaterialRegistry.GRAY, 66, -2.2f)
     val BLACK_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 76, -2.15f)
     val GREEN_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 10, -4.3f)
+    val YELLOW_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.YELLOW_TOOLS, ToolMaterialRegistry.YELLOW, 24, -4.25f)
+    val ORANGE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.ORANGE_TOOLS, ToolMaterialRegistry.ORANGE, 38, -4.2f)
+    val RED_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.RED_TOOLS, ToolMaterialRegistry.RED, 52, -4.15f)
+    val BLUE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.BLUE_TOOLS, ToolMaterialRegistry.BLUE, 66, -4.1f)
+    val PURPLE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.PURPLE_TOOLS, ToolMaterialRegistry.PURPLE, 80, -4.05f)
+    val GRAY_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GRAY_TOOLS, ToolMaterialRegistry.GRAY, 96, -4.0f)
+    val BLACK_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 112, -3.95f)
     // endregion
 
     // region Armor
@@ -198,6 +205,13 @@ object ItemRegistry {
         register("gray_double_sword", GRAY_DOUBLE_SWORD)
         register("black_double_sword", BLACK_DOUBLE_SWORD)
         register("green_double_axe", GREEN_DOUBLE_AXE)
+        register("yellow_double_axe", YELLOW_DOUBLE_AXE)
+        register("orange_double_axe", ORANGE_DOUBLE_AXE)
+        register("red_double_axe", RED_DOUBLE_AXE)
+        register("blue_double_axe", BLUE_DOUBLE_AXE)
+        register("purple_double_axe", PURPLE_DOUBLE_AXE)
+        register("gray_double_axe", GRAY_DOUBLE_AXE)
+        register("black_double_axe", BLACK_DOUBLE_AXE)
 
         register("green_helmet", GREEN_HELMET)
         register("green_chestplate", GREEN_CHESTPLATE)
