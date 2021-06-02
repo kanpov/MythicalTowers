@@ -5,7 +5,6 @@ import com.redgrapefruit.mythicaltowers.common.block.trap.FireStationBlock
 import com.redgrapefruit.mythicaltowers.common.block.trap.GreenTntBlock
 import com.redgrapefruit.mythicaltowers.common.block.trap.JumpPadBlock
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
-import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags
 import net.minecraft.block.Block
 import net.minecraft.block.Material
 import net.minecraft.item.BlockItem

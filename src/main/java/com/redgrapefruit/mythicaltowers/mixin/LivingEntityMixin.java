@@ -39,7 +39,8 @@ public abstract class LivingEntityMixin {
     @Shadow
     public abstract void applyStatusEffect(StatusEffectInstance effect);
 
-    @Shadow public abstract boolean removeStatusEffect(StatusEffect type);
+    @Shadow
+    public abstract boolean removeStatusEffect(StatusEffect type);
 
     /**
      * The unmapped method_30122 is called everytime an armor piece is put on/off. Main logic block
