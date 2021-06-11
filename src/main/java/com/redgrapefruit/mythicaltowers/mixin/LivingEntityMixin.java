@@ -62,18 +62,10 @@ public abstract class LivingEntityMixin {
         // And that for each of the 4 equipment slots
 
         switch (slot) {
-            case HEAD:
-                handleHeadArmor(stack);
-                break;
-            case CHEST:
-                handleChestArmor(stack);
-                break;
-            case LEGS:
-                handleLegArmor(stack);
-                break;
-            case FEET:
-                handleFeetArmor(stack);
-                break;
+            case HEAD -> handleHeadArmor(stack);
+            case CHEST -> handleChestArmor(stack);
+            case LEGS -> handleLegArmor(stack);
+            case FEET -> handleFeetArmor(stack);
         }
     }
 

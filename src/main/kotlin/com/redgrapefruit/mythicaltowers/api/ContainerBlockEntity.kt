@@ -19,7 +19,8 @@ import net.minecraft.util.math.BlockPos
  *
  * Also manages the creation the of connected [ScreenHandler].
  */
-abstract class ContainerBlockEntity protected constructor(type: BlockEntityType<*>, pos: BlockPos, state: BlockState) : BlockEntity(type, pos, state),
+abstract class ContainerBlockEntity protected constructor(type: BlockEntityType<*>, pos: BlockPos, state: BlockState) :
+    BlockEntity(type, pos, state),
     ImplementedInventory, NamedScreenHandlerFactory {
 
     // region Properties & Overrides
