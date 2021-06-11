@@ -12,14 +12,6 @@ jobs:
       matrix:
         # Use these Java versions
         java: [
-            1.8,
-            9,
-            10,
-            11,
-            12,
-            13,
-            14,
-            15,
             16
         ]
         # and run on both Linux and Windows
