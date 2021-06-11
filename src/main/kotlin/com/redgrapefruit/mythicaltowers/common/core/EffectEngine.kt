@@ -32,7 +32,7 @@ object EffectEngine {
 
             // Pick a number and see if it fits in the chance, then apply the effect
             if (MythicalTowers.RANDOM.nextInt(100) <= chance) {
-                user.applyStatusEffect(
+                user.addStatusEffect(
                     StatusEffectInstance(
                         config.statusEffect,
                         duration,
@@ -73,9 +73,9 @@ object EffectEngine {
         for (config in configs) {
             if (checkChance(config)) {
                 if (config.weaponEffectTarget == WeaponEffectTarget.TARGET) {
-                    target.applyStatusEffect(createStandardStatusEffectInstance(config))
+                    target.addStatusEffect(createStandardStatusEffectInstance(config))
                 } else {
-                    attacker.applyStatusEffect(createStandardStatusEffectInstance(config))
+                    attacker.addStatusEffect(createStandardStatusEffectInstance(config))
                 }
             }
         }
@@ -90,7 +90,7 @@ object EffectEngine {
     fun onPostMine(configs: List<EffectConfig>, miner: LivingEntity) {
         for (config in configs) {
             if (checkChance(config) && config.weaponEffectTarget == WeaponEffectTarget.ATTACKER) {
-                miner.applyStatusEffect(createStandardStatusEffectInstance(config))
+                miner.addStatusEffect(createStandardStatusEffectInstance(config))
             }
         }
     }

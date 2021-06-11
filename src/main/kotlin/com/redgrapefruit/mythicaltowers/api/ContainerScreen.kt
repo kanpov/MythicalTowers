@@ -42,7 +42,7 @@ abstract class ContainerScreen protected constructor(
 
     override fun drawBackground(matrices: MatrixStack, delta: Float, mouseX: Int, mouseY: Int) {
         // Reset color
-        RenderSystem.color4f(1.0f, 1.0f, 1.0f, 1.0f)
+        RenderSystem.clearColor(1.0f, 1.0f, 1.0f, 1.0f)
         // Bind texture
         client!!.textureManager.bindTexture(texture)
         // Calculate center position

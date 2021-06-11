@@ -6,19 +6,20 @@ import net.minecraft.block.entity.BlockEntity
 import net.minecraft.block.entity.BlockEntityType
 import net.minecraft.inventory.Inventories
 import net.minecraft.item.ItemStack
-import net.minecraft.nbt.CompoundTag
+import net.minecraft.nbt.NbtCompound
 import net.minecraft.screen.NamedScreenHandlerFactory
 import net.minecraft.screen.ScreenHandler
 import net.minecraft.text.Text
 import net.minecraft.text.TranslatableText
 import net.minecraft.util.collection.DefaultedList
+import net.minecraft.util.math.BlockPos
 
 /**
  * A container [BlockEntity] storing, serializing & deserializing an embedded inventory.
  *
  * Also manages the creation the of connected [ScreenHandler].
  */
-abstract class ContainerBlockEntity protected constructor(type: BlockEntityType<*>?) : BlockEntity(type),
+abstract class ContainerBlockEntity protected constructor(type: BlockEntityType<*>, pos: BlockPos, state: BlockState) : BlockEntity(type, pos, state),
     ImplementedInventory, NamedScreenHandlerFactory {
 
     // region Properties & Overrides
@@ -36,17 +37,17 @@ abstract class ContainerBlockEntity protected constructor(type: BlockEntityType<
 
     // region Serialization
 
-    override fun fromTag(state: BlockState, tag: CompoundTag) {
+    override fun readNbt(nbt: NbtCompound) {
         // Deserialization method
-        super.fromTag(state, tag)
-        Inventories.fromTag(tag, inventory)
+        super.readNbt(nbt)
+        Inventories.readNbt(nbt, inventory)
     }
 
-    override fun toTag(tag: CompoundTag): CompoundTag {
+    override fun writeNbt(nbt: NbtCompound): NbtCompound {
         // Serialization method
-        super.toTag(tag)
-        Inventories.toTag(tag, inventory)
-        return tag
+        super.writeNbt(nbt)
+        Inventories.writeNbt(nbt, inventory)
+        return nbt
     }
 
     // endregion

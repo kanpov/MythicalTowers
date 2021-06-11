@@ -4,7 +4,7 @@ import net.minecraft.entity.*
 import net.minecraft.entity.data.DataTracker
 import net.minecraft.entity.data.TrackedData
 import net.minecraft.entity.data.TrackedDataHandlerRegistry
-import net.minecraft.nbt.CompoundTag
+import net.minecraft.nbt.NbtCompound
 import net.minecraft.network.Packet
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket
 import net.minecraft.particle.ParticleTypes
@@ -96,7 +96,7 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
         // Check fuse
         if (fuseValue <= 0) {
             // Remove the block and explode on the server
-            remove()
+            discard()
             if (!world.isClient) {
                 world.createExplosion(this, x, getBodyY(0.0625), z, explosionPower, Explosion.DestructionType.BREAK)
             }
@@ -113,12 +113,12 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
 
     // region (De)Serialization
 
-    override fun writeCustomDataToTag(tag: CompoundTag) {
-        tag.putInt("Fuse", fuseValue)
+    override fun writeCustomDataToNbt(nbt: NbtCompound) {
+        nbt.putInt("Fuse", fuseValue)
     }
 
-    override fun readCustomDataFromTag(tag: CompoundTag) {
-        initFuse(tag.getInt("Fuse"))
+    override fun readCustomDataFromNbt(nbt: NbtCompound) {
+        initFuse(nbt.getInt("Fuse"))
     }
 
     override fun createSpawnPacket(): Packet<*> = EntitySpawnS2CPacket(this)
@@ -143,9 +143,7 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
 
     // region Misc
 
-    override fun canClimb(): Boolean = false
-
-    override fun collides(): Boolean = !removed
+    override fun collides(): Boolean = !isRemoved
 
     override fun getEyeHeight(pose: EntityPose, dimensions: EntityDimensions): Float = 0.15F
 

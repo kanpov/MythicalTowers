@@ -2,9 +2,11 @@ package com.redgrapefruit.mythicaltowers.common.block.trap
 
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.block.Block
+import net.minecraft.block.BlockState
 import net.minecraft.block.Blocks
 import net.minecraft.entity.Entity
 import net.minecraft.entity.LivingEntity
+import net.minecraft.entity.damage.DamageSource
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Vec3d
 import net.minecraft.world.BlockView
@@ -19,12 +21,12 @@ class JumpPadBlock(
     private val standardBoostMultiplier: Double
 ) : Block(FabricBlockSettings.copyOf(Blocks.SLIME_BLOCK)) {
 
-    override fun onLandedUpon(world: World, pos: BlockPos, entity: Entity, distance: Float) {
+    override fun onLandedUpon(world: World, state: BlockState, pos: BlockPos, entity: Entity, distance: Float) {
         // Do standard damage if the entity bypasses landing effects, else suppress the damage
         if (entity.bypassesLandingEffects()) {
-            super.onLandedUpon(world, pos, entity, distance)
+            super.onLandedUpon(world, state, pos, entity, distance)
         } else {
-            entity.handleFallDamage(distance, 0.0F)
+            entity.handleFallDamage(distance, 0.0F, DamageSource.FALL)
         }
     }
 
@@ -37,7 +39,7 @@ class JumpPadBlock(
         }
     }
 
-    override fun onSteppedOn(world: World, pos: BlockPos, entity: Entity) {
+    override fun onSteppedOn(world: World, pos: BlockPos, state: BlockState, entity: Entity) {
         val d: Double = abs(entity.velocity.y)
 
         if (d < 0.1 && !entity.bypassesLandingEffects()) {
@@ -45,7 +47,7 @@ class JumpPadBlock(
             entity.velocity = entity.velocity.multiply(e, 1.0, e)
         }
 
-        super.onSteppedOn(world, pos, entity)
+        super.onSteppedOn(world, pos, state, entity)
     }
 
     /**

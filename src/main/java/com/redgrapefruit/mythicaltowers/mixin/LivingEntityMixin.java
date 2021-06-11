@@ -12,7 +12,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.AirBlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -37,20 +37,20 @@ public abstract class LivingEntityMixin {
     private ItemStack previousBootsStack;
 
     @Shadow
-    public abstract void applyStatusEffect(StatusEffectInstance effect);
+    public abstract boolean addStatusEffect(StatusEffectInstance effect);
 
     @Shadow
     public abstract boolean removeStatusEffect(StatusEffect type);
 
     /**
-     * The unmapped method_30122 is called everytime an armor piece is put on/off. Main logic block
+     * <code>setArmorInSlot</code> is called everytime an armor piece is put on/off. Main logic block
      *
      * @param slot  The {@link EquipmentSlot} of the armor
      * @param stack The {@link ItemStack} of the armor
      * @param info  Mixin {@link CallbackInfo}
      */
-    @Inject(method = "method_30122", at = @At("TAIL"))
-    private void method_30122(EquipmentSlot slot, ItemStack stack, CallbackInfo info) {
+    @Inject(method = "setArmorInSlot", at = @At("TAIL"))
+    private void setArmorInSlot(EquipmentSlot slot, ItemStack stack, CallbackInfo info) {
         Item item = stack.getItem();
 
         // How handle_X_Armor methods work:
@@ -88,7 +88,7 @@ public abstract class LivingEntityMixin {
 
         if (previousHelmet instanceof AirBlockItem && currentHelmet instanceof HelmetItem) {
             HelmetItem cast = (HelmetItem) currentHelmet;
-            applyStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
+            addStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
         }
 
         if (previousHelmet instanceof HelmetItem && currentHelmet instanceof AirBlockItem) {
@@ -110,7 +110,7 @@ public abstract class LivingEntityMixin {
 
         if (previousChestplate instanceof AirBlockItem && currentChestplate instanceof ChestplateItem) {
             ChestplateItem cast = (ChestplateItem) currentChestplate;
-            applyStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
+            addStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
         }
 
         if (previousChestplate instanceof ChestplateItem && currentChestplate instanceof AirBlockItem) {
@@ -132,7 +132,7 @@ public abstract class LivingEntityMixin {
 
         if (previousLeggings instanceof AirBlockItem && currentLeggings instanceof LeggingsItem) {
             LeggingsItem cast = (LeggingsItem) currentLeggings;
-            applyStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
+            addStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
         }
 
         if (previousLeggings instanceof LeggingsItem && currentLeggings instanceof AirBlockItem) {
@@ -154,7 +154,7 @@ public abstract class LivingEntityMixin {
 
         if (previousBoots instanceof AirBlockItem && currentBoots instanceof BootsItem) {
             BootsItem cast = (BootsItem) currentBoots;
-            applyStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
+            addStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
         }
 
         if (previousBoots instanceof BootsItem && currentBoots instanceof AirBlockItem) {
@@ -166,31 +166,31 @@ public abstract class LivingEntityMixin {
     }
 
     /**
-     * Reads tracked data from a {@link CompoundTag}
+     * Reads tracked data from an {@link NbtCompound}
      *
-     * @param tag  The source {@link CompoundTag}
+     * @param nbt  The source {@link NbtCompound}
      * @param info Mixin {@link CallbackInfo}
      */
-    @Inject(method = "readCustomDataFromTag", at = @At("TAIL"))
-    private void readCustomDataFromTag(CompoundTag tag, CallbackInfo info) {
-        previousHelmetStack = ItemStackUtility.readItemStack(tag, "Previous Helmet Stack");
-        previousChestplateStack = ItemStackUtility.readItemStack(tag, "Previous Chestplate Stack");
-        previousLeggingsStack = ItemStackUtility.readItemStack(tag, "Previous Leggings Stack");
-        previousBootsStack = ItemStackUtility.readItemStack(tag, "Previous Boots Stack");
+    @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
+    private void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo info) {
+        previousHelmetStack = ItemStackUtility.readItemStack(nbt, "Previous Helmet Stack");
+        previousChestplateStack = ItemStackUtility.readItemStack(nbt, "Previous Chestplate Stack");
+        previousLeggingsStack = ItemStackUtility.readItemStack(nbt, "Previous Leggings Stack");
+        previousBootsStack = ItemStackUtility.readItemStack(nbt, "Previous Boots Stack");
     }
 
     /**
-     * Writes tracked data to a {@link CompoundTag}
+     * Writes tracked data to an {@link NbtCompound}
      *
-     * @param tag  The output {@link CompoundTag}
+     * @param nbt  The output {@link NbtCompound}
      * @param info Mixin {@link CallbackInfo}
      */
-    @Inject(method = "writeCustomDataToTag", at = @At("TAIL"))
-    private void writeCustomDataToTag(CompoundTag tag, CallbackInfo info) {
-        ItemStackUtility.writeItemStack(tag, "Previous Helmet Stack", previousHelmetStack);
-        ItemStackUtility.writeItemStack(tag, "Previous Chestplate Stack", previousChestplateStack);
-        ItemStackUtility.writeItemStack(tag, "Previous Leggings Stack", previousLeggingsStack);
-        ItemStackUtility.writeItemStack(tag, "Previous Boots Stack", previousBootsStack);
+    @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
+    private void writeCustomDataToTag(NbtCompound nbt, CallbackInfo info) {
+        ItemStackUtility.writeItemStack(nbt, "Previous Helmet Stack", previousHelmetStack);
+        ItemStackUtility.writeItemStack(nbt, "Previous Chestplate Stack", previousChestplateStack);
+        ItemStackUtility.writeItemStack(nbt, "Previous Leggings Stack", previousLeggingsStack);
+        ItemStackUtility.writeItemStack(nbt, "Previous Boots Stack", previousBootsStack);
     }
 
     /**

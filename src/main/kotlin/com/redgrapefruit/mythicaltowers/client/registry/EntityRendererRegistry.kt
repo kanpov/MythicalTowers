@@ -1,11 +1,10 @@
 package com.redgrapefruit.mythicaltowers.client.registry
 
 import com.redgrapefruit.mythicaltowers.client.render.entity.DummyEntityRenderer
-import com.redgrapefruit.mythicaltowers.common.entity.GreenTntEntity
 import com.redgrapefruit.mythicaltowers.common.registry.EntityRegistry
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry
-import net.minecraft.client.render.entity.EntityRenderDispatcher
 import net.minecraft.client.render.entity.EntityRenderer
+import net.minecraft.client.render.entity.EntityRendererFactory
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 
@@ -15,11 +14,7 @@ import net.minecraft.entity.EntityType
 object EntityRendererRegistry {
     fun init() {
         register(EntityRegistry.GREEN_TNT)
-        { dispatcher: EntityRenderDispatcher, _: EntityRendererRegistry.Context ->
-            DummyEntityRenderer<GreenTntEntity>(
-                dispatcher
-            )
-        }
+        { context: EntityRendererFactory.Context -> DummyEntityRenderer(context) }
     }
 
     /**
@@ -29,7 +24,7 @@ object EntityRendererRegistry {
      */
     private fun <TEntity> register(
         type: EntityType<TEntity>,
-        factory: EntityRendererRegistry.Factory
+        factory: EntityRendererFactory<TEntity>
     ) where TEntity : Entity {
         EntityRendererRegistry.INSTANCE.register(type, factory)
     }
