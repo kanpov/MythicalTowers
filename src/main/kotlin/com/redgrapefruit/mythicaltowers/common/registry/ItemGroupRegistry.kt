@@ -15,8 +15,6 @@ object ItemGroupRegistry {
     // Items
     lateinit var ORBS: ItemGroup
     lateinit var AMULETS: ItemGroup
-    lateinit var SUPERFOOD: ItemGroup
-    lateinit var SHIELDS: ItemGroup
     lateinit var TOOLS: ItemGroup
     lateinit var WEAPONS: ItemGroup
     lateinit var ARMOR: ItemGroup
@@ -31,8 +29,6 @@ object ItemGroupRegistry {
         // TODO: Replace placeholder icons (beds) with actual mod items once these items are in place
         ORBS = register("orbs", Items.GREEN_BED)
         AMULETS = register("amulets", Items.YELLOW_BED)
-        SUPERFOOD = register("superfood", Items.ORANGE_BED)
-        SHIELDS = register("shields", Items.RED_BED)
         TOOLS = register("tools", Items.BLUE_BED)
         WEAPONS = register("weapons", Items.PURPLE_BED)
         ARMOR = register("armor", Items.CYAN_BED)
