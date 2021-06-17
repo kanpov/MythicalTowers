@@ -129,6 +129,7 @@ object ItemRegistry {
     val BLUE_HELMET = HelmetItem(ArmorMaterialRegistry.BLUE, StatusEffects.REGENERATION, 5)
     val PURPLE_HELMET = HelmetItem(ArmorMaterialRegistry.PURPLE, StatusEffects.REGENERATION, 6)
     val GRAY_HELMET = HelmetItem(ArmorMaterialRegistry.GRAY, StatusEffects.REGENERATION, 7)
+    val BLACK_HELMET = HelmetItem(ArmorMaterialRegistry.BLACK, StatusEffects.REGENERATION, 9)
     val GREEN_CHESTPLATE = ChestplateItem(ArmorMaterialRegistry.GREEN, StatusEffects.ABSORPTION, 1)
     val YELLOW_CHESTPLATE = ChestplateItem(ArmorMaterialRegistry.YELLOW, StatusEffects.ABSORPTION, 2)
     val ORANGE_CHESTPLATE = ChestplateItem(ArmorMaterialRegistry.ORANGE, StatusEffects.ABSORPTION, 3)
@@ -136,6 +137,7 @@ object ItemRegistry {
     val BLUE_CHESTPLATE = ChestplateItem(ArmorMaterialRegistry.BLUE, StatusEffects.ABSORPTION, 5)
     val PURPLE_CHESTPLATE = ChestplateItem(ArmorMaterialRegistry.PURPLE, StatusEffects.ABSORPTION, 6)
     val GRAY_CHESTPLATE = ChestplateItem(ArmorMaterialRegistry.GRAY, StatusEffects.ABSORPTION, 7)
+    val BLACK_CHESTPLATE = ChestplateItem(ArmorMaterialRegistry.BLACK, StatusEffects.ABSORPTION, 9)
     val GREEN_LEGGINGS = LeggingsItem(ArmorMaterialRegistry.GREEN, StatusEffects.STRENGTH, 1)
     val YELLOW_LEGGINGS = LeggingsItem(ArmorMaterialRegistry.YELLOW, StatusEffects.STRENGTH, 2)
     val ORANGE_LEGGINGS = LeggingsItem(ArmorMaterialRegistry.ORANGE, StatusEffects.STRENGTH, 3)
@@ -143,6 +145,7 @@ object ItemRegistry {
     val BLUE_LEGGINGS = LeggingsItem(ArmorMaterialRegistry.BLUE, StatusEffects.STRENGTH, 5)
     val PURPLE_LEGGINGS = LeggingsItem(ArmorMaterialRegistry.PURPLE, StatusEffects.STRENGTH, 6)
     val GRAY_LEGGINGS = LeggingsItem(ArmorMaterialRegistry.GRAY, StatusEffects.STRENGTH, 7)
+    val BLACK_LEGGINGS = LeggingsItem(ArmorMaterialRegistry.BLACK, StatusEffects.STRENGTH, 9)
     val GREEN_BOOTS = BootsItem(ArmorMaterialRegistry.GREEN, StatusEffects.RESISTANCE, 1)
     val YELLOW_BOOTS = BootsItem(ArmorMaterialRegistry.YELLOW, StatusEffects.RESISTANCE, 2)
     val ORANGE_BOOTS = BootsItem(ArmorMaterialRegistry.ORANGE, StatusEffects.RESISTANCE, 3)
@@ -150,6 +153,7 @@ object ItemRegistry {
     val BLUE_BOOTS = BootsItem(ArmorMaterialRegistry.BLUE, StatusEffects.RESISTANCE, 5)
     val PURPLE_BOOTS = BootsItem(ArmorMaterialRegistry.PURPLE, StatusEffects.RESISTANCE, 6)
     val GRAY_BOOTS = BootsItem(ArmorMaterialRegistry.GRAY, StatusEffects.RESISTANCE, 7)
+    val BLACK_BOOTS = BootsItem(ArmorMaterialRegistry.BLACK, StatusEffects.RESISTANCE, 9)
     // endregion
 
     // region Registration
@@ -246,6 +250,7 @@ object ItemRegistry {
         register("blue_helmet", BLUE_HELMET)
         register("purple_helmet", PURPLE_HELMET)
         register("gray_helmet", GRAY_HELMET)
+        register("black_helmet", BLACK_HELMET)
         register("green_chestplate", GREEN_CHESTPLATE)
         register("yellow_chestplate", YELLOW_CHESTPLATE)
         register("orange_chestplate", ORANGE_CHESTPLATE)
@@ -253,6 +258,7 @@ object ItemRegistry {
         register("blue_chestplate", BLUE_CHESTPLATE)
         register("purple_chestplate", PURPLE_CHESTPLATE)
         register("gray_chestplate", GRAY_CHESTPLATE)
+        register("black_chestplate", BLACK_CHESTPLATE)
         register("green_leggings", GREEN_LEGGINGS)
         register("yellow_leggings", YELLOW_LEGGINGS)
         register("orange_leggings", ORANGE_LEGGINGS)
@@ -260,6 +266,7 @@ object ItemRegistry {
         register("blue_leggings", BLUE_LEGGINGS)
         register("purple_leggings", PURPLE_LEGGINGS)
         register("gray_leggings", GRAY_LEGGINGS)
+        register("black_leggings", BLACK_LEGGINGS)
         register("green_boots", GREEN_BOOTS)
         register("yellow_boots", YELLOW_BOOTS)
         register("orange_boots", ORANGE_BOOTS)
@@ -267,6 +274,7 @@ object ItemRegistry {
         register("blue_boots", BLUE_BOOTS)
         register("purple_boots", PURPLE_BOOTS)
         register("gray_boots", GRAY_BOOTS)
+        register("black_boots", BLACK_BOOTS)
     }
 
     /**
