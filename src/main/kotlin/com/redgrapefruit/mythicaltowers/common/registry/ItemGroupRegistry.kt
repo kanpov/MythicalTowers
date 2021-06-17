@@ -13,30 +13,17 @@ import net.minecraft.item.Items
 @Suppress("MemberVisibilityCanBePrivate")
 object ItemGroupRegistry {
     // Items
-    lateinit var ORBS: ItemGroup
-    lateinit var AMULETS: ItemGroup
-    lateinit var TOOLS: ItemGroup
-    lateinit var WEAPONS: ItemGroup
-    lateinit var ARMOR: ItemGroup
-    lateinit var INGOTS: ItemGroup
+    val ORBS: ItemGroup = register("orbs", ItemRegistry.GREEN_ORB)
+    val AMULETS: ItemGroup = register("amulets", ItemRegistry.YELLOW_AMULET)
+    val TOOLS: ItemGroup = register("tools", ItemRegistry.ORANGE_PICKAXE)
+    val WEAPONS: ItemGroup = register("weapons", ItemRegistry.RED_DOUBLE_AXE)
+    val ARMOR: ItemGroup = register("armor", ItemRegistry.BLUE_CHESTPLATE)
+    val INGOTS: ItemGroup = register("ingots", ItemRegistry.PURPLE_INGOT)
 
     // Blocks
-    lateinit var BUILDING: ItemGroup
-    lateinit var TRAPS: ItemGroup
-    lateinit var UTILITY: ItemGroup
-
-    fun init() {
-        // TODO: Replace placeholder icons (beds) with actual mod items once these items are in place
-        ORBS = register("orbs", ItemRegistry.GREEN_ORB)
-        AMULETS = register("amulets", ItemRegistry.YELLOW_AMULET)
-        TOOLS = register("tools", ItemRegistry.ORANGE_PICKAXE)
-        WEAPONS = register("weapons", ItemRegistry.RED_DOUBLE_AXE)
-        ARMOR = register("armor", ItemRegistry.BLUE_CHESTPLATE)
-        INGOTS = register("ingots", ItemRegistry.PURPLE_INGOT)
-        BUILDING = register("building", Items.BROWN_BED)
-        TRAPS = register("traps", Items.GRAY_BED)
-        UTILITY = register("utility", Items.BROWN_BED)
-    }
+    val BUILDING: ItemGroup = register("building", Items.BROWN_BED)
+    val TRAPS: ItemGroup = register("traps", Items.GRAY_BED)
+    val UTILITY: ItemGroup = register("utility", Items.BROWN_BED)
 
     /**
      * Registers and builds an [ItemGroup]

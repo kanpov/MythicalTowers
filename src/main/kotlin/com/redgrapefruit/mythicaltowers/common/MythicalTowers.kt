@@ -13,7 +13,6 @@ import java.util.*
 
 class MythicalTowers : ModInitializer {
     override fun onInitialize() {
-        ItemGroupRegistry.init()
         ItemRegistry.init()
         BlockRegistry.init()
         EntityRegistry.init()
