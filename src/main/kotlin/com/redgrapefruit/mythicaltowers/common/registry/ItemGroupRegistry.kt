@@ -27,12 +27,12 @@ object ItemGroupRegistry {
 
     fun init() {
         // TODO: Replace placeholder icons (beds) with actual mod items once these items are in place
-        ORBS = register("orbs", Items.GREEN_BED)
-        AMULETS = register("amulets", Items.YELLOW_BED)
-        TOOLS = register("tools", Items.BLUE_BED)
-        WEAPONS = register("weapons", Items.PURPLE_BED)
-        ARMOR = register("armor", Items.CYAN_BED)
-        INGOTS = register("ingots", Items.LIGHT_BLUE_BED)
+        ORBS = register("orbs", ItemRegistry.GREEN_ORB)
+        AMULETS = register("amulets", ItemRegistry.YELLOW_AMULET)
+        TOOLS = register("tools", ItemRegistry.ORANGE_PICKAXE)
+        WEAPONS = register("weapons", ItemRegistry.RED_DOUBLE_AXE)
+        ARMOR = register("armor", ItemRegistry.BLUE_CHESTPLATE)
+        INGOTS = register("ingots", ItemRegistry.PURPLE_INGOT)
         BUILDING = register("building", Items.BROWN_BED)
         TRAPS = register("traps", Items.GRAY_BED)
         UTILITY = register("utility", Items.BROWN_BED)
