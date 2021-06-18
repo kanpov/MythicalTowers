@@ -2,6 +2,7 @@ package com.redgrapefruit.mythicaltowers.common.registry
 
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.blockSettings
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
+import com.redgrapefruit.mythicaltowers.common.block.building.CustomBricksBlock
 import com.redgrapefruit.mythicaltowers.common.block.building.PureMaterialBlock
 import com.redgrapefruit.mythicaltowers.common.block.trap.FireStationBlock
 import com.redgrapefruit.mythicaltowers.common.block.trap.GreenTntBlock
@@ -28,6 +29,8 @@ object BlockRegistry {
     val PURE_GRAY_BLOCK = PureMaterialBlock(blockSettings(12.0f))
     val PURE_BLACK_BLOCK = PureMaterialBlock(blockSettings(13.5f))
 
+    val GREEN_BRICKS = CustomBricksBlock(blockSettings(3.5f))
+
     // Traps
     val GREEN_TNT = GreenTntBlock()
 
@@ -44,6 +47,8 @@ object BlockRegistry {
         register("pure_purple_block", PURE_PURPLE_BLOCK, ItemGroupRegistry.BUILDING)
         register("pure_gray_block", PURE_GRAY_BLOCK, ItemGroupRegistry.BUILDING)
         register("pure_black_block", PURE_BLACK_BLOCK, ItemGroupRegistry.BUILDING)
+
+        register("green_bricks", GREEN_BRICKS, ItemGroupRegistry.BUILDING)
 
         register("green_tnt", GREEN_TNT, ItemGroupRegistry.TRAPS)
 
