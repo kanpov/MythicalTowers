@@ -1,5 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.registry
 
+import com.redgrapefruit.mythicaltowers.common.MythicalTowers
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.blockSettings
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.common.block.building.CustomBricksBlock
@@ -46,29 +47,29 @@ object BlockRegistry {
     val GREEN_FIRE_STATION = FireStationBlock(blockSettings(2.0f))
 
     fun init() {
-        register("pure_green_block", PURE_GREEN_BLOCK, ItemGroupRegistry.BUILDING)
-        register("pure_yellow_block", PURE_YELLOW_BLOCK, ItemGroupRegistry.BUILDING)
-        register("pure_orange_block", PURE_ORANGE_BLOCK, ItemGroupRegistry.BUILDING)
-        register("pure_red_block", PURE_RED_BLOCK, ItemGroupRegistry.BUILDING)
-        register("pure_blue_block", PURE_BLUE_BLOCK, ItemGroupRegistry.BUILDING)
-        register("pure_purple_block", PURE_PURPLE_BLOCK, ItemGroupRegistry.BUILDING)
-        register("pure_gray_block", PURE_GRAY_BLOCK, ItemGroupRegistry.BUILDING)
-        register("pure_black_block", PURE_BLACK_BLOCK, ItemGroupRegistry.BUILDING)
+        register("pure_green_block", PURE_GREEN_BLOCK)
+        register("pure_yellow_block", PURE_YELLOW_BLOCK)
+        register("pure_orange_block", PURE_ORANGE_BLOCK)
+        register("pure_red_block", PURE_RED_BLOCK)
+        register("pure_blue_block", PURE_BLUE_BLOCK)
+        register("pure_purple_block", PURE_PURPLE_BLOCK)
+        register("pure_gray_block", PURE_GRAY_BLOCK)
+        register("pure_black_block", PURE_BLACK_BLOCK)
 
-        register("green_bricks", GREEN_BRICKS, ItemGroupRegistry.BUILDING)
-        register("yellow_bricks", YELLOW_BRICKS, ItemGroupRegistry.BUILDING)
-        register("orange_bricks", ORANGE_BRICKS, ItemGroupRegistry.BUILDING)
-        register("red_bricks", RED_BRICKS, ItemGroupRegistry.BUILDING)
-        register("blue_bricks", BLUE_BRICKS, ItemGroupRegistry.BUILDING)
-        register("purple_bricks", PURPLE_BRICKS, ItemGroupRegistry.BUILDING)
-        register("gray_bricks", GRAY_BRICKS, ItemGroupRegistry.BUILDING)
-        register("black_bricks", BLACK_BRICKS, ItemGroupRegistry.BUILDING)
+        register("green_bricks", GREEN_BRICKS)
+        register("yellow_bricks", YELLOW_BRICKS,)
+        register("orange_bricks", ORANGE_BRICKS)
+        register("red_bricks", RED_BRICKS)
+        register("blue_bricks", BLUE_BRICKS)
+        register("purple_bricks", PURPLE_BRICKS)
+        register("gray_bricks", GRAY_BRICKS)
+        register("black_bricks", BLACK_BRICKS)
 
-        register("green_tnt", GREEN_TNT, ItemGroupRegistry.TRAPS)
+        register("green_tnt", GREEN_TNT)
 
-        register("green_jump_pad", GREEN_JUMP_PAD, ItemGroupRegistry.TRAPS)
+        register("green_jump_pad", GREEN_JUMP_PAD)
 
-        register("green_fire_station", GREEN_FIRE_STATION, ItemGroupRegistry.TRAPS)
+        register("green_fire_station", GREEN_FIRE_STATION)
     }
 
     /**
@@ -76,10 +77,9 @@ object BlockRegistry {
      *
      * @param name  Block name
      * @param block Block instance
-     * @param group [ItemGroup] for the [BlockItem]
      */
-    private fun register(name: String, block: Block, group: ItemGroup?) {
+    private fun register(name: String, block: Block) {
         Registry.register(Registry.BLOCK, idOf(name), block)
-        Registry.register(Registry.ITEM, idOf(name), BlockItem(block, Item.Settings().group(group)))
+        Registry.register(Registry.ITEM, idOf(name), BlockItem(block, Item.Settings().group(MythicalTowers.GROUP)))
     }
 }

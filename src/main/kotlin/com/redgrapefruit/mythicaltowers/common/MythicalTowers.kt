@@ -5,8 +5,11 @@ import com.redgrapefruit.mythicaltowers.common.registry.EntityRegistry
 import com.redgrapefruit.mythicaltowers.common.registry.ItemRegistry
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags
 import net.minecraft.block.Material
+import net.minecraft.item.ItemGroup
+import net.minecraft.item.ItemStack
 import net.minecraft.util.Identifier
 import java.util.*
 
@@ -19,6 +22,7 @@ class MythicalTowers : ModInitializer {
 
     companion object {
         val RANDOM = Random()
+        val GROUP = FabricItemGroupBuilder.build(idOf("group")) { ItemStack(ItemRegistry.GREEN_ORB) }
 
         /**
          * Returns the [Identifier] of given name

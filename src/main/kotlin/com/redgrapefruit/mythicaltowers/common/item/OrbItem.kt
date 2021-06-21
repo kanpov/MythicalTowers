@@ -1,8 +1,8 @@
 package com.redgrapefruit.mythicaltowers.common.item
 
+import com.redgrapefruit.mythicaltowers.common.MythicalTowers
 import com.redgrapefruit.mythicaltowers.common.core.EffectConfig
 import com.redgrapefruit.mythicaltowers.common.core.EffectEngine.onOrbUsed
-import com.redgrapefruit.mythicaltowers.common.registry.ItemGroupRegistry
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
@@ -19,7 +19,7 @@ class OrbItem(
      * The [EffectConfig]s linked to this orb
      */
     private val configs: List<EffectConfig>
-) : Item(Settings().group(ItemGroupRegistry.ORBS)) {
+) : Item(Settings().group(MythicalTowers.GROUP)) {
     override fun use(world: World, user: PlayerEntity, hand: Hand): TypedActionResult<ItemStack> {
         onOrbUsed(configs, user, hand)
         return TypedActionResult.consume(user.getStackInHand(hand))
