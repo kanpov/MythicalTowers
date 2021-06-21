@@ -2,7 +2,6 @@ package com.redgrapefruit.mythicaltowers.common
 
 import com.redgrapefruit.mythicaltowers.common.registry.BlockRegistry
 import com.redgrapefruit.mythicaltowers.common.registry.EntityRegistry
-import com.redgrapefruit.mythicaltowers.common.registry.ItemGroupRegistry
 import com.redgrapefruit.mythicaltowers.common.registry.ItemRegistry
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
