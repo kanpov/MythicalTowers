@@ -30,8 +30,9 @@ object BlockRegistry {
     val PURE_BLACK_BLOCK = PureMaterialBlock(blockSettings(13.5f))
 
     val GREEN_BRICKS = CustomBricksBlock(blockSettings(3.5f))
-    val YELLOW_BRICKS = CustomBricksBlock(blockSettings(4.5f))
-    val ORANGE_BRICKS = CustomBricksBlock(blockSettings(5.5f))
+    val YELLOW_BRICKS = CustomBricksBlock(blockSettings(5f))
+    val ORANGE_BRICKS = CustomBricksBlock(blockSettings(7.5f))
+    val RED_BRICKS = CustomBricksBlock(blockSettings(9f))
 
     // Traps
     val GREEN_TNT = GreenTntBlock()
@@ -53,6 +54,7 @@ object BlockRegistry {
         register("green_bricks", GREEN_BRICKS, ItemGroupRegistry.BUILDING)
         register("yellow_bricks", YELLOW_BRICKS, ItemGroupRegistry.BUILDING)
         register("orange_bricks", ORANGE_BRICKS, ItemGroupRegistry.BUILDING)
+        register("red_bricks", RED_BRICKS, ItemGroupRegistry.BUILDING)
 
         register("green_tnt", GREEN_TNT, ItemGroupRegistry.TRAPS)
 
