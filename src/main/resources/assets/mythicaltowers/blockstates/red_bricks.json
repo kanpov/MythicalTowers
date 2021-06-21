@@ -1,7 +1,7 @@
 {
     "variants": {
         "": {
-            "model": "utopia:block/red_bricks"
+            "model": "mythicaltowers:block/red_bricks"
         }
     }
 }
