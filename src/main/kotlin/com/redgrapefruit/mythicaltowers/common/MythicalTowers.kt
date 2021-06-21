@@ -22,7 +22,7 @@ class MythicalTowers : ModInitializer {
 
     companion object {
         val RANDOM = Random()
-        val GROUP = FabricItemGroupBuilder.build(idOf("group")) { ItemStack(ItemRegistry.GREEN_ORB) }
+        val GROUP: ItemGroup = FabricItemGroupBuilder.build(idOf("group")) { ItemStack(ItemRegistry.GREEN_ORB) }
 
         /**
          * Returns the [Identifier] of given name
