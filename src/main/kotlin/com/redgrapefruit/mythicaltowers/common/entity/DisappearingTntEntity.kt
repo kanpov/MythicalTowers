@@ -1,5 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.entity
 
+import com.redgrapefruit.mythicaltowers.common.registry.EntityRegistry
 import net.minecraft.entity.*
 import net.minecraft.entity.data.DataTracker
 import net.minecraft.entity.data.TrackedData
@@ -22,7 +23,7 @@ import kotlin.math.sin
  * @param type The registered [EntityType]
  * @param world Nullable [World] instance
  */
-abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity(type, world) {
+sealed class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity(type, world) {
     // region Properties & constructor
 
     /**
@@ -164,3 +165,28 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
 
     // endregion
 }
+
+// region Impl-s
+
+/**
+ * The green TNT. Slightly more dangerous than usual, but the fuse timer is longer
+ */
+class GreenTntEntity : DisappearingTntEntity {
+    constructor(type: EntityType<GreenTntEntity>, world: World) : super(type, world) {
+        initFuse(90)
+        explosionPower = 5.0f
+    }
+
+    constructor(
+        world: World,
+        x: Double,
+        y: Double,
+        z: Double,
+        igniter: LivingEntity?
+    ) : super(EntityRegistry.GREEN_TNT, world, x, y, z, igniter) {
+        initFuse(90)
+        explosionPower = 5.0f
+    }
+}
+
+// endregion

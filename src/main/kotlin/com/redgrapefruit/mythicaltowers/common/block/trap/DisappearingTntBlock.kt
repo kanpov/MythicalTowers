@@ -2,6 +2,7 @@ package com.redgrapefruit.mythicaltowers.common.block.trap
 
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers
 import com.redgrapefruit.mythicaltowers.common.entity.DisappearingTntEntity
+import com.redgrapefruit.mythicaltowers.common.entity.GreenTntEntity
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
@@ -29,7 +30,7 @@ import net.minecraft.world.explosion.Explosion
  *
  * The block is placed by the player/entity and turns into an entity once primed
  */
-abstract class DisappearingTntBlock<TEntity> :
+sealed class DisappearingTntBlock<TEntity> :
     Block(FabricBlockSettings.copyOf(Blocks.TNT)) where TEntity : DisappearingTntEntity {
 
     // region Properties, constructor and abstract
@@ -179,3 +180,16 @@ abstract class DisappearingTntBlock<TEntity> :
 
     // endregion
 }
+
+// region Impl-s
+
+/**
+ * Green TNT. Slightly more dangerous than usual, but the fuse time is longer
+ */
+class GreenTntBlock : DisappearingTntBlock<GreenTntEntity>() {
+    override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): GreenTntEntity {
+        return GreenTntEntity(world, x, y, z, igniter)
+    }
+}
+
+// endregion
