@@ -11,7 +11,6 @@ import com.redgrapefruit.mythicaltowers.common.block.trap.JumpPadBlock
 import net.minecraft.block.Block
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
-import net.minecraft.item.ItemGroup
 import net.minecraft.util.registry.Registry
 
 /**
@@ -57,7 +56,7 @@ object BlockRegistry {
         register("pure_black_block", PURE_BLACK_BLOCK)
 
         register("green_bricks", GREEN_BRICKS)
-        register("yellow_bricks", YELLOW_BRICKS,)
+        register("yellow_bricks", YELLOW_BRICKS)
         register("orange_bricks", ORANGE_BRICKS)
         register("red_bricks", RED_BRICKS)
         register("blue_bricks", BLUE_BRICKS)

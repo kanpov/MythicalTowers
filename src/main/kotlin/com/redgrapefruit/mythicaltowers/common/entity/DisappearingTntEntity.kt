@@ -28,7 +28,7 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
     /**
      * Fuse state [TrackedData]
      */
-    private var fuseTracker: TrackedData<Int>? = null
+    private lateinit var fuseTracker: TrackedData<Int>
 
     /**
      * The causer of the explosion
@@ -62,10 +62,10 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
         z: Double,
         igniter: LivingEntity?
     ) : this(type, world) {
-        updatePosition(x, y, z)
+        this.updatePosition(x, y, z)
         // Calculate velocity
         val d: Double = world.random.nextDouble() * 6.2831854820251465
-        setVelocity(-sin(d) * 0.02, 0.20000000298023224, -cos(d) * 0.02)
+        this.setVelocity(-sin(d) * 0.02, 0.20000000298023224, -cos(d) * 0.02)
         // Setup other variables
         prevX = x
         prevY = y
