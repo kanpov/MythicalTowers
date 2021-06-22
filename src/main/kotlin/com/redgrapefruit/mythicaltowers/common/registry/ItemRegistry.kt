@@ -7,6 +7,7 @@ import com.redgrapefruit.mythicaltowers.common.armor.HelmetItem
 import com.redgrapefruit.mythicaltowers.common.armor.LeggingsItem
 import com.redgrapefruit.mythicaltowers.common.item.AmuletItem
 import com.redgrapefruit.mythicaltowers.common.item.IngotItem
+import com.redgrapefruit.mythicaltowers.common.item.KeyItem
 import com.redgrapefruit.mythicaltowers.common.item.OrbItem
 import com.redgrapefruit.mythicaltowers.common.tool.CustomHoeItem
 import com.redgrapefruit.mythicaltowers.common.tool.CustomPickaxeItem
@@ -55,6 +56,35 @@ object ItemRegistry {
     val PURPLE_INGOT = IngotItem()
     val GRAY_INGOT = IngotItem()
     val BLACK_INGOT = IngotItem()
+    // endregion
+
+    // region Keys
+
+    val GREEN_KEY_1 = KeyItem()
+    val GREEN_KEY_2 = KeyItem()
+    val GREEN_KEY_3 = KeyItem()
+    val YELLOW_KEY_1 = KeyItem()
+    val YELLOW_KEY_2 = KeyItem()
+    val YELLOW_KEY_3 = KeyItem()
+    val ORANGE_KEY_1 = KeyItem()
+    val ORANGE_KEY_2 = KeyItem()
+    val ORANGE_KEY_3 = KeyItem()
+    val RED_KEY_1 = KeyItem()
+    val RED_KEY_2 = KeyItem()
+    val RED_KEY_3 = KeyItem()
+    val BLUE_KEY_1 = KeyItem()
+    val BLUE_KEY_2 = KeyItem()
+    val BLUE_KEY_3 = KeyItem()
+    val PURPLE_KEY_1 = KeyItem()
+    val PURPLE_KEY_2 = KeyItem()
+    val PURPLE_KEY_3 = KeyItem()
+    val GRAY_KEY_1 = KeyItem()
+    val GRAY_KEY_2 = KeyItem()
+    val GRAY_KEY_3 = KeyItem()
+    val BLACK_KEY_1 = KeyItem()
+    val BLACK_KEY_2 = KeyItem()
+    val BLACK_KEY_3 = KeyItem()
+
     // endregion
 
     // region Tools
@@ -184,6 +214,31 @@ object ItemRegistry {
         register("purple_ingot", PURPLE_INGOT)
         register("gray_ingot", GRAY_INGOT)
         register("black_ingot", BLACK_INGOT)
+
+        register("green_key_1", GREEN_KEY_1)
+        register("green_key_2", GREEN_KEY_2)
+        register("green_key_3", GREEN_KEY_3)
+        register("yellow_key_1", YELLOW_KEY_1)
+        register("yellow_key_2", YELLOW_KEY_2)
+        register("yellow_key_3", YELLOW_KEY_3)
+        register("orange_key_1", ORANGE_KEY_1)
+        register("orange_key_2", ORANGE_KEY_2)
+        register("orange_key_3", ORANGE_KEY_3)
+        register("red_key_1", RED_KEY_1)
+        register("red_key_2", RED_KEY_2)
+        register("red_key_3", RED_KEY_3)
+        register("blue_key_1", BLUE_KEY_1)
+        register("blue_key_2", BLUE_KEY_2)
+        register("blue_key_3", BLUE_KEY_3)
+        register("purple_key_1", PURPLE_KEY_1)
+        register("purple_key_2", PURPLE_KEY_2)
+        register("purple_key_3", PURPLE_KEY_3)
+        register("gray_key_1", GRAY_KEY_1)
+        register("gray_key_2", GRAY_KEY_2)
+        register("gray_key_3", GRAY_KEY_3)
+        register("black_key_1", BLACK_KEY_1)
+        register("black_key_2", BLACK_KEY_2)
+        register("black_key_3", BLACK_KEY_3)
 
         register("green_pickaxe", GREEN_PICKAXE)
         register("yellow_pickaxe", YELLOW_PICKAXE)
