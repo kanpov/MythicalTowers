@@ -13,7 +13,7 @@ import net.minecraft.world.World
 /**
  * Custom gate that allows you to enter the tower with a [KeyItem] to open.
  */
-class GateBlock(private val key: KeyItem, settings: Settings) : Block(settings) {
+class GateBlock(settings: Settings, private val key: KeyItem) : Block(settings) {
     override fun onUse(
         state: BlockState,
         world: World,

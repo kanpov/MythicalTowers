@@ -1,9 +1,7 @@
 package com.redgrapefruit.mythicaltowers.common.block
 
-import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
-import net.minecraft.block.Blocks
 import net.minecraft.entity.Entity
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.damage.DamageSource
@@ -12,6 +10,11 @@ import net.minecraft.util.math.Vec3d
 import net.minecraft.world.BlockView
 import net.minecraft.world.World
 import kotlin.math.abs
+
+/**
+ * Base jump force
+ */
+private const val JUMP_FORCE: Float = 1.8f
 
 /**
  * A jump pad acts as a slime block
@@ -36,7 +39,7 @@ class JumpPadBlock(
         if (entity.bypassesLandingEffects()) {
             super.onEntityLand(world, entity)
         } else {
-            bounce(entity)
+            launch(entity)
         }
     }
 
@@ -52,15 +55,14 @@ class JumpPadBlock(
     }
 
     /**
-     * Bounces up
-     * @param entity The bouncing entity
+     * Launches upwards
+     * @param entity The launched entity
      */
-    private fun bounce(entity: Entity) {
+    private fun launch(entity: Entity) {
         val velocity: Vec3d = entity.velocity
-        // If the velocity is negative, accelerate on the Y axis using the calculated modifier
-        if (velocity.y < 0.0) {
-            val modifier: Double = if (entity is LivingEntity) livingBoostMultiplier else standardBoostMultiplier
-            entity.setVelocity(velocity.x, -velocity.y * modifier, velocity.z)
-        }
+        // Additional jump force depending on the entity
+        val modifier: Double = if (entity is LivingEntity) livingBoostMultiplier else standardBoostMultiplier
+
+        entity.setVelocity(velocity.x, (velocity.y + JUMP_FORCE) * modifier, velocity.z)
     }
 }
