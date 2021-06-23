@@ -3,10 +3,7 @@ package com.redgrapefruit.mythicaltowers.common.registry
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.UNBREAKABLE
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
-import com.redgrapefruit.mythicaltowers.common.block.FireStationBlock
-import com.redgrapefruit.mythicaltowers.common.block.GateBlock
-import com.redgrapefruit.mythicaltowers.common.block.GreenTntBlock
-import com.redgrapefruit.mythicaltowers.common.block.JumpPadBlock
+import com.redgrapefruit.mythicaltowers.common.block.*
 import net.minecraft.block.Block
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
@@ -38,12 +35,12 @@ object BlockRegistry {
     val BLACK_BRICKS = Block(UNBREAKABLE)
 
     // Transportation
-    val GREEN_GATE_1 = GateBlock(UNBREAKABLE, ItemRegistry.GREEN_KEY_1)
-    val GREEN_GATE_2 = GateBlock(UNBREAKABLE, ItemRegistry.GREEN_KEY_2)
-    val GREEN_GATE_3 = GateBlock(UNBREAKABLE, ItemRegistry.GREEN_KEY_3)
-    val YELLOW_GATE_1 = GateBlock(UNBREAKABLE, ItemRegistry.YELLOW_KEY_1)
-    val YELLOW_GATE_2 = GateBlock(UNBREAKABLE, ItemRegistry.YELLOW_KEY_2)
-    val YELLOW_GATE_3 = GateBlock(UNBREAKABLE, ItemRegistry.YELLOW_KEY_3)
+    val GREEN_GATE_1 = GateBlock(UNBREAKABLE, ItemRegistry.GREEN_KEY_1, GateLevel.LEVEL_1)
+    val GREEN_GATE_2 = GateBlock(UNBREAKABLE, ItemRegistry.GREEN_KEY_2, GateLevel.LEVEL_2)
+    val GREEN_GATE_3 = GateBlock(UNBREAKABLE, ItemRegistry.GREEN_KEY_3, GateLevel.LEVEL_3)
+    val YELLOW_GATE_1 = GateBlock(UNBREAKABLE, ItemRegistry.YELLOW_KEY_1, GateLevel.LEVEL_1)
+    val YELLOW_GATE_2 = GateBlock(UNBREAKABLE, ItemRegistry.YELLOW_KEY_2, GateLevel.LEVEL_2)
+    val YELLOW_GATE_3 = GateBlock(UNBREAKABLE, ItemRegistry.YELLOW_KEY_3, GateLevel.LEVEL_3)
 
     // Traps
     val GREEN_TNT = GreenTntBlock(UNBREAKABLE)
