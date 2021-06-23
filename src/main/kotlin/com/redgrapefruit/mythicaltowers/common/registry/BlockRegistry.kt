@@ -1,10 +1,8 @@
 package com.redgrapefruit.mythicaltowers.common.registry
 
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers
-import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.blockSettings
+import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.UNBREAKABLE
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
-import com.redgrapefruit.mythicaltowers.common.block.building.CustomBricksBlock
-import com.redgrapefruit.mythicaltowers.common.block.building.PureMaterialBlock
 import com.redgrapefruit.mythicaltowers.common.block.trap.FireStationBlock
 import com.redgrapefruit.mythicaltowers.common.block.trap.GreenTntBlock
 import com.redgrapefruit.mythicaltowers.common.block.trap.JumpPadBlock
@@ -20,30 +18,30 @@ import net.minecraft.util.registry.Registry
 object BlockRegistry {
 
     // Building
-    val PURE_GREEN_BLOCK = PureMaterialBlock(blockSettings(3.0f))
-    val PURE_YELLOW_BLOCK = PureMaterialBlock(blockSettings(4.5f))
-    val PURE_ORANGE_BLOCK = PureMaterialBlock(blockSettings(6.0f))
-    val PURE_RED_BLOCK = PureMaterialBlock(blockSettings(7.5f))
-    val PURE_BLUE_BLOCK = PureMaterialBlock(blockSettings(9.0f))
-    val PURE_PURPLE_BLOCK = PureMaterialBlock(blockSettings(10.5f))
-    val PURE_GRAY_BLOCK = PureMaterialBlock(blockSettings(12.0f))
-    val PURE_BLACK_BLOCK = PureMaterialBlock(blockSettings(13.5f))
+    val PURE_GREEN_BLOCK = Block(UNBREAKABLE)
+    val PURE_YELLOW_BLOCK = Block(UNBREAKABLE)
+    val PURE_ORANGE_BLOCK = Block(UNBREAKABLE)
+    val PURE_RED_BLOCK = Block(UNBREAKABLE)
+    val PURE_BLUE_BLOCK = Block(UNBREAKABLE)
+    val PURE_PURPLE_BLOCK = Block(UNBREAKABLE)
+    val PURE_GRAY_BLOCK = Block(UNBREAKABLE)
+    val PURE_BLACK_BLOCK = Block(UNBREAKABLE)
 
-    val GREEN_BRICKS = CustomBricksBlock(blockSettings(3.5f))
-    val YELLOW_BRICKS = CustomBricksBlock(blockSettings(5f))
-    val ORANGE_BRICKS = CustomBricksBlock(blockSettings(7.5f))
-    val RED_BRICKS = CustomBricksBlock(blockSettings(9f))
-    val BLUE_BRICKS = CustomBricksBlock(blockSettings(10.5f))
-    val PURPLE_BRICKS = CustomBricksBlock(blockSettings(12.0f))
-    val GRAY_BRICKS = CustomBricksBlock(blockSettings(13.5f))
-    val BLACK_BRICKS = CustomBricksBlock(blockSettings(15.0f))
+    val GREEN_BRICKS = Block(UNBREAKABLE)
+    val YELLOW_BRICKS = Block(UNBREAKABLE)
+    val ORANGE_BRICKS = Block(UNBREAKABLE)
+    val RED_BRICKS = Block(UNBREAKABLE)
+    val BLUE_BRICKS = Block(UNBREAKABLE)
+    val PURPLE_BRICKS = Block(UNBREAKABLE)
+    val GRAY_BRICKS = Block(UNBREAKABLE)
+    val BLACK_BRICKS = Block(UNBREAKABLE)
 
     // Traps
-    val GREEN_TNT = GreenTntBlock()
+    val GREEN_TNT = GreenTntBlock(UNBREAKABLE)
 
-    val GREEN_JUMP_PAD = JumpPadBlock(1.5, 1.1)
+    val GREEN_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 1.5, 1.1)
 
-    val GREEN_FIRE_STATION = FireStationBlock(blockSettings(2.0f))
+    val GREEN_FIRE_STATION = FireStationBlock(UNBREAKABLE)
 
     fun init() {
         register("pure_green_block", PURE_GREEN_BLOCK)

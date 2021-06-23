@@ -17,9 +17,10 @@ import kotlin.math.abs
  * A jump pad acts as a slime block
  */
 class JumpPadBlock(
+    settings: Settings,
     private val livingBoostMultiplier: Double,
     private val standardBoostMultiplier: Double
-) : Block(FabricBlockSettings.copyOf(Blocks.SLIME_BLOCK)) {
+) : Block(settings) {
 
     override fun onLandedUpon(world: World, state: BlockState, pos: BlockPos, entity: Entity, distance: Float) {
         // Do standard damage if the entity bypasses landing effects, else suppress the damage

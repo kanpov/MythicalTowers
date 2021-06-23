@@ -30,8 +30,8 @@ import net.minecraft.world.explosion.Explosion
  *
  * The block is placed by the player/entity and turns into an entity once primed
  */
-sealed class DisappearingTntBlock<TEntity> :
-    Block(FabricBlockSettings.copyOf(Blocks.TNT)) where TEntity : DisappearingTntEntity {
+sealed class DisappearingTntBlock<TEntity>(settings: Settings) :
+    Block(settings) where TEntity : DisappearingTntEntity {
 
     // region Properties, constructor and abstract
 
@@ -186,7 +186,7 @@ sealed class DisappearingTntBlock<TEntity> :
 /**
  * Green TNT. Slightly more dangerous than usual, but the fuse time is longer
  */
-class GreenTntBlock : DisappearingTntBlock<GreenTntEntity>() {
+class GreenTntBlock(settings: Settings) : DisappearingTntBlock<GreenTntEntity>(settings) {
     override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): GreenTntEntity {
         return GreenTntEntity(world, x, y, z, igniter)
     }

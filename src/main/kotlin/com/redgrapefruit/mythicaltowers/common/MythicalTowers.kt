@@ -7,6 +7,7 @@ import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags
+import net.minecraft.block.AbstractBlock
 import net.minecraft.block.Material
 import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
@@ -34,18 +35,11 @@ class MythicalTowers : ModInitializer {
             return Identifier("mythicaltowers", name)
         }
 
-        /**
-         * Creates standard block settings
-         *
-         * @param hardness Block's hardness
-         */
-        fun blockSettings(hardness: Float): FabricBlockSettings {
-            return FabricBlockSettings
+        val UNBREAKABLE: AbstractBlock.Settings = FabricBlockSettings
                 .of(Material.METAL)
                 .collidable(true)
                 .breakByHand(false)
                 .breakByTool(FabricToolTags.PICKAXES, 4)
-                .hardness(hardness)
-        }
+                .hardness(Float.MAX_VALUE)
     }
 }
