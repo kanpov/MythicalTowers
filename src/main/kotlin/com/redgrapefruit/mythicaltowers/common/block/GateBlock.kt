@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.common.block.building
+package com.redgrapefruit.mythicaltowers.common.block
 
 import com.redgrapefruit.mythicaltowers.common.item.KeyItem
 import net.minecraft.block.Block

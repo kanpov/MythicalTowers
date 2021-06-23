@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.common.block.trap
+package com.redgrapefruit.mythicaltowers.common.block
 
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers
 import com.redgrapefruit.mythicaltowers.common.entity.DisappearingTntEntity

@@ -3,9 +3,9 @@ package com.redgrapefruit.mythicaltowers.common.registry
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.UNBREAKABLE
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
-import com.redgrapefruit.mythicaltowers.common.block.trap.FireStationBlock
-import com.redgrapefruit.mythicaltowers.common.block.trap.GreenTntBlock
-import com.redgrapefruit.mythicaltowers.common.block.trap.JumpPadBlock
+import com.redgrapefruit.mythicaltowers.common.block.FireStationBlock
+import com.redgrapefruit.mythicaltowers.common.block.GreenTntBlock
+import com.redgrapefruit.mythicaltowers.common.block.JumpPadBlock
 import net.minecraft.block.Block
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item

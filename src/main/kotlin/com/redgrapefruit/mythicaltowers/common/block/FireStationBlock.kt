@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.common.block.trap
+package com.redgrapefruit.mythicaltowers.common.block
 
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
