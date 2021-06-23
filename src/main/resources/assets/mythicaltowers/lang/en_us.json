@@ -152,6 +152,9 @@
     "block.mythicaltowers.green_gate_1": "Green Gate Level One",
     "block.mythicaltowers.green_gate_2": "Green Gate Level Two",
     "block.mythicaltowers.green_gate_3": "Green Gate Level Three",
+    "block.mythicaltowers.yellow_gate_1": "Yellow Gate Level One",
+    "block.mythicaltowers.yellow_gate_2": "Yellow Gate Level Two",
+    "block.mythicaltowers.yellow_gate_3": "Yellow Gate Level Three",
     "block.mythicaltowers.green_tnt": "Green TNT",
     "block.mythicaltowers.green_jump_pad": "Green Jump Pad",
     "block.mythicaltowers.green_fire_station": "Green Fire Station"
