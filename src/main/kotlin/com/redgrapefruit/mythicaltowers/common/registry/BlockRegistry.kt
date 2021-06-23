@@ -41,6 +41,9 @@ object BlockRegistry {
     val YELLOW_GATE_1 = GateBlock(UNBREAKABLE, ItemRegistry.YELLOW_KEY_1, GateLevel.LEVEL_1)
     val YELLOW_GATE_2 = GateBlock(UNBREAKABLE, ItemRegistry.YELLOW_KEY_2, GateLevel.LEVEL_2)
     val YELLOW_GATE_3 = GateBlock(UNBREAKABLE, ItemRegistry.YELLOW_KEY_3, GateLevel.LEVEL_3)
+    val ORANGE_GATE_1 = GateBlock(UNBREAKABLE, ItemRegistry.ORANGE_KEY_1, GateLevel.LEVEL_1)
+    val ORANGE_GATE_2 = GateBlock(UNBREAKABLE, ItemRegistry.ORANGE_KEY_2, GateLevel.LEVEL_2)
+    val ORANGE_GATE_3 = GateBlock(UNBREAKABLE, ItemRegistry.ORANGE_KEY_3, GateLevel.LEVEL_3)
 
     // Traps
     val GREEN_TNT = GreenTntBlock(UNBREAKABLE)
@@ -74,6 +77,9 @@ object BlockRegistry {
         register("yellow_gate_1", YELLOW_GATE_1)
         register("yellow_gate_2", YELLOW_GATE_2)
         register("yellow_gate_3", YELLOW_GATE_3)
+        register("orange_gate_1", ORANGE_GATE_1)
+        register("orange_gate_2", ORANGE_GATE_2)
+        register("orange_gate_3", ORANGE_GATE_3)
 
         register("green_tnt", GREEN_TNT)
 
