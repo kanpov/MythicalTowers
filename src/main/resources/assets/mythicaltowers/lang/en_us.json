@@ -149,6 +149,9 @@
     "block.mythicaltowers.purple_bricks": "Purple Bricks",
     "block.mythicaltowers.gray_bricks": "Gray Bricks",
     "block.mythicaltowers.black_bricks": "Black Bricks",
+    "block.mythicaltowers.green_gate_1": "Green Gate Level One",
+    "block.mythicaltowers.green_gate_2": "Green Gate Level Two",
+    "block.mythicaltowers.green_gate_3": "Green Gate Level Three",
     "block.mythicaltowers.green_tnt": "Green TNT",
     "block.mythicaltowers.green_jump_pad": "Green Jump Pad",
     "block.mythicaltowers.green_fire_station": "Green Fire Station"

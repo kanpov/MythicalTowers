@@ -4,6 +4,7 @@ import com.redgrapefruit.mythicaltowers.common.MythicalTowers
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.UNBREAKABLE
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.common.block.FireStationBlock
+import com.redgrapefruit.mythicaltowers.common.block.GateBlock
 import com.redgrapefruit.mythicaltowers.common.block.GreenTntBlock
 import com.redgrapefruit.mythicaltowers.common.block.JumpPadBlock
 import net.minecraft.block.Block
@@ -36,6 +37,11 @@ object BlockRegistry {
     val GRAY_BRICKS = Block(UNBREAKABLE)
     val BLACK_BRICKS = Block(UNBREAKABLE)
 
+    // Transportation
+    val GREEN_GATE_1 = GateBlock(UNBREAKABLE, ItemRegistry.GREEN_KEY_1)
+    val GREEN_GATE_2 = GateBlock(UNBREAKABLE, ItemRegistry.GREEN_KEY_2)
+    val GREEN_GATE_3 = GateBlock(UNBREAKABLE, ItemRegistry.GREEN_KEY_3)
+
     // Traps
     val GREEN_TNT = GreenTntBlock(UNBREAKABLE)
 
@@ -61,6 +67,10 @@ object BlockRegistry {
         register("purple_bricks", PURPLE_BRICKS)
         register("gray_bricks", GRAY_BRICKS)
         register("black_bricks", BLACK_BRICKS)
+
+        register("green_gate_1", GREEN_GATE_1)
+        register("green_gate_2", GREEN_GATE_2)
+        register("green_gate_3", GREEN_GATE_3)
 
         register("green_tnt", GREEN_TNT)
 

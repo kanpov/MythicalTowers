@@ -35,6 +35,9 @@ processResources {
 
     duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 
+    // Exclude Blockbench projects
+    exclude("src/main/resources/assets/mythicaltowers/models/blockbench")
+
     from(sourceSets.main.resources.srcDirs) {
         include "fabric.mod.json"
         expand "version": project.version
