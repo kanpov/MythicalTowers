@@ -11,9 +11,9 @@ import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 
 /**
- * Custom door that requires a [KeyItem] to open.
+ * Custom gate that allows you to enter the tower with a [KeyItem] to open.
  */
-class CustomDoorBlock(private val key: KeyItem, settings: Settings) : Block(settings) {
+class GateBlock(private val key: KeyItem, settings: Settings) : Block(settings) {
     override fun onUse(
         state: BlockState,
         world: World,
