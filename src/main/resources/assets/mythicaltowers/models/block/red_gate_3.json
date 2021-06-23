@@ -1,0 +1,9 @@
+{
+    "parent": "mythicaltowers:block/gate_3",
+    "textures": {
+        "0": "mythicaltowers:block/red_gate_connector",
+        "1": "mythicaltowers:block/red_gate_plane",
+        "2": "mythicaltowers:block/red_gate_plane_side",
+        "particle": "mythicaltowers:block/red_gate_connector"
+    }
+}
