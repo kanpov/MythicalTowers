@@ -1,9 +1,15 @@
 package com.redgrapefruit.mythicaltowers.common.block
 
+import com.redgrapefruit.mythicaltowers.common.block.entity.GateBlockEntity
+import com.redgrapefruit.mythicaltowers.common.block.entity.TICK_COUNTER_MAX
 import com.redgrapefruit.mythicaltowers.common.item.KeyItem
 import net.minecraft.block.Block
+import net.minecraft.block.BlockEntityProvider
 import net.minecraft.block.BlockState
 import net.minecraft.block.ShapeContext
+import net.minecraft.block.entity.BlockEntity
+import net.minecraft.block.entity.BlockEntityTicker
+import net.minecraft.block.entity.BlockEntityType
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.state.StateManager
 import net.minecraft.state.property.IntProperty
@@ -16,26 +22,45 @@ import net.minecraft.util.shape.VoxelShape
 import net.minecraft.util.shape.VoxelShapes
 import net.minecraft.world.BlockView
 import net.minecraft.world.World
+import java.lang.RuntimeException
 
 /**
  * Custom gate that allows you to enter the tower with a [KeyItem] to open.
  *
  * Also has an opening animation.
  */
-class GateBlock(settings: Settings, private val key: KeyItem, private val level: GateLevel) : Block(settings) {
+class GateBlock(settings: Settings, private val key: KeyItem, private val level: GateLevel) : Block(settings), BlockEntityProvider {
     /**
      * The opening animation blockstate
      */
-    private val openProperty: IntProperty = IntProperty.of("open", 0, 6)
+    private lateinit var openProperty: IntProperty
 
     init {
+        createOpenPropertyIfNull()
         defaultState = stateManager.defaultState.with(openProperty, 0)
+    }
+
+    override fun createBlockEntity(pos: BlockPos, state: BlockState): BlockEntity {
+        return GateBlockEntity(pos, state)
     }
 
     override fun appendProperties(builder: StateManager.Builder<Block, BlockState>) {
         super.appendProperties(builder)
 
+        createOpenPropertyIfNull()
         builder.add(openProperty)
+    }
+
+    override fun <T : BlockEntity> getTicker(
+        world: World,
+        state: BlockState,
+        type: BlockEntityType<T>
+    ): BlockEntityTicker<T> {
+        return BlockEntityTicker { _, _, _, rawEntity ->
+            // Just increment the counter
+            val entity = rawEntity as GateBlockEntity
+            entity.counter++
+        }
     }
 
     override fun getOutlineShape(
@@ -80,7 +105,7 @@ class GateBlock(settings: Settings, private val key: KeyItem, private val level:
                     ).reduce { v1, v2 -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR); }
                     else -> return listOf(
                         createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0),
-                        createCuboidShape(6.0, 2.0, 6.0, 10.0, 1.0, 10.0),
+                        createCuboidShape(6.0, 0.0, 6.0, 10.0, 1.0, 10.0),
                         createCuboidShape(0.0, 2.0, 0.0, 16.0, 4.0, 16.0)
                     ).reduce { v1, v2 -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR); }
                 }
@@ -126,8 +151,8 @@ class GateBlock(settings: Settings, private val key: KeyItem, private val level:
                     else -> return listOf(
                         createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0),
                         createCuboidShape(0.0, 2.0, 0.0, 16.0, 4.0, 16.0),
-                        createCuboidShape(9.0, 2.0, 9.0, 13.0, 1.0, 13.0),
-                        createCuboidShape(3.0, 2.0, 3.0, 7.0, 1.0, 7.0)
+                        createCuboidShape(9.0, 0.0, 9.0, 13.0, 1.0, 13.0),
+                        createCuboidShape(3.0, 0.0, 3.0, 7.0, 1.0, 7.0)
                     ).reduce { v1, v2 -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR) }
                 }
             }
@@ -178,9 +203,9 @@ class GateBlock(settings: Settings, private val key: KeyItem, private val level:
                     else -> return listOf(
                         createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0),
                         createCuboidShape(0.0, 2.0, 0.0, 16.0, 4.0, 16.0),
-                        createCuboidShape(3.0, 2.0, 9.0, 7.0, 1.0, 13.0),
-                        createCuboidShape(3.0, 2.0, 3.0, 7.0, 1.0, 7.0),
-                        createCuboidShape(9.0, 2.0, 6.0, 13.0, 1.0, 10.0)
+                        createCuboidShape(3.0, 0.0, 9.0, 7.0, 1.0, 13.0),
+                        createCuboidShape(3.0, 0.0, 3.0, 7.0, 1.0, 7.0),
+                        createCuboidShape(9.0, 0.0, 6.0, 13.0, 1.0, 10.0)
                     ).reduce { v1, v2 -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR) }
                 }
             }
@@ -196,16 +221,38 @@ class GateBlock(settings: Settings, private val key: KeyItem, private val level:
         hit: BlockHitResult
     ): ActionResult {
         val stack = player.getStackInHand(hand)
+        val entity = world.getBlockEntity(pos) as GateBlockEntity
 
         // Check if the door has been right-clicked with the linked key
         if (stack.item == key) {
-            // Remove the door
-            world.removeBlock(pos, false)
-            // Decrement the stack with the key because a key can only be used once
-            stack.decrement(1)
+            entity.isDisappearing = true
+
+            // Check if all open BlockStates have been passed
+            if (state.get(openProperty) >= 6) {
+                // Remove the door
+                world.removeBlock(pos, false)
+                // Decrement the stack with the key because a key can only be used once
+                stack.decrement(1)
+            }
+        } else {
+            // If the counter has gone off, move onto the next blockstate and reset the counter
+            if (entity.counter >= TICK_COUNTER_MAX) {
+                val currentOpen = state.get(openProperty) as Int
+                world.setBlockState(pos, state.with(openProperty, currentOpen + 1))
+
+                entity.counter = 0
+            }
+
+            entity.isDisappearing = false
         }
 
         return ActionResult.SUCCESS
+    }
+
+    // Hack
+    private fun createOpenPropertyIfNull() {
+        if (!::openProperty.isInitialized)
+            openProperty = IntProperty.of("open", 0, 6)
     }
 }
 

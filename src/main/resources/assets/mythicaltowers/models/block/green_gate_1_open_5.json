@@ -3,6 +3,7 @@
     "textures": {
         "0": "mythicaltowers:block/green_gate_plane",
         "1": "mythicaltowers:block/green_gate_plane_side",
-        "2": "mythicaltowers:block/green_gate_connector"
+        "2": "mythicaltowers:block/green_gate_connector",
+        "particle": "mythicaltowers:block/green_gate_plane"
     }
 }
