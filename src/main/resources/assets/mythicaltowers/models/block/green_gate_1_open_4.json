@@ -1,0 +1,8 @@
+{
+    "parent": "mythicaltowers:block/gate_1_open_4",
+    "textures": {
+        "0": "mythicaltowers:block/green_gate_plane",
+        "1": "mythicaltowers:block/green_gate_plane_side",
+        "2": "mythicaltowers:block/green_gate_connector"
+    }
+}
