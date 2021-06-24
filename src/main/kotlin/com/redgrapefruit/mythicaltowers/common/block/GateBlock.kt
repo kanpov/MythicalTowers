@@ -53,13 +53,26 @@ class GateBlock(settings: Settings, private val key: KeyItem, private val level:
 
     override fun <T : BlockEntity> getTicker(
         world: World,
-        state: BlockState,
+        stateOuter: BlockState,
         type: BlockEntityType<T>
     ): BlockEntityTicker<T> {
-        return BlockEntityTicker { _, _, _, rawEntity ->
+        return BlockEntityTicker { _, pos, state, rawEntity ->
             // Just increment the counter
             val entity = rawEntity as GateBlockEntity
             entity.counter++
+
+            // If the counter has gone off, move onto the next blockstate and reset the counter
+            if (entity.isDisappearing && entity.counter >= TICK_COUNTER_MAX) {
+                val currentOpen = state.get(openProperty) as Int
+
+                if (currentOpen < 6) {
+                    world.setBlockState(pos, state.with(openProperty, currentOpen + 1))
+                    entity.counter = 0
+                } else {
+                    // If the animation has been fully passed, remove the door
+                    world.removeBlock(pos, false)
+                }
+            }
         }
     }
 
@@ -224,27 +237,7 @@ class GateBlock(settings: Settings, private val key: KeyItem, private val level:
         val entity = world.getBlockEntity(pos) as GateBlockEntity
 
         // Check if the door has been right-clicked with the linked key
-        if (stack.item == key) {
-            entity.isDisappearing = true
-
-            // Check if all open BlockStates have been passed
-            if (state.get(openProperty) >= 6) {
-                // Remove the door
-                world.removeBlock(pos, false)
-                // Decrement the stack with the key because a key can only be used once
-                stack.decrement(1)
-            }
-        } else {
-            // If the counter has gone off, move onto the next blockstate and reset the counter
-            if (entity.counter >= TICK_COUNTER_MAX) {
-                val currentOpen = state.get(openProperty) as Int
-                world.setBlockState(pos, state.with(openProperty, currentOpen + 1))
-
-                entity.counter = 0
-            }
-
-            entity.isDisappearing = false
-        }
+        entity.isDisappearing = stack.item == key
 
         return ActionResult.SUCCESS
     }
