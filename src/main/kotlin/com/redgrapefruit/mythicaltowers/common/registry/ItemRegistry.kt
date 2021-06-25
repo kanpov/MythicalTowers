@@ -141,14 +141,14 @@ object ItemRegistry {
         DoubleSwordItem(EffectConfigRegistry.PURPLE_TOOLS, ToolMaterialRegistry.PURPLE, 56, -2.25f)
     val GRAY_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.GRAY_TOOLS, ToolMaterialRegistry.GRAY, 66, -2.2f)
     val BLACK_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 76, -2.15f)
-    val GREEN_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 10, -4.3f)
-    val YELLOW_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.YELLOW_TOOLS, ToolMaterialRegistry.YELLOW, 24, -4.25f)
-    val ORANGE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.ORANGE_TOOLS, ToolMaterialRegistry.ORANGE, 38, -4.2f)
-    val RED_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.RED_TOOLS, ToolMaterialRegistry.RED, 52, -4.15f)
-    val BLUE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.BLUE_TOOLS, ToolMaterialRegistry.BLUE, 66, -4.1f)
-    val PURPLE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.PURPLE_TOOLS, ToolMaterialRegistry.PURPLE, 80, -4.05f)
-    val GRAY_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GRAY_TOOLS, ToolMaterialRegistry.GRAY, 96, -4.0f)
-    val BLACK_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 112, -3.95f)
+    val GREEN_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 10, -3.3f)
+    val YELLOW_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.YELLOW_TOOLS, ToolMaterialRegistry.YELLOW, 24, -3.25f)
+    val ORANGE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.ORANGE_TOOLS, ToolMaterialRegistry.ORANGE, 38, -3.2f)
+    val RED_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.RED_TOOLS, ToolMaterialRegistry.RED, 52, -3.15f)
+    val BLUE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.BLUE_TOOLS, ToolMaterialRegistry.BLUE, 66, -3.1f)
+    val PURPLE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.PURPLE_TOOLS, ToolMaterialRegistry.PURPLE, 80, -3.05f)
+    val GRAY_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GRAY_TOOLS, ToolMaterialRegistry.GRAY, 96, -3.0f)
+    val BLACK_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 112, -2.95f)
     // endregion
 
     // region Armor
