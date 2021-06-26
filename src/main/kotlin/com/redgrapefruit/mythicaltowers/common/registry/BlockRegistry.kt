@@ -58,7 +58,9 @@ object BlockRegistry {
 
     // BlockEntities
     val GATE_BLOCK_ENTITY: BlockEntityType<GateBlockEntity> = FabricBlockEntityTypeBuilder.create(::GateBlockEntity,
-        GREEN_GATE_1, GREEN_GATE_2, GREEN_GATE_3).build()
+        GREEN_GATE_1, GREEN_GATE_2, GREEN_GATE_3,
+        YELLOW_GATE_1, YELLOW_GATE_2, YELLOW_GATE_3,
+        ORANGE_GATE_1, ORANGE_GATE_2, ORANGE_GATE_3).build()
 
     fun init() {
         register("pure_green_block", PURE_GREEN_BLOCK)
