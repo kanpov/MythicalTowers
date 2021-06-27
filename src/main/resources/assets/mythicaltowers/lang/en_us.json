@@ -170,6 +170,9 @@
     "block.mythicaltowers.purple_gate_1": "Purple Gate Level One",
     "block.mythicaltowers.purple_gate_2": "Purple Gate Level Two",
     "block.mythicaltowers.purple_gate_3": "Purple Gate Level Three",
+    "block.mythicaltowers.gray_gate_1": "Gray Gate Level One",
+    "block.mythicaltowers.gray_gate_2": "Gray Gate Level Two",
+    "block.mythicaltowers.gray_gate_3": "Gray Gate Level Three",
     "block.mythicaltowers.green_tnt": "Green TNT",
     "block.mythicaltowers.green_jump_pad": "Green Jump Pad",
     "block.mythicaltowers.green_fire_station": "Green Fire Station"

@@ -1,0 +1,25 @@
+{
+    "variants": {
+        "open=0": {
+            "model": "mythicaltowers:block/gray_gate_3_open_0"
+        },
+        "open=1": {
+            "model": "mythicaltowers:block/gray_gate_3_open_1"
+        },
+        "open=2": {
+            "model": "mythicaltowers:block/gray_gate_3_open_2"
+        },
+        "open=3": {
+            "model": "mythicaltowers:block/gray_gate_3_open_3"
+        },
+        "open=4": {
+            "model": "mythicaltowers:block/gray_gate_3_open_4"
+        },
+        "open=5": {
+            "model": "mythicaltowers:block/gray_gate_3_open_5"
+        },
+        "open=6": {
+            "model": "mythicaltowers:block/gray_gate_3_open_6"
+        }
+    }
+}
