@@ -189,4 +189,25 @@ class GreenTntEntity : DisappearingTntEntity {
     }
 }
 
+/**
+ * Yellow TNT. Quite a bit more dangerous than usual.
+ */
+class YellowTntEntity : DisappearingTntEntity {
+    constructor(type: EntityType<YellowTntEntity>, world: World) : super(type, world) {
+        initFuse(85)
+        explosionPower = 8.0f
+    }
+
+    constructor(
+        world: World,
+        x: Double,
+        y: Double,
+        z: Double,
+        igniter: LivingEntity?
+    ) : super(EntityRegistry.GREEN_TNT, world, x, y, z, igniter) {
+        initFuse(85)
+        explosionPower = 8.0f
+    }
+}
+
 // endregion

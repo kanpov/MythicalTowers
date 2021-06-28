@@ -13,8 +13,8 @@ import net.minecraft.entity.EntityType
  */
 object EntityRendererRegistry {
     fun init() {
-        register(EntityRegistry.GREEN_TNT)
-        { context: EntityRendererFactory.Context -> DummyEntityRenderer(context) }
+        register(EntityRegistry.GREEN_TNT) { context: EntityRendererFactory.Context -> DummyEntityRenderer(context) }
+        register(EntityRegistry.YELLOW_TNT) { context: EntityRendererFactory.Context -> DummyEntityRenderer(context) }
     }
 
     /**

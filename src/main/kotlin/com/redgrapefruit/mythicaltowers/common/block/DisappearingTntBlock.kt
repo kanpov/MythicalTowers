@@ -3,6 +3,7 @@ package com.redgrapefruit.mythicaltowers.common.block
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers
 import com.redgrapefruit.mythicaltowers.common.entity.DisappearingTntEntity
 import com.redgrapefruit.mythicaltowers.common.entity.GreenTntEntity
+import com.redgrapefruit.mythicaltowers.common.entity.YellowTntEntity
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
@@ -189,6 +190,15 @@ sealed class DisappearingTntBlock<TEntity>(settings: Settings) :
 class GreenTntBlock(settings: Settings) : DisappearingTntBlock<GreenTntEntity>(settings) {
     override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): GreenTntEntity {
         return GreenTntEntity(world, x, y, z, igniter)
+    }
+}
+
+/**
+ * Yellow TNT. Quite a bit more dangerous than usual.
+ */
+class YellowTntBlock(settings: Settings) : DisappearingTntBlock<YellowTntEntity>(settings) {
+    override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): YellowTntEntity {
+        return YellowTntEntity(world, x, y, z, igniter)
     }
 }
 
