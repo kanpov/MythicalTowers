@@ -1,7 +1,7 @@
 {
     "schemaVersion": 1,
     "id": "mythicaltowers",
-    "version": "${version}",
+    "version": "v0.1.1",
     "name": "MythicalTowers",
     "description": "An adventure mod adding new dungeons with unique loot, items, blocks etc.",
     "authors": [
