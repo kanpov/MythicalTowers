@@ -15,6 +15,8 @@ object EntityRendererRegistry {
     fun init() {
         register(EntityRegistry.GREEN_TNT) { context: EntityRendererFactory.Context -> DummyEntityRenderer(context) }
         register(EntityRegistry.YELLOW_TNT) { context: EntityRendererFactory.Context -> DummyEntityRenderer(context) }
+        register(EntityRegistry.ORANGE_TNT) { context: EntityRendererFactory.Context -> DummyEntityRenderer(context) }
+        register(EntityRegistry.RED_TNT) { context: EntityRendererFactory.Context -> DummyEntityRenderer(context) }
     }
 
     /**

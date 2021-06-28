@@ -1,11 +1,7 @@
 package com.redgrapefruit.mythicaltowers.common.block
 
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers
-import com.redgrapefruit.mythicaltowers.common.entity.DisappearingTntEntity
-import com.redgrapefruit.mythicaltowers.common.entity.GreenTntEntity
-import com.redgrapefruit.mythicaltowers.common.entity.OrangeTntEntity
-import com.redgrapefruit.mythicaltowers.common.entity.YellowTntEntity
-import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
+import com.redgrapefruit.mythicaltowers.common.entity.*
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.block.Blocks
@@ -209,6 +205,15 @@ class YellowTntBlock(settings: Settings) : DisappearingTntBlock<YellowTntEntity>
 class OrangeTntBlock(settings: Settings) : DisappearingTntBlock<OrangeTntEntity>(settings) {
     override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): OrangeTntEntity {
         return OrangeTntEntity(world, x, y, z, igniter)
+    }
+}
+
+/**
+ * Red TNT. Don't mess it up with normal TNT, because you will get blown up, and fast!
+ */
+class RedTntBlock(settings: Settings) : DisappearingTntBlock<RedTntEntity>(settings) {
+    override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): RedTntEntity {
+        return RedTntEntity(world, x, y, z, igniter)
     }
 }
 
