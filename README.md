@@ -11,5 +11,5 @@ The mod can be installed via the [Grape Installer](https://github.com/RedGrapefr
 Click on the latest release and download the JAR file or the OS binary file.  
 Open the JAR / extract and open the binary.  
 Enter your `mods` folder into the top field.  
-Click on `Install` in the `Utopia` section.  
+Click on `Install` in the `MythicalTowers` section.  
 After some time, the mod should have downloaded and you can launch the game!
