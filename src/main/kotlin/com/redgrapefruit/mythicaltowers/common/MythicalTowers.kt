@@ -11,6 +11,7 @@ import net.minecraft.block.AbstractBlock
 import net.minecraft.block.Material
 import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
+import net.minecraft.item.Items
 import net.minecraft.util.Identifier
 import java.util.*
 

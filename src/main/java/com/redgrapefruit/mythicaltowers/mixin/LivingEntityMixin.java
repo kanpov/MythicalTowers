@@ -12,6 +12,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.AirBlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -26,15 +27,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  */
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
+    private ItemStack airStack() { return new ItemStack(Items.AIR); }
+
     // Tracked data about previous armor stacks
     @Unique
-    private ItemStack previousHelmetStack;
+    private ItemStack previousHelmetStack = airStack();
     @Unique
-    private ItemStack previousChestplateStack;
+    private ItemStack previousChestplateStack = airStack();
     @Unique
-    private ItemStack previousLeggingsStack;
+    private ItemStack previousLeggingsStack = airStack();
     @Unique
-    private ItemStack previousBootsStack;
+    private ItemStack previousBootsStack = airStack();
 
     @Shadow
     public abstract boolean addStatusEffect(StatusEffectInstance effect);
