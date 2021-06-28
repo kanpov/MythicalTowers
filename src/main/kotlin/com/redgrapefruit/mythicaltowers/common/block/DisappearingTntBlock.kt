@@ -217,4 +217,13 @@ class RedTntBlock(settings: Settings) : DisappearingTntBlock<RedTntEntity>(setti
     }
 }
 
+/**
+ * Blue TNT. This isn't TNT anymore, it's a bomb
+ */
+class BlueTntBlock(settings: Settings) : DisappearingTntBlock<BlueTntEntity>(settings) {
+    override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): BlueTntEntity {
+        return BlueTntEntity(world, x, y, z, igniter)
+    }
+}
+
 // endregion

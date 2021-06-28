@@ -252,4 +252,25 @@ class RedTntEntity : DisappearingTntEntity {
     }
 }
 
+/**
+ * Blue TNT. This isn't TNT anymore, it's a bomb
+ */
+class BlueTntEntity : DisappearingTntEntity {
+    constructor(type: EntityType<BlueTntEntity>, world: World) : super(type, world) {
+        initFuse(70)
+        explosionPower = 19.0f
+    }
+
+    constructor(
+        world: World,
+        x: Double,
+        y: Double,
+        z: Double,
+        igniter: LivingEntity?
+    ) : super(EntityRegistry.GREEN_TNT, world, x, y, z, igniter) {
+        initFuse(70)
+        explosionPower = 19.0f
+    }
+}
+
 // endregion

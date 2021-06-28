@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "top": "mythicaltowers:block/blue_tnt_top",
+        "bottom": "mythicaltowers:block/blue_tnt_bottom",
+        "side": "mythicaltowers:block/blue_tnt_side"
+    }
+}
