@@ -1,5 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.entity
 
+import com.redgrapefruit.mythicaltowers.common.registry.EntityRegistry
 import net.minecraft.entity.*
 import net.minecraft.entity.data.DataTracker
 import net.minecraft.entity.data.TrackedData
@@ -22,13 +23,13 @@ import kotlin.math.sin
  * @param type The registered [EntityType]
  * @param world Nullable [World] instance
  */
-abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity(type, world) {
+sealed class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity(type, world) {
     // region Properties & constructor
 
     /**
      * Fuse state [TrackedData]
      */
-    private var fuseTracker: TrackedData<Int>? = null
+    private lateinit var fuseTracker: TrackedData<Int>
 
     /**
      * The causer of the explosion
@@ -62,10 +63,10 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
         z: Double,
         igniter: LivingEntity?
     ) : this(type, world) {
-        updatePosition(x, y, z)
+        this.updatePosition(x, y, z)
         // Calculate velocity
         val d: Double = world.random.nextDouble() * 6.2831854820251465
-        setVelocity(-sin(d) * 0.02, 0.20000000298023224, -cos(d) * 0.02)
+        this.setVelocity(-sin(d) * 0.02, 0.20000000298023224, -cos(d) * 0.02)
         // Setup other variables
         prevX = x
         prevY = y
@@ -164,3 +165,28 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
 
     // endregion
 }
+
+// region Impl-s
+
+/**
+ * The green TNT. Slightly more dangerous than usual, but the fuse timer is longer
+ */
+class GreenTntEntity : DisappearingTntEntity {
+    constructor(type: EntityType<GreenTntEntity>, world: World) : super(type, world) {
+        initFuse(90)
+        explosionPower = 5.0f
+    }
+
+    constructor(
+        world: World,
+        x: Double,
+        y: Double,
+        z: Double,
+        igniter: LivingEntity?
+    ) : super(EntityRegistry.GREEN_TNT, world, x, y, z, igniter) {
+        initFuse(90)
+        explosionPower = 5.0f
+    }
+}
+
+// endregion

@@ -1,0 +1,9 @@
+{
+    "parent": "mythicaltowers:block/gate_3_open_5",
+    "textures": {
+        "0": "mythicaltowers:block/gray_gate_plane",
+        "1": "mythicaltowers:block/gray_gate_plane_side",
+        "2": "mythicaltowers:block/gray_gate_connector",
+        "particle": "mythicaltowers:block/gray_gate_plane"
+    }
+}

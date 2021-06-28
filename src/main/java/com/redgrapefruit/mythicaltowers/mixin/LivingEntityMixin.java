@@ -78,13 +78,11 @@ public abstract class LivingEntityMixin {
         Item previousHelmet = previousHelmetStack.getItem();
         Item currentHelmet = stack.getItem();
 
-        if (previousHelmet instanceof AirBlockItem && currentHelmet instanceof HelmetItem) {
-            HelmetItem cast = (HelmetItem) currentHelmet;
+        if (previousHelmet instanceof AirBlockItem && currentHelmet instanceof HelmetItem cast) {
             addStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
         }
 
-        if (previousHelmet instanceof HelmetItem && currentHelmet instanceof AirBlockItem) {
-            HelmetItem cast = (HelmetItem) previousHelmet;
+        if (previousHelmet instanceof HelmetItem cast && currentHelmet instanceof AirBlockItem) {
             removeStatusEffect(cast.getEffect());
         }
 
@@ -100,13 +98,11 @@ public abstract class LivingEntityMixin {
         Item previousChestplate = previousChestplateStack.getItem();
         Item currentChestplate = stack.getItem();
 
-        if (previousChestplate instanceof AirBlockItem && currentChestplate instanceof ChestplateItem) {
-            ChestplateItem cast = (ChestplateItem) currentChestplate;
+        if (previousChestplate instanceof AirBlockItem && currentChestplate instanceof ChestplateItem cast) {
             addStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
         }
 
-        if (previousChestplate instanceof ChestplateItem && currentChestplate instanceof AirBlockItem) {
-            ChestplateItem cast = (ChestplateItem) previousChestplate;
+        if (previousChestplate instanceof ChestplateItem cast && currentChestplate instanceof AirBlockItem) {
             removeStatusEffect(cast.getEffect());
         }
 
@@ -122,13 +118,11 @@ public abstract class LivingEntityMixin {
         Item previousLeggings = previousLeggingsStack.getItem();
         Item currentLeggings = stack.getItem();
 
-        if (previousLeggings instanceof AirBlockItem && currentLeggings instanceof LeggingsItem) {
-            LeggingsItem cast = (LeggingsItem) currentLeggings;
+        if (previousLeggings instanceof AirBlockItem && currentLeggings instanceof LeggingsItem cast) {
             addStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
         }
 
-        if (previousLeggings instanceof LeggingsItem && currentLeggings instanceof AirBlockItem) {
-            LeggingsItem cast = (LeggingsItem) previousLeggings;
+        if (previousLeggings instanceof LeggingsItem cast && currentLeggings instanceof AirBlockItem) {
             removeStatusEffect(cast.getEffect());
         }
 
@@ -144,13 +138,11 @@ public abstract class LivingEntityMixin {
         Item previousBoots = previousBootsStack.getItem();
         Item currentBoots = stack.getItem();
 
-        if (previousBoots instanceof AirBlockItem && currentBoots instanceof BootsItem) {
-            BootsItem cast = (BootsItem) currentBoots;
+        if (previousBoots instanceof AirBlockItem && currentBoots instanceof BootsItem cast) {
             addStatusEffect(createStatusEffectInstance(cast.getEffect(), cast.getAmplifier()));
         }
 
-        if (previousBoots instanceof BootsItem && currentBoots instanceof AirBlockItem) {
-            BootsItem cast = (BootsItem) previousBoots;
+        if (previousBoots instanceof BootsItem cast && currentBoots instanceof AirBlockItem) {
             removeStatusEffect(cast.getEffect());
         }
 

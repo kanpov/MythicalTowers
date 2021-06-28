@@ -1,9 +1,9 @@
 package com.redgrapefruit.mythicaltowers.common.tool.weapon
 
+import com.redgrapefruit.mythicaltowers.common.MythicalTowers
 import com.redgrapefruit.mythicaltowers.common.core.EffectConfig
 import com.redgrapefruit.mythicaltowers.common.core.EffectEngine.onPostHit
 import com.redgrapefruit.mythicaltowers.common.core.EffectEngine.onPostMine
-import com.redgrapefruit.mythicaltowers.common.registry.ItemGroupRegistry
 import net.minecraft.block.BlockState
 import net.minecraft.entity.LivingEntity
 import net.minecraft.item.AxeItem
@@ -20,7 +20,7 @@ open class CustomAxeItem(
      * The [EffectConfig]s linked to this axe
      */
     private val configs: List<EffectConfig>, material: ToolMaterial?, attackDamage: Int, attackSpeed: Float
-) : AxeItem(material, attackDamage.toFloat(), attackSpeed, Settings().group(ItemGroupRegistry.WEAPONS)) {
+) : AxeItem(material, attackDamage.toFloat(), attackSpeed, Settings().group(MythicalTowers.GROUP)) {
 
     override fun postHit(stack: ItemStack, target: LivingEntity, attacker: LivingEntity): Boolean {
         super.postHit(stack, target, attacker)

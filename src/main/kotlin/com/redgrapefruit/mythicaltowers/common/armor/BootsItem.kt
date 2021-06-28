@@ -1,6 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.armor
 
-import com.redgrapefruit.mythicaltowers.common.registry.ItemGroupRegistry
+import com.redgrapefruit.mythicaltowers.common.MythicalTowers
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.item.ArmorItem
@@ -13,4 +13,4 @@ class BootsItem(
     material: ArmorMaterial,
     val effect: StatusEffect,
     val amplifier: Int
-) : ArmorItem(material, EquipmentSlot.FEET, Settings().group(ItemGroupRegistry.ARMOR))
+) : ArmorItem(material, EquipmentSlot.FEET, Settings().group(MythicalTowers.GROUP))

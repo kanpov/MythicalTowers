@@ -2,15 +2,20 @@ package com.redgrapefruit.mythicaltowers.common
 
 import com.redgrapefruit.mythicaltowers.common.registry.BlockRegistry
 import com.redgrapefruit.mythicaltowers.common.registry.EntityRegistry
-import com.redgrapefruit.mythicaltowers.common.registry.ItemGroupRegistry
 import com.redgrapefruit.mythicaltowers.common.registry.ItemRegistry
 import net.fabricmc.api.ModInitializer
+import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
+import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags
+import net.minecraft.block.AbstractBlock
+import net.minecraft.block.Material
+import net.minecraft.item.ItemGroup
+import net.minecraft.item.ItemStack
 import net.minecraft.util.Identifier
 import java.util.*
 
 class MythicalTowers : ModInitializer {
     override fun onInitialize() {
-        ItemGroupRegistry.init()
         ItemRegistry.init()
         BlockRegistry.init()
         EntityRegistry.init()
@@ -18,6 +23,7 @@ class MythicalTowers : ModInitializer {
 
     companion object {
         val RANDOM = Random()
+        val GROUP: ItemGroup = FabricItemGroupBuilder.build(idOf("group")) { ItemStack(ItemRegistry.GREEN_ORB) }
 
         /**
          * Returns the [Identifier] of given name
@@ -28,5 +34,12 @@ class MythicalTowers : ModInitializer {
         fun idOf(name: String): Identifier {
             return Identifier("mythicaltowers", name)
         }
+
+        val UNBREAKABLE: AbstractBlock.Settings = FabricBlockSettings
+                .of(Material.METAL)
+                .collidable(true)
+                .breakByHand(false)
+                .breakByTool(FabricToolTags.PICKAXES, 4)
+                .hardness(Float.MAX_VALUE)
     }
 }

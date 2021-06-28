@@ -7,6 +7,7 @@ import com.redgrapefruit.mythicaltowers.common.armor.HelmetItem
 import com.redgrapefruit.mythicaltowers.common.armor.LeggingsItem
 import com.redgrapefruit.mythicaltowers.common.item.AmuletItem
 import com.redgrapefruit.mythicaltowers.common.item.IngotItem
+import com.redgrapefruit.mythicaltowers.common.item.KeyItem
 import com.redgrapefruit.mythicaltowers.common.item.OrbItem
 import com.redgrapefruit.mythicaltowers.common.tool.CustomHoeItem
 import com.redgrapefruit.mythicaltowers.common.tool.CustomPickaxeItem
@@ -55,6 +56,35 @@ object ItemRegistry {
     val PURPLE_INGOT = IngotItem()
     val GRAY_INGOT = IngotItem()
     val BLACK_INGOT = IngotItem()
+    // endregion
+
+    // region Keys
+
+    val GREEN_KEY_1 = KeyItem()
+    val GREEN_KEY_2 = KeyItem()
+    val GREEN_KEY_3 = KeyItem()
+    val YELLOW_KEY_1 = KeyItem()
+    val YELLOW_KEY_2 = KeyItem()
+    val YELLOW_KEY_3 = KeyItem()
+    val ORANGE_KEY_1 = KeyItem()
+    val ORANGE_KEY_2 = KeyItem()
+    val ORANGE_KEY_3 = KeyItem()
+    val RED_KEY_1 = KeyItem()
+    val RED_KEY_2 = KeyItem()
+    val RED_KEY_3 = KeyItem()
+    val BLUE_KEY_1 = KeyItem()
+    val BLUE_KEY_2 = KeyItem()
+    val BLUE_KEY_3 = KeyItem()
+    val PURPLE_KEY_1 = KeyItem()
+    val PURPLE_KEY_2 = KeyItem()
+    val PURPLE_KEY_3 = KeyItem()
+    val GRAY_KEY_1 = KeyItem()
+    val GRAY_KEY_2 = KeyItem()
+    val GRAY_KEY_3 = KeyItem()
+    val BLACK_KEY_1 = KeyItem()
+    val BLACK_KEY_2 = KeyItem()
+    val BLACK_KEY_3 = KeyItem()
+
     // endregion
 
     // region Tools
@@ -111,14 +141,14 @@ object ItemRegistry {
         DoubleSwordItem(EffectConfigRegistry.PURPLE_TOOLS, ToolMaterialRegistry.PURPLE, 56, -2.25f)
     val GRAY_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.GRAY_TOOLS, ToolMaterialRegistry.GRAY, 66, -2.2f)
     val BLACK_DOUBLE_SWORD = DoubleSwordItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 76, -2.15f)
-    val GREEN_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 10, -4.3f)
-    val YELLOW_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.YELLOW_TOOLS, ToolMaterialRegistry.YELLOW, 24, -4.25f)
-    val ORANGE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.ORANGE_TOOLS, ToolMaterialRegistry.ORANGE, 38, -4.2f)
-    val RED_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.RED_TOOLS, ToolMaterialRegistry.RED, 52, -4.15f)
-    val BLUE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.BLUE_TOOLS, ToolMaterialRegistry.BLUE, 66, -4.1f)
-    val PURPLE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.PURPLE_TOOLS, ToolMaterialRegistry.PURPLE, 80, -4.05f)
-    val GRAY_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GRAY_TOOLS, ToolMaterialRegistry.GRAY, 96, -4.0f)
-    val BLACK_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 112, -3.95f)
+    val GREEN_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GREEN_TOOLS, ToolMaterialRegistry.GREEN, 10, -3.3f)
+    val YELLOW_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.YELLOW_TOOLS, ToolMaterialRegistry.YELLOW, 24, -3.25f)
+    val ORANGE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.ORANGE_TOOLS, ToolMaterialRegistry.ORANGE, 38, -3.2f)
+    val RED_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.RED_TOOLS, ToolMaterialRegistry.RED, 52, -3.15f)
+    val BLUE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.BLUE_TOOLS, ToolMaterialRegistry.BLUE, 66, -3.1f)
+    val PURPLE_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.PURPLE_TOOLS, ToolMaterialRegistry.PURPLE, 80, -3.05f)
+    val GRAY_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.GRAY_TOOLS, ToolMaterialRegistry.GRAY, 96, -3.0f)
+    val BLACK_DOUBLE_AXE = DoubleAxeItem(EffectConfigRegistry.BLACK_TOOLS, ToolMaterialRegistry.BLACK, 112, -2.95f)
     // endregion
 
     // region Armor
@@ -184,6 +214,31 @@ object ItemRegistry {
         register("purple_ingot", PURPLE_INGOT)
         register("gray_ingot", GRAY_INGOT)
         register("black_ingot", BLACK_INGOT)
+
+        register("green_key_1", GREEN_KEY_1)
+        register("green_key_2", GREEN_KEY_2)
+        register("green_key_3", GREEN_KEY_3)
+        register("yellow_key_1", YELLOW_KEY_1)
+        register("yellow_key_2", YELLOW_KEY_2)
+        register("yellow_key_3", YELLOW_KEY_3)
+        register("orange_key_1", ORANGE_KEY_1)
+        register("orange_key_2", ORANGE_KEY_2)
+        register("orange_key_3", ORANGE_KEY_3)
+        register("red_key_1", RED_KEY_1)
+        register("red_key_2", RED_KEY_2)
+        register("red_key_3", RED_KEY_3)
+        register("blue_key_1", BLUE_KEY_1)
+        register("blue_key_2", BLUE_KEY_2)
+        register("blue_key_3", BLUE_KEY_3)
+        register("purple_key_1", PURPLE_KEY_1)
+        register("purple_key_2", PURPLE_KEY_2)
+        register("purple_key_3", PURPLE_KEY_3)
+        register("gray_key_1", GRAY_KEY_1)
+        register("gray_key_2", GRAY_KEY_2)
+        register("gray_key_3", GRAY_KEY_3)
+        register("black_key_1", BLACK_KEY_1)
+        register("black_key_2", BLACK_KEY_2)
+        register("black_key_3", BLACK_KEY_3)
 
         register("green_pickaxe", GREEN_PICKAXE)
         register("yellow_pickaxe", YELLOW_PICKAXE)

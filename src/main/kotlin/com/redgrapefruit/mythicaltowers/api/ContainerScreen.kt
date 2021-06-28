@@ -3,6 +3,7 @@ package com.redgrapefruit.mythicaltowers.api
 import com.mojang.blaze3d.systems.RenderSystem
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.gui.screen.ingame.HandledScreen
+import net.minecraft.client.render.GameRenderer
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.screen.ScreenHandler
@@ -22,7 +23,7 @@ abstract class ContainerScreen protected constructor(
 
     // region Abstract properties & events
 
-    private val texture = getTexture()
+    private val texture = this.getTexture()
 
     /**
      * Returns the [Screen] GUI texture
@@ -41,10 +42,10 @@ abstract class ContainerScreen protected constructor(
     // region Implementation
 
     override fun drawBackground(matrices: MatrixStack, delta: Float, mouseX: Int, mouseY: Int) {
-        // Reset color
-        RenderSystem.clearColor(1.0f, 1.0f, 1.0f, 1.0f)
-        // Bind texture
-        client!!.textureManager.bindTexture(texture)
+        // Setup a shader and bind the texture to it
+        RenderSystem.setShader(GameRenderer::getPositionTexShader)
+        RenderSystem.setShaderColor(1F, 1F, 1F, 1F)
+        RenderSystem.setShaderTexture(0, texture)
         // Calculate center position
         val x = (width - backgroundWidth) / 2
         val y = (height - backgroundHeight) / 2
