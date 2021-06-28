@@ -2,6 +2,7 @@ package com.redgrapefruit.mythicaltowers.common.registry
 
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.common.entity.GreenTntEntity
+import com.redgrapefruit.mythicaltowers.common.entity.OrangeTntEntity
 import com.redgrapefruit.mythicaltowers.common.entity.YellowTntEntity
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
 import net.minecraft.entity.Entity
@@ -25,9 +26,15 @@ object EntityRegistry {
         .fillTntAttributes()
         .build()
 
+    val ORANGE_TNT: EntityType<OrangeTntEntity> = FabricEntityTypeBuilder
+        .create(SpawnGroup.MISC) { type: EntityType<OrangeTntEntity>, world: World -> OrangeTntEntity(type, world) }
+        .fillTntAttributes()
+        .build()
+
     fun init() {
         register("green_tnt", GREEN_TNT)
         register("yellow_tnt", YELLOW_TNT)
+        register("orange_tnt", ORANGE_TNT)
     }
 
     /**

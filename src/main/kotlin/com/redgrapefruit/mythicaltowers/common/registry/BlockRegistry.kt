@@ -67,6 +67,7 @@ object BlockRegistry {
     // Traps
     val GREEN_TNT = GreenTntBlock(UNBREAKABLE)
     val YELLOW_TNT = YellowTntBlock(UNBREAKABLE)
+    val ORANGE_TNT = OrangeTntBlock(UNBREAKABLE)
 
     val GREEN_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 1.5, 1.1)
 
@@ -129,6 +130,7 @@ object BlockRegistry {
 
         register("green_tnt", GREEN_TNT)
         register("yellow_tnt", YELLOW_TNT)
+        register("orange_tnt", ORANGE_TNT)
 
         register("green_jump_pad", GREEN_JUMP_PAD)
 
