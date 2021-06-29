@@ -76,6 +76,7 @@ object BlockRegistry {
 
     val GREEN_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 2.0)
     val YELLOW_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 4.0)
+    val ORANGE_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 6.0)
 
     val GREEN_FIRE_STATION = FireStationBlock(UNBREAKABLE)
 
@@ -145,6 +146,7 @@ object BlockRegistry {
 
         register("green_jump_pad", GREEN_JUMP_PAD)
         register("yellow_jump_pad", YELLOW_JUMP_PAD)
+        register("orange_jump_pad", ORANGE_JUMP_PAD)
 
         register("green_fire_station", GREEN_FIRE_STATION)
 
