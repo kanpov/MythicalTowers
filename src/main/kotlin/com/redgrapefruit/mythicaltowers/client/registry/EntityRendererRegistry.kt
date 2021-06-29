@@ -19,6 +19,7 @@ object EntityRendererRegistry {
         register(EntityRegistry.RED_TNT) { context: EntityRendererFactory.Context -> DummyEntityRenderer(context) }
         register(EntityRegistry.BLUE_TNT) { context: EntityRendererFactory.Context -> DummyEntityRenderer(context) }
         register(EntityRegistry.PURPLE_TNT) { context: EntityRendererFactory.Context -> DummyEntityRenderer(context) }
+        register(EntityRegistry.GRAY_TNT) { context: EntityRendererFactory.Context -> DummyEntityRenderer(context) }
     }
 
     /**

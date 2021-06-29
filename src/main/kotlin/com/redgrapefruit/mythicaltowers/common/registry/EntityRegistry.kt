@@ -44,6 +44,11 @@ object EntityRegistry {
         .fillTntAttributes()
         .build()
 
+    val GRAY_TNT: EntityType<GrayTntEntity> = FabricEntityTypeBuilder
+        .create(SpawnGroup.MISC) { type: EntityType<GrayTntEntity>, world: World -> GrayTntEntity(type, world) }
+        .fillTntAttributes()
+        .build()
+
     fun init() {
         register("green_tnt", GREEN_TNT)
         register("yellow_tnt", YELLOW_TNT)
@@ -51,6 +56,7 @@ object EntityRegistry {
         register("red_tnt", RED_TNT)
         register("blue_tnt", BLUE_TNT)
         register("purple_tnt", PURPLE_TNT)
+        register("gray_tnt", GRAY_TNT)
     }
 
     /**

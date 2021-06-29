@@ -276,4 +276,22 @@ class PurpleTntEntity : DisappearingTntEntity {
     }
 }
 
+class GrayTntEntity : DisappearingTntEntity {
+    constructor(type: EntityType<GrayTntEntity>, world: World) : super(type, world) {
+        initFuse(60)
+        explosionPower = 30.0f
+    }
+
+    constructor(
+        world: World,
+        x: Double,
+        y: Double,
+        z: Double,
+        igniter: LivingEntity?
+    ) : super(EntityRegistry.GREEN_TNT, world, x, y, z, igniter) {
+        initFuse(60)
+        explosionPower = 30.0f
+    }
+}
+
 // endregion

@@ -217,4 +217,10 @@ class PurpleTntBlock(settings: Settings) : DisappearingTntBlock<PurpleTntEntity>
     }
 }
 
+class GrayTntBlock(settings: Settings) : DisappearingTntBlock<GrayTntEntity>(settings) {
+    override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): GrayTntEntity {
+        return GrayTntEntity(world, x, y, z, igniter)
+    }
+}
+
 // endregion
