@@ -38,12 +38,7 @@ class JumpPadBlock(
     }
 
     override fun onSteppedOn(world: World, pos: BlockPos, state: BlockState, entity: Entity) {
-        val d: Double = abs(entity.velocity.y)
-
-        if (d < 0.1 && !entity.bypassesLandingEffects()) {
-            val e: Double = 0.4 + d * 0.2
-            entity.velocity = entity.velocity.multiply(e, 1.0, e)
-        }
+        launch(entity)
 
         super.onSteppedOn(world, pos, state, entity)
     }
