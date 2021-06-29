@@ -8,7 +8,7 @@ import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 
 /**
- * Every time you step on a fire station, you'll be on fire
+ * Every time you step on a fire station, you'll be set on fire
  */
 class FireStationBlock(settings: Settings) : Block(settings) {
     override fun onSteppedOn(world: World, pos: BlockPos, state: BlockState, entity: Entity) {

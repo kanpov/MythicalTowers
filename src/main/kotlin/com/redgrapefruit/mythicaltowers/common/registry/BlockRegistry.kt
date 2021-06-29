@@ -84,6 +84,13 @@ object BlockRegistry {
     val BLACK_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 3.75)
 
     val GREEN_FIRE_STATION = FireStationBlock(UNBREAKABLE)
+    val YELLOW_FIRE_STATION = FireStationBlock(UNBREAKABLE)
+    val ORANGE_FIRE_STATION = FireStationBlock(UNBREAKABLE)
+    val RED_FIRE_STATION = FireStationBlock(UNBREAKABLE)
+    val BLUE_FIRE_STATION = FireStationBlock(UNBREAKABLE)
+    val PURPLE_FIRE_STATION = FireStationBlock(UNBREAKABLE)
+    val GRAY_FIRE_STATION = FireStationBlock(UNBREAKABLE)
+    val BLACK_FIRE_STATION = FireStationBlock(UNBREAKABLE)
 
     // BlockEntities
     val GATE_BLOCK_ENTITY: BlockEntityType<GateBlockEntity> = FabricBlockEntityTypeBuilder.create(::GateBlockEntity,
@@ -159,6 +166,13 @@ object BlockRegistry {
         register("black_jump_pad", BLACK_JUMP_PAD)
 
         register("green_fire_station", GREEN_FIRE_STATION)
+        register("yellow_fire_station", YELLOW_FIRE_STATION)
+        register("orange_fire_station", ORANGE_FIRE_STATION)
+        register("red_fire_station", RED_FIRE_STATION)
+        register("blue_fire_station", BLUE_FIRE_STATION)
+        register("purple_fire_station", PURPLE_FIRE_STATION)
+        register("gray_fire_station", GRAY_FIRE_STATION)
+        register("black_fire_station", BLACK_FIRE_STATION)
 
         register("gate_block_entity", GATE_BLOCK_ENTITY)
     }

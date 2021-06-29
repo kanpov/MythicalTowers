@@ -192,5 +192,12 @@
     "block.mythicaltowers.purple_jump_pad": "Purple Jump Pad",
     "block.mythicaltowers.gray_jump_pad": "Gray Jump Pad",
     "block.mythicaltowers.black_jump_pad": "Black Jump Pad",
-    "block.mythicaltowers.green_fire_station": "Green Fire Station"
+    "block.mythicaltowers.green_fire_station": "Green Fire Station",
+    "block.mythicaltowers.yellow_fire_station": "Yellow Fire Station",
+    "block.mythicaltowers.orange_fire_station": "Orange Fire Station",
+    "block.mythicaltowers.red_fire_station": "Red Fire Station",
+    "block.mythicaltowers.blue_fire_station": "Blue Fire Station",
+    "block.mythicaltowers.purple_fire_station": "Purple Fire Station",
+    "block.mythicaltowers.gray_fire_station": "Gray Fire Station",
+    "block.mythicaltowers.black_fire_station": "Black Fire Station"
 }
