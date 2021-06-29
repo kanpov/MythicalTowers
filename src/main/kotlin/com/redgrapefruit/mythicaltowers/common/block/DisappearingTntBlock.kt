@@ -181,48 +181,39 @@ sealed class DisappearingTntBlock<TEntity>(settings: Settings) :
 
 // region Impl-s
 
-/**
- * Green TNT. Slightly more dangerous than usual, but the fuse time is longer
- */
 class GreenTntBlock(settings: Settings) : DisappearingTntBlock<GreenTntEntity>(settings) {
     override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): GreenTntEntity {
         return GreenTntEntity(world, x, y, z, igniter)
     }
 }
 
-/**
- * Yellow TNT. Quite a bit more dangerous than usual.
- */
 class YellowTntBlock(settings: Settings) : DisappearingTntBlock<YellowTntEntity>(settings) {
     override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): YellowTntEntity {
         return YellowTntEntity(world, x, y, z, igniter)
     }
 }
 
-/**
- * Orange TNT. Be cautious!
- */
 class OrangeTntBlock(settings: Settings) : DisappearingTntBlock<OrangeTntEntity>(settings) {
     override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): OrangeTntEntity {
         return OrangeTntEntity(world, x, y, z, igniter)
     }
 }
 
-/**
- * Red TNT. Don't mess it up with normal TNT, because you will get blown up, and fast!
- */
 class RedTntBlock(settings: Settings) : DisappearingTntBlock<RedTntEntity>(settings) {
     override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): RedTntEntity {
         return RedTntEntity(world, x, y, z, igniter)
     }
 }
 
-/**
- * Blue TNT. This isn't TNT anymore, it's a bomb
- */
 class BlueTntBlock(settings: Settings) : DisappearingTntBlock<BlueTntEntity>(settings) {
     override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): BlueTntEntity {
         return BlueTntEntity(world, x, y, z, igniter)
+    }
+}
+
+class PurpleTntBlock(settings: Settings) : DisappearingTntBlock<PurpleTntEntity>(settings) {
+    override fun createEntity(world: World, x: Double, y: Double, z: Double, igniter: LivingEntity?): PurpleTntEntity {
+        return PurpleTntEntity(world, x, y, z, igniter)
     }
 }
 

@@ -168,9 +168,6 @@ sealed class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity(t
 
 // region Impl-s
 
-/**
- * The green TNT. Slightly more dangerous than usual, but the fuse timer is longer
- */
 class GreenTntEntity : DisappearingTntEntity {
     constructor(type: EntityType<GreenTntEntity>, world: World) : super(type, world) {
         initFuse(90)
@@ -189,9 +186,6 @@ class GreenTntEntity : DisappearingTntEntity {
     }
 }
 
-/**
- * Yellow TNT. Quite a bit more dangerous than usual.
- */
 class YellowTntEntity : DisappearingTntEntity {
     constructor(type: EntityType<YellowTntEntity>, world: World) : super(type, world) {
         initFuse(85)
@@ -210,9 +204,6 @@ class YellowTntEntity : DisappearingTntEntity {
     }
 }
 
-/**
- * Orange TNT. Be cautious!
- */
 class OrangeTntEntity : DisappearingTntEntity {
     constructor(type: EntityType<OrangeTntEntity>, world: World) : super(type, world) {
         initFuse(80)
@@ -231,9 +222,6 @@ class OrangeTntEntity : DisappearingTntEntity {
     }
 }
 
-/**
- * Red TNT. Don't mess it up with normal TNT, because you will get blown up, and fast!
- */
 class RedTntEntity : DisappearingTntEntity {
     constructor(type: EntityType<RedTntEntity>, world: World) : super(type, world) {
         initFuse(75)
@@ -252,9 +240,6 @@ class RedTntEntity : DisappearingTntEntity {
     }
 }
 
-/**
- * Blue TNT. This isn't TNT anymore, it's a bomb
- */
 class BlueTntEntity : DisappearingTntEntity {
     constructor(type: EntityType<BlueTntEntity>, world: World) : super(type, world) {
         initFuse(70)
@@ -270,6 +255,24 @@ class BlueTntEntity : DisappearingTntEntity {
     ) : super(EntityRegistry.GREEN_TNT, world, x, y, z, igniter) {
         initFuse(70)
         explosionPower = 19.0f
+    }
+}
+
+class PurpleTntEntity : DisappearingTntEntity {
+    constructor(type: EntityType<PurpleTntEntity>, world: World) : super(type, world) {
+        initFuse(65)
+        explosionPower = 25.0f
+    }
+
+    constructor(
+        world: World,
+        x: Double,
+        y: Double,
+        z: Double,
+        igniter: LivingEntity?
+    ) : super(EntityRegistry.GREEN_TNT, world, x, y, z, igniter) {
+        initFuse(65)
+        explosionPower = 25.0f
     }
 }
 
