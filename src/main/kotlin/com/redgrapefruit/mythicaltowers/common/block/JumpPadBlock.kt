@@ -12,17 +12,11 @@ import net.minecraft.world.World
 import kotlin.math.abs
 
 /**
- * Base jump force
- */
-private const val JUMP_FORCE: Float = 1.8f
-
-/**
  * A jump pad acts as a slime block
  */
 class JumpPadBlock(
     settings: Settings,
-    private val livingBoostMultiplier: Double,
-    private val standardBoostMultiplier: Double
+    private val force: Double
 ) : Block(settings) {
 
     override fun onLandedUpon(world: World, state: BlockState, pos: BlockPos, entity: Entity, distance: Float) {
@@ -60,9 +54,7 @@ class JumpPadBlock(
      */
     private fun launch(entity: Entity) {
         val velocity: Vec3d = entity.velocity
-        // Additional jump force depending on the entity
-        val modifier: Double = if (entity is LivingEntity) livingBoostMultiplier else standardBoostMultiplier
 
-        entity.setVelocity(velocity.x, (velocity.y + JUMP_FORCE) * modifier, velocity.z)
+        entity.setVelocity(velocity.x, velocity.y + force, velocity.z)
     }
 }
