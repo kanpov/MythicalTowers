@@ -187,5 +187,10 @@
     "block.mythicaltowers.green_jump_pad": "Green Jump Pad",
     "block.mythicaltowers.yellow_jump_pad": "Yellow Jump Pad",
     "block.mythicaltowers.orange_jump_pad": "Orange Jump Pad",
+    "block.mythicaltowers.red_jump_pad": "Red Jump Pad",
+    "block.mythicaltowers.blue_jump_pad": "Blue Jump Pad",
+    "block.mythicaltowers.purple_jump_pad": "Purple Jump Pad",
+    "block.mythicaltowers.gray_jump_pad": "Gray Jump Pad",
+    "block.mythicaltowers.black_jump_pad": "Black Jump Pad",
     "block.mythicaltowers.green_fire_station": "Green Fire Station"
 }

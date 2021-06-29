@@ -77,6 +77,11 @@ object BlockRegistry {
     val GREEN_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 2.0)
     val YELLOW_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 4.0)
     val ORANGE_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 6.0)
+    val RED_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 8.0)
+    val BLUE_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 10.0)
+    val PURPLE_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 12.0)
+    val GRAY_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 14.0)
+    val BLACK_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 16.0)
 
     val GREEN_FIRE_STATION = FireStationBlock(UNBREAKABLE)
 
@@ -147,6 +152,11 @@ object BlockRegistry {
         register("green_jump_pad", GREEN_JUMP_PAD)
         register("yellow_jump_pad", YELLOW_JUMP_PAD)
         register("orange_jump_pad", ORANGE_JUMP_PAD)
+        register("red_jump_pad", RED_JUMP_PAD)
+        register("blue_jump_pad", BLUE_JUMP_PAD)
+        register("purple_jump_pad", PURPLE_JUMP_PAD)
+        register("gray_jump_pad", GRAY_JUMP_PAD)
+        register("black_jump_pad", BLACK_JUMP_PAD)
 
         register("green_fire_station", GREEN_FIRE_STATION)
 
