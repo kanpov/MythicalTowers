@@ -199,5 +199,19 @@
     "block.mythicaltowers.blue_fire_station": "Blue Fire Station",
     "block.mythicaltowers.purple_fire_station": "Purple Fire Station",
     "block.mythicaltowers.gray_fire_station": "Gray Fire Station",
-    "block.mythicaltowers.black_fire_station": "Black Fire Station"
+    "block.mythicaltowers.black_fire_station": "Black Fire Station",
+    "block.mythicaltowers.green_up_lift": "Green Up Lift",
+    "block.mythicaltowers.green_down_lift": "Green Down Lift",
+    "block.mythicaltowers.yellow_up_lift": "Yellow Up Lift",
+    "block.mythicaltowers.yellow_down_lift": "Yellow Down Lift",
+    "block.mythicaltowers.orange_up_lift": "Orange Up Lift",
+    "block.mythicaltowers.orange_down_lift": "Orange Down Lift",
+    "block.mythicaltowers.red_up_lift": "Red Up Lift",
+    "block.mythicaltowers.red_down_lift": "Red Down Lift",
+    "block.mythicaltowers.purple_up_lift": "Purple Up Lift",
+    "block.mythicaltowers.purple_down_lift": "Purple Down Lift",
+    "block.mythicaltowers.gray_up_lift": "Gray Up Lift",
+    "block.mythicaltowers.gray_down_lift": "Gray Down Lift",
+    "block.mythicaltowers.black_up_lift": "Black Up Lift",
+    "block.mythicaltowers.black_down_lift": "Black Down Lift"
 }
