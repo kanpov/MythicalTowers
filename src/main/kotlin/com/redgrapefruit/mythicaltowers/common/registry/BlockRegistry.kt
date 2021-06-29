@@ -75,13 +75,13 @@ object BlockRegistry {
     val BLACK_TNT = BlackTntBlock(UNBREAKABLE)
 
     val GREEN_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 2.0)
-    val YELLOW_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 4.0)
-    val ORANGE_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 6.0)
-    val RED_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 8.0)
-    val BLUE_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 10.0)
-    val PURPLE_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 12.0)
-    val GRAY_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 14.0)
-    val BLACK_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 16.0)
+    val YELLOW_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 2.25)
+    val ORANGE_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 2.5)
+    val RED_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 2.75)
+    val BLUE_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 3.0)
+    val PURPLE_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 3.25)
+    val GRAY_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 3.5)
+    val BLACK_JUMP_PAD = JumpPadBlock(UNBREAKABLE, 3.75)
 
     val GREEN_FIRE_STATION = FireStationBlock(UNBREAKABLE)
 
