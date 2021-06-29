@@ -1,3 +1,6 @@
 {
-    "parent": "mythicaltowers:block/black_jump_pad"
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "mythicaltowers:block/black_jump_pad"
+    }
 }
