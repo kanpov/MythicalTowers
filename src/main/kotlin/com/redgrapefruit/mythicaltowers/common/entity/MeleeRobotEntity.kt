@@ -26,7 +26,7 @@ private const val STUN_VALUE = 40
 /**
  * A melee robot spawns in, has a stun for 2 seconds and performs melee attacks
  */
-class MeleeRobotEntity(type: EntityType<MeleeRobotEntity>, world: World) : HostileEntity(type, world) {
+abstract class MeleeRobotEntity(type: EntityType<MeleeRobotEntity>, world: World) : HostileEntity(type, world) {
     /**
      * Is the robot currently stunned
      */
