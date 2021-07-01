@@ -4,6 +4,7 @@ import com.redgrapefruit.mythicaltowers.client.model.MeleeRobotEntityModel
 import com.redgrapefruit.mythicaltowers.common.entity.MeleeRobotEntity
 import net.minecraft.client.render.entity.EntityRendererFactory
 import net.minecraft.client.render.entity.LivingEntityRenderer
+import net.minecraft.client.render.entity.MobEntityRenderer
 import net.minecraft.client.render.entity.model.EntityModelLayer
 import net.minecraft.util.Identifier
 
@@ -23,7 +24,7 @@ class MeleeRobotEntityRenderer(
      * The linked texture for rendering the model
      */
     private val texture: Identifier)
-    : LivingEntityRenderer<MeleeRobotEntity, MeleeRobotEntityModel>(context, MeleeRobotEntityModel(context.getPart(layer)), 1f) {
+    : MobEntityRenderer<MeleeRobotEntity, MeleeRobotEntityModel>(context, MeleeRobotEntityModel(context.getPart(layer)), 1f) {
 
     override fun getTexture(entity: MeleeRobotEntity?): Identifier {
         return texture
