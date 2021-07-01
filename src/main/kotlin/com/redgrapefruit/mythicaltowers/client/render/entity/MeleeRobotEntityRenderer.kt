@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier
 /**
  * A renderer for the melee robot
  */
-abstract class MeleeRobotEntityRenderer(
+class MeleeRobotEntityRenderer(
     /**
      * The context obtained from registering
      */
