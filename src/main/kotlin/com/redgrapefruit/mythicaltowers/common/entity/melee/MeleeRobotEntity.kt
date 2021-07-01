@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.common.entity
+package com.redgrapefruit.mythicaltowers.common.entity.melee
 
 import net.minecraft.entity.EntityData
 import net.minecraft.entity.EntityType
@@ -26,7 +26,7 @@ private const val STUN_VALUE = 40
 /**
  * A melee robot spawns in, has a stun for 2 seconds and performs melee attacks
  */
-abstract class MeleeRobotEntity(type: EntityType<MeleeRobotEntity>, world: World) : HostileEntity(type, world) {
+abstract class MeleeRobotEntity(type: EntityType<out HostileEntity>, world: World) : HostileEntity(type, world) {
     /**
      * Is the robot currently stunned
      */
@@ -86,5 +86,23 @@ abstract class MeleeRobotEntity(type: EntityType<MeleeRobotEntity>, world: World
     override fun tickMovement() {
         // Don't move if the stun hasn't passed yet
         if (!dataTracker.get(isStunned)) super.tickMovement()
+    }
+
+    override fun writeCustomDataToNbt(nbt: NbtCompound) {
+        super.writeCustomDataToNbt(nbt)
+
+        nbt.putBoolean("Is Robot Stunned", dataTracker[isStunned])
+        nbt.putInt("Stun Ticks Left", dataTracker[stunTicks])
+    }
+
+    override fun readCustomDataFromNbt(nbt: NbtCompound) {
+        super.readCustomDataFromNbt(nbt)
+
+        dataTracker[isStunned] = nbt.getBoolean("Is Robot Stunned")
+        dataTracker[stunTicks] = nbt.getInt("Stun Ticks Left")
+    }
+
+    override fun isAngryAt(player: PlayerEntity?): Boolean {
+        return !dataTracker.get(isStunned)
     }
 }
