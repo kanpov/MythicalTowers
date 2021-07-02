@@ -44,66 +44,29 @@ class MeleeRobotEntityModel(private val root: ModelPart) : EntityModel<MeleeRobo
             val data = ModelData()
 
             data.root.apply {
-                addChild(
-                    "center", ModelPartBuilder.create()
-                        .uv(0, 0)
-                        .cuboid(2f, 2f, 2f, 12f, 12f, 12f),
-                    ModelTransform.NONE
-                )
+                addChild("1", ModelPartBuilder.create()
+                    .uv(0, 24)
+                    .cuboid(6.0F, -2.0F, -8.0F, 2.0F, 2.0F, 16.0F)
+                    .cuboid(-8.0F, -2.0F, -8.0F, 2.0F, 2.0F, 16.0F)
+                    .cuboid(-8.0F, -16.0F, -8.0F, 2.0F, 2.0F, 16.0F)
+                    .cuboid(6.0F, -16.0F, -8.0F, 2.0F, 2.0F, 16.0F)
+                    , ModelTransform.pivot(0.0F, 24.0F, 0.0F))
 
-                addChild(
-                    "front_1", ModelPartBuilder.create()
-                        .uv(0, 32)
-                        .cuboid(0f, 0f, 0f, 16f, 2f, 2f),
-                    ModelTransform.NONE
-                )
+                addChild("2", ModelPartBuilder.create()
+                    .uv(0, 0)
+                    .cuboid(-6.0F, -14.0F, -6.0F, 12.0F, 12.0F, 12.0F)
+                    , ModelTransform.pivot(0.0F, 24.0F, 0.0F))
 
-                addChild(
-                    "front_2", ModelPartBuilder.create()
-                        .uv(0, 32)
-                        .cuboid(0f, 14f, 0f, 16f, 2f, 2f),
-                    ModelTransform.NONE
-                )
-
-                addChild(
-                    "back_1", ModelPartBuilder.create()
-                        .uv(0, 32)
-                        .cuboid(0f, 0f, 14f, 16f, 2f, 2f),
-                    ModelTransform.NONE
-                )
-
-                addChild("back_2", ModelPartBuilder.create()
-                    .uv(0, 32)
-                    .cuboid(0f, 14f, 14f, 16f, 2f, 2f),
-                    ModelTransform.NONE
-                )
-
-                addChild("right_1", ModelPartBuilder.create()
-                    .uv(0, 32)
-                    .cuboid(14f, 0f, 0f, 2f, 2f, 16f),
-                    ModelTransform.NONE
-                )
-
-                addChild("right_2", ModelPartBuilder.create()
-                    .uv(0, 32)
-                    .cuboid(14f, 14f, 0f, 2f, 2f, 16f),
-                    ModelTransform.NONE
-                )
-
-                addChild("left_1", ModelPartBuilder.create()
-                    .uv(0, 32)
-                    .cuboid(0f, 0f, 0f, 2f, 2f, 16f),
-                    ModelTransform.NONE
-                )
-
-                addChild("left_2", ModelPartBuilder.create()
-                    .uv(0, 32)
-                    .cuboid(0f, 14f, 0f, 2f, 2f, 16f),
-                    ModelTransform.NONE
-                )
+                addChild("3", ModelPartBuilder.create()
+                    .uv(0, 24)
+                    .cuboid(6.0F, -2.0F, -8.0F, 2.0F, 2.0F, 16.0F)
+                    .cuboid(-8.0F, -2.0F, -8.0F, 2.0F, 2.0F, 16.0F)
+                    .cuboid(-8.0F, -16.0F, -8.0F, 2.0F, 2.0F, 16.0F)
+                    .cuboid(6.0F, -16.0F, -8.0F, 2.0F, 2.0F, 16.0F)
+                    , ModelTransform.rotation(1.5708F, 0.0F, 1.5708F))
             }
 
-            return TexturedModelData.of(data, 64, 48)
+            return TexturedModelData.of(data, 64, 128)
         }
     }
 }
