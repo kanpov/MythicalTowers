@@ -25,7 +25,7 @@ sealed class MeleeRobotEntityRenderer(
      * The linked texture for rendering the model
      */
     private val texture: Identifier)
-    : MobEntityRenderer<MeleeRobotEntity, MeleeRobotEntityModel>(context, MeleeRobotEntityModel(context.getPart(layer)), 1f) {
+    : MobEntityRenderer<MeleeRobotEntity, MeleeRobotEntityModel>(context, MeleeRobotEntityModel(context.getPart(layer)), 0.1f) {
 
     override fun getTexture(entity: MeleeRobotEntity?): Identifier {
         return texture
