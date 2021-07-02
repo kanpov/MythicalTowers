@@ -30,14 +30,14 @@ abstract class MeleeRobotEntity(type: EntityType<out HostileEntity>, world: Worl
     /**
      * Is the robot currently stunned
      */
-    private val isStunned: TrackedData<Boolean> =
-        DataTracker.registerData(MeleeRobotEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
+    private lateinit var isStunned: TrackedData<Boolean>
+
 
     /**
      * How much ticks are left until the stun is taken off
      */
-    private val stunTicks: TrackedData<Int> =
-        DataTracker.registerData(MeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
+    private lateinit var stunTicks: TrackedData<Int>
+
 
     override fun initGoals() {
         super.initGoals()
@@ -50,6 +50,9 @@ abstract class MeleeRobotEntity(type: EntityType<out HostileEntity>, world: Worl
 
     override fun initDataTracker() {
         super.initDataTracker()
+
+        isStunned = DataTracker.registerData(MeleeRobotEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
+        stunTicks = DataTracker.registerData(MeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
 
         dataTracker.startTracking(isStunned, false)
         dataTracker.startTracking(stunTicks, 0)

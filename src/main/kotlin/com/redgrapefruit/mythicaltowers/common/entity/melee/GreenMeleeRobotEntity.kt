@@ -20,14 +20,12 @@ class GreenMeleeRobotEntity(type: EntityType<GreenMeleeRobotEntity>, world: Worl
     /**
      * Is currently jump attacking
      */
-    private val isJumpAttacking: TrackedData<Boolean> =
-        DataTracker.registerData(GreenMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
+    private lateinit var isJumpAttacking: TrackedData<Boolean>
 
     /**
      * The current power of the jump attack
      */
-    private val jumpAttackPower: TrackedData<Int> =
-        DataTracker.registerData(GreenMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
+    private lateinit var jumpAttackPower: TrackedData<Int>
 
     override fun onAttacking(target: Entity) {
         super.onAttacking(target)
@@ -38,6 +36,9 @@ class GreenMeleeRobotEntity(type: EntityType<GreenMeleeRobotEntity>, world: Worl
     override fun initDataTracker() {
         super.initDataTracker()
 
+        isJumpAttacking = DataTracker.registerData(GreenMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
+        jumpAttackPower = DataTracker.registerData(GreenMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
+
         dataTracker.startTracking(isJumpAttacking, false)
         dataTracker.startTracking(jumpAttackPower, 0)
     }
@@ -46,12 +47,14 @@ class GreenMeleeRobotEntity(type: EntityType<GreenMeleeRobotEntity>, world: Worl
         super.tick()
 
         // Add a damage modifier (0 if not jump-attacking)
-        attributes.addTemporaryModifiers(ImmutableMultimap.of(
+        attributes.addTemporaryModifiers(
+                ImmutableMultimap.of(
             EntityAttributes.GENERIC_ATTACK_DAMAGE,
             EntityAttributeModifier(
                 "Jump Attack Modifier",
                 dataTracker[jumpAttackPower].toDouble(),
-                EntityAttributeModifier.Operation.ADDITION)))
+                EntityAttributeModifier.Operation.ADDITION)
+            ))
 
         // If jump attacking, increment if before peak or decrement after/during peak
         if (dataTracker.get(isJumpAttacking)) {

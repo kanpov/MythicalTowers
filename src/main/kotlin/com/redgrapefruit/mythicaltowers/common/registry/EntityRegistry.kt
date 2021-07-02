@@ -2,6 +2,7 @@ package com.redgrapefruit.mythicaltowers.common.registry
 
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.common.entity.*
+import com.redgrapefruit.mythicaltowers.common.entity.melee.GreenMeleeRobotEntity
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityDimensions
@@ -14,6 +15,7 @@ import net.minecraft.world.World
  * Stores and registers the mod's [EntityType]s
  */
 object EntityRegistry {
+    // region TNT
     val GREEN_TNT: EntityType<GreenTntEntity> = FabricEntityTypeBuilder
         .create(SpawnGroup.MISC) { type: EntityType<GreenTntEntity>, world: World -> GreenTntEntity(type, world) }
         .fillTntAttributes()
@@ -53,6 +55,12 @@ object EntityRegistry {
         .create(SpawnGroup.MISC) { type: EntityType<BlackTntEntity>, world: World -> BlackTntEntity(type, world) }
         .fillTntAttributes()
         .build()
+    // endregion
+
+    val GREEN_MELEE_ROBOT: EntityType<GreenMeleeRobotEntity> = FabricEntityTypeBuilder
+        .create(SpawnGroup.MONSTER) { type: EntityType<GreenMeleeRobotEntity>, world: World -> GreenMeleeRobotEntity(type, world) }
+        .dimensions(EntityDimensions.fixed(1f, 1f))
+        .build()
 
     fun init() {
         register("green_tnt", GREEN_TNT)
@@ -63,6 +71,8 @@ object EntityRegistry {
         register("purple_tnt", PURPLE_TNT)
         register("gray_tnt", GRAY_TNT)
         register("black_tnt", BLACK_TNT)
+
+        register("green_melee_robot", GREEN_MELEE_ROBOT)
     }
 
     /**

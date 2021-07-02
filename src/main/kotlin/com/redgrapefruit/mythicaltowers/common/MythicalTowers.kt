@@ -1,6 +1,7 @@
 package com.redgrapefruit.mythicaltowers.common
 
 import com.redgrapefruit.mythicaltowers.common.registry.BlockRegistry
+import com.redgrapefruit.mythicaltowers.common.registry.EntityAttributeRegistry
 import com.redgrapefruit.mythicaltowers.common.registry.EntityRegistry
 import com.redgrapefruit.mythicaltowers.common.registry.ItemRegistry
 import net.fabricmc.api.ModInitializer
@@ -20,6 +21,7 @@ class MythicalTowers : ModInitializer {
         ItemRegistry.init()
         BlockRegistry.init()
         EntityRegistry.init()
+        EntityAttributeRegistry.init()
     }
 
     companion object {

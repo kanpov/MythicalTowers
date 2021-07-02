@@ -1,0 +1,26 @@
+@file:Suppress("UnstableApiUsage", "DEPRECATION")
+
+package com.redgrapefruit.mythicaltowers.client.registry
+
+import com.redgrapefruit.mythicaltowers.client.model.MeleeRobotEntityModel
+import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
+import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityModelLayerRegistry
+import net.minecraft.client.render.entity.model.EntityModelLayer
+
+/**
+ * Registry for entity model layers
+ */
+object EntityModelLayerRegistry {
+    val MELEE_ROBOT = EntityModelLayer(idOf("melee_robot"), "main")
+
+    fun init() {
+        register(MELEE_ROBOT) { MeleeRobotEntityModel.texturedModelData() }
+    }
+
+    /**
+     * Registers a model layer
+     */
+    private fun register(layer: EntityModelLayer, provider: EntityModelLayerRegistry.TexturedModelDataProvider) {
+        EntityModelLayerRegistry.registerModelLayer(layer, provider)
+    }
+}
