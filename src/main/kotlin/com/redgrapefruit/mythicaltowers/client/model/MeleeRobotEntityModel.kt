@@ -53,57 +53,57 @@ class MeleeRobotEntityModel(private val root: ModelPart) : EntityModel<MeleeRobo
 
                 addChild(
                     "front_1", ModelPartBuilder.create()
-                        .uv(12, 0)
+                        .uv(0, 32)
                         .cuboid(0f, 0f, 0f, 16f, 2f, 2f),
                     ModelTransform.NONE
                 )
 
                 addChild(
                     "front_2", ModelPartBuilder.create()
-                        .uv(12, 0)
+                        .uv(0, 32)
                         .cuboid(0f, 14f, 0f, 16f, 2f, 2f),
                     ModelTransform.NONE
                 )
 
                 addChild(
                     "back_1", ModelPartBuilder.create()
-                        .uv(12, 0)
+                        .uv(0, 32)
                         .cuboid(0f, 0f, 14f, 16f, 2f, 2f),
                     ModelTransform.NONE
                 )
 
                 addChild("back_2", ModelPartBuilder.create()
-                    .uv(12, 0)
+                    .uv(0, 32)
                     .cuboid(0f, 14f, 14f, 16f, 2f, 2f),
                     ModelTransform.NONE
                 )
 
                 addChild("right_1", ModelPartBuilder.create()
-                    .uv(12, 0)
+                    .uv(0, 32)
                     .cuboid(14f, 0f, 0f, 2f, 2f, 16f),
                     ModelTransform.NONE
                 )
 
                 addChild("right_2", ModelPartBuilder.create()
-                    .uv(12, 0)
+                    .uv(0, 32)
                     .cuboid(14f, 14f, 0f, 2f, 2f, 16f),
                     ModelTransform.NONE
                 )
 
                 addChild("left_1", ModelPartBuilder.create()
-                    .uv(12, 0)
+                    .uv(0, 32)
                     .cuboid(0f, 0f, 0f, 2f, 2f, 16f),
                     ModelTransform.NONE
                 )
 
                 addChild("left_2", ModelPartBuilder.create()
-                    .uv(12, 0)
+                    .uv(0, 32)
                     .cuboid(0f, 14f, 0f, 2f, 2f, 16f),
                     ModelTransform.NONE
                 )
             }
 
-            return TexturedModelData.of(data, 16, 16)
+            return TexturedModelData.of(data, 64, 48)
         }
     }
 }

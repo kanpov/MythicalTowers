@@ -33,4 +33,4 @@ sealed class MeleeRobotEntityRenderer(
 }
 
 class GreenMeleeRobotEntityRenderer(context: EntityRendererFactory.Context)
-    : MeleeRobotEntityRenderer(context, EntityModelLayerRegistry.MELEE_ROBOT, idOf("textures/entity/melee_basic.png"))
+    : MeleeRobotEntityRenderer(context, EntityModelLayerRegistry.MELEE_ROBOT, idOf("textures/entity/green_melee_robot.png"))
