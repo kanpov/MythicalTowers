@@ -3,6 +3,7 @@ package com.redgrapefruit.mythicaltowers.common.entity.melee
 import com.google.common.collect.ImmutableMultimap
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
+import net.minecraft.entity.attribute.DefaultAttributeContainer
 import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.data.DataTracker
@@ -11,7 +12,15 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
 
-private const val JUMP_ATTACK_POWER_PEAK = 4
+/**
+ * The peak of the jump attack when it starts to decrease
+ */
+private const val JUMP_ATTACK_POWER_PEAK = 80
+
+/**
+ * How much the damage boost is nerfed
+ */
+private const val JUMP_ATTACK_DAMAGE_NERF = 240
 
 /**
  * The green melee robot with speed boost and jump attacks
@@ -52,7 +61,7 @@ class GreenMeleeRobotEntity(type: EntityType<GreenMeleeRobotEntity>, world: Worl
             EntityAttributes.GENERIC_ATTACK_DAMAGE,
             EntityAttributeModifier(
                 "Jump Attack Modifier",
-                dataTracker[jumpAttackPower].toDouble(),
+                dataTracker[jumpAttackPower].toDouble() / JUMP_ATTACK_DAMAGE_NERF,
                 EntityAttributeModifier.Operation.ADDITION)
             ))
 
@@ -86,10 +95,10 @@ class GreenMeleeRobotEntity(type: EntityType<GreenMeleeRobotEntity>, world: Worl
     }
 
     companion object {
-        val ATTRIBUTES = createHostileAttributes()
+        val ATTRIBUTES: DefaultAttributeContainer.Builder = createHostileAttributes()
             .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40.0)
-            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.6)
-            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.0)
-            .add(EntityAttributes.GENERIC_ARMOR, 4.0)
+            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2)
+            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.5)
+            .add(EntityAttributes.GENERIC_ARMOR, 6.0)
     }
 }
