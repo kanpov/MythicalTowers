@@ -20,7 +20,7 @@ private const val JUMP_ATTACK_POWER_PEAK = 80
 /**
  * How much the damage boost is nerfed
  */
-private const val JUMP_ATTACK_DAMAGE_NERF = 240
+private const val JUMP_ATTACK_DAMAGE_NERF = 400
 
 /**
  * The green melee robot with speed boost and jump attacks
