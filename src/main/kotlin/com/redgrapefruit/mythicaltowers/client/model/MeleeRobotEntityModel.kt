@@ -56,17 +56,9 @@ class MeleeRobotEntityModel(private val root: ModelPart) : EntityModel<MeleeRobo
                     .uv(0, 0)
                     .cuboid(-6.0F, -14.0F, -6.0F, 12.0F, 12.0F, 12.0F)
                     , ModelTransform.pivot(0.0F, 24.0F, 0.0F))
-
-                addChild("3", ModelPartBuilder.create()
-                    .uv(0, 24)
-                    .cuboid(6.0F, -2.0F, -8.0F, 2.0F, 2.0F, 16.0F)
-                    .cuboid(-8.0F, -2.0F, -8.0F, 2.0F, 2.0F, 16.0F)
-                    .cuboid(-8.0F, -16.0F, -8.0F, 2.0F, 2.0F, 16.0F)
-                    .cuboid(6.0F, -16.0F, -8.0F, 2.0F, 2.0F, 16.0F)
-                    , ModelTransform.rotation(1.5708F, 0.0F, 1.5708F))
             }
 
-            return TexturedModelData.of(data, 64, 128)
+            return TexturedModelData.of(data, 48, 48)
         }
     }
 }
