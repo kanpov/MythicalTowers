@@ -1,17 +1,16 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
 import com.google.common.collect.ImmutableMultimap
-import com.redgrapefruit.mythicaltowers.common.util.trackedData
-import com.redgrapefruit.mythicaltowers.common.util.trackedDataEntry
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.attribute.DefaultAttributeContainer
 import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.entity.attribute.EntityAttributes
+import net.minecraft.entity.data.DataTracker
+import net.minecraft.entity.data.TrackedData
 import net.minecraft.entity.data.TrackedDataHandlerRegistry
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
-import kotlin.reflect.jvm.isAccessible
 
 /**
  * The maximum jump attack power
@@ -32,26 +31,31 @@ private const val NBT_JUMP_ATTACK_POWER = "jumpAttackPower"
  * The green melee robot with speed boost and jump attacks
  */
 class GreenMeleeRobotEntity(type: EntityType<GreenMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
+    // DataTracker keys
+    private val isJumpAttackingKey: TrackedData<Boolean> =
+        DataTracker.registerData(GreenMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
+    private val jumpAttackPowerKey: TrackedData<Int> =
+        DataTracker.registerData(GreenMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
+
     /**
      * Is the robot currently jump-attacking the enemy
      */
-    var isJumpAttacking: Boolean by trackedData(dataTracker, TrackedDataHandlerRegistry.BOOLEAN)
+    private var isJumpAttacking
+        get() = dataTracker.get(isJumpAttackingKey)
+        set(value) = dataTracker.set(isJumpAttackingKey, value)
 
     /**
      * The current power of the jump-attack
      */
-    var jumpAttackPower: Int by trackedData(dataTracker, TrackedDataHandlerRegistry.INTEGER)
-
-    init {
-        ::isJumpAttacking.isAccessible = true
-        ::jumpAttackPower.isAccessible = true
-    }
+    private var jumpAttackPower
+        get() = dataTracker.get(jumpAttackPowerKey)
+        set(value) = dataTracker.set(jumpAttackPowerKey, value)
 
     override fun initDataTracker() {
         super.initDataTracker()
 
-        dataTracker.startTracking(trackedDataEntry(::isJumpAttacking), false)
-        dataTracker.startTracking(trackedDataEntry(::jumpAttackPower), 0)
+        dataTracker.startTracking(isJumpAttackingKey, false)
+        dataTracker.startTracking(jumpAttackPowerKey, 0)
     }
 
     override fun onAttacking(target: Entity) {
