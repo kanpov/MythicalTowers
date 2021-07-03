@@ -74,7 +74,7 @@ class GreenMeleeRobotEntity(type: EntityType<GreenMeleeRobotEntity>, world: Worl
             EntityAttributes.GENERIC_ATTACK_DAMAGE,
             EntityAttributeModifier(
                 "jump_attack_damage_boost",
-                jumpAttackPower / TICK_TO_MODIFIER_RATE,
+                jumpAttackPower * TICK_TO_MODIFIER_RATE,
                 EntityAttributeModifier.Operation.ADDITION
             )
         ))
