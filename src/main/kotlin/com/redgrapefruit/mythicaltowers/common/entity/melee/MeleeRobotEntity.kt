@@ -23,6 +23,11 @@ import net.minecraft.world.World
  */
 private const val STUN_VALUE = 40
 
+// NBT
+
+private const val NBT_IS_STUNNED = "isStunned"
+private const val NBT_STUN_TICKS = "stunTicks"
+
 /**
  * A melee robot spawns in, has a stun for 2 seconds and performs melee attacks
  */
@@ -94,15 +99,15 @@ abstract class MeleeRobotEntity(type: EntityType<out HostileEntity>, world: Worl
     override fun writeCustomDataToNbt(nbt: NbtCompound) {
         super.writeCustomDataToNbt(nbt)
 
-        nbt.putBoolean("Is Robot Stunned", dataTracker[isStunned])
-        nbt.putInt("Stun Ticks Left", dataTracker[stunTicks])
+        nbt.putBoolean(NBT_IS_STUNNED, dataTracker[isStunned])
+        nbt.putInt(NBT_STUN_TICKS, dataTracker[stunTicks])
     }
 
     override fun readCustomDataFromNbt(nbt: NbtCompound) {
         super.readCustomDataFromNbt(nbt)
 
-        dataTracker[isStunned] = nbt.getBoolean("Is Robot Stunned")
-        dataTracker[stunTicks] = nbt.getInt("Stun Ticks Left")
+        dataTracker[isStunned] = nbt.getBoolean(NBT_IS_STUNNED)
+        dataTracker[stunTicks] = nbt.getInt(NBT_STUN_TICKS)
     }
 
     override fun isAngryAt(player: PlayerEntity?): Boolean {
