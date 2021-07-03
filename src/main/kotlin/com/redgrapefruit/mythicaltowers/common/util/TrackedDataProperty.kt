@@ -4,7 +4,7 @@ import net.minecraft.entity.Entity
 import net.minecraft.entity.data.DataTracker
 import net.minecraft.entity.data.TrackedData
 import net.minecraft.entity.data.TrackedDataHandler
-import kotlin.properties.ReadOnlyProperty
+import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 import kotlin.reflect.KProperty0
 
@@ -42,11 +42,14 @@ class TrackedDataProperty<TOwner, TSelf>(
     clazz: Class<TOwner>,
     handler: TrackedDataHandler<TSelf>,
     internal val data: TrackedData<TSelf> = DataTracker.registerData(clazz, handler)
-
-) : ReadOnlyProperty<TOwner, TSelf> where TOwner : Entity {
+) : ReadWriteProperty<TOwner, TSelf> where TOwner : Entity {
 
     override fun getValue(thisRef: TOwner, property: KProperty<*>): TSelf {
         return tracker.get(data)
+    }
+
+    override fun setValue(thisRef: TOwner, property: KProperty<*>, value: TSelf) {
+        tracker.set(data, value)
     }
 }
 
