@@ -9,33 +9,9 @@ import kotlin.reflect.KProperty
 import kotlin.reflect.KProperty0
 
 /**
- * An ease-of-use delegate for entity tracked data to not call `dataTracker.get(myTracked)` every time.
+ * An ease-of-use delegate for entity tracked data to not call `dataTracker.get(myTracked)` and `dataTracker.set(myTracked, ...)` every time.
  *
  * Recommended to create via [trackedData] function.
- *
- * How to declare:
- *
- * ```kotlin
- * val myTracked: Int by trackedData(dataTracker, TrackedDataHandlerRegistry.INTEGER)
- * ```
- *
- * How to register (inside of the `initDataTracker` override in your `Entity` class):
- *
- * ```kotlin
- * myTracked.register(default = 0)
- * ```
- *
- * How to read from NBT (inside of the `readCustomDataFromNbt` override):
- *
- * ```kotlin
- * myTracked.readNbt(nbt, "My Tracked")
- * ```
- *
- * How to write to NBT (inside of the `writeCustomDataToNbt` override):
- *
- * ```kotlin
- * myTracked.writeNbt(nbt, "My Tracked")
- * ```
  */
 class TrackedDataProperty<TOwner, TSelf>(
     private val tracker: DataTracker,
