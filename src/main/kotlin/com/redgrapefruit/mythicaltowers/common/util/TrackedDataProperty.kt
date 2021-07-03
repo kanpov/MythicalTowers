@@ -6,6 +6,7 @@ import net.minecraft.entity.data.TrackedData
 import net.minecraft.entity.data.TrackedDataHandler
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
+import kotlin.reflect.KProperty0
 
 /**
  * An ease-of-use delegate for entity tracked data to not call `dataTracker.get(myTracked)` every time.
@@ -40,13 +41,22 @@ class TrackedDataProperty<TOwner, TSelf>(
     private val tracker: DataTracker,
     clazz: Class<TOwner>,
     handler: TrackedDataHandler<TSelf>,
-    private val data: TrackedData<TSelf> = DataTracker.registerData(clazz, handler)
+    internal val data: TrackedData<TSelf> = DataTracker.registerData(clazz, handler)
 
 ) : ReadOnlyProperty<TOwner, TSelf> where TOwner : Entity {
 
     override fun getValue(thisRef: TOwner, property: KProperty<*>): TSelf {
         return tracker.get(data)
     }
+}
+
+/**
+ * Returns the entry of the tracked data
+ */
+fun <TSelf> trackedDataEntry(property: KProperty0<*>): TrackedData<TSelf> {
+    // kind of a hacky way to do it
+    @Suppress("UNCHECKED_CAST")
+    return (property.getDelegate() as TrackedDataProperty<*, TSelf>).data
 }
 
 /**
