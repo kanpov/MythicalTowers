@@ -15,27 +15,32 @@ import net.minecraft.world.World
 /**
  * The maximum jump attack power
  */
-private const val MAX_JUMP_ATTACK_POWER = 80
+private const val MAX_JUMP_ATTACK_POWER = 20
 
 /**
  * The conversion rate from power in ticks to power in attribute modifier value
  */
-private const val TICK_TO_MODIFIER_RATE = 0.00333
+private const val TICK_TO_MODIFIER_RATE = 1.0
+
+/**
+ * The maximum amount of times the jump-attack can be used
+ */
+private const val MAX_JUMP_ATTACK_USES = 2
 
 // NBT
 
 private const val NBT_IS_JUMP_ATTACKING = "isJumpAttacking"
 private const val NBT_JUMP_ATTACK_POWER = "jumpAttackPower"
+private const val NBT_JUMP_ATTACK_USES = "jumpAttackUses"
 
 /**
  * The green melee robot with speed boost and jump attacks
  */
 class GreenMeleeRobotEntity(type: EntityType<GreenMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     // DataTracker keys
-    private val isJumpAttackingKey: TrackedData<Boolean> =
-        DataTracker.registerData(GreenMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
-    private val jumpAttackPowerKey: TrackedData<Int> =
-        DataTracker.registerData(GreenMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
+    private lateinit var isJumpAttackingKey: TrackedData<Boolean>
+    private lateinit var jumpAttackPowerKey: TrackedData<Int>
+    private lateinit var jumpAttackUsesKey: TrackedData<Int>
 
     /**
      * Is the robot currently jump-attacking the enemy
@@ -51,39 +56,60 @@ class GreenMeleeRobotEntity(type: EntityType<GreenMeleeRobotEntity>, world: Worl
         get() = dataTracker.get(jumpAttackPowerKey)
         set(value) = dataTracker.set(jumpAttackPowerKey, value)
 
+    /**
+     * The amount of times the jump-attack ability has been used
+     */
+    private var jumpAttackUses
+        get() = dataTracker.get(jumpAttackUsesKey)
+        set(value) = dataTracker.set(jumpAttackUsesKey, value)
+
     override fun initDataTracker() {
         super.initDataTracker()
 
+        isJumpAttackingKey = DataTracker.registerData(GreenMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
+        jumpAttackPowerKey = DataTracker.registerData(GreenMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
+        jumpAttackUsesKey = DataTracker.registerData(GreenMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
+
         dataTracker.startTracking(isJumpAttackingKey, false)
-        dataTracker.startTracking(jumpAttackPowerKey, 0)
+        dataTracker.startTracking(jumpAttackPowerKey, MAX_JUMP_ATTACK_POWER)
+        dataTracker.startTracking(jumpAttackUsesKey, 0)
     }
 
     override fun onAttacking(target: Entity) {
         super.onAttacking(target)
 
-        if (jumpAttackPower >= MAX_JUMP_ATTACK_POWER) {
-            isJumpAttacking = true
+        val uses = jumpAttackUses
+        val power = jumpAttackPower
+        val `is` = isJumpAttacking
+
+        if (jumpAttackUses <= MAX_JUMP_ATTACK_USES && jumpAttackPower >= MAX_JUMP_ATTACK_POWER) {
             jumpAttackPower = 0
+            isJumpAttacking = true
         }
     }
 
     override fun tick() {
         super.tick()
 
-        attributes.addTemporaryModifiers(ImmutableMultimap.of(
+        val modifierMultimap = ImmutableMultimap.of(
             EntityAttributes.GENERIC_ATTACK_DAMAGE,
             EntityAttributeModifier(
                 "jump_attack_damage_boost",
                 jumpAttackPower * TICK_TO_MODIFIER_RATE,
                 EntityAttributeModifier.Operation.ADDITION
             )
-        ))
+        )
 
         if (isJumpAttacking) {
             ++jumpAttackPower
 
+            attributes.addTemporaryModifiers(modifierMultimap)
+
             if (jumpAttackPower >= MAX_JUMP_ATTACK_POWER) {
                 isJumpAttacking = false
+                jumpAttackPower = 0
+                ++jumpAttackUses
+                attributes.removeModifiers(modifierMultimap)
             }
         }
     }
@@ -91,15 +117,17 @@ class GreenMeleeRobotEntity(type: EntityType<GreenMeleeRobotEntity>, world: Worl
     override fun writeCustomDataToNbt(nbt: NbtCompound) {
         super.writeCustomDataToNbt(nbt)
 
-        nbt.putBoolean(NBT_IS_JUMP_ATTACKING, isJumpAttacking)
-        nbt.putInt(NBT_JUMP_ATTACK_POWER, jumpAttackPower)
+//        nbt.putBoolean(NBT_IS_JUMP_ATTACKING, isJumpAttacking)
+//        nbt.putInt(NBT_JUMP_ATTACK_POWER, jumpAttackPower)
+//        nbt.putInt(NBT_JUMP_ATTACK_USES, jumpAttackUses)
     }
 
     override fun readCustomDataFromNbt(nbt: NbtCompound) {
         super.readCustomDataFromNbt(nbt)
 
-        isJumpAttacking = nbt.getBoolean(NBT_IS_JUMP_ATTACKING)
-        jumpAttackPower = nbt.getInt(NBT_JUMP_ATTACK_POWER)
+//        isJumpAttacking = nbt.getBoolean(NBT_IS_JUMP_ATTACKING)
+//        jumpAttackPower = nbt.getInt(NBT_JUMP_ATTACK_POWER)
+//        jumpAttackUses = nbt.getInt(NBT_JUMP_ATTACK_USES)
     }
 
     companion object {
