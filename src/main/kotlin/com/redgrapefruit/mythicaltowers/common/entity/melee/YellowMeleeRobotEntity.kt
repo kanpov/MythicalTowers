@@ -20,21 +20,21 @@ private const val NBT_KNOCKBACK_USES = "maxKnockbackUses"
 
 class YellowMeleeRobotEntity(type: EntityType<YellowMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     // DataTracker keys
-    private lateinit var knockbackUsesKey: TrackedData<Int>
+    private lateinit var knockbackAbilityUsesKey: TrackedData<Int>
 
     /**
      * Maximum amount of times the knockback ability can be used
      */
-    private var knockbackUses: Int
-        get() = dataTracker.get(knockbackUsesKey)
-        set(value) = dataTracker.set(knockbackUsesKey, value)
+    private var knockbackAbilityUses: Int
+        get() = dataTracker.get(knockbackAbilityUsesKey)
+        set(value) = dataTracker.set(knockbackAbilityUsesKey, value)
 
     override fun initDataTracker() {
         super.initDataTracker()
 
-        knockbackUsesKey = DataTracker.registerData(YellowMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
+        knockbackAbilityUsesKey = DataTracker.registerData(YellowMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
 
-        dataTracker.startTracking(knockbackUsesKey, 0)
+        dataTracker.startTracking(knockbackAbilityUsesKey, 0)
     }
 
     override fun onAttacking(target: Entity) {
@@ -43,9 +43,9 @@ class YellowMeleeRobotEntity(type: EntityType<YellowMeleeRobotEntity>, world: Wo
             return
         }
 
-        if (knockbackUses < MAX_KNOCKBACK_USES) {
+        if (knockbackAbilityUses < MAX_KNOCKBACK_USES) {
             target.takeKnockback(KNOCKBACK, target.x - x, z - target.z)
-            ++knockbackUses
+            ++knockbackAbilityUses
         }
 
         super.onAttacking(target)
@@ -54,13 +54,13 @@ class YellowMeleeRobotEntity(type: EntityType<YellowMeleeRobotEntity>, world: Wo
     override fun writeCustomDataToNbt(nbt: NbtCompound) {
         super.writeCustomDataToNbt(nbt)
 
-        nbt.putInt(NBT_KNOCKBACK_USES, knockbackUses)
+        nbt.putInt(NBT_KNOCKBACK_USES, knockbackAbilityUses)
     }
 
     override fun readCustomDataFromNbt(nbt: NbtCompound) {
         super.readCustomDataFromNbt(nbt)
 
-        knockbackUses = nbt.getInt(NBT_KNOCKBACK_USES)
+        knockbackAbilityUses = nbt.getInt(NBT_KNOCKBACK_USES)
     }
 
     companion object {
