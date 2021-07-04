@@ -1,6 +1,5 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
-import com.redgrapefruit.mythicaltowers.common.util.DoubleTrackedDataHandler
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
@@ -12,25 +11,16 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
 
-private const val KNOCKBACK = 1.0
+private const val KNOCKBACK = 3.0
 private const val MAX_KNOCKBACK_USES = 5
 
 // NBT
 
-private const val NBT_KNOCKBACK = "knockback"
 private const val NBT_KNOCKBACK_USES = "maxKnockbackUses"
 
 class YellowMeleeRobotEntity(type: EntityType<YellowMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     // DataTracker keys
-    private lateinit var knockbackKey: TrackedData<Double>
     private lateinit var knockbackUsesKey: TrackedData<Int>
-
-    /**
-     * The knockback value applied by the ability
-     */
-    private var knockback: Double
-        get() = dataTracker.get(knockbackKey)
-        set(value) = dataTracker.set(knockbackKey, value)
 
     /**
      * Maximum amount of times the knockback ability can be used
@@ -42,8 +32,9 @@ class YellowMeleeRobotEntity(type: EntityType<YellowMeleeRobotEntity>, world: Wo
     override fun initDataTracker() {
         super.initDataTracker()
 
-        knockbackKey = DataTracker.registerData(YellowMeleeRobotEntity::class.java, DoubleTrackedDataHandler.default)
         knockbackUsesKey = DataTracker.registerData(YellowMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
+
+        dataTracker.startTracking(knockbackUsesKey, 0)
     }
 
     override fun onAttacking(target: Entity) {
@@ -63,14 +54,12 @@ class YellowMeleeRobotEntity(type: EntityType<YellowMeleeRobotEntity>, world: Wo
     override fun writeCustomDataToNbt(nbt: NbtCompound) {
         super.writeCustomDataToNbt(nbt)
 
-        nbt.putDouble(NBT_KNOCKBACK, knockback)
         nbt.putInt(NBT_KNOCKBACK_USES, knockbackUses)
     }
 
     override fun readCustomDataFromNbt(nbt: NbtCompound) {
         super.readCustomDataFromNbt(nbt)
 
-        knockback = nbt.getDouble(NBT_KNOCKBACK)
         knockbackUses = nbt.getInt(NBT_KNOCKBACK_USES)
     }
 
