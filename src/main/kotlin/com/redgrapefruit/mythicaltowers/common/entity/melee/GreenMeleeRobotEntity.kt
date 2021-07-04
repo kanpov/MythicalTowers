@@ -12,13 +12,7 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
 
-/**
- * The damage from jump-attacks
- */
 private const val JUMP_ATTACK_DAMAGE = 10f
-/**
- * The maximum amount of times the jump-attack can be used
- */
 private const val MAX_JUMP_ATTACK_USES = 3
 
 // NBT
