@@ -18,6 +18,9 @@ private const val MAX_KNOCKBACK_USES = 5
 
 private const val NBT_KNOCKBACK_USES = "maxKnockbackUses"
 
+/**
+ * A yellow melee robot with extra knockback ability
+ */
 class YellowMeleeRobotEntity(type: EntityType<YellowMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     // DataTracker keys
     private lateinit var knockbackAbilityUsesKey: TrackedData<Int>
@@ -67,7 +70,7 @@ class YellowMeleeRobotEntity(type: EntityType<YellowMeleeRobotEntity>, world: Wo
         val ATTRIBUTES: DefaultAttributeContainer.Builder = createHostileAttributes()
             .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 50.0)
             .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.17)
-            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 2.9)
+            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0)
             .add(EntityAttributes.GENERIC_ARMOR, 20.0)
     }
 }
