@@ -78,7 +78,7 @@ class OrangeMeleeRobotEntity(type: EntityType<OrangeMeleeRobotEntity>, world: Wo
     override fun onAttacking(target: Entity) {
         super.onAttacking(target)
 
-        if (!isUnderSpeedBoost) {
+        if (!isUnderSpeedBoost && speedBoostUses < SPEED_BOOST_MAX_USES) {
             isUnderSpeedBoost = true
         }
     }
@@ -104,7 +104,7 @@ class OrangeMeleeRobotEntity(type: EntityType<OrangeMeleeRobotEntity>, world: Wo
                 attributes.removeModifiers(speedModifierMultimap)
                 speedBoostTicks = 0
                 isUnderSpeedBoost = false
-                --speedBoostUses
+                ++speedBoostUses
             }
         }
     }
