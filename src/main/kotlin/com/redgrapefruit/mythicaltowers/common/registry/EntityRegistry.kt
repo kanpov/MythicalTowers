@@ -3,6 +3,7 @@ package com.redgrapefruit.mythicaltowers.common.registry
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.common.entity.*
 import com.redgrapefruit.mythicaltowers.common.entity.melee.GreenMeleeRobotEntity
+import com.redgrapefruit.mythicaltowers.common.entity.melee.OrangeMeleeRobotEntity
 import com.redgrapefruit.mythicaltowers.common.entity.melee.YellowMeleeRobotEntity
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
 import net.minecraft.entity.Entity
@@ -58,6 +59,7 @@ object EntityRegistry {
         .build()
     // endregion
 
+    // region Melee robots
     val GREEN_MELEE_ROBOT: EntityType<GreenMeleeRobotEntity> = FabricEntityTypeBuilder
         .create(SpawnGroup.MONSTER) { type: EntityType<GreenMeleeRobotEntity>, world: World -> GreenMeleeRobotEntity(type, world) }
         .dimensions(EntityDimensions.fixed(1f, 1f))
@@ -67,6 +69,13 @@ object EntityRegistry {
         .create(SpawnGroup.MONSTER) { type: EntityType<YellowMeleeRobotEntity>, world: World -> YellowMeleeRobotEntity(type, world) }
         .dimensions(EntityDimensions.fixed(1f, 1f))
         .build()
+
+    val ORANGE_MELEE_ROBOT: EntityType<OrangeMeleeRobotEntity> = FabricEntityTypeBuilder
+        .create(SpawnGroup.MONSTER) { type: EntityType<OrangeMeleeRobotEntity>, world: World -> OrangeMeleeRobotEntity(type, world) }
+        .dimensions(EntityDimensions.fixed(1f, 1f))
+        .build()
+
+    // endregion
 
     fun init() {
         register("green_tnt", GREEN_TNT)
@@ -80,6 +89,7 @@ object EntityRegistry {
 
         register("green_melee_robot", GREEN_MELEE_ROBOT)
         register("yellow_melee_robot", YELLOW_MELEE_ROBOT)
+        register("orange_melee_robot", ORANGE_MELEE_ROBOT)
     }
 
     /**

@@ -32,8 +32,13 @@ sealed class MeleeRobotEntityRenderer(
     }
 }
 
+// Impl-s
+
 class GreenMeleeRobotEntityRenderer(context: EntityRendererFactory.Context)
     : MeleeRobotEntityRenderer(context, EntityModelLayerRegistry.MELEE_ROBOT, idOf("textures/entity/green_melee_robot.png"))
 
 class YellowMeleeRobotEntityRenderer(context: EntityRendererFactory.Context)
     : MeleeRobotEntityRenderer(context, EntityModelLayerRegistry.MELEE_ROBOT, idOf("textures/entity/yellow_melee_robot.png"))
+
+class OrangeMeleeRobotEntityRenderer(context: EntityRendererFactory.Context)
+    : MeleeRobotEntityRenderer(context, EntityModelLayerRegistry.MELEE_ROBOT, idOf("textures/entity/orange_melee_robot.png"))

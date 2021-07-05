@@ -217,5 +217,6 @@
     "block.mythicaltowers.black_up_lift": "Black Up Lift",
     "block.mythicaltowers.black_down_lift": "Black Down Lift",
     "entity.mythicaltowers.green_melee_robot": "Green Melee Robot",
-    "entity.mythicaltowers.yellow_melee_robot": "Yellow Melee Robot"
+    "entity.mythicaltowers.yellow_melee_robot": "Yellow Melee Robot",
+    "entity.mythicaltowers.orange_melee_robot": "Orange Melee Robot"
 }
