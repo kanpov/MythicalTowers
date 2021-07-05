@@ -56,6 +56,12 @@ public abstract class LivingEntityMixin {
     private void setArmorInSlot(EquipmentSlot slot, ItemStack stack, CallbackInfo info) {
         Item item = stack.getItem();
 
+        // Additional crash safety
+        if (previousHelmetStack == null) previousHelmetStack = airStack();
+        if (previousChestplateStack == null) previousChestplateStack = airStack();
+        if (previousLeggingsStack == null) previousLeggingsStack = airStack();
+        if (previousBootsStack == null) previousBootsStack = airStack();
+
         // How handle_X_Armor methods work:
         // 1. Check equipment slot
         // 2. Get previous and current item in the slot
