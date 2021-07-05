@@ -15,7 +15,7 @@ import net.minecraft.world.World
 /**
  * The value of the speed boost
  */
-private const val SPEED_BOOST_VALUE = 0.08
+private const val SPEED_BOOST_VALUE = 0.002
 
 /**
  * The length of the speed boost in ticks
