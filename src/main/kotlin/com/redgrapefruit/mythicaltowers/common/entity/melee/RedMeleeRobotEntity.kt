@@ -1,16 +1,21 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
 import com.redgrapefruit.mythicaltowers.common.util.DoubleTrackedDataHandler
+import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
+import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.attribute.DefaultAttributeContainer
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.data.DataTracker
 import net.minecraft.entity.data.TrackedData
 import net.minecraft.entity.data.TrackedDataHandlerRegistry
 import net.minecraft.entity.effect.StatusEffect
+import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
+import kotlin.math.roundToInt
+import kotlin.random.Random
 
 /**
  * Max amount of ability uses
@@ -71,6 +76,39 @@ class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) :
 
         effectAbilityUsesKey = DataTracker.registerData(RedMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
         currentEffectDurationKey = DataTracker.registerData(RedMeleeRobotEntity::class.java, DoubleTrackedDataHandler.default)
+
+        dataTracker.startTracking(effectAbilityUsesKey, 0)
+        dataTracker.startTracking(currentEffectDurationKey, STARTING_DURATION)
+    }
+
+    override fun onAttacking(target: Entity) {
+        if (target !is LivingEntity) {
+            super.onAttacking(target)
+            return
+        }
+
+        if (effectAbilityUses <= MAX_EFFECT_ABILITY_USES) {
+            EFFECT_PROBABILITIES.forEach { (effect, probability) ->
+                // Use probability
+                val chance = Random.nextInt(100)
+                if (chance <= probability) {
+                    // Make a StatusEffectInstance and apply it
+                    val instance = StatusEffectInstance(
+                        effect,
+                        currentEffectDuration.roundToInt(),
+                        Random.nextInt(0, 3)
+                    )
+                    target.addStatusEffect(instance)
+                }
+            }
+
+            // Decrease duration using the modifier
+            currentEffectDuration *= STARTING_DURATION_DECREASE
+
+            ++effectAbilityUses
+        }
+
+        super.onAttacking(target)
     }
 
     override fun writeCustomDataToNbt(nbt: NbtCompound) {
