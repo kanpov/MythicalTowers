@@ -4,6 +4,7 @@ import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.common.entity.*
 import com.redgrapefruit.mythicaltowers.common.entity.melee.GreenMeleeRobotEntity
 import com.redgrapefruit.mythicaltowers.common.entity.melee.OrangeMeleeRobotEntity
+import com.redgrapefruit.mythicaltowers.common.entity.melee.RedMeleeRobotEntity
 import com.redgrapefruit.mythicaltowers.common.entity.melee.YellowMeleeRobotEntity
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
 import net.minecraft.entity.Entity
@@ -72,6 +73,11 @@ object EntityRegistry {
 
     val ORANGE_MELEE_ROBOT: EntityType<OrangeMeleeRobotEntity> = FabricEntityTypeBuilder
         .create(SpawnGroup.MONSTER) { type: EntityType<OrangeMeleeRobotEntity>, world: World -> OrangeMeleeRobotEntity(type, world) }
+        .dimensions(EntityDimensions.fixed(1f, 1f))
+        .build()
+
+    val RED_MELEE_ROBOT: EntityType<RedMeleeRobotEntity> = FabricEntityTypeBuilder
+        .create(SpawnGroup.MONSTER) { type: EntityType<RedMeleeRobotEntity>, world: World -> RedMeleeRobotEntity(type, world) }
         .dimensions(EntityDimensions.fixed(1f, 1f))
         .build()
 
