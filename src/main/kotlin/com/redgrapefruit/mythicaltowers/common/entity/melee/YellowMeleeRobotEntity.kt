@@ -71,6 +71,6 @@ class YellowMeleeRobotEntity(type: EntityType<YellowMeleeRobotEntity>, world: Wo
             .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 50.0)
             .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.17)
             .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.0)
-            .add(EntityAttributes.GENERIC_ARMOR, 20.0)
+            .add(EntityAttributes.GENERIC_ARMOR, 30.0)
     }
 }

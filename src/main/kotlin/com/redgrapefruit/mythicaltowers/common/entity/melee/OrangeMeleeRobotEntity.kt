@@ -117,6 +117,6 @@ class OrangeMeleeRobotEntity(type: EntityType<OrangeMeleeRobotEntity>, world: Wo
             .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 60.0)
             .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.22)
             .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3.7)
-            .add(EntityAttributes.GENERIC_ARMOR, 30.0)
+            .add(EntityAttributes.GENERIC_ARMOR, 45.0)
     }
 }
