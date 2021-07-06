@@ -20,7 +20,7 @@ import java.util.*
 class MythicalTowers : ModInitializer {
     override fun onInitialize() {
         // Thank the player for using the MythicalTowers mod in the chat
-        ClientPlayConnectionEvents.JOIN.register { handler, sender, client ->
+        ClientPlayConnectionEvents.JOIN.register { _, _, client ->
             client.player?.sendMessage(LiteralText("Thank you for using the MythicalTowers mod!"), false)
         }
 

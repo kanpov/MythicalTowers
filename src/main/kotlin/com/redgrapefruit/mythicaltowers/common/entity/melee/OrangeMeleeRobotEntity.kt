@@ -12,10 +12,7 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
 
-/**
- * The value of the speed boost
- */
-private const val SPEED_BOOST_VALUE = 0.002
+private const val SPEED_BOOST_VALUE = 3.0f
 
 /**
  * The length of the speed boost in ticks
@@ -86,25 +83,15 @@ class OrangeMeleeRobotEntity(type: EntityType<OrangeMeleeRobotEntity>, world: Wo
     override fun tick() {
         super.tick()
 
-        val speedModifierMultimap = ImmutableMultimap.of(
-            EntityAttributes.GENERIC_MOVEMENT_SPEED,
-            EntityAttributeModifier(
-                "orange_melee_speed_boost",
-                SPEED_BOOST_VALUE,
-                EntityAttributeModifier.Operation.ADDITION
-            )
-        )
-
         if (isUnderSpeedBoost) {
             ++speedBoostTicks
 
-            attributes.addTemporaryModifiers(speedModifierMultimap)
+            movementSpeed += SPEED_BOOST_VALUE
 
             if (speedBoostTicks >= SPEED_BOOST_LENGTH) {
-                attributes.removeModifiers(speedModifierMultimap)
                 speedBoostTicks = 0
                 isUnderSpeedBoost = false
-                ++speedBoostUses
+                movementSpeed -= SPEED_BOOST_VALUE
             }
         }
     }
