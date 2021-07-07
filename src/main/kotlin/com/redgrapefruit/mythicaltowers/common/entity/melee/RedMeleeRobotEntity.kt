@@ -1,6 +1,5 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
-import com.redgrapefruit.mythicaltowers.common.util.DoubleTrackedDataHandler
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
@@ -39,13 +38,13 @@ private val EFFECT_PROBABILITIES: Map<StatusEffect, Int> = mapOf(
  *
  * Is decreased on each use of the ability
  */
-private const val STARTING_DURATION = 200.0
+private const val STARTING_DURATION = 200.0f
 
 /**
  * The decreasing multiplication (decreasing multiplication - 5 * 0.5 = 2.5)
  * of [STARTING_DURATION] on every use
  */
-private const val STARTING_DURATION_DECREASE = 0.7
+private const val STARTING_DURATION_DECREASE = 0.7f
 
 // NBT
 
@@ -55,7 +54,7 @@ private const val NBT_CURRENT_EFFECT_DURATION = "currentEffectDuration"
 class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     // DataTracker keys
     private lateinit var effectAbilityUsesKey: TrackedData<Int>
-    private lateinit var currentEffectDurationKey: TrackedData<Double>
+    private lateinit var currentEffectDurationKey: TrackedData<Float>
 
     /**
      * The current uses of the effect ability
@@ -75,7 +74,7 @@ class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) :
         super.initDataTracker()
 
         effectAbilityUsesKey = DataTracker.registerData(RedMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
-        currentEffectDurationKey = DataTracker.registerData(RedMeleeRobotEntity::class.java, DoubleTrackedDataHandler.default)
+        currentEffectDurationKey = DataTracker.registerData(RedMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.FLOAT)
 
         dataTracker.startTracking(effectAbilityUsesKey, 0)
         dataTracker.startTracking(currentEffectDurationKey, STARTING_DURATION)
@@ -98,7 +97,7 @@ class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) :
                         currentEffectDuration.roundToInt(),
                         Random.nextInt(0, 3)
                     )
-                    target.addStatusEffect(instance)
+                    target.addStatusEffect(instance, this)
                 }
             }
 
@@ -115,14 +114,14 @@ class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) :
         super.writeCustomDataToNbt(nbt)
 
         nbt.putInt(NBT_EFFECT_ABILITY_USES, effectAbilityUses)
-        nbt.putDouble(NBT_CURRENT_EFFECT_DURATION, currentEffectDuration)
+        nbt.putFloat(NBT_CURRENT_EFFECT_DURATION, currentEffectDuration)
     }
 
     override fun readCustomDataFromNbt(nbt: NbtCompound) {
         super.readCustomDataFromNbt(nbt)
 
         effectAbilityUses = nbt.getInt(NBT_EFFECT_ABILITY_USES)
-        currentEffectDuration = nbt.getDouble(NBT_CURRENT_EFFECT_DURATION)
+        currentEffectDuration = nbt.getFloat(NBT_CURRENT_EFFECT_DURATION)
     }
 
     companion object {
