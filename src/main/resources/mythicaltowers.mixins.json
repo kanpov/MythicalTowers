@@ -5,8 +5,7 @@
     "compatibilityLevel": "JAVA_8",
     "mixins": [
         "ArmorItemMixin",
-        "LivingEntityMixin",
-        "TrackedDataHandlerRegistryMixin"
+        "LivingEntityMixin"
     ],
     "client": [
     ],
