@@ -1,5 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
+import com.redgrapefruit.mythicaltowers.common.registry.EntityRegistry
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.attribute.DefaultAttributeContainer
@@ -46,6 +47,8 @@ class BlueMeleeRobotEntity(type: EntityType<BlueMeleeRobotEntity>, world: World)
      */
     private var isClone = false
 
+    constructor(world: World) : this(EntityRegistry.BLUE_MELEE_ROBOT, world)
+
     override fun tick() {
         super.tick()
 
@@ -61,7 +64,7 @@ class BlueMeleeRobotEntity(type: EntityType<BlueMeleeRobotEntity>, world: World)
 
             // Summon the clones
             for (i in 0..CLONE_AMOUNT) {
-                val clone = this
+                val clone = BlueMeleeRobotEntity(entityWorld)
                 clone.cloneAbilityDelayState = 0
                 clone.cloneAbilityUses = 0
                 clone.isClone = true
