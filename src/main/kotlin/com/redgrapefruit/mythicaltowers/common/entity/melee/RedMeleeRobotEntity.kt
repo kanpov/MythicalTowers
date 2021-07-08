@@ -53,7 +53,7 @@ class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) :
     /**
      * The current duration of each effect
      */
-    private var currentEffectDuration = STARTING_DURATION
+    private var currentEffectDuration = 0.0f
 
     override fun onAttacking(target: Entity) {
         if (target !is LivingEntity) {
@@ -67,6 +67,9 @@ class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) :
                 val chance = Random.nextInt(100)
                 if (chance <= probability) {
                     // Make a StatusEffectInstance and apply it
+                    // I swear the god why the hell is the var not initialized
+                    if (currentEffectDuration == 0.0f) currentEffectDuration = STARTING_DURATION
+
                     val instance = StatusEffectInstance(
                         effect,
                         currentEffectDuration.toInt(),
