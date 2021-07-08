@@ -1,9 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.registry
 
-import com.redgrapefruit.mythicaltowers.common.entity.melee.GreenMeleeRobotEntity
-import com.redgrapefruit.mythicaltowers.common.entity.melee.OrangeMeleeRobotEntity
-import com.redgrapefruit.mythicaltowers.common.entity.melee.RedMeleeRobotEntity
-import com.redgrapefruit.mythicaltowers.common.entity.melee.YellowMeleeRobotEntity
+import com.redgrapefruit.mythicaltowers.common.entity.melee.*
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricDefaultAttributeRegistry
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
@@ -15,6 +12,7 @@ object EntityAttributeRegistry {
         register(EntityRegistry.YELLOW_MELEE_ROBOT, YellowMeleeRobotEntity.ATTRIBUTES)
         register(EntityRegistry.ORANGE_MELEE_ROBOT, OrangeMeleeRobotEntity.ATTRIBUTES)
         register(EntityRegistry.RED_MELEE_ROBOT, RedMeleeRobotEntity.ATTRIBUTES)
+        register(EntityRegistry.BLUE_MELEE_ROBOT, BlueMeleeRobotEntity.ATTRIBUTES)
     }
 
     /**
