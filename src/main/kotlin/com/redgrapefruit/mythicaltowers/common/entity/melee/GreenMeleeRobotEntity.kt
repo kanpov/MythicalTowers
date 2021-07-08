@@ -6,9 +6,6 @@ import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.attribute.DefaultAttributeContainer
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.damage.DamageSource
-import net.minecraft.entity.data.DataTracker
-import net.minecraft.entity.data.TrackedData
-import net.minecraft.entity.data.TrackedDataHandlerRegistry
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
 
@@ -24,33 +21,15 @@ private const val NBT_JUMP_ATTACK_USES = "jumpAttackUses"
  * The green melee robot with speed boost and jump attacks
  */
 class GreenMeleeRobotEntity(type: EntityType<GreenMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
-    // DataTracker keys
-    private lateinit var isJumpAttackingKey: TrackedData<Boolean>
-    private lateinit var jumpAttackUsesKey: TrackedData<Int>
-
     /**
      * Is the robot currently jump-attacking the enemy
      */
-    private var isJumpAttacking
-        get() = dataTracker.get(isJumpAttackingKey)
-        set(value) = dataTracker.set(isJumpAttackingKey, value)
+    private var isJumpAttacking = false
 
     /**
      * The amount of times the jump-attack ability has been used
      */
-    private var jumpAttackUses
-        get() = dataTracker.get(jumpAttackUsesKey)
-        set(value) = dataTracker.set(jumpAttackUsesKey, value)
-
-    override fun initDataTracker() {
-        super.initDataTracker()
-
-        isJumpAttackingKey = DataTracker.registerData(GreenMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
-        jumpAttackUsesKey = DataTracker.registerData(GreenMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
-
-        dataTracker.startTracking(isJumpAttackingKey, false)
-        dataTracker.startTracking(jumpAttackUsesKey, 0)
-    }
+    private var jumpAttackUses = 0
 
     override fun onAttacking(target: Entity) {
         if (target !is LivingEntity) {

@@ -5,15 +5,11 @@ import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.attribute.DefaultAttributeContainer
 import net.minecraft.entity.attribute.EntityAttributes
-import net.minecraft.entity.data.DataTracker
-import net.minecraft.entity.data.TrackedData
-import net.minecraft.entity.data.TrackedDataHandlerRegistry
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
-import kotlin.math.roundToInt
 import kotlin.random.Random
 
 /**
@@ -52,33 +48,12 @@ private const val NBT_EFFECT_ABILITY_USES = "effectAbilityUses"
 private const val NBT_CURRENT_EFFECT_DURATION = "currentEffectDuration"
 
 class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
-    // DataTracker keys
-    private lateinit var effectAbilityUsesKey: TrackedData<Int>
-    private lateinit var currentEffectDurationKey: TrackedData<Float>
-
-    /**
-     * The current uses of the effect ability
-     */
-    private var effectAbilityUses
-        get() = dataTracker.get(effectAbilityUsesKey)
-        set(value) = dataTracker.set(effectAbilityUsesKey, value)
+    private var effectAbilityUses = 0
 
     /**
      * The current duration of each effect
      */
-    private var currentEffectDuration
-        get() = dataTracker.get(currentEffectDurationKey)
-        set(value) = dataTracker.set(currentEffectDurationKey, value)
-
-    override fun initDataTracker() {
-        super.initDataTracker()
-
-        effectAbilityUsesKey = DataTracker.registerData(RedMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
-        currentEffectDurationKey = DataTracker.registerData(RedMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.FLOAT)
-
-        dataTracker.startTracking(effectAbilityUsesKey, 0)
-        dataTracker.startTracking(currentEffectDurationKey, STARTING_DURATION)
-    }
+    private var currentEffectDuration = STARTING_DURATION
 
     override fun onAttacking(target: Entity) {
         if (target !is LivingEntity) {
@@ -94,10 +69,10 @@ class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) :
                     // Make a StatusEffectInstance and apply it
                     val instance = StatusEffectInstance(
                         effect,
-                        currentEffectDuration.roundToInt(),
+                        currentEffectDuration.toInt(),
                         Random.nextInt(0, 3)
                     )
-                    target.addStatusEffect(instance, this)
+                    target.addStatusEffect(instance)
                 }
             }
 

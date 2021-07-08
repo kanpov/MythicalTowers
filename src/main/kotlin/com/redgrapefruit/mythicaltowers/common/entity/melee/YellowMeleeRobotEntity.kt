@@ -5,9 +5,6 @@ import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.attribute.DefaultAttributeContainer
 import net.minecraft.entity.attribute.EntityAttributes
-import net.minecraft.entity.data.DataTracker
-import net.minecraft.entity.data.TrackedData
-import net.minecraft.entity.data.TrackedDataHandlerRegistry
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
 
@@ -22,23 +19,10 @@ private const val NBT_KNOCKBACK_USES = "maxKnockbackUses"
  * A yellow melee robot with extra knockback ability
  */
 class YellowMeleeRobotEntity(type: EntityType<YellowMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
-    // DataTracker keys
-    private lateinit var knockbackAbilityUsesKey: TrackedData<Int>
-
     /**
      * Maximum amount of times the knockback ability can be used
      */
-    private var knockbackAbilityUses: Int
-        get() = dataTracker.get(knockbackAbilityUsesKey)
-        set(value) = dataTracker.set(knockbackAbilityUsesKey, value)
-
-    override fun initDataTracker() {
-        super.initDataTracker()
-
-        knockbackAbilityUsesKey = DataTracker.registerData(YellowMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
-
-        dataTracker.startTracking(knockbackAbilityUsesKey, 0)
-    }
+    private var knockbackAbilityUses = 0
 
     override fun onAttacking(target: Entity) {
         if (target !is LivingEntity) {

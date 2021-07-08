@@ -1,14 +1,9 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
-import com.google.common.collect.ImmutableMultimap
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.attribute.DefaultAttributeContainer
-import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.entity.attribute.EntityAttributes
-import net.minecraft.entity.data.DataTracker
-import net.minecraft.entity.data.TrackedData
-import net.minecraft.entity.data.TrackedDataHandlerRegistry
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
 
@@ -34,43 +29,20 @@ private const val NBT_IS_UNDER_SPEED_BOOST = "isUnderSpeedBoost"
  * An orange melee robot with temporary speed boost
  */
 class OrangeMeleeRobotEntity(type: EntityType<OrangeMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
-    // DataTracker keys
-    private lateinit var speedBoostTicksKey: TrackedData<Int>
-    private lateinit var speedBoostUsesKey: TrackedData<Int>
-    private lateinit var isUnderSpeedBoostKey: TrackedData<Boolean>
-
     /**
      * The amount of ticks the ability has been going for
      */
-    private var speedBoostTicks
-        get() = dataTracker.get(speedBoostTicksKey)
-        set(value) = dataTracker.set(speedBoostTicksKey, value)
+    private var speedBoostTicks = 0
 
     /**
      * The current amount of times the ability has been used
      */
-    private var speedBoostUses
-        get() = dataTracker.get(speedBoostUsesKey)
-        set(value) = dataTracker.set(speedBoostUsesKey, value)
+    private var speedBoostUses = 0
 
     /**
      * Is the ability ongoing
      */
-    private var isUnderSpeedBoost
-        get() = dataTracker.get(isUnderSpeedBoostKey)
-        set(value) = dataTracker.set(isUnderSpeedBoostKey, value)
-
-    override fun initDataTracker() {
-        super.initDataTracker()
-
-        speedBoostTicksKey = DataTracker.registerData(OrangeMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
-        speedBoostUsesKey = DataTracker.registerData(OrangeMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.INTEGER)
-        isUnderSpeedBoostKey = DataTracker.registerData(OrangeMeleeRobotEntity::class.java, TrackedDataHandlerRegistry.BOOLEAN)
-
-        dataTracker.startTracking(speedBoostTicksKey, 0)
-        dataTracker.startTracking(speedBoostUsesKey, 0)
-        dataTracker.startTracking(isUnderSpeedBoostKey, false)
-    }
+    private var isUnderSpeedBoost = false
 
     override fun onAttacking(target: Entity) {
         super.onAttacking(target)
