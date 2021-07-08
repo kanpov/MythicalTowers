@@ -55,8 +55,8 @@ class BlueMeleeRobotEntity(type: EntityType<BlueMeleeRobotEntity>, world: World)
     override fun onAttacking(target: Entity) {
         super.onAttacking(target)
 
-        // Check delay first and isClone too
-        if (cloneAbilityDelayState >= CLONE_ABILITY_DELAY && !isClone) {
+        // Check all of the conditions
+        if (cloneAbilityDelayState >= CLONE_ABILITY_DELAY && !isClone && cloneAbilityUses <= MAX_CLONE_ABILITY_USES) {
             cloneAbilityDelayState = 0
 
             // Summon the clones
