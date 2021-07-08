@@ -106,7 +106,7 @@ class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) :
         val ATTRIBUTES: DefaultAttributeContainer.Builder = createHostileAttributes()
             .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 70.0)
             .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25)
-            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.4)
-            .add(EntityAttributes.GENERIC_ARMOR, 60.0)
+            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 13.5)
+            .add(EntityAttributes.GENERIC_ARMOR, 120.0)
     }
 }
