@@ -58,11 +58,6 @@ class PurpleMeleeRobotEntity(type: EntityType<PurpleMeleeRobotEntity>, world: Wo
     private var currentBuffDuration = 0.0f
 
     override fun onAttacking(target: Entity?) {
-        if (target !is LivingEntity) {
-            super.onAttacking(target)
-            return
-        }
-
         if (buffAbilityUses <= MAX_BUFF_ABILITY_USES) {
             BUFF_PROBABILITIES.forEach { (buff, probability) ->
                 // Use probability
