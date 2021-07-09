@@ -7,23 +7,16 @@ import com.redgrapefruit.mythicaltowers.common.registry.ItemRegistry
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags
 import net.minecraft.block.AbstractBlock
 import net.minecraft.block.Material
 import net.minecraft.item.ItemGroup
 import net.minecraft.item.ItemStack
-import net.minecraft.text.LiteralText
 import net.minecraft.util.Identifier
 import java.util.*
 
 class MythicalTowers : ModInitializer {
     override fun onInitialize() {
-        // Thank the player for using the MythicalTowers mod in the chat
-        ClientPlayConnectionEvents.JOIN.register { _, _, client ->
-            client.player?.sendMessage(LiteralText("Thank you for using the MythicalTowers mod!"), false)
-        }
-
         ItemRegistry.init()
         BlockRegistry.init()
         EntityRegistry.init()

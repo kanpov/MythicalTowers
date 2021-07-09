@@ -71,7 +71,7 @@ class GreenMeleeRobotEntity(type: EntityType<GreenMeleeRobotEntity>, world: Worl
         val ATTRIBUTES: DefaultAttributeContainer.Builder = createHostileAttributes()
             .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 40.0)
             .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2)
-            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.0)
-            .add(EntityAttributes.GENERIC_ARMOR, 30.0)
+            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10.0)
+            .add(EntityAttributes.GENERIC_MAX_HEALTH, 50.0)
     }
 }

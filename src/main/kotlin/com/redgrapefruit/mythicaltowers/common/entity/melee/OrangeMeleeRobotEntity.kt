@@ -88,7 +88,7 @@ class OrangeMeleeRobotEntity(type: EntityType<OrangeMeleeRobotEntity>, world: Wo
         val ATTRIBUTES: DefaultAttributeContainer.Builder = createHostileAttributes()
             .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 60.0)
             .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.22)
-            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 11.0)
-            .add(EntityAttributes.GENERIC_ARMOR, 90.0)
+            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 50.0)
+            .add(EntityAttributes.GENERIC_MAX_HEALTH, 150.0)
     }
 }

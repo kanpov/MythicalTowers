@@ -99,7 +99,7 @@ class BlueMeleeRobotEntity(type: EntityType<BlueMeleeRobotEntity>, world: World)
         val ATTRIBUTES: DefaultAttributeContainer.Builder = createHostileAttributes()
             .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 80.0)
             .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.28)
-            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 16.0)
-            .add(EntityAttributes.GENERIC_ARMOR, 150.0)
+            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 100.0)
+            .add(EntityAttributes.GENERIC_MAX_HEALTH, 250.0)
     }
 }
