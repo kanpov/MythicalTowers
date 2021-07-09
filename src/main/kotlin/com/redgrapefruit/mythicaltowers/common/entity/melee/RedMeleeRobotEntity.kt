@@ -48,6 +48,9 @@ private const val NBT_EFFECT_ABILITY_USES = "effectAbilityUses"
 private const val NBT_CURRENT_EFFECT_DURATION = "currentEffectDuration"
 
 class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
+    /**
+     * The amount of times the effect ability has been used
+     */
     private var effectAbilityUses = 0
 
     /**
@@ -67,7 +70,6 @@ class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) :
                 val chance = Random.nextInt(100)
                 if (chance <= probability) {
                     // Make a StatusEffectInstance and apply it
-                    // I swear the god why the hell is the var not initialized
                     if (currentEffectDuration == 0.0f) currentEffectDuration = STARTING_DURATION
 
                     val instance = StatusEffectInstance(
