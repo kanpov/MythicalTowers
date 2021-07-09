@@ -7,6 +7,7 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
+import kotlin.random.Random
 
 /**
  * Maximum amount of times the cloning ability can be used
@@ -43,7 +44,7 @@ class BlueMeleeRobotEntity(type: EntityType<BlueMeleeRobotEntity>, world: World)
     /**
      * Is this a clone.
      *
-     * Clones cannot make clones to not make an infinite loop.
+     * Clones cannot make clones in order to prevent an infinite loop.
      */
     private var isClone = false
 
@@ -64,12 +65,13 @@ class BlueMeleeRobotEntity(type: EntityType<BlueMeleeRobotEntity>, world: World)
 
             // Summon the clones
             for (i in 0..CLONE_AMOUNT) {
-                val clone = BlueMeleeRobotEntity(entityWorld)
-                clone.cloneAbilityDelayState = 0
-                clone.cloneAbilityUses = 0
+                val clone = BlueMeleeRobotEntity(world)
+                // Mark as clone to avoid infinite loop of clones
                 clone.isClone = true
+                // Spawn nearby
+                clone.setPosition(pos.x + (Random.nextInt(3)), pos.y + (Random.nextInt(3)), pos.z + (Random.nextInt(3)))
 
-                entityWorld.spawnEntity(this)
+                world.spawnEntity(clone)
             }
 
             // Count the use
