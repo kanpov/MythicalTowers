@@ -31,9 +31,9 @@
         "mythicaltowers.mixins.json"
     ],
     "depends": {
-        "fabricloader": ">=0.11.3",
+        "fabricloader": ">=0.11.6",
         "fabric": "*",
-        "fabric-language-kotlin": ">=1.6.0+kotlin.1.5.0",
-        "minecraft": "1.17"
+        "fabric-language-kotlin": ">=1.6.2+kotlin.1.5.20",
+        "minecraft": "1.17.1"
     }
 }
