@@ -4,7 +4,7 @@ import com.redgrapefruit.mythicaltowers.common.armor.BootsItem;
 import com.redgrapefruit.mythicaltowers.common.armor.ChestplateItem;
 import com.redgrapefruit.mythicaltowers.common.armor.HelmetItem;
 import com.redgrapefruit.mythicaltowers.common.armor.LeggingsItem;
-import com.redgrapefruit.mythicaltowers.common.util.ItemStackUtility;
+import com.redgrapefruit.mythicaltowers.common.util.JavaNBT;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
@@ -22,11 +22,17 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /**
- * This mixin applies custom effects to the entity once the custom armor from the mod is put on.<br>
- * Also serializes and deserializes some internal data
+ * This mixin applies custom effects to the entity once the custom armor from the mod is put on.
+ * <br><br>
+ * Also manages stuns given by some mobs.
  */
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
+    /**
+     * The length of each stun
+     */
+    private static final int STUN_LENGTH = 60;
+
     private ItemStack airStack() { return new ItemStack(Items.AIR); }
 
     // Tracked data about previous armor stacks
@@ -39,11 +45,41 @@ public abstract class LivingEntityMixin {
     @Unique
     private ItemStack previousBootsStack = airStack();
 
+    // Tracked data about stuns
+    @Unique
+    private boolean isStunned = false;
+    @Unique
+    private int stunTicks = 0;
+    @Unique
+    // Used to resume movement after the stun
+    private float speedBeforeStun;
+
     @Shadow
     public abstract boolean addStatusEffect(StatusEffectInstance effect);
 
     @Shadow
     public abstract boolean removeStatusEffect(StatusEffect type);
+
+    @Shadow public abstract void setMovementSpeed(float movementSpeed);
+
+    @Shadow private float movementSpeed;
+
+    @Inject(method = "tick", at = @At("HEAD"))
+    private void tick(CallbackInfo info) {
+        // Increment timer if needed
+        if (isStunned) ++stunTicks;
+    }
+
+    @Inject(method = "tickMovement", at = @At("HEAD"))
+    private void tickMovement(CallbackInfo info) {
+        // Yeet the velocity if stunned
+        if (isStunned) {
+            speedBeforeStun = movementSpeed;
+            setMovementSpeed(0f);
+        } else {
+            setMovementSpeed(speedBeforeStun);
+        }
+    }
 
     /**
      * <code>setArmorInSlot</code> is called everytime an armor piece is put on/off. Main logic block
@@ -166,10 +202,14 @@ public abstract class LivingEntityMixin {
      */
     @Inject(method = "readCustomDataFromNbt", at = @At("TAIL"))
     private void readCustomDataFromNbt(NbtCompound nbt, CallbackInfo info) {
-        previousHelmetStack = ItemStackUtility.readItemStack(nbt, "Previous Helmet Stack");
-        previousChestplateStack = ItemStackUtility.readItemStack(nbt, "Previous Chestplate Stack");
-        previousLeggingsStack = ItemStackUtility.readItemStack(nbt, "Previous Leggings Stack");
-        previousBootsStack = ItemStackUtility.readItemStack(nbt, "Previous Boots Stack");
+        previousHelmetStack = JavaNBT.readItemStack(nbt, "Previous Helmet Stack");
+        previousChestplateStack = JavaNBT.readItemStack(nbt, "Previous Chestplate Stack");
+        previousLeggingsStack = JavaNBT.readItemStack(nbt, "Previous Leggings Stack");
+        previousBootsStack = JavaNBT.readItemStack(nbt, "Previous Boots Stack");
+
+        isStunned = nbt.getBoolean("Is Entity Stunned");
+        stunTicks = nbt.getInt("Stun Ticks");
+        speedBeforeStun = nbt.getFloat("Speed Before Stun");
     }
 
     /**
@@ -180,10 +220,14 @@ public abstract class LivingEntityMixin {
      */
     @Inject(method = "writeCustomDataToNbt", at = @At("TAIL"))
     private void writeCustomDataToTag(NbtCompound nbt, CallbackInfo info) {
-        ItemStackUtility.writeItemStack(nbt, "Previous Helmet Stack", previousHelmetStack);
-        ItemStackUtility.writeItemStack(nbt, "Previous Chestplate Stack", previousChestplateStack);
-        ItemStackUtility.writeItemStack(nbt, "Previous Leggings Stack", previousLeggingsStack);
-        ItemStackUtility.writeItemStack(nbt, "Previous Boots Stack", previousBootsStack);
+        JavaNBT.writeItemStack(nbt, "Previous Helmet Stack", previousHelmetStack);
+        JavaNBT.writeItemStack(nbt, "Previous Chestplate Stack", previousChestplateStack);
+        JavaNBT.writeItemStack(nbt, "Previous Leggings Stack", previousLeggingsStack);
+        JavaNBT.writeItemStack(nbt, "Previous Boots Stack", previousBootsStack);
+
+        nbt.putBoolean("Is Entity Stunned", isStunned);
+        nbt.putInt("Stun Ticks", stunTicks);
+        nbt.putFloat("Speed Before Stun", speedBeforeStun);
     }
 
     /**

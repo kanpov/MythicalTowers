@@ -3,18 +3,15 @@ package com.redgrapefruit.mythicaltowers.common.util
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NbtCompound
+import net.minecraft.util.math.Vec3d
 
 /**
- * Utilities for reading and writing [ItemStack]s
+ * Utilities for reading and writing into NBTs intended for use in Java code.
  */
-object ItemStackUtility {
-    /**
-     * Reads an [ItemStack] from an [NbtCompound]
-     *
-     * @param nbt      The source [NbtCompound]
-     * @param baseName The base name of the stack to differentiate since this isn't a packet, but a tag
-     * @return Read [ItemStack]
-     */
+object JavaNBT {
+
+    // ItemStacks
+
     @JvmStatic
     fun readItemStack(nbt: NbtCompound, baseName: String): ItemStack {
         // Check if the stack is empty, if yes, return ItemStack.EMPTY
@@ -31,13 +28,6 @@ object ItemStackUtility {
         }
     }
 
-    /**
-     * Writes an [ItemStack] to an [NbtCompound]
-     *
-     * @param nbt      The output [NbtCompound]
-     * @param baseName The base name of the stack to differentiate since this isn't a packet, but a tag
-     * @param input    Written [ItemStack]
-     */
     @JvmStatic
     fun writeItemStack(nbt: NbtCompound, baseName: String, input: ItemStack?) {
         var stack = input
