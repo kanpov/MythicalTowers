@@ -3,7 +3,7 @@
 # State
 
 This mod is currently work-in-progress.  
-It's expected to release in the end of July or start of August, 2021.
+It's expected to release in August 2021.
 
 # Install
 
