@@ -5,7 +5,6 @@ import com.redgrapefruit.mythicaltowers.common.armor.ChestplateItem;
 import com.redgrapefruit.mythicaltowers.common.armor.HelmetItem;
 import com.redgrapefruit.mythicaltowers.common.armor.LeggingsItem;
 import com.redgrapefruit.mythicaltowers.common.util.JavaNBT;
-import com.redgrapefruit.mythicaltowers.common.util.LivingEntityMixinAccess;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
@@ -28,12 +27,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * Also manages stuns given by some mobs.
  */
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityMixin implements LivingEntityMixinAccess {
-    /**
-     * The length of each stun
-     */
-    private static final int STUN_LENGTH = 60;
-
+public abstract class LivingEntityMixin {
     private ItemStack airStack() { return new ItemStack(Items.AIR); }
 
     // Tracked data about previous armor stacks
@@ -46,51 +40,11 @@ public abstract class LivingEntityMixin implements LivingEntityMixinAccess {
     @Unique
     private ItemStack previousBootsStack = airStack();
 
-    // Tracked data about stuns
-    @Unique
-    private boolean isStunned = false;
-    @Unique
-    private int stunTicks = 0;
-    @Unique
-    // Used to resume movement after the stun
-    private float speedBeforeStun;
-
     @Shadow
     public abstract boolean addStatusEffect(StatusEffectInstance effect);
 
     @Shadow
     public abstract boolean removeStatusEffect(StatusEffect type);
-
-    @Shadow public abstract void setMovementSpeed(float movementSpeed);
-
-    @Shadow private float movementSpeed;
-
-    @Inject(method = "tick", at = @At("HEAD"))
-    private void tick(CallbackInfo info) {
-        // Increment timer if needed
-        if (isStunned) ++stunTicks;
-
-        if (stunTicks >= STUN_LENGTH) {
-            isStunned = false;
-            stunTicks = 0;
-        }
-    }
-
-    @Override
-    public void stun() {
-        isStunned = true;
-    }
-
-    @Inject(method = "tickMovement", at = @At("HEAD"))
-    private void tickMovement(CallbackInfo info) {
-        // Yeet the velocity if stunned and make sure to remember it to resume later with no loss of speed
-        if (isStunned) {
-            speedBeforeStun = movementSpeed;
-            setMovementSpeed(0f);
-        } else {
-            setMovementSpeed(speedBeforeStun);
-        }
-    }
 
     /**
      * <code>setArmorInSlot</code> is called everytime an armor piece is put on/off. Main logic block
@@ -217,10 +171,6 @@ public abstract class LivingEntityMixin implements LivingEntityMixinAccess {
         previousChestplateStack = JavaNBT.readItemStack(nbt, "Previous Chestplate Stack");
         previousLeggingsStack = JavaNBT.readItemStack(nbt, "Previous Leggings Stack");
         previousBootsStack = JavaNBT.readItemStack(nbt, "Previous Boots Stack");
-
-        isStunned = nbt.getBoolean("Is Entity Stunned");
-        stunTicks = nbt.getInt("Stun Ticks");
-        speedBeforeStun = nbt.getFloat("Speed Before Stun");
     }
 
     /**
@@ -235,10 +185,6 @@ public abstract class LivingEntityMixin implements LivingEntityMixinAccess {
         JavaNBT.writeItemStack(nbt, "Previous Chestplate Stack", previousChestplateStack);
         JavaNBT.writeItemStack(nbt, "Previous Leggings Stack", previousLeggingsStack);
         JavaNBT.writeItemStack(nbt, "Previous Boots Stack", previousBootsStack);
-
-        nbt.putBoolean("Is Entity Stunned", isStunned);
-        nbt.putInt("Stun Ticks", stunTicks);
-        nbt.putFloat("Speed Before Stun", speedBeforeStun);
     }
 
     /**
