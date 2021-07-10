@@ -72,6 +72,7 @@ public abstract class LivingEntityMixin implements LivingEntityMixinAccess {
 
         if (stunTicks >= STUN_LENGTH) {
             isStunned = false;
+            stunTicks = 0;
         }
     }
 
