@@ -19,11 +19,13 @@ object EntityRendererRegistry {
         EntityRendererRegistry.INSTANCE.register(EntityRegistry.PURPLE_TNT) { context -> DummyEntityRenderer(context) }
         EntityRendererRegistry.INSTANCE.register(EntityRegistry.GRAY_TNT) { context -> DummyEntityRenderer(context) }
         EntityRendererRegistry.INSTANCE.register(EntityRegistry.BLACK_TNT) { context -> DummyEntityRenderer(context) }
+
         EntityRendererRegistry.INSTANCE.register(EntityRegistry.GREEN_MELEE_ROBOT) { context -> GreenMeleeRobotEntityRenderer(context) }
         EntityRendererRegistry.INSTANCE.register(EntityRegistry.YELLOW_MELEE_ROBOT) { context -> YellowMeleeRobotEntityRenderer(context) }
         EntityRendererRegistry.INSTANCE.register(EntityRegistry.ORANGE_MELEE_ROBOT) { context -> OrangeMeleeRobotEntityRenderer(context) }
         EntityRendererRegistry.INSTANCE.register(EntityRegistry.RED_MELEE_ROBOT) { context -> RedMeleeRobotEntityRenderer(context) }
         EntityRendererRegistry.INSTANCE.register(EntityRegistry.BLUE_MELEE_ROBOT) { context -> BlueMeleeRobotEntityRenderer(context) }
         EntityRendererRegistry.INSTANCE.register(EntityRegistry.PURPLE_MELEE_ROBOT) { context -> PurpleMeleeRobotEntityRenderer(context) }
+        EntityRendererRegistry.INSTANCE.register(EntityRegistry.GRAY_MELEE_ROBOT) { context -> GrayMeleeRobotEntityRenderer(context) }
     }
 }
