@@ -1,13 +1,14 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
-import com.redgrapefruit.mythicaltowers.common.util.LivingEntityMixinAccess
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.attribute.DefaultAttributeContainer
+import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
+import java.util.*
 
 /**
  * Maximum amount of times the enemy-stun ability can be used
@@ -23,6 +24,10 @@ private const val ENEMY_STUN_COOLDOWN = 40
 
 private const val NBT_ENEMY_STUN_ABILITY_USES = "enemyStunAbilityUses"
 private const val NBT_ENEMY_STUN_COOLDOWN_STATE = "enemyStunCooldownState"
+
+// UUID
+
+private val UUID_SPEED_MODIFIER = UUID.fromString("ad593ae7-d328-48ee-9d11-df5783fc3fba")
 
 class GrayMeleeRobotEntity(type: EntityType<GrayMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     /**
@@ -41,15 +46,32 @@ class GrayMeleeRobotEntity(type: EntityType<GrayMeleeRobotEntity>, world: World)
             return
         }
 
+        val instance = target.getAttributeInstance(EntityAttributes.GENERIC_MOVEMENT_SPEED)
+
+        if (instance == null) {
+            super.onAttacking(target)
+            return
+        }
+
         if (enemyStunCooldownState >= ENEMY_STUN_COOLDOWN && enemyStunAbilityUses <= MAX_ENEMY_STUN_ABILITY_USES) {
-            if (target is LivingEntityMixinAccess) {
-                target.stun()
-            } else {
-                LOGGER.error("Critical failure in the mod's mixins. target !is LivingEntityMixinAccess")
+            if (instance.getModifier(UUID_SPEED_MODIFIER) != null) {
+                instance.removeModifier(UUID_SPEED_MODIFIER)
             }
+
+            instance.addTemporaryModifier(
+                EntityAttributeModifier(
+                    UUID_SPEED_MODIFIER,
+                    "Enemy stun slow",
+                    0.0000000001,
+                    EntityAttributeModifier.Operation.MULTIPLY_TOTAL))
 
             ++enemyStunAbilityUses
             enemyStunCooldownState = 0
+
+            // The last time, remove the modifier for good
+            if (enemyStunAbilityUses == MAX_ENEMY_STUN_ABILITY_USES) {
+                instance.removeModifier(UUID_SPEED_MODIFIER)
+            }
         }
 
         super.onAttacking(target)
