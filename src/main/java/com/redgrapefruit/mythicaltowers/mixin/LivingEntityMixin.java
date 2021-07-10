@@ -5,6 +5,7 @@ import com.redgrapefruit.mythicaltowers.common.armor.ChestplateItem;
 import com.redgrapefruit.mythicaltowers.common.armor.HelmetItem;
 import com.redgrapefruit.mythicaltowers.common.armor.LeggingsItem;
 import com.redgrapefruit.mythicaltowers.common.util.JavaNBT;
+import com.redgrapefruit.mythicaltowers.common.util.LivingEntityMixinAccess;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
@@ -27,7 +28,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
  * Also manages stuns given by some mobs.
  */
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityMixin {
+public abstract class LivingEntityMixin implements LivingEntityMixinAccess {
     /**
      * The length of each stun
      */
@@ -68,6 +69,15 @@ public abstract class LivingEntityMixin {
     private void tick(CallbackInfo info) {
         // Increment timer if needed
         if (isStunned) ++stunTicks;
+
+        if (stunTicks >= STUN_LENGTH) {
+            isStunned = false;
+        }
+    }
+
+    @Override
+    public void stun() {
+        isStunned = true;
     }
 
     @Inject(method = "tickMovement", at = @At("HEAD"))
