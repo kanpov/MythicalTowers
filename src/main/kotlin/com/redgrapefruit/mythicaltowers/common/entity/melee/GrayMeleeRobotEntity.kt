@@ -41,7 +41,7 @@ class GrayMeleeRobotEntity(type: EntityType<GrayMeleeRobotEntity>, world: World)
             return
         }
 
-        if (enemyStunCooldownState >= ENEMY_STUN_COOLDOWN) {
+        if (enemyStunCooldownState >= ENEMY_STUN_COOLDOWN && enemyStunAbilityUses <= MAX_ENEMY_STUN_ABILITY_USES) {
             if (target is LivingEntityMixinAccess) {
                 target.stun()
             } else {
