@@ -72,7 +72,7 @@ public abstract class LivingEntityMixin {
 
     @Inject(method = "tickMovement", at = @At("HEAD"))
     private void tickMovement(CallbackInfo info) {
-        // Yeet the velocity if stunned
+        // Yeet the velocity if stunned and make sure to remember it to resume later with no loss of speed
         if (isStunned) {
             speedBeforeStun = movementSpeed;
             setMovementSpeed(0f);

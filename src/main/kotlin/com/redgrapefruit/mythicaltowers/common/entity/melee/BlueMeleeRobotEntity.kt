@@ -22,12 +22,12 @@ private const val CLONE_AMOUNT = 2
 /**
  * The amount of game ticks that must pass before the clone ability can be used
  */
-private const val CLONE_ABILITY_DELAY = 100
+private const val CLONE_ABILITY_COOLDOWN = 100
 
 // NBT
 
 private const val NBT_CLONE_ABILITY_USES = "cloneAbilityUses"
-private const val NBT_CLONE_ABILITY_DELAY_STATE = "cloneAbilityDelayState"
+private const val NBT_CLONE_ABILITY_COOLDOWN_STATE = "cloneAbilityCooldownState"
 private const val NBT_IS_CLONE = "isClone"
 
 class BlueMeleeRobotEntity(type: EntityType<BlueMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
@@ -39,7 +39,7 @@ class BlueMeleeRobotEntity(type: EntityType<BlueMeleeRobotEntity>, world: World)
     /**
      * The state of the delay counter
      */
-    private var cloneAbilityDelayState = 0
+    private var cloneAbilityCooldownState = 0
 
     /**
      * Is this a clone.
@@ -53,15 +53,15 @@ class BlueMeleeRobotEntity(type: EntityType<BlueMeleeRobotEntity>, world: World)
     override fun tick() {
         super.tick()
 
-        if (!isClone) ++cloneAbilityDelayState
+        if (!isClone) ++cloneAbilityCooldownState
     }
 
     override fun onAttacking(target: Entity) {
         super.onAttacking(target)
 
         // Check all of the conditions
-        if (cloneAbilityDelayState >= CLONE_ABILITY_DELAY && !isClone && cloneAbilityUses <= MAX_CLONE_ABILITY_USES) {
-            cloneAbilityDelayState = 0
+        if (cloneAbilityCooldownState >= CLONE_ABILITY_COOLDOWN && !isClone && cloneAbilityUses <= MAX_CLONE_ABILITY_USES) {
+            cloneAbilityCooldownState = 0
 
             // Summon the clones
             for (i in 0..CLONE_AMOUNT) {
@@ -83,7 +83,7 @@ class BlueMeleeRobotEntity(type: EntityType<BlueMeleeRobotEntity>, world: World)
         super.readCustomDataFromNbt(nbt)
 
         cloneAbilityUses = nbt.getInt(NBT_CLONE_ABILITY_USES)
-        cloneAbilityDelayState = nbt.getInt(NBT_CLONE_ABILITY_DELAY_STATE)
+        cloneAbilityCooldownState = nbt.getInt(NBT_CLONE_ABILITY_COOLDOWN_STATE)
         isClone = nbt.getBoolean(NBT_IS_CLONE)
     }
 
@@ -91,7 +91,7 @@ class BlueMeleeRobotEntity(type: EntityType<BlueMeleeRobotEntity>, world: World)
         super.writeCustomDataToNbt(nbt)
 
         nbt.putInt(NBT_CLONE_ABILITY_USES, cloneAbilityUses)
-        nbt.putInt(NBT_CLONE_ABILITY_DELAY_STATE, cloneAbilityDelayState)
+        nbt.putInt(NBT_CLONE_ABILITY_COOLDOWN_STATE, cloneAbilityCooldownState)
         nbt.putBoolean(NBT_IS_CLONE, isClone)
     }
 
