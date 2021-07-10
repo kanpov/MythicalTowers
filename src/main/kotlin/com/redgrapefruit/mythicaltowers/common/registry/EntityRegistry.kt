@@ -111,6 +111,7 @@ object EntityRegistry {
         register("red_melee_robot", RED_MELEE_ROBOT)
         register("blue_melee_robot", BLUE_MELEE_ROBOT)
         register("purple_melee_robot", PURPLE_MELEE_ROBOT)
+        register("gray_melee_robot", GRAY_MELEE_ROBOT)
     }
 
     /**
