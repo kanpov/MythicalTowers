@@ -27,5 +27,6 @@ object EntityRendererRegistry {
         EntityRendererRegistry.INSTANCE.register(EntityRegistry.BLUE_MELEE_ROBOT) { context -> BlueMeleeRobotEntityRenderer(context) }
         EntityRendererRegistry.INSTANCE.register(EntityRegistry.PURPLE_MELEE_ROBOT) { context -> PurpleMeleeRobotEntityRenderer(context) }
         EntityRendererRegistry.INSTANCE.register(EntityRegistry.GRAY_MELEE_ROBOT) { context -> GrayMeleeRobotEntityRenderer(context) }
+        EntityRendererRegistry.INSTANCE.register(EntityRegistry.BLACK_MELEE_ROBOT) { context -> BlackMeleeRobotEntityRenderer(context) }
     }
 }
