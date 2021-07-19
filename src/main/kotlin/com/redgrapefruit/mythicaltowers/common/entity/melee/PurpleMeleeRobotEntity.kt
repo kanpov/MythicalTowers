@@ -102,7 +102,7 @@ class PurpleMeleeRobotEntity(type: EntityType<PurpleMeleeRobotEntity>, world: Wo
         val ATTRIBUTES: DefaultAttributeContainer.Builder = createHostileAttributes()
             .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 90.0)
             .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.31)
-            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 125.0)
+            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 47.5)
             .add(EntityAttributes.GENERIC_MAX_HEALTH, 300.0)
     }
 }

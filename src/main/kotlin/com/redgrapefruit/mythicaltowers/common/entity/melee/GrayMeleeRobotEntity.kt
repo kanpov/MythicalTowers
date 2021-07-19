@@ -58,7 +58,7 @@ class GrayMeleeRobotEntity(type: EntityType<GrayMeleeRobotEntity>, world: World)
         val ATTRIBUTES: DefaultAttributeContainer.Builder = createHostileAttributes()
             .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 100.0)
             .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.34)
-            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 150.0)
+            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 55.0)
             .add(EntityAttributes.GENERIC_MAX_HEALTH, 350.0)
     }
 }
