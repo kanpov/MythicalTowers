@@ -17,9 +17,6 @@ private const val MAX_JUMP_ATTACK_USES = 3
 private const val NBT_IS_JUMP_ATTACKING = "isJumpAttacking"
 private const val NBT_JUMP_ATTACK_USES = "jumpAttackUses"
 
-/**
- * The green melee robot with speed boost and jump attacks
- */
 class GreenMeleeRobotEntity(type: EntityType<GreenMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     /**
      * Is the robot currently jump-attacking the enemy

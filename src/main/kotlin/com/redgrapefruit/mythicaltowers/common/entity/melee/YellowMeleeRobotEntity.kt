@@ -15,9 +15,6 @@ private const val MAX_KNOCKBACK_USES = 5
 
 private const val NBT_KNOCKBACK_USES = "maxKnockbackUses"
 
-/**
- * A yellow melee robot with extra knockback ability
- */
 class YellowMeleeRobotEntity(type: EntityType<YellowMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     /**
      * Maximum amount of times the knockback ability can be used

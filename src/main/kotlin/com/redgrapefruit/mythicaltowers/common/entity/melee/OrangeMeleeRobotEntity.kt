@@ -25,9 +25,6 @@ private const val NBT_SPEED_BOOST_TICKS = "speedBoostTicks"
 private const val NBT_SPEED_BOOST_USES = "speedBoostUses"
 private const val NBT_IS_UNDER_SPEED_BOOST = "isUnderSpeedBoost"
 
-/**
- * An orange melee robot with temporary speed boost
- */
 class OrangeMeleeRobotEntity(type: EntityType<OrangeMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     /**
      * The amount of ticks the ability has been going for
