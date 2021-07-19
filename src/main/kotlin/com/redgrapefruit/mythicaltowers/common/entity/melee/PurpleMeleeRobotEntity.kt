@@ -61,7 +61,7 @@ class PurpleMeleeRobotEntity(type: EntityType<PurpleMeleeRobotEntity>, world: Wo
         if (buffAbilityUses <= MAX_BUFF_ABILITY_USES) {
             BUFF_PROBABILITIES.forEach { (buff, probability) ->
                 // Use probability
-                val chance = Random.nextInt(100)
+                val chance = Random.nextInt(101)
                 if (chance <= probability) {
                     // Make a StatusEffectInstance and apply it
                     if (currentBuffDuration == 0.0f) currentBuffDuration = STARTING_DURATION
