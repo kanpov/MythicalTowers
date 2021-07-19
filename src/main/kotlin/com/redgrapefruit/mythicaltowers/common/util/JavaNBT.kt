@@ -23,7 +23,7 @@ object JavaNBT {
             val count = nbt.getInt("$baseName:Count")
             // Instantiate the stack and set its tag to given
             val stack = ItemStack(Item.byRawId(rawId), count)
-            stack.tag = nbt
+            stack.nbt = nbt
             stack
         }
     }
@@ -43,8 +43,8 @@ object JavaNBT {
             nbt.putInt("$baseName:Raw ID", Item.getRawId(item))
             nbt.putInt("$baseName:Count", stack.count)
             // Read and then write the stack's CompoundTag if it's necessary
-            if (item.isDamageable || item.shouldSyncTagToClient()) {
-                nbt.copyFrom(stack.tag)
+            if (item.isDamageable || item.isNbtSynced) {
+                nbt.copyFrom(stack.nbt)
             }
         }
     }
