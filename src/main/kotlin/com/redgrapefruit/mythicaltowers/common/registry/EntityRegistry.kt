@@ -2,7 +2,6 @@ package com.redgrapefruit.mythicaltowers.common.registry
 
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.common.entity.*
-import com.redgrapefruit.mythicaltowers.common.entity.melee.*
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityDimensions
