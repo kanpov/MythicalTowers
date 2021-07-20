@@ -7,9 +7,7 @@ It's expected to release in the end of September 2021.
 
 # Install
 
-The mod can be installed via the [Grape Installer](https://github.com/RedGrapefruit09/GrapeInstaller/releases).  
-Click on the latest release and download the JAR file, or the OS binary file.  
-Open the JAR / extract and open the binary.  
-Enter your `mods` folder into the top field.  
-Click on `Install` in the `MythicalTowers` section.  
-After some time, the mod should have downloaded, and you can launch the game!
+The mod is currently not available for installs.\
+You can compile it yourself, via downloading and unzipping the repo and running `./gradlew build` or `gradlew build` in the CLI, assuming you have AdoptOpenJDK 16 HotSpot.
+
+The first preview releases will be available when the first stable release of [Gestor](https://github.com/GestorMC/Gestor) is out, which is approximately in October 2021.
