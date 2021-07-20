@@ -10,7 +10,6 @@ import net.fabricmc.api.Environment
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents
 import net.minecraft.client.model.ModelPart
 import net.minecraft.client.render.VertexConsumer
-import net.minecraft.client.render.entity.model.EntityModel
 import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.text.LiteralText
 
