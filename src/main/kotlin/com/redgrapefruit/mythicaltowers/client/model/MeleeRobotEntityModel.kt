@@ -1,5 +1,6 @@
 package com.redgrapefruit.mythicaltowers.client.model
 
+import com.redgrapefruit.mythicaltowers.client.renderPart
 import com.redgrapefruit.mythicaltowers.common.entity.MeleeRobotEntity
 import net.minecraft.client.model.*
 import net.minecraft.client.render.VertexConsumer
@@ -19,14 +20,7 @@ class MeleeRobotEntityModel(private val root: ModelPart) : EntityModel<MeleeRobo
         green: Float,
         blue: Float,
         alpha: Float
-    ) {
-        matrices.push()
-        // Render every cuboid
-        root.forEachCuboid(matrices) { entry, _, _, cuboid ->
-            cuboid.renderCuboid(entry, vertices, light, overlay, red, green, blue, alpha)
-        }
-        matrices.pop()
-    }
+    ): Unit = renderPart(root, matrices, vertices, light, overlay, red, green, blue, alpha)
 
     override fun setAngles(
         entity: MeleeRobotEntity?,
@@ -35,9 +29,7 @@ class MeleeRobotEntityModel(private val root: ModelPart) : EntityModel<MeleeRobo
         animationProgress: Float,
         headYaw: Float,
         headPitch: Float
-    ) {
-
-    }
+    ) = Unit
 
     companion object {
         fun texturedModelData(): TexturedModelData {
