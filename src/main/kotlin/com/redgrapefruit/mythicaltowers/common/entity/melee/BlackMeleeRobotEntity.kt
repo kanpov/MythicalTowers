@@ -1,5 +1,8 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.MAX_ROB_ABILITY_USES
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_ROB_ABILITY_USES
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.ROB_CHANCE
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.attribute.DefaultAttributeContainer
@@ -10,20 +13,6 @@ import net.minecraft.item.Items
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
 import kotlin.random.Random
-
-/**
- * The max amount of times the rob ability can be used
- */
-private const val MAX_ROB_ABILITY_USES = 3
-
-/**
- * The chance (in percents) that the player will be robbed of an item when the ability is used
- */
-private const val ROB_CHANCE = 25
-
-// NBT
-
-private const val NBT_ROB_ABILITY_USES = "robAbilityUses"
 
 class BlackMeleeRobotEntity(type: EntityType<BlackMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     private var robAbilityUses = 0

@@ -1,5 +1,11 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.CLONE_ABILITY_COOLDOWN
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.CLONE_AMOUNT
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.MAX_CLONE_ABILITY_USES
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_CLONE_ABILITY_COOLDOWN_STATE
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_CLONE_ABILITY_USES
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_IS_CLONE
 import com.redgrapefruit.mythicaltowers.common.registry.EntityRegistry
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
@@ -8,27 +14,6 @@ import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
 import kotlin.random.Random
-
-/**
- * Maximum amount of times the cloning ability can be used
- */
-private const val MAX_CLONE_ABILITY_USES = 3
-
-/**
- * The amount of clones spawned on every use of the ability
- */
-private const val CLONE_AMOUNT = 2
-
-/**
- * The amount of game ticks that must pass before the clone ability can be used
- */
-private const val CLONE_ABILITY_COOLDOWN = 100
-
-// NBT
-
-private const val NBT_CLONE_ABILITY_USES = "cloneAbilityUses"
-private const val NBT_CLONE_ABILITY_COOLDOWN_STATE = "cloneAbilityCooldownState"
-private const val NBT_IS_CLONE = "isClone"
 
 class BlueMeleeRobotEntity(type: EntityType<BlueMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     /**

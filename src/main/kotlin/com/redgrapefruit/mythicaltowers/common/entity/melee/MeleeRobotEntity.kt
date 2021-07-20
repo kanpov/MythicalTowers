@@ -1,5 +1,8 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_IS_STUNNED
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_STUN_TICKS
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.STUN_VALUE
 import net.minecraft.entity.EntityData
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.SpawnReason
@@ -14,16 +17,6 @@ import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.LocalDifficulty
 import net.minecraft.world.ServerWorldAccess
 import net.minecraft.world.World
-
-/**
- * After how many ticks is the stun going to end
- */
-private const val STUN_VALUE = 40
-
-// NBT
-
-private const val NBT_IS_STUNNED = "isStunned"
-private const val NBT_STUN_TICKS = "stunTicks"
 
 /**
  * A melee robot spawns in, has a stun for 2 seconds and performs melee attacks
@@ -95,7 +88,5 @@ abstract class MeleeRobotEntity(type: EntityType<out HostileEntity>, world: Worl
         stunTicks = nbt.getInt(NBT_STUN_TICKS)
     }
 
-    override fun isAngryAt(player: PlayerEntity): Boolean {
-        return !isStunned
-    }
+    override fun isAngryAt(player: PlayerEntity): Boolean = !isStunned
 }

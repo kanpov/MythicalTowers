@@ -1,5 +1,8 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.KNOCKBACK
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.MAX_KNOCKBACK_USES
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_KNOCKBACK_USES
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
@@ -7,13 +10,6 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
-
-private const val KNOCKBACK = 3.0
-private const val MAX_KNOCKBACK_USES = 5
-
-// NBT
-
-private const val NBT_KNOCKBACK_USES = "maxKnockbackUses"
 
 class YellowMeleeRobotEntity(type: EntityType<YellowMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     /**

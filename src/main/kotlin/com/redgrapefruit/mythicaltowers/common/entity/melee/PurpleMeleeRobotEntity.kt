@@ -1,50 +1,19 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.BUFF_PROBABILITIES
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.BUFF_STARTING_DURATION
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.BUFF_STARTING_DURATION_INCREASE
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.MAX_BUFF_ABILITY_USES
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_BUFF_ABILITY_USES
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_CURRENT_BUFF_DURATION
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
-import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.attribute.DefaultAttributeContainer
 import net.minecraft.entity.attribute.EntityAttributes
-import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffectInstance
-import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
 import kotlin.random.Random
-
-/**
- * Maximum amount of times the self-buff ability can be used
- */
-private const val MAX_BUFF_ABILITY_USES = 4
-
-/**
- * A map of probabilities of every self-buff [StatusEffect].
- *
- * Counted in percentages.
- */
-private val BUFF_PROBABILITIES: Map<StatusEffect, Int> = mapOf(
-    StatusEffects.SPEED to 60,
-    StatusEffects.REGENERATION to 85,
-    StatusEffects.ABSORPTION to 50,
-    StatusEffects.RESISTANCE to 15
-)
-
-/**
- * The starting duration of every effect.
- *
- * Is increased on every use of the ability
- */
-private const val STARTING_DURATION = 100.0f
-
-/**
- * The multiplier of the increase of [STARTING_DURATION]
- */
-private const val STARTING_DURATION_INCREASE = 1.5f
-
-// NBT
-
-private const val NBT_BUFF_ABILITY_USES = "buffAbilityUses"
-private const val NBT_CURRENT_BUFF_DURATION = "currentBuffDuration"
 
 class PurpleMeleeRobotEntity(type: EntityType<PurpleMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     /**
@@ -64,7 +33,7 @@ class PurpleMeleeRobotEntity(type: EntityType<PurpleMeleeRobotEntity>, world: Wo
                 val chance = Random.nextInt(101)
                 if (chance <= probability) {
                     // Make a StatusEffectInstance and apply it
-                    if (currentBuffDuration == 0.0f) currentBuffDuration = STARTING_DURATION
+                    if (currentBuffDuration == 0.0f) currentBuffDuration = BUFF_STARTING_DURATION
 
                     val instance = StatusEffectInstance(
                         buff,
@@ -76,7 +45,7 @@ class PurpleMeleeRobotEntity(type: EntityType<PurpleMeleeRobotEntity>, world: Wo
             }
 
             // Increase duration via the modifier and count the use
-            currentBuffDuration *= STARTING_DURATION_INCREASE
+            currentBuffDuration *= BUFF_STARTING_DURATION_INCREASE
 
             ++buffAbilityUses
         }

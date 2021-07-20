@@ -1,29 +1,17 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_IS_UNDER_SPEED_BOOST
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_SPEED_BOOST_TICKS
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_SPEED_BOOST_USES
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.SPEED_BOOST_LENGTH
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.SPEED_BOOST_MAX_USES
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.SPEED_BOOST_VALUE
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.attribute.DefaultAttributeContainer
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
-
-private const val SPEED_BOOST_VALUE = 3.0f
-
-/**
- * The length of the speed boost in ticks
- */
-private const val SPEED_BOOST_LENGTH = 80
-
-/**
- * The maximum amount of times the ability can be used
- */
-private const val SPEED_BOOST_MAX_USES = 4
-
-// NBT
-
-private const val NBT_SPEED_BOOST_TICKS = "speedBoostTicks"
-private const val NBT_SPEED_BOOST_USES = "speedBoostUses"
-private const val NBT_IS_UNDER_SPEED_BOOST = "isUnderSpeedBoost"
 
 class OrangeMeleeRobotEntity(type: EntityType<OrangeMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     /**

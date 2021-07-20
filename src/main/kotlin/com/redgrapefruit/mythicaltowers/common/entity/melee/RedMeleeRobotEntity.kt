@@ -1,51 +1,20 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.EFFECT_PROBABILITIES
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.EFFECT_STARTING_DURATION
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.EFFECT_STARTING_DURATION_INCREASE
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.MAX_EFFECT_ABILITY_USES
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_CURRENT_EFFECT_DURATION
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_EFFECT_ABILITY_USES
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.attribute.DefaultAttributeContainer
 import net.minecraft.entity.attribute.EntityAttributes
-import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffectInstance
-import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
 import kotlin.random.Random
-
-/**
- * Max amount of ability uses
- */
-private const val MAX_EFFECT_ABILITY_USES = 4
-
-/**
- * A map of effect occur probabilities.
- *
- * The probabilities are calculates in percentages.
- */
-private val EFFECT_PROBABILITIES: Map<StatusEffect, Int> = mapOf(
-    StatusEffects.POISON to 70,
-    StatusEffects.WEAKNESS to 80,
-    StatusEffects.BLINDNESS to 50,
-    StatusEffects.NAUSEA to 30
-)
-
-/**
- * The starting duration of the effects.
- *
- * Is decreased on each use of the ability
- */
-private const val STARTING_DURATION = 200.0f
-
-/**
- * The decreasing multiplication (decreasing multiplication - 5 * 0.5 = 2.5)
- * of [STARTING_DURATION] on every use
- */
-private const val STARTING_DURATION_DECREASE = 0.7f
-
-// NBT
-
-private const val NBT_EFFECT_ABILITY_USES = "effectAbilityUses"
-private const val NBT_CURRENT_EFFECT_DURATION = "currentEffectDuration"
 
 class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     /**
@@ -70,7 +39,7 @@ class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) :
                 val chance = Random.nextInt(100)
                 if (chance <= probability) {
                     // Make a StatusEffectInstance and apply it
-                    if (currentEffectDuration == 0.0f) currentEffectDuration = STARTING_DURATION
+                    if (currentEffectDuration == 0.0f) currentEffectDuration = EFFECT_STARTING_DURATION
 
                     val instance = StatusEffectInstance(
                         effect,
@@ -82,7 +51,7 @@ class RedMeleeRobotEntity(type: EntityType<RedMeleeRobotEntity>, world: World) :
             }
 
             // Decrease duration using the modifier
-            currentEffectDuration *= STARTING_DURATION_DECREASE
+            currentEffectDuration *= EFFECT_STARTING_DURATION_INCREASE
 
             ++effectAbilityUses
         }

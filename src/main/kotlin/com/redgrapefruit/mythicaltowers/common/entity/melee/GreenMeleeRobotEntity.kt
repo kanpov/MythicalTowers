@@ -1,5 +1,9 @@
 package com.redgrapefruit.mythicaltowers.common.entity.melee
 
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.JUMP_ATTACK_DAMAGE
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.MAX_JUMP_ATTACK_USES
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_IS_JUMP_ATTACKING
+import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotStatics.NBT_JUMP_ATTACK_USES
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
@@ -8,14 +12,6 @@ import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.damage.DamageSource
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.world.World
-
-private const val JUMP_ATTACK_DAMAGE = 10f
-private const val MAX_JUMP_ATTACK_USES = 3
-
-// NBT
-
-private const val NBT_IS_JUMP_ATTACKING = "isJumpAttacking"
-private const val NBT_JUMP_ATTACK_USES = "jumpAttackUses"
 
 class GreenMeleeRobotEntity(type: EntityType<GreenMeleeRobotEntity>, world: World) : MeleeRobotEntity(type, world) {
     /**
