@@ -10,6 +10,7 @@
     "contact": {
         "repo": "https://github.com/RedGrapefruit09/MythicalTowers"
     },
+    "accessWidener": "mythicaltowers.accesswidener",
     "license": "MIT",
     "icon": "assets/mythicaltowers/icon.png",
     "environment": "*",
