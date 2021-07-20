@@ -3,7 +3,7 @@ package com.redgrapefruit.mythicaltowers.client.render.entity
 import com.redgrapefruit.mythicaltowers.client.model.MeleeRobotEntityModel
 import com.redgrapefruit.mythicaltowers.client.registry.EntityModelLayerRegistry
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
-import com.redgrapefruit.mythicaltowers.common.entity.melee.MeleeRobotEntity
+import com.redgrapefruit.mythicaltowers.common.entity.MeleeRobotEntity
 import net.minecraft.client.render.entity.EntityRendererFactory
 import net.minecraft.client.render.entity.MobEntityRenderer
 import net.minecraft.client.render.entity.model.EntityModelLayer

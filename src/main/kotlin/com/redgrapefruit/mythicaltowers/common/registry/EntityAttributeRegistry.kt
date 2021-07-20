@@ -1,6 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.registry
 
-import com.redgrapefruit.mythicaltowers.common.entity.melee.*
+import com.redgrapefruit.mythicaltowers.common.entity.*
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricDefaultAttributeRegistry
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity

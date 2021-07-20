@@ -1,4 +1,4 @@
-package com.redgrapefruit.mythicaltowers.common.entity.melee
+package com.redgrapefruit.mythicaltowers.common.entity
 
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffects

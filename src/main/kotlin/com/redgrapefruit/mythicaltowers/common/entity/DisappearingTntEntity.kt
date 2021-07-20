@@ -23,7 +23,7 @@ import kotlin.math.sin
  * @param type The registered [EntityType]
  * @param world Nullable [World] instance
  */
-sealed class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity(type, world) {
+abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity(type, world) {
     // region Properties & constructor
 
     /**
