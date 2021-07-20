@@ -31,8 +31,8 @@ class BulletEntityModel(private val root: ModelPart) : EntityModel<BulletEntity>
         headPitch: Float
     ) = Unit
 
-    companion object {
-        fun texturedModelData(): TexturedModelData {
+    companion object Builder {
+        fun create(): TexturedModelData {
             val data = ModelData()
 
             data.root.apply {

@@ -31,8 +31,8 @@ class MeleeRobotEntityModel(private val root: ModelPart) : EntityModel<MeleeRobo
         headPitch: Float
     ) = Unit
 
-    companion object {
-        fun texturedModelData(): TexturedModelData {
+    companion object Builder {
+        fun create(): TexturedModelData {
             val data = ModelData()
 
             data.root.apply {

@@ -16,8 +16,8 @@ object EntityModelLayerRegistry {
     val BULLET = EntityModelLayer(idOf("bullet"), "2")
 
     fun init() {
-        register(MELEE_ROBOT, MeleeRobotEntityModel.Companion::texturedModelData)
-        register(BULLET, BulletEntityModel.Companion::texturedModelData)
+        register(MELEE_ROBOT, MeleeRobotEntityModel.Builder::create)
+        register(BULLET, BulletEntityModel.Builder::create)
     }
 
     /**
