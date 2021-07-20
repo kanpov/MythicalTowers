@@ -37,9 +37,9 @@ class MythicalTowersClient : ClientModInitializer {
 // Some misc extensions
 
 /**
- * This extension simplifies the rendering process of a primitive [ModelPart] and just renders all cuboids in it.
+ * This utility simplifies the rendering process of a primitive [ModelPart] and just renders all cuboids in it.
  */
-fun EntityModel<*>.renderPart(
+fun renderPart(
     part: ModelPart,
     matrices: MatrixStack,
     vertices: VertexConsumer,
