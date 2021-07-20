@@ -15,11 +15,6 @@ abstract class BulletEntity(private val damage: Float, type: EntityType<out Bull
     override fun initDataTracker() = Unit // for some reason this needs to be implemented
 
     /**
-     * Sets up [PersistentProjectileEntity]'s properties like damage, pierce level etc.
-     */
-    protected abstract fun setup()
-
-    /**
      * An event called on the block hit _before_ the bullet is discarded
      */
     protected open fun blockHitPreDiscarded(blockHitResult: BlockHitResult) = Unit
