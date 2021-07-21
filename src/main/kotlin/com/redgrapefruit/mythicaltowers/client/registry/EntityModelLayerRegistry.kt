@@ -2,7 +2,6 @@
 
 package com.redgrapefruit.mythicaltowers.client.registry
 
-import com.redgrapefruit.mythicaltowers.client.model.BulletEntityModel
 import com.redgrapefruit.mythicaltowers.client.model.MeleeRobotEntityModel
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityModelLayerRegistry
@@ -13,11 +12,9 @@ import net.minecraft.client.render.entity.model.EntityModelLayer
  */
 object EntityModelLayerRegistry {
     val MELEE_ROBOT = EntityModelLayer(idOf("melee_robot"), "1")
-    val BULLET = EntityModelLayer(idOf("bullet"), "2")
 
     fun init() {
         register(MELEE_ROBOT, MeleeRobotEntityModel.Builder::create)
-        register(BULLET, BulletEntityModel.Builder::create)
     }
 
     /**

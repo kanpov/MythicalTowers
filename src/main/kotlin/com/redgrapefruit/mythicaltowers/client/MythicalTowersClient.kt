@@ -25,7 +25,7 @@ class MythicalTowersClient : ClientModInitializer {
         EntityModelLayerRegistry.init()
 
         // Register packets
-        GrenadeSpawnPacket.register(BULLET_SPAWN_PACKET)
+        GrenadeSpawnPacket.register()
     }
 
     companion object {
