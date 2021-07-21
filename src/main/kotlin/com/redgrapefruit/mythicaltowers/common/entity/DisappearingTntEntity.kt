@@ -1,5 +1,7 @@
 package com.redgrapefruit.mythicaltowers.common.entity
 
+import com.redgrapefruit.mythicaltowers.common.onClient
+import com.redgrapefruit.mythicaltowers.common.onServer
 import com.redgrapefruit.mythicaltowers.common.registry.EntityRegistry
 import net.minecraft.entity.*
 import net.minecraft.entity.data.DataTracker
@@ -98,13 +100,13 @@ abstract class DisappearingTntEntity(type: EntityType<*>, world: World) : Entity
         if (fuseValue <= 0) {
             // Remove the block and explode on the server
             discard()
-            if (!world.isClient) {
+            onServer {
                 world.createExplosion(this, x, getBodyY(0.0625), z, explosionPower, Explosion.DestructionType.BREAK)
             }
         } else {
             // Update water and draw some smoke on the client
             updateWaterState()
-            if (world.isClient) {
+            onClient {
                 world.addParticle(ParticleTypes.SMOKE, x, y + 0.5, z, 0.0, 0.0, 0.0)
             }
         }

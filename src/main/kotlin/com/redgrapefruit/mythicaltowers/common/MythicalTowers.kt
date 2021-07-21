@@ -4,10 +4,12 @@ import com.redgrapefruit.mythicaltowers.common.registry.BlockRegistry
 import com.redgrapefruit.mythicaltowers.common.registry.EntityAttributeRegistry
 import com.redgrapefruit.mythicaltowers.common.registry.EntityRegistry
 import com.redgrapefruit.mythicaltowers.common.registry.ItemRegistry
+import net.fabricmc.api.EnvType
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags
+import net.fabricmc.loader.FabricLoader
 import net.minecraft.block.AbstractBlock
 import net.minecraft.block.Material
 import net.minecraft.item.ItemGroup
@@ -45,3 +47,29 @@ class MythicalTowers : ModInitializer {
                 .hardness(Float.MAX_VALUE)
     }
 }
+
+// Client/server manipulations
+
+/**
+ * Runs the [code] if the current environment is client
+ */
+inline fun onClient(code: () -> Unit) {
+    if (FabricLoader.INSTANCE.environmentType == EnvType.CLIENT) code.invoke()
+}
+
+/**
+ * Runs the [code] if the current environment is server
+ */
+inline fun onServer(code: () -> Unit) {
+    if (FabricLoader.INSTANCE.environmentType == EnvType.SERVER)  code.invoke()
+}
+
+/**
+ * Checks if the current environment is client
+ */
+fun isClient() = FabricLoader.INSTANCE.environmentType == EnvType.CLIENT
+
+/**
+ * Checks if the current environment is server
+ */
+fun isServer() = FabricLoader.INSTANCE.environmentType == EnvType.SERVER

@@ -2,6 +2,8 @@ package com.redgrapefruit.mythicaltowers.common.block
 
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers
 import com.redgrapefruit.mythicaltowers.common.entity.*
+import com.redgrapefruit.mythicaltowers.common.isClient
+import com.redgrapefruit.mythicaltowers.common.onServer
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.block.Blocks
@@ -79,21 +81,24 @@ sealed class DisappearingTntBlock<TEntity>(settings: Settings) :
     }
 
     override fun onBreak(world: World, pos: BlockPos, state: BlockState, player: PlayerEntity) {
-        if (!world.isClient && !player.isCreative && state.get(unstableProperty)) {
-            primeTnt(world, pos)
+        onServer {
+            if (!player.isCreative && state.get(unstableProperty)) {
+                primeTnt(world, pos)
+            }
         }
 
         super.onBreak(world, pos, state, player)
     }
 
     override fun onDestroyedByExplosion(world: World, pos: BlockPos, explosion: Explosion) {
-        if (world.isClient) return
-
-        // Create the entity and set its fuse
-        val entity: TEntity = createEntity(world, pos.x + 0.5, pos.y.toDouble(), pos.z + 0.5, explosion.causingEntity)
-        entity.initFuse(world.random.nextInt(entity.fuseValue / 4) + entity.fuseValue / 8)
-        // Spawn the entity
-        world.spawnEntity(entity)
+        onServer {
+            // Create the entity and set its fuse
+            val entity: TEntity =
+                createEntity(world, pos.x + 0.5, pos.y.toDouble(), pos.z + 0.5, explosion.causingEntity)
+            entity.initFuse(world.random.nextInt(entity.fuseValue / 4) + entity.fuseValue / 8)
+            // Spawn the entity
+            world.spawnEntity(entity)
+        }
     }
 
     override fun onUse(
@@ -104,24 +109,25 @@ sealed class DisappearingTntBlock<TEntity>(settings: Settings) :
         hand: Hand,
         hit: BlockHitResult
     ): ActionResult {
-        if (world.isClient) return ActionResult.SUCCESS
-
-        val stack = player.getStackInHand(hand)
-        val item = stack.item
-        return if (item !== Items.FLINT_AND_STEEL && item !== Items.FIRE_CHARGE) {
-            super.onUse(state, world, pos, player, hand, hit)
-        } else {
-            primeTnt(world, pos, player)
-            world.setBlockState(pos, Blocks.AIR.defaultState, 11)
-            if (!player.isCreative) {
-                if (item === Items.FLINT_AND_STEEL) {
-                    stack.damage(1, MythicalTowers.RANDOM, player as ServerPlayerEntity)
-                } else {
-                    stack.decrement(1)
+        onServer {
+            val stack = player.getStackInHand(hand)
+            val item = stack.item
+            return if (item !== Items.FLINT_AND_STEEL && item !== Items.FIRE_CHARGE) {
+                super.onUse(state, world, pos, player, hand, hit)
+            } else {
+                primeTnt(world, pos, player)
+                world.setBlockState(pos, Blocks.AIR.defaultState, 11)
+                if (!player.isCreative) {
+                    if (item === Items.FLINT_AND_STEEL) {
+                        stack.damage(1, MythicalTowers.RANDOM, player as ServerPlayerEntity)
+                    } else {
+                        stack.decrement(1)
+                    }
                 }
+                ActionResult.success(isClient())
             }
-            ActionResult.success(world.isClient)
         }
+        return ActionResult.SUCCESS
     }
 
     override fun onProjectileHit(
@@ -130,16 +136,16 @@ sealed class DisappearingTntBlock<TEntity>(settings: Settings) :
         hit: BlockHitResult,
         projectile: ProjectileEntity
     ) {
-        if (world.isClient) return
+        onServer {
+            val entity: Entity? = projectile.owner
 
-        val entity: Entity? = projectile.owner
+            if (projectile.isOnFire) {
+                val pos: BlockPos = hit.blockPos
 
-        if (projectile.isOnFire) {
-            val pos: BlockPos = hit.blockPos
-
-            // Prime the TNT and destroy the block
-            primeTnt(world, pos, if (entity is LivingEntity) entity else null)
-            world.removeBlock(pos, false)
+                // Prime the TNT and destroy the block
+                primeTnt(world, pos, if (entity is LivingEntity) entity else null)
+                world.removeBlock(pos, false)
+            }
         }
     }
 
@@ -158,22 +164,22 @@ sealed class DisappearingTntBlock<TEntity>(settings: Settings) :
     private fun primeTnt(world: World, pos: BlockPos) = primeTnt(world, pos, null)
 
     private fun primeTnt(world: World, pos: BlockPos, igniter: LivingEntity?) {
-        if (world.isClient) return
-
-        // Create the entity and spawn it
-        val entity = createEntity(world, pos.x + 0.5, pos.y.toDouble(), pos.z + 0.5, igniter)
-        world.spawnEntity(entity)
-        // Play the vanilla prime sound
-        world.playSound(
-            null,
-            entity.x,
-            entity.y,
-            entity.z,
-            SoundEvents.ENTITY_TNT_PRIMED,
-            SoundCategory.BLOCKS,
-            1.0F,
-            1.0F
-        )
+        onServer {
+            // Create the entity and spawn it
+            val entity = createEntity(world, pos.x + 0.5, pos.y.toDouble(), pos.z + 0.5, igniter)
+            world.spawnEntity(entity)
+            // Play the vanilla prime sound
+            world.playSound(
+                null,
+                entity.x,
+                entity.y,
+                entity.z,
+                SoundEvents.ENTITY_TNT_PRIMED,
+                SoundCategory.BLOCKS,
+                1.0F,
+                1.0F
+            )
+        }
     }
 
     // endregion
