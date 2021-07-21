@@ -3,6 +3,7 @@ package com.redgrapefruit.mythicaltowers.common.registry
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.common.entity.*
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricEntityTypeBuilder
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityDimensions
 import net.minecraft.entity.EntityType
@@ -98,13 +99,6 @@ object EntityRegistry {
         .build()
     // endregion
 
-    // region Bullets
-    val GREEN_BULLET: EntityType<GreenBulletEntity> = FabricEntityTypeBuilder
-        .create(SpawnGroup.MONSTER) { type: EntityType<GreenBulletEntity>, world: World -> GreenBulletEntity(type, world) }
-        .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
-        .build()
-    // endregion
-
     fun init() {
         register("green_tnt", GREEN_TNT)
         register("yellow_tnt", YELLOW_TNT)
@@ -123,8 +117,6 @@ object EntityRegistry {
         register("purple_melee_robot", PURPLE_MELEE_ROBOT)
         register("gray_melee_robot", GRAY_MELEE_ROBOT)
         register("black_melee_robot", BLACK_MELEE_ROBOT)
-
-        register("green_bullet", GREEN_BULLET)
     }
 
     /**

@@ -3,7 +3,7 @@ package com.redgrapefruit.mythicaltowers.client
 import com.redgrapefruit.mythicaltowers.client.registry.EntityModelLayerRegistry
 import com.redgrapefruit.mythicaltowers.client.registry.EntityRendererRegistry
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers
-import com.redgrapefruit.mythicaltowers.common.util.BulletSpawnPacket
+import com.redgrapefruit.mythicaltowers.common.network.GrenadeSpawnPacket
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
@@ -25,7 +25,7 @@ class MythicalTowersClient : ClientModInitializer {
         EntityModelLayerRegistry.init()
 
         // Register packets
-        BulletSpawnPacket.register(BULLET_SPAWN_PACKET)
+        GrenadeSpawnPacket.register(BULLET_SPAWN_PACKET)
     }
 
     companion object {

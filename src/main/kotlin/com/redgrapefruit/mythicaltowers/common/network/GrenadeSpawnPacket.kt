@@ -1,5 +1,6 @@
-package com.redgrapefruit.mythicaltowers.common.util
+package com.redgrapefruit.mythicaltowers.common.network
 
+import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking
@@ -11,13 +12,15 @@ import net.minecraft.util.math.Vec3d
 import net.minecraft.util.registry.Registry
 
 /**
- * A custom spawn packet for bullets
+ * A custom spawn packet for grenades
  */
-object BulletSpawnPacket {
+object GrenadeSpawnPacket {
+    private val ID = idOf("grenade_spawn_packet")
+
     /**
-     * Creates a new [BulletSpawnPacket]
+     * Creates a new [GrenadeSpawnPacket]
      */
-    fun create(entity: Entity, packetID: Identifier): Packet<*> {
+    fun create(entity: Entity): Packet<*> {
         // Check if the world is client-side
         if (entity.world.isClient) throw IllegalStateException("BulletSpawnPacket#create called on the client")
 
@@ -32,14 +35,14 @@ object BulletSpawnPacket {
         buf.writeAngle(entity.yaw) // yaw angle
 
         // Transform the PacketByteBuf into a Packet
-        return ServerPlayNetworking.createS2CPacket(packetID, buf)
+        return ServerPlayNetworking.createS2CPacket(ID, buf)
     }
 
     /**
-     * Registers the client packet which receives the [BulletSpawnPacket]
+     * Registers the client packet which receives the [GrenadeSpawnPacket]
      */
-    fun register(packetID: Identifier) {
-        ClientPlayNetworking.registerGlobalReceiver(packetID) { client, handler, buf, responseSender ->
+    fun register() {
+        ClientPlayNetworking.registerGlobalReceiver(ID) { client, _, buf, _ ->
             // Read the data
             val type = Registry.ENTITY_TYPE.get(buf.readVarInt())
             val uuid = buf.readUuid()
@@ -49,7 +52,7 @@ object BulletSpawnPacket {
             val yaw = buf.readAngle()
 
             // Execute a task on the client which creates a new entity of that type
-            client.executeTask {
+            client.execute {
                 // Check the world
                 if (client.world == null) throw IllegalStateException("Tried to create an entity in a null world")
                 // Create a new entity of the read type
