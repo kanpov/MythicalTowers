@@ -1,5 +1,6 @@
 package com.redgrapefruit.mythicaltowers.common.registry
 
+import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.GROUP
 import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.common.armor.BootsItem
 import com.redgrapefruit.mythicaltowers.common.armor.ChestplateItem
@@ -186,6 +187,10 @@ object ItemRegistry {
     val BLACK_BOOTS = BootsItem(ArmorMaterialRegistry.BLACK, StatusEffects.RESISTANCE, 3)
     // endregion
 
+    // region Bullets
+    val GREEN_BULLET = Item(Item.Settings().group(GROUP))
+    // endregion
+
     // region Registration
     fun init() {
         register("green_orb", GREEN_ORB)
@@ -330,6 +335,8 @@ object ItemRegistry {
         register("purple_boots", PURPLE_BOOTS)
         register("gray_boots", GRAY_BOOTS)
         register("black_boots", BLACK_BOOTS)
+
+        register("green_bullet", GREEN_BULLET)
     }
 
     /**

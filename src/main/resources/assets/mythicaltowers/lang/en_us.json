@@ -135,6 +135,7 @@
     "item.mythicaltowers.purple_boots": "Purple Boots",
     "item.mythicaltowers.gray_boots": "Gray Boots",
     "item.mythicaltowers.black_boots": "Black Boots",
+    "item.mythicaltowers.green_bullet": "Green Bullet",
     "itemGroup.mythicaltowers.group": "MythicalTowers mod",
     "block.mythicaltowers.pure_green_block": "Pure Green Block",
     "block.mythicaltowers.pure_yellow_block": "Pure Yellow Block",
@@ -222,5 +223,7 @@
     "entity.mythicaltowers.red_melee_robot": "Red Melee Robot",
     "entity.mythicaltowers.blue_melee_robot": "Blue Melee Robot",
     "entity.mythicaltowers.purple_melee_robot": "Purple Melee Robot",
-    "entity.mythicaltowers.gray_melee_robot": "Gray Melee Robot"
+    "entity.mythicaltowers.gray_melee_robot": "Gray Melee Robot",
+    "entity.mythicaltowers.black_melee_robot": "Black Melee Robot",
+    "entity.mythicaltowers.green_bullet": "Green Bullet"
 }
