@@ -5,7 +5,7 @@ import com.redgrapefruit.mythicaltowers.common.util.BulletSpawnPacket
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.damage.DamageSource
-import net.minecraft.entity.projectile.PersistentProjectileEntity
+import net.minecraft.entity.projectile.ProjectileEntity
 import net.minecraft.network.Packet
 import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.hit.EntityHitResult
@@ -14,7 +14,7 @@ import net.minecraft.world.World
 /**
  * The base abstract bullet entity that shooter entities use.
  */
-abstract class BulletEntity(private val damage: Float, type: EntityType<out BulletEntity>, world: World) : PersistentProjectileEntity(type, world) {
+abstract class BulletEntity(private val damage: Float, type: EntityType<out BulletEntity>, world: World) : ProjectileEntity(type, world) {
     override fun initDataTracker() = Unit // for some reason this needs to be implemented
 
     /**
