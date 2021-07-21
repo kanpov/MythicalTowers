@@ -1,7 +1,7 @@
 package com.redgrapefruit.mythicaltowers.client.model
 
 import com.redgrapefruit.mythicaltowers.client.renderPart
-import com.redgrapefruit.mythicaltowers.common.entity.MeleeRobotEntity
+import com.redgrapefruit.mythicaltowers.entity.MeleeRobotEntity
 import net.minecraft.client.model.*
 import net.minecraft.client.render.VertexConsumer
 import net.minecraft.client.render.entity.model.EntityModel

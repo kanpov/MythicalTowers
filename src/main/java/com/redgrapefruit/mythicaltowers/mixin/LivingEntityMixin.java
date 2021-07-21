@@ -1,10 +1,10 @@
 package com.redgrapefruit.mythicaltowers.mixin;
 
-import com.redgrapefruit.mythicaltowers.common.armor.BootsItem;
-import com.redgrapefruit.mythicaltowers.common.armor.ChestplateItem;
-import com.redgrapefruit.mythicaltowers.common.armor.HelmetItem;
-import com.redgrapefruit.mythicaltowers.common.armor.LeggingsItem;
-import com.redgrapefruit.mythicaltowers.common.util.JavaNBT;
+import com.redgrapefruit.mythicaltowers.armor.BootsItem;
+import com.redgrapefruit.mythicaltowers.armor.ChestplateItem;
+import com.redgrapefruit.mythicaltowers.armor.HelmetItem;
+import com.redgrapefruit.mythicaltowers.armor.LeggingsItem;
+import com.redgrapefruit.mythicaltowers.util.JavaNBT;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;

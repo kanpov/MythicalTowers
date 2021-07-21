@@ -1,10 +1,9 @@
 package com.redgrapefruit.mythicaltowers.client.registry
 
 import com.redgrapefruit.mythicaltowers.client.render.entity.*
-import com.redgrapefruit.mythicaltowers.common.registry.EntityRegistry
+import com.redgrapefruit.mythicaltowers.registry.EntityRegistry
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry
 import net.minecraft.client.render.entity.EntityRenderer
-import net.minecraft.client.render.entity.EntityRendererFactory
 
 /**
  * Registers the mod's [EntityRenderer]s

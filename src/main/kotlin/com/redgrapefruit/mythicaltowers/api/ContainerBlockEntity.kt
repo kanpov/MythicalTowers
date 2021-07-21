@@ -1,6 +1,6 @@
 package com.redgrapefruit.mythicaltowers.api
 
-import com.redgrapefruit.mythicaltowers.common.util.ImplementedInventory
+import com.redgrapefruit.mythicaltowers.util.ImplementedInventory
 import net.minecraft.block.BlockState
 import net.minecraft.block.entity.BlockEntity
 import net.minecraft.block.entity.BlockEntityType

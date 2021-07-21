@@ -2,7 +2,7 @@ package com.redgrapefruit.mythicaltowers.mixin;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import com.redgrapefruit.mythicaltowers.common.registry.ArmorMaterialRegistry;
+import com.redgrapefruit.mythicaltowers.registry.ArmorMaterialRegistry;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;

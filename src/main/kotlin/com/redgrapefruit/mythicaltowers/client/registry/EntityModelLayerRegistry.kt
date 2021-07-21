@@ -2,8 +2,8 @@
 
 package com.redgrapefruit.mythicaltowers.client.registry
 
+import com.redgrapefruit.mythicaltowers.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.client.model.MeleeRobotEntityModel
-import com.redgrapefruit.mythicaltowers.common.MythicalTowers.Companion.idOf
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityModelLayerRegistry
 import net.minecraft.client.render.entity.model.EntityModelLayer
 
