@@ -1,8 +1,10 @@
 package com.redgrapefruit.mythicaltowers.item
 
 import com.redgrapefruit.mythicaltowers.MythicalTowers.Companion.GROUP
+import com.redgrapefruit.mythicaltowers.entity.GrenadeEntity
 import com.redgrapefruit.mythicaltowers.isClient
 import com.redgrapefruit.mythicaltowers.onServer
+import net.minecraft.entity.EntityType
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
@@ -15,7 +17,17 @@ import net.minecraft.world.World
 /**
  * A literal grenade.
  */
-class GrenadeItem : Item(Settings().group(GROUP)) {
+sealed class GrenadeItem : Item(Settings().group(GROUP)) {
+    /**
+     * The factory function creating the linked entity.
+     *
+     * Example:
+     * ```kotlin
+     * override val entityFactory = { world, user -> MyGrenadeEntity(EntityRegistry.MY_GRENADE_ENTITY, world, user) }
+     * ```
+     */
+    abstract val entityFactory: (World, PlayerEntity) -> GrenadeEntity
+
     override fun use(world: World, user: PlayerEntity, hand: Hand): TypedActionResult<ItemStack> {
         val stack = user.getStackInHand(hand)
         // Creep out the player
@@ -24,7 +36,10 @@ class GrenadeItem : Item(Settings().group(GROUP)) {
         user.itemCooldownManager.set(this, 40)
 
         onServer {
-            // TODO: Spawn entity when it's done
+            val entity = entityFactory.invoke(world, user)
+            entity.setItem(stack)
+            entity.setProperties(user, user.pitch, user.yaw, 0.0F, 1.5F, 0.0F)
+            world.spawnEntity(entity)
         }
 
         // Decrement the grenade if not on creative
