@@ -10,6 +10,7 @@ import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundCategory
 import net.minecraft.sound.SoundEvents
+import net.minecraft.stat.Stats
 import net.minecraft.util.Hand
 import net.minecraft.util.TypedActionResult
 import net.minecraft.world.World
@@ -42,6 +43,8 @@ sealed class GrenadeItem : Item(Settings().group(GROUP)) {
             world.spawnEntity(entity)
         }
 
+        // Increment stat
+        user.incrementStat(Stats.USED.getOrCreateStat(this))
         // Decrement the grenade if not on creative
         if (!user.abilities.creativeMode) {
             stack.decrement(1)
