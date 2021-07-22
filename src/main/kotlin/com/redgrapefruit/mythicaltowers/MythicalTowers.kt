@@ -9,7 +9,7 @@ import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags
-import net.fabricmc.loader.FabricLoader
+import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.block.AbstractBlock
 import net.minecraft.block.Material
 import net.minecraft.item.ItemGroup
@@ -54,22 +54,22 @@ class MythicalTowers : ModInitializer {
  * Runs the [code] if the current environment is client
  */
 inline fun onClient(code: () -> Unit) {
-    if (FabricLoader.INSTANCE.environmentType == EnvType.CLIENT) code.invoke()
+    if (FabricLoader.getInstance().environmentType == EnvType.CLIENT) code.invoke()
 }
 
 /**
  * Runs the [code] if the current environment is server
  */
 inline fun onServer(code: () -> Unit) {
-    if (FabricLoader.INSTANCE.environmentType == EnvType.SERVER)  code.invoke()
+    if (FabricLoader.getInstance().environmentType == EnvType.SERVER)  code.invoke()
 }
 
 /**
  * Checks if the current environment is client
  */
-fun isClient() = FabricLoader.INSTANCE.environmentType == EnvType.CLIENT
+fun isClient() = FabricLoader.getInstance().environmentType == EnvType.CLIENT
 
 /**
  * Checks if the current environment is server
  */
-fun isServer() = FabricLoader.INSTANCE.environmentType == EnvType.SERVER
+fun isServer() = FabricLoader.getInstance().environmentType == EnvType.SERVER
