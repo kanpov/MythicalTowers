@@ -69,3 +69,14 @@ object MeleeRobotStatics {
     const val NBT_LEVITATE_ABILITY_USES = "levitateAbilityUses"
     const val NBT_ROB_ABILITY_USES = "robAbilityUses"
 }
+
+/**
+ * Statics for grenades
+ */
+object GrenadeStatics {
+    const val TIMER_UNTIL_EXPLOSION = 60
+
+    // NBT
+
+    const val NBT_GRENADE_TIMER = "grenadeTimer"
+}
