@@ -2,11 +2,13 @@ package com.redgrapefruit.mythicaltowers.entity
 
 import com.redgrapefruit.mythicaltowers.entity.GrenadeStatics.NBT_GRENADE_TIMER
 import com.redgrapefruit.mythicaltowers.entity.GrenadeStatics.TIMER_UNTIL_EXPLOSION
+import com.redgrapefruit.mythicaltowers.network.GrenadeSpawnPacket
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity
 import net.minecraft.item.Item
 import net.minecraft.nbt.NbtCompound
+import net.minecraft.network.Packet
 import net.minecraft.world.World
 import net.minecraft.world.explosion.Explosion
 
@@ -54,4 +56,6 @@ sealed class GrenadeEntity : ThrownItemEntity {
 
         timer = nbt.getInt(NBT_GRENADE_TIMER)
     }
+
+    override fun createSpawnPacket(): Packet<*> = GrenadeSpawnPacket.create(this)
 }
