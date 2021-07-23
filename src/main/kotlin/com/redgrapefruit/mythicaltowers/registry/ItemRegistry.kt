@@ -245,7 +245,7 @@ object ItemRegistry {
         register("black_key_2", BLACK_KEY_2)
         register("black_key_3", BLACK_KEY_3)
 
-        register("green_pickaxe", GREEN_PICKAXE)
+        regist er("green_pickaxe", GREEN_PICKAXE)
         register("yellow_pickaxe", YELLOW_PICKAXE)
         register("orange_pickaxe", ORANGE_PICKAXE)
         register("red_pickaxe", RED_PICKAXE)
