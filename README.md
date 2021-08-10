@@ -1,9 +1,11 @@
 [![build](https://github.com/RedGrapefruit09/MythicalTowers/actions/workflows/build.yml/badge.svg)](https://github.com/RedGrapefruit09/MythicalTowers/actions/workflows/build.yml)
 
-# State
+# About
 
-This mod is currently work-in-progress.  
-It's expected to release in the end of September 2021.
+MythicalTowers is an adventure mod in-development featuring new items, blocks, mobs and structures.\
+It's not ready yet, but you can try out the pre-releases.
+
+The approximate release date is October/November 2021.
 
 # Install
 
