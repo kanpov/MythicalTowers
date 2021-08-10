@@ -9,7 +9,7 @@ The approximate release date is October/November 2021.
 
 # Install
 
-The releases (and pre-releases) of this mod are available via the [MiniManager tool](https://github.com/RedGrapefruit09/MiniManager).\
+The releases (and pre-releases) of this mod are available via the [MiniManager tool](https://github.com/RedGrapefruit09/MiniManager). \
 Download the installer for your OS, run it, then run the app and click on `Download` in the `MythicalTowers` section.\
 The files will be in your folder of choice.
 

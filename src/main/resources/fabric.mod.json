@@ -24,7 +24,7 @@
         "main": [
             {
                 "adapter": "kotlin",
-                "value": "com.redgrapefruit.mythicaltowers.common.MythicalTowers"
+                "value": "com.redgrapefruit.mythicaltowers.MythicalTowers"
             }
         ]
     },
