@@ -56,49 +56,8 @@ object EntityRegistry {
         .build()
     // endregion
 
-    // region Melee robots
-    val GREEN_MELEE_ROBOT: EntityType<GreenMeleeRobotEntity> = FabricEntityTypeBuilder
-        .create(SpawnGroup.MONSTER) { type: EntityType<GreenMeleeRobotEntity>, world: World -> GreenMeleeRobotEntity(type, world) }
-        .dimensions(EntityDimensions.fixed(1f, 1f))
-        .build()
-
-    val YELLOW_MELEE_ROBOT: EntityType<YellowMeleeRobotEntity> = FabricEntityTypeBuilder
-        .create(SpawnGroup.MONSTER) { type: EntityType<YellowMeleeRobotEntity>, world: World -> YellowMeleeRobotEntity(type, world) }
-        .dimensions(EntityDimensions.fixed(1f, 1f))
-        .build()
-
-    val ORANGE_MELEE_ROBOT: EntityType<OrangeMeleeRobotEntity> = FabricEntityTypeBuilder
-        .create(SpawnGroup.MONSTER) { type: EntityType<OrangeMeleeRobotEntity>, world: World -> OrangeMeleeRobotEntity(type, world) }
-        .dimensions(EntityDimensions.fixed(1f, 1f))
-        .build()
-
-    val RED_MELEE_ROBOT: EntityType<RedMeleeRobotEntity> = FabricEntityTypeBuilder
-        .create(SpawnGroup.MONSTER) { type: EntityType<RedMeleeRobotEntity>, world: World -> RedMeleeRobotEntity(type, world) }
-        .dimensions(EntityDimensions.fixed(1f, 1f))
-        .build()
-
-    val BLUE_MELEE_ROBOT: EntityType<BlueMeleeRobotEntity> = FabricEntityTypeBuilder
-        .create(SpawnGroup.MONSTER) { type: EntityType<BlueMeleeRobotEntity>, world: World -> BlueMeleeRobotEntity(type, world) }
-        .dimensions(EntityDimensions.fixed(1f, 1f))
-        .build()
-
-    val PURPLE_MELEE_ROBOT: EntityType<PurpleMeleeRobotEntity> = FabricEntityTypeBuilder
-        .create(SpawnGroup.MONSTER) { type: EntityType<PurpleMeleeRobotEntity>, world: World -> PurpleMeleeRobotEntity(type, world) }
-        .dimensions(EntityDimensions.fixed(1f, 1f))
-        .build()
-
-    val GRAY_MELEE_ROBOT: EntityType<GrayMeleeRobotEntity> = FabricEntityTypeBuilder
-        .create(SpawnGroup.MONSTER) { type: EntityType<GrayMeleeRobotEntity>, world: World -> GrayMeleeRobotEntity(type, world) }
-        .dimensions(EntityDimensions.fixed(1f, 1f))
-        .build()
-
-    val BLACK_MELEE_ROBOT: EntityType<BlackMeleeRobotEntity> = FabricEntityTypeBuilder
-        .create(SpawnGroup.MONSTER) { type: EntityType<BlackMeleeRobotEntity>, world: World -> BlackMeleeRobotEntity(type, world) }
-        .dimensions(EntityDimensions.fixed(1f, 1f))
-        .build()
-    // endregion
-
     fun init() {
+        // TNT
         register("green_tnt", GREEN_TNT)
         register("yellow_tnt", YELLOW_TNT)
         register("orange_tnt", ORANGE_TNT)
@@ -107,15 +66,6 @@ object EntityRegistry {
         register("purple_tnt", PURPLE_TNT)
         register("gray_tnt", GRAY_TNT)
         register("black_tnt", BLACK_TNT)
-
-        register("green_melee_robot", GREEN_MELEE_ROBOT)
-        register("yellow_melee_robot", YELLOW_MELEE_ROBOT)
-        register("orange_melee_robot", ORANGE_MELEE_ROBOT)
-        register("red_melee_robot", RED_MELEE_ROBOT)
-        register("blue_melee_robot", BLUE_MELEE_ROBOT)
-        register("purple_melee_robot", PURPLE_MELEE_ROBOT)
-        register("gray_melee_robot", GRAY_MELEE_ROBOT)
-        register("black_melee_robot", BLACK_MELEE_ROBOT)
     }
 
     /**
