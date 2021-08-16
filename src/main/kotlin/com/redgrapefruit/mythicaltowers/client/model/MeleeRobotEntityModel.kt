@@ -35,7 +35,7 @@ class MeleeRobotEntityModel<T : Entity>(private val root: ModelPart) : EntityMod
         headPitch: Float
     ) = Unit
 
-    companion object {
+    companion object Builder {
         /**
          * Creates the model
          */

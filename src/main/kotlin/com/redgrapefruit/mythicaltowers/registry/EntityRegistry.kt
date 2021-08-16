@@ -56,6 +56,13 @@ object EntityRegistry {
         .build()
     // endregion
 
+    // region Melee robots
+    val GREEN_MELEE_ROBOT: EntityType<GreenMeleeRobotEntity> = FabricEntityTypeBuilder
+        .create(SpawnGroup.MISC) { type: EntityType<GreenMeleeRobotEntity>, world: World -> GreenMeleeRobotEntity(type, world) }
+        .dimensions(EntityDimensions.fixed(1f, 1f))
+        .build()
+    // endregion
+
     fun init() {
         // TNT
         register("green_tnt", GREEN_TNT)
@@ -66,6 +73,9 @@ object EntityRegistry {
         register("purple_tnt", PURPLE_TNT)
         register("gray_tnt", GRAY_TNT)
         register("black_tnt", BLACK_TNT)
+
+        // Melee robots
+        register("green_melee_robot", GREEN_MELEE_ROBOT)
     }
 
     /**
