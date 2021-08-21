@@ -2,6 +2,7 @@ package com.redgrapefruit.mythicaltowers.client.registry
 
 import com.redgrapefruit.mythicaltowers.client.render.entity.DummyEntityRenderer
 import com.redgrapefruit.mythicaltowers.client.render.entity.GreenMeleeRobotEntityRenderer
+import com.redgrapefruit.mythicaltowers.client.render.entity.YellowMeleeRobotEntityRenderer
 import com.redgrapefruit.mythicaltowers.registry.EntityRegistry
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry
 import net.minecraft.client.render.entity.EntityRenderer
@@ -26,6 +27,7 @@ object EntityRendererRegistry {
 
         // Melee robot
         register(EntityRegistry.GREEN_MELEE_ROBOT) { context -> GreenMeleeRobotEntityRenderer(context) }
+        register(EntityRegistry.YELLOW_MELEE_ROBOT) { context -> YellowMeleeRobotEntityRenderer(context) }
     }
 
     /**
