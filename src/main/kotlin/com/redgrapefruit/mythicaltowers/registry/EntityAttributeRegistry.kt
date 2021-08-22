@@ -15,6 +15,7 @@ object EntityAttributeRegistry {
         register(EntityRegistry.BLUE_MELEE_ROBOT, BlueMeleeRobotEntity.ATTRIBUTES)
         register(EntityRegistry.PURPLE_MELEE_ROBOT, PurpleMeleeRobotEntity.ATTRIBUTES)
         register(EntityRegistry.GRAY_MELEE_ROBOT, GrayMeleeRobotEntity.ATTRIBUTES)
+        register(EntityRegistry.BLACK_MELEE_ROBOT, BlackMeleeRobotEntity.ATTRIBUTES)
     }
 
     /**
