@@ -26,3 +26,6 @@ class OrangeMeleeRobotEntityRenderer(context: EntityRendererFactory.Context)
 
 class RedMeleeRobotEntityRenderer(context: EntityRendererFactory.Context)
     : MeleeRobotEntityRenderer<RedMeleeRobotEntity>(context, idOf("textures/entity/red_melee_robot.png"))
+
+class BlueMeleeRobotEntityRenderer(context: EntityRendererFactory.Context)
+    : MeleeRobotEntityRenderer<BlueMeleeRobotEntity>(context, idOf("textures/entity/blue_melee_robot.png"))
