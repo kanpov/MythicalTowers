@@ -25,9 +25,6 @@ import net.minecraft.world.ServerWorldAccess
 import net.minecraft.world.World
 import kotlin.random.Random
 
-/**
- * A melee robot spawns in, has a stun for 2 seconds and performs melee attacks
- */
 sealed class MeleeRobotEntity(type: EntityType<out HostileEntity>, world: World) : HostileEntity(type, world) {
     /**
      * Is the stun currently ongoing
