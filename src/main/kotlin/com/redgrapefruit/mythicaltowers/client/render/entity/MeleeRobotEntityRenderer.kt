@@ -3,10 +3,7 @@ package com.redgrapefruit.mythicaltowers.client.render.entity
 import com.redgrapefruit.mythicaltowers.MythicalTowers.Companion.idOf
 import com.redgrapefruit.mythicaltowers.client.model.MeleeRobotEntityModel
 import com.redgrapefruit.mythicaltowers.client.registry.EntityModelLayerRegistry
-import com.redgrapefruit.mythicaltowers.entity.GreenMeleeRobotEntity
-import com.redgrapefruit.mythicaltowers.entity.MeleeRobotEntity
-import com.redgrapefruit.mythicaltowers.entity.OrangeMeleeRobotEntity
-import com.redgrapefruit.mythicaltowers.entity.YellowMeleeRobotEntity
+import com.redgrapefruit.mythicaltowers.entity.*
 import net.minecraft.client.render.entity.EntityRendererFactory
 import net.minecraft.client.render.entity.MobEntityRenderer
 import net.minecraft.util.Identifier
@@ -26,3 +23,6 @@ class YellowMeleeRobotEntityRenderer(context: EntityRendererFactory.Context)
 
 class OrangeMeleeRobotEntityRenderer(context: EntityRendererFactory.Context)
     : MeleeRobotEntityRenderer<OrangeMeleeRobotEntity>(context, idOf("textures/entity/orange_melee_robot.png"))
+
+class RedMeleeRobotEntityRenderer(context: EntityRendererFactory.Context)
+    : MeleeRobotEntityRenderer<RedMeleeRobotEntity>(context, idOf("textures/entity/red_melee_robot.png"))

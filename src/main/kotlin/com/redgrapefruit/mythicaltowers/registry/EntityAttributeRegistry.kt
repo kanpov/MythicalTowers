@@ -2,6 +2,7 @@ package com.redgrapefruit.mythicaltowers.registry
 
 import com.redgrapefruit.mythicaltowers.entity.GreenMeleeRobotEntity
 import com.redgrapefruit.mythicaltowers.entity.OrangeMeleeRobotEntity
+import com.redgrapefruit.mythicaltowers.entity.RedMeleeRobotEntity
 import com.redgrapefruit.mythicaltowers.entity.YellowMeleeRobotEntity
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricDefaultAttributeRegistry
 import net.minecraft.entity.EntityType
@@ -13,6 +14,7 @@ object EntityAttributeRegistry {
         register(EntityRegistry.GREEN_MELEE_ROBOT, GreenMeleeRobotEntity.ATTRIBUTES)
         register(EntityRegistry.YELLOW_MELEE_ROBOT, YellowMeleeRobotEntity.ATTRIBUTES)
         register(EntityRegistry.ORANGE_MELEE_ROBOT, OrangeMeleeRobotEntity.ATTRIBUTES)
+        register(EntityRegistry.RED_MELEE_ROBOT, RedMeleeRobotEntity.ATTRIBUTES)
     }
 
     /**
