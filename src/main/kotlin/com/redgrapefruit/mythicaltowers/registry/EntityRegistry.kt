@@ -81,6 +81,11 @@ object EntityRegistry {
         .create(SpawnGroup.MISC) { type: EntityType<BlueMeleeRobotEntity>, world: World -> BlueMeleeRobotEntity(type, world) }
         .dimensions(EntityDimensions.fixed(1f, 1f))
         .build()
+
+    val PURPLE_MELEE_ROBOT: EntityType<PurpleMeleeRobotEntity> = FabricEntityTypeBuilder
+        .create(SpawnGroup.MISC) { type: EntityType<PurpleMeleeRobotEntity>, world: World -> PurpleMeleeRobotEntity(type, world) }
+        .dimensions(EntityDimensions.fixed(1f, 1f))
+        .build()
     // endregion
 
     fun init() {
@@ -100,6 +105,7 @@ object EntityRegistry {
         register("orange_melee_robot", ORANGE_MELEE_ROBOT)
         register("red_melee_robot", RED_MELEE_ROBOT)
         register("blue_melee_robot", BLUE_MELEE_ROBOT)
+        register("purple_melee_robot", PURPLE_MELEE_ROBOT)
     }
 
     /**
