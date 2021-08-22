@@ -319,14 +319,13 @@ class BlueMeleeRobotEntity(type: EntityType<BlueMeleeRobotEntity>, world: World)
 
             // Summon the clones
             for (i in 0..MeleeRobotStatics.CLONE_AMOUNT) {
-                // TODO: Port
-//                val clone = Bl
-//                // Mark as clone to avoid infinite loop of clones
-//                clone.isClone = true
-//                // Spawn nearby
-//                clone.setPosition(pos.x + (Random.nextInt(3)), pos.y + (Random.nextInt(3)), pos.z + (Random.nextInt(3)))
-//
-//                world.spawnEntity(clone)
+                val clone = BlueMeleeRobotEntity(EntityRegistry.BLUE_MELEE_ROBOT, world)
+                // Mark as clone to avoid infinite loop of clones
+                clone.isClone = true
+                // Spawn nearby
+                clone.setPosition(pos.x + (Random.nextInt(3)), pos.y + (Random.nextInt(3)), pos.z + (Random.nextInt(3)))
+
+                world.spawnEntity(clone)
             }
 
             // Count the use
