@@ -18,6 +18,15 @@ loom {
     accessWidenerPath = file("src/main/resources/mythicaltowers.accesswidener")
 }
 
+repositories {
+    maven {
+        url = "https://raw.githubusercontent.com/RedGrapefruit09/Maven/master"
+        content {
+            includeGroup "com.redgrapefruit.redmenu"
+        }
+    }
+}
+
 dependencies {
     //to change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -29,6 +38,10 @@ dependencies {
 
     // Fabric Language Kotlin
     modImplementation "net.fabricmc:fabric-language-kotlin:${project.flk_version}"
+
+    // RedMenu
+    modImplementation "com.redgrapefruit.redmenu:redmenu:${project.redmenu_version}"
+    include "com.redgrapefruit.redmenu:redmenu:${project.redmenu_version}"
 
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
