@@ -1,5 +1,9 @@
 [![build](https://github.com/RedGrapefruit09/MythicalTowers/actions/workflows/build.yml/badge.svg)](https://github.com/RedGrapefruit09/MythicalTowers/actions/workflows/build.yml)
 
+# Archived
+
+This project has been archived for the time being. I _might_ come back to it later on.
+
 # About
 
 MythicalTowers is an adventure mod in-development featuring new items, blocks, mobs and structures.\
